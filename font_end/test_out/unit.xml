@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<testsuites>
+  <testsuite name="Chrome 46.0.2490 (Mac OS X 10.10.5)" package="unit" timestamp="2015-11-13T02:04:09" id="0" hostname="Jessica-MacPro.local" tests="6" errors="0" failures="0" time="0.163">
+    <properties>
+      <property name="browser.fullName" value="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36"/>
+    </properties>
+    <testcase name="should replace VERSION" time="0.07" classname="unit Chrome 46.0.2490 (Mac OS X 10.10.5).myApp_version module interpolate filter"/>
+    <testcase name="should print current version" time="0.068" classname="unit Chrome 46.0.2490 (Mac OS X 10.10.5).myApp_version module app-version directive"/>
+    <testcase name="should return current version" time="0.003" classname="unit Chrome 46.0.2490 (Mac OS X 10.10.5).myApp_version module version service"/>
+    <testcase name="should ...." time="0.007" classname="unit Chrome 46.0.2490 (Mac OS X 10.10.5).myApp_view1 module view1 controller"/>
+    <testcase name="should ...." time="0.011" classname="unit Chrome 46.0.2490 (Mac OS X 10.10.5).myApp_view2 module view2 controller"/>
+    <testcase name="should exist" time="0.004" classname="unit Chrome 46.0.2490 (Mac OS X 10.10.5).myApp_register module register controller"/>
+    <system-out><![CDATA[
+]]></system-out>
+    <system-err/>
+  </testsuite>
+  <testsuite name="Firefox 41.0.0 (Mac OS X 10.10.0)" package="unit" timestamp="2015-11-13T02:04:09" id="0" hostname="Jessica-MacPro.local" tests="6" errors="0" failures="0" time="0.076">
+    <properties>
+      <property name="browser.fullName" value="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:41.0) Gecko/20100101 Firefox/41.0"/>
+    </properties>
+    <testcase name="should replace VERSION" time="0.022" classname="unit Firefox 41.0.0 (Mac OS X 10.10.0).myApp_version module interpolate filter"/>
+    <testcase name="should print current version" time="0.018" classname="unit Firefox 41.0.0 (Mac OS X 10.10.0).myApp_version module app-version directive"/>
+    <testcase name="should return current version" time="0.011" classname="unit Firefox 41.0.0 (Mac OS X 10.10.0).myApp_version module version service"/>
+    <testcase name="should ...." time="0.01" classname="unit Firefox 41.0.0 (Mac OS X 10.10.0).myApp_view1 module view1 controller"/>
+    <testcase name="should ...." time="0.008" classname="unit Firefox 41.0.0 (Mac OS X 10.10.0).myApp_view2 module view2 controller"/>
+    <testcase name="should exist" time="0.007" classname="unit Firefox 41.0.0 (Mac OS X 10.10.0).myApp_register module register controller"/>
+    <system-out><![CDATA[
+]]></system-out>
+    <system-err/>
+  </testsuite>
+</testsuites>
