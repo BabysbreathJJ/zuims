@@ -1,0 +1,122 @@
+swagger: '2.0'
+info:
+  title: 最美食用户相关API文档
+  description: 用户登录，注册等相关功能
+  version: 1.0.0
+host: 暂无
+schemes:
+  - http
+basePath: /v1
+produces:
+  - application/json
+paths:
+  /users/register:
+    post:
+      summary: 用户注册
+      description: >
+        用户访问时，调用该接口进行注册
+      tags: 
+        - users
+      parameters: 
+        - name: payload
+          in: body
+          description: payload
+          required: true
+          schema:
+            $ref: '#/definitions/UserRegister'
+      responses:
+        '200':
+          description: 注册成功
+          schema:
+            schema:
+            $ref: '#/definitions/User'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+            
+  /users/login:
+    post:
+      summary: 用户登录
+      description: >
+        用户根据唯一标识来登录
+      tags: 
+        - users
+      parameters:
+        - name: payload
+          in: body
+          description: payload
+          required: true
+          schema:
+            $ref: '#/definitions/UserLogin'
+      responses:
+        '200':
+          description: 登录成功
+          schema:
+            $ref: '#/definitions/User'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+            
+  /users:
+    get:
+      summary: 获得用户信息
+      description: >
+        根据用户唯一标识获得用户信息
+      tags:
+        - users
+      parameters:
+        - name: phone
+          in: query
+          description: 手机号
+          required: true
+          type: string
+          format: string
+      responses:
+        '200':
+          description: 登录成功
+          schema:
+            $ref: '#/definitions/User'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+      
+definitions:
+  UserRegister:
+    type: object
+    properties:
+      phone:
+        type: string
+      lastname:
+        type: string
+      gender:
+        type: boolean
+  UserLogin:
+    type: object
+    properties:
+      phone:
+        type: string
+      pwd:
+        type: string
+  User: 
+    type: object
+    properties:
+      phone:
+        type: string
+      lastname:
+        type: string
+      viplevel:
+        type: string
+        description: 待定
+  Error:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      fields:
+        type: string
