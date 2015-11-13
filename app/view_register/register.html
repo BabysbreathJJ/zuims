@@ -1,0 +1,47 @@
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Main -->
+    <section id="main">
+
+        <header>
+							<span class="avatar"><img src="images/avatar.jpg" alt=""/>
+                                <!--<span class="tag">Featured</span>-->
+							</span>
+
+            <h1>注册</h1>
+
+            <p>最美食会员</p>
+        </header>
+
+        <hr/>
+        <h2>基本信息</h2>
+
+        <form method="post" action="#">
+            <div class="field">
+                <input type="text" name="name" id="name" ng-model="name" placeholder="姓名"/>
+            </div>
+            <div class="field">
+                <input type="text" name="text" id="phone" ng-model="phone" placeholder="手机号"/>
+            </div>
+            <div class="field">
+                <div class="select-wrapper">
+                    <select name="gender" id="gender" ng-model="gender">
+                        <option value="male">男</option>
+                        <option value="female">女</option>
+                    </select>
+                </div>
+            </div>
+
+            <ul class="actions">
+                <li><a class="button" ng-click="newUser()">注册</a></li>
+            </ul>
+
+        </form>
+        <hr/>
+
+
+    </section>
+
+
+</div>
