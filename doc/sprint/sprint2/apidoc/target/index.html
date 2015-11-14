@@ -223,7 +223,7 @@
                                                 <div class="col-md-6 sw-response-model">
                                                 <div  class="panel panel-definition">
                                                     <div class="panel-body">
-                                                                <a class="json-schema-ref" href="#/definitions/User">User</a>
+                                                                <a class="json-schema-ref" href="#/definitions/Success">Success</a>
                                                     </div>
                                                 </div></div>
                                             
@@ -354,9 +354,21 @@
                             
                                     <section class="json-schema-properties">
                                         <dl>
-                                                <dt data-property-name="code">
-                                                    <span class="json-property-name">code:</span>
-                                                    <span class="json-property-type">integer</span>    <span class="json-property-format">(int32)</span>
+                                                <dt data-property-name="error">
+                                                    <span class="json-property-name">error:</span>
+                                                    <span class="json-property-type">string</span>
+                                                    <span class="json-property-range" title="Value limits"></span>
+                                                    
+                                                </dt>
+                                                <dd>
+                                                    
+                                                    <div class="json-inner-schema">
+                                                        
+                                                    </div>
+                                                </dd>
+                                                <dt data-property-name="exception">
+                                                    <span class="json-property-name">exception:</span>
+                                                    <span class="json-property-type">string</span>
                                                     <span class="json-property-range" title="Value limits"></span>
                                                     
                                                 </dt>
@@ -373,14 +385,44 @@
                                                     
                                                 </dt>
                                                 <dd>
+                                                    <p>错误信息</p>
+                                    
+                                                    <div class="json-inner-schema">
+                                                        
+                                                    </div>
+                                                </dd>
+                                                <dt data-property-name="path">
+                                                    <span class="json-property-name">path:</span>
+                                                    <span class="json-property-type">string</span>
+                                                    <span class="json-property-range" title="Value limits"></span>
+                                                    
+                                                </dt>
+                                                <dd>
                                                     
                                                     <div class="json-inner-schema">
                                                         
                                                     </div>
                                                 </dd>
-                                                <dt data-property-name="fields">
-                                                    <span class="json-property-name">fields:</span>
-                                                    <span class="json-property-type">string</span>
+                                        </dl>
+                                    </section>
+                    </div>
+                </div>        
+                <div id="definition-Success" class="panel panel-definition">
+                        <div class="panel-heading">
+                                <h3 class="panel-title"><a name="/definitions/Success"></a>Success:
+                                    <span class="json-property-type"><span class="json-property-type">object</span>
+                <span class="json-property-range" title="Value limits"></span>
+                
+                </span>
+                                </h3>
+                        </div>
+                    <div class="panel-body">
+                            
+                                    <section class="json-schema-properties">
+                                        <dl>
+                                                <dt data-property-name="success">
+                                                    <span class="json-property-name">success:</span>
+                                                    <span class="json-property-type">boolean</span>
                                                     <span class="json-property-range" title="Value limits"></span>
                                                     
                                                 </dt>
@@ -431,14 +473,27 @@
                                                         
                                                     </div>
                                                 </dd>
-                                                <dt data-property-name="viplevel">
-                                                    <span class="json-property-name">viplevel:</span>
+                                                <dt data-property-name="email">
+                                                    <span class="json-property-name">email:</span>
                                                     <span class="json-property-type">string</span>
                                                     <span class="json-property-range" title="Value limits"></span>
                                                     
                                                 </dt>
                                                 <dd>
-                                                    <p>待定</p>
+                                                    <p>可能为null</p>
+                                    
+                                                    <div class="json-inner-schema">
+                                                        
+                                                    </div>
+                                                </dd>
+                                                <dt data-property-name="viplevel">
+                                                    <span class="json-property-name">viplevel:</span>
+                                                    <span class="json-property-type">integer</span>    <span class="json-property-format">(int32)</span>
+                                                    <span class="json-property-range" title="Value limits"></span>
+                                                    
+                                                </dt>
+                                                <dd>
+                                                    <p>1为一般用户，2为vip</p>
                                     
                                                     <div class="json-inner-schema">
                                                         
@@ -473,8 +528,8 @@
                                                         
                                                     </div>
                                                 </dd>
-                                                <dt data-property-name="pwd">
-                                                    <span class="json-property-name">pwd:</span>
+                                                <dt data-property-name="password">
+                                                    <span class="json-property-name">password:</span>
                                                     <span class="json-property-type">string</span>
                                                     <span class="json-property-range" title="Value limits"></span>
                                                     
@@ -528,7 +583,19 @@
                                                 </dd>
                                                 <dt data-property-name="gender">
                                                     <span class="json-property-name">gender:</span>
-                                                    <span class="json-property-type">boolean</span>
+                                                    <span class="json-property-type">int</span>
+                                                    <span class="json-property-range" title="Value limits"></span>
+                                                    
+                                                </dt>
+                                                <dd>
+                                                    
+                                                    <div class="json-inner-schema">
+                                                        
+                                                    </div>
+                                                </dd>
+                                                <dt data-property-name="password">
+                                                    <span class="json-property-name">password:</span>
+                                                    <span class="json-property-type">string</span>
                                                     <span class="json-property-range" title="Value limits"></span>
                                                     
                                                 </dt>

@@ -71,7 +71,7 @@
                     "200": {
                         "description": "登录成功",
                         "schema": {
-                            "$ref": "#/definitions/User"
+                            "$ref": "#/definitions/Success"
                         }
                     },
                     "default": {
@@ -128,7 +128,10 @@
                     "type": "string"
                 },
                 "gender": {
-                    "type": "boolean"
+                    "type": "int"
+                },
+                "password": {
+                    "type": "string"
                 }
             }
         },
@@ -138,7 +141,7 @@
                 "phone": {
                     "type": "string"
                 },
-                "pwd": {
+                "password": {
                     "type": "string"
                 }
             }
@@ -152,23 +155,39 @@
                 "lastname": {
                     "type": "string"
                 },
-                "viplevel": {
+                "email": {
                     "type": "string",
-                    "description": "待定"
+                    "description": "可能为null"
+                },
+                "viplevel": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "1为一般用户，2为vip"
+                }
+            }
+        },
+        "Success": {
+            "type": "object",
+            "properties": {
+                "success": {
+                    "type": "boolean"
                 }
             }
         },
         "Error": {
             "type": "object",
             "properties": {
-                "code": {
-                    "type": "integer",
-                    "format": "int32"
-                },
-                "message": {
+                "error": {
                     "type": "string"
                 },
-                "fields": {
+                "exception": {
+                    "type": "string"
+                },
+                "message": {
+                    "description": "错误信息",
+                    "type": "string"
+                },
+                "path": {
                     "type": "string"
                 }
             }
