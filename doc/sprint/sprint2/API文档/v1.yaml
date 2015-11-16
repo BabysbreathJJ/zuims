@@ -13,11 +13,11 @@ paths:
   /users/register:
     post:
       summary: 用户注册
-      description: >
+      description: |
         用户访问时，调用该接口进行注册
-      tags: 
+      tags:
         - users
-      parameters: 
+      parameters:
         - name: payload
           in: body
           description: payload
@@ -28,19 +28,18 @@ paths:
         '200':
           description: 注册成功
           schema:
-            schema:
+            schema: null
             $ref: '#/definitions/User'
         default:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
-            
   /users/login:
     post:
       summary: 用户登录
-      description: >
+      description: |
         用户根据唯一标识来登录
-      tags: 
+      tags:
         - users
       parameters:
         - name: payload
@@ -53,16 +52,15 @@ paths:
         '200':
           description: 登录成功
           schema:
-            $ref: '#/definitions/User'
+            $ref: '#/definitions/Success'
         default:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
-            
   /users:
     get:
       summary: 获得用户信息
-      description: >
+      description: |
         根据用户唯一标识获得用户信息
       tags:
         - users
@@ -82,7 +80,6 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
-      
 definitions:
   UserRegister:
     type: object
@@ -92,31 +89,44 @@ definitions:
       lastname:
         type: string
       gender:
-        type: boolean
+        type: int
+      password:
+        type: string
   UserLogin:
     type: object
     properties:
       phone:
         type: string
-      pwd:
+      password:
         type: string
-  User: 
+  User:
     type: object
     properties:
       phone:
         type: string
       lastname:
         type: string
-      viplevel:
+      email:
         type: string
-        description: 待定
+        description: 可能为null
+      viplevel:
+        type: integer
+        format: int32
+        description: 1为一般用户，2为vip
+  Success:
+    type: object
+    properties:
+      success:
+        type: boolean
   Error:
     type: object
     properties:
-      code:
-        type: integer
-        format: int32
-      message:
+      error:
         type: string
-      fields:
+      exception:
+        type: string
+      message:
+        description: 错误信息
+        type: string
+      path:
         type: string
