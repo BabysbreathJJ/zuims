@@ -1,0 +1,54 @@
+.slides img {
+    /*max-width: 500px;*/
+    /*_width: expression(this.width > 500 ? "500px" : this.width);*/
+    max-height: 300px;
+    _height: expression(this.height > 300 ? "300px" : this.height);
+    width: 800px;
+    /*_width: expression(this.width > 150 ? "200px" : this.height);*/
+}
+
+.parallelogram {
+    width: 90%;
+    height: 3em;
+    margin: 15px auto;
+    text-align: left;
+    line-height: 3em;
+    font-size: 1.4em;
+    -webkit-transform: skew(160deg);
+    -moz-transform: skew(160deg);
+    -o-transform: skew(160deg);
+    background-color: rgba(0, 0, 0, 0.2);
+    filter: Alpha(opacity=50);
+}
+
+.benefit_item {
+    text-align: left;
+    padding-left: 5px;
+    display: block;
+    float: left;
+    width: 70%;
+}
+
+.detail {
+    display: block;
+    float: left;
+    padding-right: 20px;
+    text-align: right;
+    width: 30%;
+}
+
+.be_member {
+    /*min-width: 460px;*/
+    margin: 0 auto;
+    /*float: left;*/
+}
+.be_member>.btn-lg{
+    padding: 15px 5px;
+}
+.be_member .btn-lg {
+    /*width: 45%;*/
+    /*padding: 10px 10px;*/
+    height: 3.5em;
+    font-size: 1.7em;
+    text-align: center;
+}
