@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../.resources/report.gif" type="image/gif"/><title>User2VipLevel.java</title><link rel="stylesheet" href="../../../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../.sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">user-service (2015-11-17 20:35:58)</a> &gt; <a href="../../index.html" class="el_group">user-service</a> &gt; <a href="../index.html" class="el_bundle">src/main/java</a> &gt; <a href="index.source.html" class="el_package">ms.zui.datamodel.domain</a> &gt; <span class="el_source">User2VipLevel.java</span></div><h1>User2VipLevel.java</h1><pre class="source lang-java linenums">package ms.zui.datamodel.domain;
+
+import java.sql.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+/**
+ * User实体类
+ * 
+ * @author Xin
+ * @version $Id: User-vip_level.java, v 0.1 
+ *
+ *CREATE TABLE IF NOT EXISTS `mydb`.`user-vip_level` (
+ * `phoneid` INT NOT NULL,
+ * `vlid` INT NOT NULL,
+ * `start_date` DATE NOT NULL,
+ * `end_date` DATE NOT NULL,
+ * PRIMARY KEY (`phoneid`, `vlid`),
+ * INDEX `vlid_idx` (`vlid` ASC),
+ * CONSTRAINT `phoneid`
+ *   FOREIGN KEY (`phoneid`)
+ *   REFERENCES `mydb`.`user` (`phoneid`)
+ *   ON DELETE NO ACTION
+ *   ON UPDATE NO ACTION,
+ * CONSTRAINT `vlid`
+ *   FOREIGN KEY (`vlid`)
+ *   REFERENCES `mydb`.`vip_level` (`vlid`)
+ *   ON DELETE NO ACTION
+ *   ON UPDATE NO ACTION)
+ * ENGINE = InnoDB;
+ *
+ *
+ */
+@Entity
+@Table(name = &quot;User2Vip_level&quot;)
+@IdClass(User2VipLevelIdclass.class)
+public class User2VipLevel {
+    @Id
+    @NotNull
+    @Column(name = &quot;user2vip_level_vlid&quot;)
+    private int vlid;
+
+    @Id
+    @NotNull
+    @Column(name = &quot;user2vip_level_phoneid&quot;)
+    private String phoneid;
+
+    @Column(name = &quot;start_date&quot;)
+    @NotNull
+    private Date startDate;
+
+    @Column(name = &quot;end_date&quot;)
+    @NotNull
+    private Date endDate;
+    
+<span class="fc" id="L61">    public User2VipLevel(){}</span>
+
+    public int getVlid() {
+<span class="fc" id="L64">        return vlid;</span>
+    }
+
+    public void setVlid(int value) {
+<span class="fc" id="L68">        this.vlid = value;</span>
+<span class="fc" id="L69">    }</span>
+
+    public String getPhoneid() {
+<span class="fc" id="L72">        return phoneid;</span>
+    }
+
+    public void setPhoneid(String value) {
+<span class="fc" id="L76">        this.phoneid = value;</span>
+<span class="fc" id="L77">    }</span>
+
+    public Date getStartDate() {
+<span class="nc" id="L80">        return startDate;</span>
+    }
+
+    public void setStartDate(Date value) {
+<span class="fc" id="L84">        this.startDate = value;</span>
+<span class="fc" id="L85">    }</span>
+
+    public Date getEndDate() {
+<span class="nc" id="L88">        return endDate;</span>
+    }
+
+    public void setEndDate(Date value) {
+<span class="fc" id="L92">        this.endDate = value;</span>
+<span class="fc" id="L93">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.2.201409121644</span>user-service (2015-11-17 20:35:58)</div></body></html>

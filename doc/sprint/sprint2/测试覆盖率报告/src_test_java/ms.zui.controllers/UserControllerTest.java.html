@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../.resources/report.gif" type="image/gif"/><title>UserControllerTest.java</title><link rel="stylesheet" href="../../../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../.sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">user-service (2015-11-17 20:35:58)</a> &gt; <a href="../../index.html" class="el_group">user-service</a> &gt; <a href="../index.html" class="el_bundle">src/test/java</a> &gt; <a href="index.source.html" class="el_package">ms.zui.controllers</a> &gt; <span class="el_source">UserControllerTest.java</span></div><h1>UserControllerTest.java</h1><pre class="source lang-java linenums">package ms.zui.controllers;
+
+import ms.zui.UserServiceApplication;
+import ms.zui.datamodel.dao.User2UserTypeDAO;
+import ms.zui.datamodel.dao.User2VipLevelDAO;
+import ms.zui.datamodel.dao.UserDAO;
+
+import org.apache.http.HttpStatus;
+import org.hamcrest.Matchers;
+import org.json.simple.JSONObject;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.boot.test.WebIntegrationTest;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import com.jayway.restassured.RestAssured;
+
+/**
+ * 用户控制器测试
+ * 
+ * @author gaoce
+ * @version $Id: UserControllerTest.java, v 0.1 2015年11月14日 下午7:05:05 gaoce Exp $
+ */
+@RunWith(SpringJUnit4ClassRunner.class)
+@SpringApplicationConfiguration(classes = UserServiceApplication.class)
+@WebIntegrationTest(&quot;server.port:0&quot;)
+<span class="fc" id="L31">public class UserControllerTest extends BaseControllerTest {</span>
+
+    @Autowired
+    UserDAO          userDao;
+
+    @Autowired
+    User2VipLevelDAO user2VipLevelDao;
+
+    @Autowired
+    User2UserTypeDAO user2UserTypeDao;
+
+    @Value(&quot;${local.server.port}&quot;)
+    private int      port;
+
+    @Before
+    public void setUp() {
+<span class="fc" id="L47">        RestAssured.port = port;</span>
+
+<span class="fc" id="L49">    }</span>
+
+    //    /**
+    //     * 注册测试
+    //     */
+    //    @SuppressWarnings(&quot;unchecked&quot;)
+    //    @Test
+    //    public void register() {
+    //        // 构造测试数据
+    //        String phone = &quot;9876543211&quot;;
+    //        JSONObject user = new JSONObject();
+    //        user.put(&quot;phone&quot;, phone);
+    //        user.put(&quot;gender&quot;, 1);
+    //        user.put(&quot;password&quot;, &quot;123456&quot;);
+    //        user.put(&quot;lastname&quot;, &quot;高&quot;);
+    //
+    //        // 执行测试
+    //        RestAssured.given().contentType(&quot;application/json&quot;).body(user.toJSONString()).when()
+    //            .post(&quot;/users/register&quot;).then().statusCode(HttpStatus.SC_OK)
+    //            .body(&quot;success&quot;, Matchers.is(true));
+    //
+    //        // 删除测试数据
+    //        user2UserTypeDao.delete(user2UserTypeDao.findByPhoneid(phone));
+    //        user2VipLevelDao.delete(user2VipLevelDao.findByPhoneid(phone));
+    //        userDao.delete(userDao.findByPhoneid(phone));
+    //
+    //        logger.info(&quot;[用户控制器测试]-测试完成&quot;);
+    //    }
+
+    @SuppressWarnings(&quot;unchecked&quot;)
+    @Test
+    public void registerAndlogin() {
+        // 构造注册测试数据
+<span class="fc" id="L82">        String phone = &quot;9876543210&quot;;</span>
+<span class="fc" id="L83">        JSONObject user = new JSONObject();</span>
+<span class="fc" id="L84">        user.put(&quot;phone&quot;, phone);</span>
+<span class="fc" id="L85">        user.put(&quot;gender&quot;, 1);</span>
+<span class="fc" id="L86">        user.put(&quot;password&quot;, &quot;123456&quot;);</span>
+<span class="fc" id="L87">        user.put(&quot;lastname&quot;, &quot;高&quot;);</span>
+
+        // 构造登录测试数据
+<span class="fc" id="L90">        JSONObject loginUser = new JSONObject();</span>
+<span class="fc" id="L91">        loginUser.put(&quot;phone&quot;, phone);</span>
+<span class="fc" id="L92">        loginUser.put(&quot;password&quot;, &quot;123456&quot;);</span>
+
+<span class="fc" id="L94">        logger.info(&quot;[用户控制器测试]-开始注册登录流程测试&quot;);</span>
+
+        // 执行注册测试
+<span class="fc" id="L97">        RestAssured.given().contentType(&quot;application/json&quot;).body(user.toJSONString()).when()</span>
+<span class="fc" id="L98">            .post(&quot;/users/register&quot;).then().statusCode(HttpStatus.SC_OK)</span>
+<span class="fc" id="L99">            .body(&quot;success&quot;, Matchers.is(true));</span>
+
+<span class="fc" id="L101">        logger.info(&quot;[用户控制器测试]-注册测试完成&quot;);</span>
+
+        // 执行登录测试
+<span class="fc" id="L104">        RestAssured.given().contentType(&quot;application/json&quot;).body(loginUser.toJSONString()).when()</span>
+<span class="fc" id="L105">            .post(&quot;/users/login&quot;).then().statusCode(HttpStatus.SC_OK);</span>
+
+<span class="fc" id="L107">        logger.info(&quot;[用户控制器测试]-登录测试完成&quot;);</span>
+
+        // 删除测试数据
+<span class="fc" id="L110">        user2UserTypeDao.delete(user2UserTypeDao.findByPhoneid(phone));</span>
+<span class="fc" id="L111">        user2VipLevelDao.delete(user2VipLevelDao.findByPhoneid(phone));</span>
+<span class="fc" id="L112">        userDao.delete(userDao.findByPhoneid(phone));</span>
+<span class="fc" id="L113">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.2.201409121644</span>user-service (2015-11-17 20:35:58)</div></body></html>

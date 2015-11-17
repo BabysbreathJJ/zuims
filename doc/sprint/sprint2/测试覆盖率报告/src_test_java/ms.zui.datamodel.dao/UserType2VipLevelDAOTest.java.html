@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../.resources/report.gif" type="image/gif"/><title>UserType2VipLevelDAOTest.java</title><link rel="stylesheet" href="../../../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../.sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">user-service (2015-11-17 20:35:58)</a> &gt; <a href="../../index.html" class="el_group">user-service</a> &gt; <a href="../index.html" class="el_bundle">src/test/java</a> &gt; <a href="index.source.html" class="el_package">ms.zui.datamodel.dao</a> &gt; <span class="el_source">UserType2VipLevelDAOTest.java</span></div><h1>UserType2VipLevelDAOTest.java</h1><pre class="source lang-java linenums">package ms.zui.datamodel.dao;
+
+import ms.zui.UserServiceApplication;
+import ms.zui.controllers.BaseControllerTest;
+import ms.zui.datamodel.domain.UserType;
+import ms.zui.datamodel.domain.UserType2VipLevel;
+import ms.zui.datamodel.domain.VipLevel;
+
+/*import org.apache.http.HttpStatus;
+import org.apache.logging.log4j.LogManager;
+import org.hamcrest.Matchers;*/
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.boot.test.WebIntegrationTest;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import com.jayway.restassured.RestAssured;
+
+/**
+ * 用户控制器测试类
+ * 
+ * @author Xin
+ * @version $Id: UserType2VipLevelControllerTest.java, v 0.1
+ */
+@RunWith(SpringJUnit4ClassRunner.class)
+@SpringApplicationConfiguration(classes = UserServiceApplication.class)
+@WebIntegrationTest(&quot;server.port:0&quot;)
+<span class="fc" id="L32">public class UserType2VipLevelDAOTest extends BaseControllerTest {</span>
+
+    @Autowired
+    UserTypeDAO          usertypeDao;
+    @Autowired
+    UserType2VipLevelDAO usertype2viplevelDao;
+    @Autowired
+    VipLevelDAO          viplevelDao;
+
+    @Value(&quot;${local.server.port}&quot;)
+    private int          port;
+
+    @Before
+    public void setUp() {
+<span class="fc" id="L46">        RestAssured.port = port;</span>
+
+<span class="fc" id="L48">    }</span>
+
+    /**
+     * 测试用例1
+     */
+    @Test
+    public void AddAndDeleteUserType2VipLevel() {
+        /*RestAssured.when().get(String.format(&quot;/users/emails/%s/&quot;, email)).then()
+            .statusCode(HttpStatus.SC_OK).body(&quot;name&quot;, Matchers.is(&quot;test&quot;));*/
+<span class="fc" id="L57">        UserType ut = new UserType();</span>
+<span class="fc" id="L58">        ut.setUtid(12);</span>
+<span class="fc" id="L59">        ut.setUtName(&quot;utname1&quot;);</span>
+
+<span class="fc" id="L61">        VipLevel vl = new VipLevel();</span>
+<span class="fc" id="L62">        vl.setVlid(12);</span>
+<span class="fc" id="L63">        vl.setVlName(&quot;vlname1&quot;);</span>
+
+<span class="fc" id="L65">        UserType2VipLevel utvl1 = new UserType2VipLevel();</span>
+<span class="fc" id="L66">        utvl1.setUtid(12);</span>
+<span class="fc" id="L67">        utvl1.setVlid(12);</span>
+<span class="fc" id="L68">        utvl1.setDays(3);</span>
+
+<span class="fc" id="L70">        UserType2VipLevel utvl2 = new UserType2VipLevel();</span>
+<span class="fc" id="L71">        utvl2.setUtid(1);</span>
+<span class="fc" id="L72">        utvl2.setVlid(2);</span>
+<span class="fc" id="L73">        utvl2.setDays(3);</span>
+
+<span class="fc" id="L75">        UserType2VipLevel utvl3 = new UserType2VipLevel();</span>
+<span class="fc" id="L76">        utvl3.setUtid(2);</span>
+<span class="fc" id="L77">        utvl3.setVlid(1);</span>
+<span class="fc" id="L78">        utvl3.setDays(3);</span>
+
+<span class="fc" id="L80">        Iterable&lt;UserType2VipLevel&gt; it = usertype2viplevelDao.findAll();</span>
+<span class="pc bpc" id="L81" title="1 of 2 branches missed.">        for (UserType2VipLevel temp : it) {</span>
+<span class="nc" id="L82">            logger.info(temp.getUtid());</span>
+<span class="nc" id="L83">            logger.info(temp.getVlid());</span>
+<span class="nc" id="L84">            logger.info(temp.getDays());</span>
+        }
+<span class="fc" id="L86">        usertypeDao.save(ut);</span>
+<span class="fc" id="L87">        viplevelDao.save(vl);</span>
+<span class="fc" id="L88">        usertype2viplevelDao.save(utvl1);</span>
+        //usertype2viplevelDao.save(utvl2);
+        //usertype2viplevelDao.save(utvl3);
+<span class="fc" id="L91">        it = usertype2viplevelDao.findAll();</span>
+<span class="fc bfc" id="L92" title="All 2 branches covered.">        for (UserType2VipLevel temp : it) {</span>
+<span class="fc" id="L93">            logger.info(temp.getUtid());</span>
+<span class="fc" id="L94">            logger.info(temp.getVlid());</span>
+<span class="fc" id="L95">            logger.info(temp.getDays());</span>
+        }
+<span class="fc" id="L97">        usertype2viplevelDao.delete(utvl1);</span>
+<span class="fc" id="L98">        viplevelDao.delete(vl);</span>
+<span class="fc" id="L99">        usertypeDao.delete(ut);</span>
+<span class="fc" id="L100">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.2.201409121644</span>user-service (2015-11-17 20:35:58)</div></body></html>

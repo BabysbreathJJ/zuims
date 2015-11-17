@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../.resources/report.gif" type="image/gif"/><title>User.java</title><link rel="stylesheet" href="../../../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../.sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">user-service (2015-11-17 20:35:58)</a> &gt; <a href="../../index.html" class="el_group">user-service</a> &gt; <a href="../index.html" class="el_bundle">src/main/java</a> &gt; <a href="index.source.html" class="el_package">ms.zui.datamodel.domain</a> &gt; <span class="el_source">User.java</span></div><h1>User.java</h1><pre class="source lang-java linenums">package ms.zui.datamodel.domain;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+/**
+ * User实体类
+ * 
+ * @author gaoce
+ * @version $Id: User.java, v 0.1 2015年10月28日 下午7:00:37 gaoce Exp $
+ * CREATE TABLE IF NOT EXISTS `mydb`.`user` (
+ * `phoneid` INT NOT NULL,
+ * `gender` TINYINT(1) NOT NULL,
+ * `last_name` VARCHAR(45) NOT NULL,
+ *`first_name` VARCHAR(45) NULL,
+ * `email` VARCHAR(45) NULL,
+ * `photo` BLOB NOT NULL,
+ * `memo` TEXT NOT NULL,
+ * PRIMARY KEY (`phoneid`))
+ *ENGINE = InnoDB;
+ */
+@Entity
+@Table(name = &quot;User&quot;)
+public class User {
+    @Id
+    @NotNull
+    @Column(name = &quot;phoneid&quot;)
+    private String  phoneid;
+
+    @Column(name = &quot;password&quot;)
+    @NotNull
+    private String  password;
+
+    @Column(name = &quot;email&quot;)
+    private String  email;
+
+    @Column(name = &quot;gender&quot;)
+    @NotNull
+    private Integer gender;
+
+    @Column(name = &quot;first_name&quot;)
+    private String  firstName;
+
+    @Column(name = &quot;last_name&quot;)
+    @NotNull
+    private String  lastName;
+
+    @Column(name = &quot;photo&quot;)
+    //@NotNull         //便于测试，暂时设置为可以空
+    private byte    photo[];
+
+    @Column(name = &quot;memo&quot;)
+    //@NotNull        //便于测试，暂时设置为可以空
+    private String  memo;
+
+<span class="fc" id="L59">    public User() {</span>
+<span class="fc" id="L60">    }</span>
+
+<span class="fc" id="L62">    public User(String name, String id) {</span>
+<span class="fc" id="L63">        this.firstName = name;</span>
+<span class="fc" id="L64">        this.phoneid = id;</span>
+<span class="fc" id="L65">    }</span>
+
+    public String getPassword() {
+<span class="fc" id="L68">        return password;</span>
+    }
+
+    public void setPassword(String value) {
+<span class="fc" id="L72">        this.password = value;</span>
+<span class="fc" id="L73">    }</span>
+
+    // Getter and setter methods
+
+    public String getPhoneid() {
+<span class="fc" id="L78">        return phoneid;</span>
+    }
+
+    public void setPhoneid(String value) {
+<span class="fc" id="L82">        this.phoneid = value;</span>
+<span class="fc" id="L83">    }</span>
+
+    public String getEmail() {
+<span class="fc" id="L86">        return email;</span>
+    }
+
+    public void setEmail(String value) {
+<span class="fc" id="L90">        this.email = value;</span>
+<span class="fc" id="L91">    }</span>
+
+    public Integer getGender() {
+<span class="fc" id="L94">        return gender;</span>
+    }
+
+    public void setGender(Integer value) {
+<span class="fc" id="L98">        this.gender = value;</span>
+<span class="fc" id="L99">    }</span>
+
+    public String getFirstName() {
+<span class="fc" id="L102">        return firstName;</span>
+    }
+
+    public void setFirstName(String value) {
+<span class="nc" id="L106">        this.firstName = value;</span>
+<span class="nc" id="L107">    }</span>
+
+    public String getLastName() {
+<span class="fc" id="L110">        return lastName;</span>
+    }
+
+    public void setLastName(String value) {
+<span class="fc" id="L114">        this.lastName = value;</span>
+<span class="fc" id="L115">    }</span>
+
+    public byte[] getPhoto() {
+<span class="nc" id="L118">        return photo;</span>
+    }
+
+    public void setPhoto(byte[] value) {
+<span class="nc bnc" id="L122" title="All 2 branches missed.">        for (int i = 0; i &lt; value.length; i++) {</span>
+<span class="nc" id="L123">            this.photo[i] = value[i];</span>
+        }
+<span class="nc" id="L125">    }</span>
+
+    public String getMemo() {
+<span class="nc" id="L128">        return memo;</span>
+    }
+
+    public void setMemo(String value) {
+<span class="nc" id="L132">        this.memo = value;</span>
+<span class="nc" id="L133">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.2.201409121644</span>user-service (2015-11-17 20:35:58)</div></body></html>

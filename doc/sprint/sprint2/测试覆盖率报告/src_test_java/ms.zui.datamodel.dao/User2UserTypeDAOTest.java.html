@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../.resources/report.gif" type="image/gif"/><title>User2UserTypeDAOTest.java</title><link rel="stylesheet" href="../../../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../.sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">user-service (2015-11-17 20:35:58)</a> &gt; <a href="../../index.html" class="el_group">user-service</a> &gt; <a href="../index.html" class="el_bundle">src/test/java</a> &gt; <a href="index.source.html" class="el_package">ms.zui.datamodel.dao</a> &gt; <span class="el_source">User2UserTypeDAOTest.java</span></div><h1>User2UserTypeDAOTest.java</h1><pre class="source lang-java linenums">package ms.zui.datamodel.dao;
+
+import ms.zui.UserServiceApplication;
+import ms.zui.controllers.BaseControllerTest;
+import ms.zui.datamodel.domain.User;
+import ms.zui.datamodel.domain.User2UserType;
+import ms.zui.datamodel.domain.UserType;
+
+/*import org.apache.http.HttpStatus;
+import org.apache.logging.log4j.LogManager;
+import org.hamcrest.Matchers;*/
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.boot.test.WebIntegrationTest;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import com.jayway.restassured.RestAssured;
+
+/**
+ * 用户控制器测试类
+ * 
+ * @author Xin
+ * @version $Id: UserUserTypeControllerTest.java, v 0.1
+ */
+@RunWith(SpringJUnit4ClassRunner.class)
+@SpringApplicationConfiguration(classes = UserServiceApplication.class)
+@WebIntegrationTest(&quot;server.port:0&quot;)
+<span class="fc" id="L32">public class User2UserTypeDAOTest extends BaseControllerTest {</span>
+
+    @Autowired
+    UserDAO          userDao;
+    @Autowired
+    UserTypeDAO      usertypeDao;
+    @Autowired
+    User2UserTypeDAO user2usertypeDao;
+
+    @Value(&quot;${local.server.port}&quot;)
+    private int      port;
+
+    @Before
+    public void setUp() {
+<span class="fc" id="L46">        RestAssured.port = port;</span>
+
+<span class="fc" id="L48">    }</span>
+
+    /**
+     * 测试用例1
+     */
+    @Test
+    public void AddAndDeleteUser2UserType() {
+        /*RestAssured.when().get(String.format(&quot;/users/emails/%s/&quot;, email)).then()
+            .statusCode(HttpStatus.SC_OK).body(&quot;name&quot;, Matchers.is(&quot;test&quot;));*/
+<span class="fc" id="L57">        UserType ut = new UserType();</span>
+<span class="fc" id="L58">        ut.setUtid(12);</span>
+<span class="fc" id="L59">        ut.setUtName(&quot;haha&quot;);</span>
+
+<span class="fc" id="L61">        User uu = new User(&quot;gaocegege&quot;, &quot;123123&quot;);</span>
+<span class="fc" id="L62">        uu.setEmail(&quot;123123@qq.com&quot;);</span>
+<span class="fc" id="L63">        uu.setPassword(&quot;123&quot;);</span>
+<span class="fc" id="L64">        uu.setGender(1);</span>
+<span class="fc" id="L65">        uu.setLastName(&quot;gao&quot;);</span>
+
+<span class="fc" id="L67">        User2UserType uut1 = new User2UserType();</span>
+<span class="fc" id="L68">        uut1.setPhoneid(&quot;123123&quot;);</span>
+<span class="fc" id="L69">        uut1.setUtid(12);</span>
+
+<span class="fc" id="L71">        User2UserType uut2 = new User2UserType();</span>
+<span class="fc" id="L72">        uut2.setPhoneid(&quot;12312&quot;);</span>
+<span class="fc" id="L73">        uut2.setUtid(1);</span>
+
+<span class="fc" id="L75">        User2UserType uut3 = new User2UserType();</span>
+<span class="fc" id="L76">        uut3.setPhoneid(&quot;123123&quot;);</span>
+<span class="fc" id="L77">        uut3.setUtid(2);</span>
+
+<span class="fc" id="L79">        Iterable&lt;User2UserType&gt; it = user2usertypeDao.findAll();</span>
+<span class="pc bpc" id="L80" title="1 of 2 branches missed.">        for (User2UserType temp : it) {</span>
+<span class="nc" id="L81">            logger.info(temp.getPhoneid());</span>
+<span class="nc" id="L82">            logger.info(temp.getUtid());</span>
+        }
+<span class="fc" id="L84">        userDao.save(uu);</span>
+        
+<span class="fc" id="L86">        usertypeDao.save(ut);</span>
+        
+<span class="fc" id="L88">        user2usertypeDao.save(uut1);</span>
+        //user2usertypeDao.save(uut2);
+        //user2usertypeDao.save(uut3);
+<span class="fc" id="L91">        it = user2usertypeDao.findAll();</span>
+<span class="fc bfc" id="L92" title="All 2 branches covered.">        for (User2UserType temp : it) {</span>
+<span class="fc" id="L93">            logger.info(temp.getPhoneid());</span>
+<span class="fc" id="L94">            logger.info(temp.getUtid());</span>
+        }
+<span class="fc" id="L96">        user2usertypeDao.delete(uut1);</span>
+<span class="fc" id="L97">        userDao.delete(uu);</span>
+<span class="fc" id="L98">        usertypeDao.delete(ut);</span>
+<span class="fc" id="L99">        it = user2usertypeDao.findAll();</span>
+<span class="pc bpc" id="L100" title="1 of 2 branches missed.">        for (User2UserType temp : it) {</span>
+<span class="nc" id="L101">            logger.info(temp.getPhoneid());</span>
+<span class="nc" id="L102">            logger.info(temp.getUtid());</span>
+        }
+<span class="fc" id="L104">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.2.201409121644</span>user-service (2015-11-17 20:35:58)</div></body></html>

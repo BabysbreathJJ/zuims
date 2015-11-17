@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../.resources/report.gif" type="image/gif"/><title>User2VipLevelDAOTest.java</title><link rel="stylesheet" href="../../../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../.sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">user-service (2015-11-17 20:35:58)</a> &gt; <a href="../../index.html" class="el_group">user-service</a> &gt; <a href="../index.html" class="el_bundle">src/test/java</a> &gt; <a href="index.source.html" class="el_package">ms.zui.datamodel.dao</a> &gt; <span class="el_source">User2VipLevelDAOTest.java</span></div><h1>User2VipLevelDAOTest.java</h1><pre class="source lang-java linenums">package ms.zui.datamodel.dao;
+
+import java.sql.Date;
+
+import ms.zui.UserServiceApplication;
+import ms.zui.controllers.BaseControllerTest;
+import ms.zui.datamodel.domain.User;
+import ms.zui.datamodel.domain.User2VipLevel;
+import ms.zui.datamodel.domain.VipLevel;
+
+/*import org.apache.http.HttpStatus;
+import org.apache.logging.log4j.LogManager;
+import org.hamcrest.Matchers;*/
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.boot.test.WebIntegrationTest;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import com.jayway.restassured.RestAssured;
+
+/**
+ * 用户控制器测试类
+ * 
+ * @author Xin
+ * @version $Id: UserVipLevelControllerTest.java, v 0.1
+ */
+@RunWith(SpringJUnit4ClassRunner.class)
+@SpringApplicationConfiguration(classes = UserServiceApplication.class)
+@WebIntegrationTest(&quot;server.port:0&quot;)
+<span class="fc" id="L34">public class User2VipLevelDAOTest extends BaseControllerTest {</span>
+
+    @Autowired
+    UserDAO          userDao;
+    @Autowired
+    User2VipLevelDAO user2viplevelDao;
+    @Autowired
+    VipLevelDAO      viplevelDao;
+
+    @Value(&quot;${local.server.port}&quot;)
+    private int      port;
+
+    @Before
+    public void setUp() {
+<span class="fc" id="L48">        RestAssured.port = port;</span>
+
+<span class="fc" id="L50">    }</span>
+
+    /**
+     * 测试用例1
+     */
+    @Test
+    public void AddAndDeleteUser2VipLevel() {
+        /*RestAssured.when().get(String.format(&quot;/users/emails/%s/&quot;, email)).then()
+            .statusCode(HttpStatus.SC_OK).body(&quot;name&quot;, Matchers.is(&quot;test&quot;));*/
+<span class="fc" id="L59">        User uu = new User(&quot;gaocegege&quot;, &quot;123123&quot;);</span>
+<span class="fc" id="L60">        uu.setEmail(&quot;123123@qq.com&quot;);</span>
+<span class="fc" id="L61">        uu.setPassword(&quot;123&quot;);</span>
+<span class="fc" id="L62">        uu.setGender(1);</span>
+<span class="fc" id="L63">        uu.setLastName(&quot;gao&quot;);</span>
+
+<span class="fc" id="L65">        VipLevel vl = new VipLevel();</span>
+<span class="fc" id="L66">        vl.setVlid(12);</span>
+<span class="fc" id="L67">        vl.setVlName(&quot;haha&quot;);</span>
+
+        @SuppressWarnings(&quot;deprecation&quot;)
+<span class="fc" id="L70">        Date d1 = new Date(2010, 1, 8);</span>
+        @SuppressWarnings(&quot;deprecation&quot;)
+<span class="fc" id="L72">        Date d2 = new Date(2010, 1, 20);</span>
+
+<span class="fc" id="L74">        User2VipLevel uvl1 = new User2VipLevel();</span>
+<span class="fc" id="L75">        uvl1.setPhoneid(&quot;123123&quot;);</span>
+<span class="fc" id="L76">        uvl1.setVlid(12);</span>
+<span class="fc" id="L77">        uvl1.setStartDate(d1);</span>
+<span class="fc" id="L78">        uvl1.setEndDate(d2);</span>
+
+<span class="fc" id="L80">        User2VipLevel uvl2 = new User2VipLevel();</span>
+<span class="fc" id="L81">        uvl2.setPhoneid(&quot;12312&quot;);</span>
+<span class="fc" id="L82">        uvl2.setVlid(1);</span>
+<span class="fc" id="L83">        uvl2.setStartDate(d1);</span>
+<span class="fc" id="L84">        uvl2.setEndDate(d2);</span>
+
+<span class="fc" id="L86">        User2VipLevel uvl3 = new User2VipLevel();</span>
+<span class="fc" id="L87">        uvl3.setPhoneid(&quot;123123&quot;);</span>
+<span class="fc" id="L88">        uvl3.setVlid(2);</span>
+<span class="fc" id="L89">        uvl3.setStartDate(d1);</span>
+<span class="fc" id="L90">        uvl3.setEndDate(d2);</span>
+
+<span class="fc" id="L92">        Iterable&lt;User2VipLevel&gt; it = user2viplevelDao.findAll();</span>
+<span class="pc bpc" id="L93" title="1 of 2 branches missed.">        for (User2VipLevel temp : it) {</span>
+<span class="nc" id="L94">            logger.info(temp.getPhoneid());</span>
+<span class="nc" id="L95">            logger.info(temp.getVlid());</span>
+        }
+<span class="fc" id="L97">        userDao.save(uu);</span>
+<span class="fc" id="L98">        viplevelDao.save(vl);</span>
+
+<span class="fc" id="L100">        user2viplevelDao.save(uvl1);</span>
+        //user2viplevelDao.save(uvl2);
+        //user2viplevelDao.save(uvl3);
+
+<span class="fc" id="L104">        it = user2viplevelDao.findAll();</span>
+<span class="fc bfc" id="L105" title="All 2 branches covered.">        for (User2VipLevel temp : it) {</span>
+<span class="fc" id="L106">            logger.info(temp.getPhoneid());</span>
+<span class="fc" id="L107">            logger.info(temp.getVlid());</span>
+        }
+<span class="fc" id="L109">        user2viplevelDao.delete(uvl1);</span>
+<span class="fc" id="L110">        userDao.delete(uu);</span>
+<span class="fc" id="L111">        viplevelDao.delete(vl);</span>
+<span class="fc" id="L112">        it = user2viplevelDao.findAll();</span>
+<span class="pc bpc" id="L113" title="1 of 2 branches missed.">        for (User2VipLevel temp : it) {</span>
+<span class="nc" id="L114">            logger.info(temp.getPhoneid());</span>
+<span class="nc" id="L115">            logger.info(temp.getVlid());</span>
+        }
+<span class="fc" id="L117">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.2.201409121644</span>user-service (2015-11-17 20:35:58)</div></body></html>
