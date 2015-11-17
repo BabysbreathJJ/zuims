@@ -1,0 +1,50 @@
+<div class="slides">
+    <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
+        <uib-slide ng-repeat="slide in slides" active="slide.active">
+            <img ng-src="{{slide.image}}" style="margin:auto;">
+
+            <div class="carousel-caption">
+                <h4>最美食</h4>
+
+                <p>{{slide.text}}</p>
+            </div>
+        </uib-slide>
+    </uib-carousel>
+</div>
+<hr/>
+<h2>即刻成为尊享会员</h2>
+<div class="mem_discount">会员价格:<span class="delete_text">388元</span>&nbsp;<span style="color: #ff7496">限时优惠: 88元</span>
+</div>
+<hr/>
+<h2>成为尊享会员</h2>
+
+
+<div style="width:90%;margin: 0 auto">
+    <input style="width: 50%;float:left;margin-right: 1.5em;margin-bottom: 1em;margin-top: 1em" type="text" name="name"
+           id="name" ng-model="name"
+           placeholder="姓名"/>
+
+
+    <!--<div class="select-wrapper">-->
+    <select style="width: 30%;float:right;margin-left: 1.5em;margin-bottom: 1em;margin-top: 1em" name="gender"
+            id="gender"
+            ng-model="gender">
+        <option value="male">男</option>
+        <option value="female">女</option>
+    </select>
+    <!--</div>-->
+
+</div>
+<div style="width:90%;margin: 0 auto">
+    <input style="width: 100%" type="text" name="text" id="phone" ng-model="phone" placeholder="手机号"/>
+</div>
+
+<div style="margin-top: 2em">
+    <a class="button btn-lg" style="width: 90%;text-decoration: none" ng-click="newUser()">注册</a>
+</div>
+
+<hr/>
+
+<div style="margin-top: 2em">
+    <a class="button btn-lg explain" style="width: 90%" ng-click="newUser()">付费用户权益及说明</a>
+</div>

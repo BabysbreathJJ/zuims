@@ -1,10 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>我的</title>
-</head>
-<body>
+<div class="slides">
+    <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
+        <uib-slide ng-repeat="slide in slides" active="slide.active">
+            <img ng-src="{{slide.image}}" style="margin:auto;">
 
-</body>
-</html>
+            <div class="carousel-caption">
+                <h4>最美食</h4>
+
+                <p>{{slide.text}}</p>
+            </div>
+        </uib-slide>
+    </uib-carousel>
+</div>
+<hr/>
+<div class="parallelogram">
+    <span class="benefit_item"><em>全国三免一折扣</em></span>
+    <span class="detail"><a class="btn-link" href="/detail">详情</a></span>
+</div>
+<div class="parallelogram">
+    <span class="benefit_item"><em>尊享VIP待遇</em></span>
+    <span class="detail"><a class="btn-link" href="/detail">详情</a></span>
+</div>
+<div class="parallelogram">
+    <span class="benefit_item"> <em>智能推荐一键订</em></span>
+    <span class="detail"><a class="btn-link" href="/detail">详情</a></span>
+</div>
+<hr/>
+<div class="be_member">
+    <button class="btn-lg" style="font-size: 1em;margin-bottom: 10px">成为认证尊享会员</button>
+
+    <button class="btn-lg" style="font-size: 1em;">免费体验初级会员</button>
+</div>
+
