@@ -7,17 +7,27 @@ describe('myApp.register module', function() {
 
     beforeEach(module('myApp.register'));
 
-    describe('register controller', function(){
+    describe('Pay register controller', function(){
 
         it('should exist', inject(function($controller) {
             //spec body
-            var registerCtrl = $controller('RegisterCtrl');
+            var registerCtrl = $controller('PayRegisterCtrl');
             expect(registerCtrl).toBeDefined();
         }));
 
     });
 
-    describe('register service',function(){
+    describe('Experience register controller', function(){
+
+        it('should exist', inject(function($controller) {
+            //spec body
+            var registerCtrl = $controller('ExperienceRegisterCtrl');
+            expect(registerCtrl).toBeDefined();
+        }));
 
     });
+
+    //describe('register service',function(){
+    //
+    //});
 });
