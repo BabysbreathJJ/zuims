@@ -3,13 +3,29 @@ info:
   title: 最美食用户相关API文档
   description: 用户登录，注册等相关功能
   version: 1.0.0
-host: 暂无
+host: 127.0.0.1:8080
 schemes:
   - http
 basePath: /v1
 produces:
   - application/json
 paths:
+  /users/images:
+    get:
+      summary: 获得用户头像
+      description: 目前无论phone，返回都是默认头像
+      tags:
+        - users
+      parameters:
+        - name: phone
+          in: query
+          description: 手机号
+          required: true
+          type: string
+          format: string
+      responses:
+        200:
+          description: 图片，默认图片为png
   /users/register:
     post:
       summary: 用户注册
@@ -89,7 +105,7 @@ definitions:
       lastname:
         type: string
       gender:
-        type: int
+        type: integer
       password:
         type: string
   UserLogin:
