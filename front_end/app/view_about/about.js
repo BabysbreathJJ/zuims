@@ -11,7 +11,7 @@ angular.module('myApp.about', ['ngRoute', 'ngAnimate', 'ui.bootstrap'])
             controller: 'AboutCtrl'
         });
     }])
-    .controller('AboutCtrl', function ($scope) {
+    .controller('AboutCtrl', function ($scope, $location) {
         $scope.myInterval = 5000;
         $scope.noWrapSlides = false;
         var slides = $scope.slides = [];
@@ -24,5 +24,14 @@ angular.module('myApp.about', ['ngRoute', 'ngAnimate', 'ui.bootstrap'])
         };
         for (var i = 1; i < 4; i++) {
             $scope.addSlide(i);
+        }
+
+
+        $scope.bePayMem = function () {
+            $location.path("/pay_register");
+        }
+
+        $scope.beFreeMem = function () {
+            $location.path("/experience_register");
         }
     });
