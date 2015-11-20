@@ -10,7 +10,7 @@ AngularJS进行前端开发
 ##安装依赖
 工具依赖
 * 通过npm管理项目工具依赖， [node package manager][npm].
-* 通过bower管理angular代码，,  [client-side code package manager][bower].
+* 通过bower管理angular代码，[client-side code package manager][bower].
 
 通过写好的配置，运行以下命令，会自动运行bower
 
