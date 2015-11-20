@@ -7,7 +7,20 @@ AngularJS进行前端开发
 
 前端测试框架 Jasmine，单元测试运行器Karma,端对端测试运行器protractor
 
+##安装依赖
+工具依赖
+* 通过npm管理项目工具依赖， [node package manager][npm].
+* 通过bower管理angular代码，,  [client-side code package manager][bower].
 
+通过写好的配置，运行以下命令，会自动运行bower
+
+```
+npm install
+```
+之后会在项目目录结构中，看到
+
+* `node_modules` - contains the npm packages for the tools we need
+* `app/bower_components` - contains the angular framework files
 
 
 ##目录结构
@@ -39,7 +52,16 @@ e2e-tests/            --> end-to-end tests
         scenarios.js          --> end-to-end scenarios to be run by Protractor
 ```
 
+
 ##开发阶段运行，将文件部署到服务器
+
+首先运行
+
+```
+npm install
+```
+
+
  利用node.js的工具 [http-server][http-server].  通过 `npm start` 运行服务器
 
  也可以在全局安装http-server:
