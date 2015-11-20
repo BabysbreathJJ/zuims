@@ -5,7 +5,7 @@
 
 AngularJS进行前端开发
 
-前端测试框架 Jasmine，单元测试运行器Karma,端对端测试运行期protractor
+前端测试框架 Jasmine，单元测试运行器Karma,端对端测试运行器protractor
 
 
 
