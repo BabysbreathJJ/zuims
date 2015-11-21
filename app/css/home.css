@@ -1,0 +1,82 @@
+.toolbar {
+    width: 100%;
+    display: flex;
+    margin-bottom: 1em;
+}
+
+.left {
+    flex: 20%;
+    /*margin-right: 3em;*/
+}
+
+.right1 {
+    flex: 40%;
+    height: 34px;
+    margin-left: 1em;
+    margin-right: 0.5em;
+
+}
+
+.right2 {
+    flex: 10%;
+    height: 34px;
+}
+
+.recommends {
+    min-height: 20em;
+    overflow: hidden;
+}
+
+.recommends .dinning_bg {
+    min-height: 30em;
+    max-height: 30em;
+    /*height: 40em;*/
+    _height: expression(this.height > 800 ? "800px" : this.height);
+    width: 800px;
+    overflow: hidden;
+
+}
+
+.recommends .carousel-indicators {
+    display: none;
+}
+
+.recommends .carousel-control {
+    bottom: 6em;
+}
+
+.reservation {
+    width: 70%;
+    margin-top: 1.5em;
+    /*position: absolute;*/
+    top: 40em;
+    margin-bottom: 1em;
+
+}
+
+.pic_description {
+    position: absolute;
+    z-index: 10;
+    /*right: 0;*/
+    bottom: 5em;
+    color: #FFFFFF;
+    background: rgba(0, 0, 0, 0.4);
+    filter: alpha(opacity:40);
+    /*opacity: 0.4;*/
+    width: 100%;
+    margin: 0 auto;
+}
+
+.dinning_info {
+    fong-size: 1.2em;
+    color: #FFFFFF;
+}
+
+.discount_logo {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    max-height: 8em;
+    min-height: 8em;
+}

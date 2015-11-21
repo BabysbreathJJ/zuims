@@ -1,7 +1,11 @@
 <div class="slides">
     <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
         <uib-slide ng-repeat="slide in slides" active="slide.active">
+
             <img ng-src="{{slide.image}}" style="margin:auto;">
+
+
+            <button class="login_btn">登录</button>
 
             <div class="carousel-caption">
                 <h4>最美食</h4>
@@ -11,23 +15,29 @@
         </uib-slide>
     </uib-carousel>
 </div>
-<hr/>
+
+<div class="be_member">
+    <button class="btn-lg about_btn" ng-click="bePayMem()">
+        一键购买
+    </button>
+
+    <button class="btn-lg about_btn" ng-click="beFreeMem()">
+        免费体验
+    </button>
+</div>
+<h4 style="text-align: left">最美食会员权益:</h4>
 <div class="parallelogram">
     <span class="benefit_item"><em>全国三免一折扣</em></span>
-    <span class="detail"><a class="btn-link" href="/detail">详情</a></span>
+    <span class="detail"><a class="link_btn" href="/detail">详细</a></span>
 </div>
 <div class="parallelogram">
     <span class="benefit_item"><em>尊享VIP待遇</em></span>
-    <span class="detail"><a class="btn-link" href="/detail">详情</a></span>
+    <span class="detail"><a class="link_btn" href="/detail">详细</a></span>
 </div>
 <div class="parallelogram">
     <span class="benefit_item"> <em>智能推荐一键订</em></span>
-    <span class="detail"><a class="btn-link" href="/detail">详情</a></span>
+    <span class="detail"><a class="link_btn" href="/detail">详细</a></span>
 </div>
 <hr/>
-<div class="be_member">
-    <button class="btn-lg" style="font-size: 1em;margin-bottom: 10px" ng-click="bePayMem()">成为认证尊享会员</button>
 
-    <button class="btn-lg" style="font-size: 1em;" ng-click="beFreeMem()">免费体验初级会员</button>
-</div>
 
