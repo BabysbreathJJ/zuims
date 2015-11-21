@@ -3,7 +3,7 @@
  */
 'use strict';
 
-angular.module('myApp.register', ['ngRoute', 'ngAnimate', 'ui.bootstrap'])
+angular.module('myApp.login', ['ngRoute', 'ngAnimate', 'ui.bootstrap'])
 
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/login', {
@@ -33,7 +33,7 @@ angular.module('myApp.register', ['ngRoute', 'ngAnimate', 'ui.bootstrap'])
 
     }])
 
-    .controller('LoginCtrl', ['$scope', 'LoginService', function ($scope, RegisterService) {
+    .controller('LoginCtrl', ['$scope', 'LoginService', function ($scope, LoginService) {
         $scope.myInterval = 5000;
         $scope.noWrapSlides = false;
         var slides = $scope.slides = [];
