@@ -6,7 +6,8 @@ angular.module('myApp', [
     'myApp.version',
     'myApp.register',
     'myApp.about',
-    'myApp.login'
+    'myApp.login',
+    'myApp.home'
 ]).
 config(['$routeProvider', function ($routeProvider) {
     $routeProvider.otherwise({redirectTo: '/about'});

@@ -1,0 +1,38 @@
+<div class="toolbar">
+
+    <select class="form-control left">
+        <option>北京</option>
+        <option>上海</option>
+        <option>广州</option>
+    </select>
+
+    <input class="right1" type="text" placeholder="搜索" style="height: 34px">
+    <button class="right2" style="padding: 0">搜索</button>
+
+</div>
+<h4 style="text-align: left">适合我的餐厅:</h4>
+
+<div>
+    <div class="recommends">
+        <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
+            <uib-slide ng-repeat="slide in slides" active="slide.active">
+
+                <img class="dinning_bg" ng-src="{{slide.image}}" style="margin:auto;">
+                <img class="discount_logo" ng-src="images/discount.png">
+
+
+                <div class="pic_description">
+                    <h4>{{slide.title}}</h4>
+
+                    <p>{{slide.price}}</p>
+
+                    <p>{{slide.address}}</p>
+                </div>
+                <button class="reservation" ng-click="reserve(slide.title)"> 一键定</button>
+            </uib-slide>
+        </uib-carousel>
+    </div>
+    <!--<div>-->
+        <!--<button class="reservation" ng-click="reserve(slide.title)"> 一键定</button>-->
+    <!--</div>-->
+</div>
