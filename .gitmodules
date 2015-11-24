@@ -1,3 +1,6 @@
 [submodule "src/zuims-user-service"]
 	path = src/zuims-user-service
 	url = http://202.120.40.28:6680/ase15_group02/zuims-user-service.git
+[submodule "src/zuims-restaurant-service"]
+	path = src/zuims-restaurant-service
+	url = git@github.com:gaocegege/zuims-restaurant-service.git
