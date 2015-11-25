@@ -809,6 +809,10 @@ body.is-ie #wrapper {
     color: #ff7496 !important;
 }
 
+.explain:hover, .explain:focus{
+    text-decoration: none;
+}
+
 .mem_discount {
     margin: 0 auto;
     width: 100%;
