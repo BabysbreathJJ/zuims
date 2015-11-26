@@ -63,37 +63,4 @@ angular.module('myApp.login', ['ngRoute', 'ngAnimate', 'ui.bootstrap'])
         }
 
 
-    }])
-    .controller('PayRegisterCtrl', ['$scope', 'RegisterService', function ($scope, RegisterService) {
-        $scope.myInterval = 5000;
-        $scope.noWrapSlides = false;
-        var slides = $scope.slides = [];
-        $scope.addSlide = function (i) {
-            var newWidth = 600 + slides.length + 1;
-            slides.push({
-                image: 'images/' + i + '.jpg',
-                text: ['全国三免一折扣', '尊享VIP待遇', '智能推荐一键订'][slides.length % 3]
-            });
-        };
-        for (var i = 1; i < 4; i++) {
-            $scope.addSlide(i);
-        }
-
-        $scope.newUser = function () {
-
-            $scope.newUserInfo = {
-                'username': $scope.name,
-                'gender': $scope.gender,
-                'phoneNumber': $scope.phone
-            };//放在function外面不能得到newUserInfo相关内容,因为没有进行双向绑定
-            alert(JSON.stringify($scope.newUserInfo));
-            console.log($scope.newUserInfo);
-            //RegisterService.newUser($scope.newUserInfo)
-            //    .success(function (data, status) {
-            //        alert("success");
-            //    })
-
-        }
-
-
     }]);
