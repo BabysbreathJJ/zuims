@@ -26,11 +26,12 @@
 
 
     <!--<div class="select-wrapper">-->
-    <select style="width: 30%;float:right;margin-left: 1.5em;margin-bottom: 1em;margin-top: 1em" name="gender"
+    <select style="width: 40%;float:right;margin-bottom: 1em;margin-top: 1em" name="gender"
             id="gender"
             ng-model="gender">
-        <option value="male">男</option>
-        <option value="female">女</option>
+        <option value="">--性别--</option>
+        <option value="0">男</option>
+        <option value="1">女</option>
     </select>
     <!--</div>-->
 
@@ -49,5 +50,21 @@
 <hr/>
 
 <div style="margin-top: 2em">
-    <a class="button btn-lg explain" style="width: 90%" ng-click="newUser()">付费用户权益及说明</a>
+    <a class="button btn-lg explain" style="width: 90%" ng-click="showDescription()">付费用户权益及说明</a>
 </div>
+
+<script type="text/ng-template" id="myModalContent.html">
+    <div class="modal-header">
+        <h3 class="modal-title">{{title}}</h3>
+    </div>
+    <div class="modal-body">
+        <ul>
+            <li ng-repeat="item in items">
+                {{ item }}
+            </li>
+        </ul>
+    </div>
+    <div class="modal-footer">
+        <button class="btn-sm explain" type="button" ng-click="ok()">确定</button>
+    </div>
+</script>
