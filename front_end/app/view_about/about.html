@@ -28,16 +28,31 @@
 <h4 style="text-align: left">最美食会员权益:</h4>
 <div class="parallelogram">
     <span class="benefit_item"><em>全国三免一折扣</em></span>
-    <span class="detail"><a class="link_btn" href="/detail">详细</a></span>
+    <span class="detail"><a class="link_btn" href="" ng-click="detail1()">详细</a></span>
 </div>
 <div class="parallelogram">
     <span class="benefit_item"><em>尊享VIP待遇</em></span>
-    <span class="detail"><a class="link_btn" href="/detail">详细</a></span>
+    <span class="detail"><a class="link_btn" href="" ng-click="detail2()">详细</a></span>
 </div>
 <div class="parallelogram">
     <span class="benefit_item"> <em>智能推荐一键订</em></span>
-    <span class="detail"><a class="link_btn" href="/detail">详细</a></span>
+    <span class="detail"><a class="link_btn" href="" ng-click="detail3()">详细</a></span>
 </div>
 <hr/>
 
+<script type="text/ng-template" id="myModalContent.html">
+    <div class="modal-header">
+        <h3 class="modal-title">{{title}}</h3>
+    </div>
+    <div class="modal-body">
+        <ul>
+            <li ng-repeat="item in items">
+                {{ item }}
+            </li>
+        </ul>
+    </div>
+    <div class="modal-footer">
+        <button class="btn-sm explain" type="button" ng-click="ok()">确定</button>
+    </div>
+</script>
 

@@ -69,6 +69,12 @@
     color: #ffffff;
 }
 
+.link_btn:hover, .link_btn:focus{
+    border-color: #ff7496;
+    color: #ff7496 !important;
+    text-decoration: none;
+}
+
 .login_btn {
     float: right;
     position: absolute;
