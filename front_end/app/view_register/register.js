@@ -1,13 +1,14 @@
 'use strict';
 
-angular.module('myApp.register', ['ngRoute', 'ngAnimate', 'ui.bootstrap'])
-
-    .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/experience_register', {
+angular.module('myApp.register', ['ui.router', 'ngAnimate', 'ui.bootstrap'])
+    .config(['$stateProvider', function ($stateProvider) {
+        $stateProvider.state('experience_register', {
+                url: '/experience_register',
                 templateUrl: 'view_register/experience_register.html',
                 controller: 'ExperienceRegisterCtrl'
             })
-            .when('/pay_register', {
+            .state('pay_register', {
+                url: '/pay_register',
                 templateUrl: 'view_register/pay_register.html',
                 controller: 'PayRegisterCtrl'
             });

@@ -12,6 +12,7 @@
     "angular-mocks": "~1.4.0",
     "angular-ui": "latest",
     "angular-bootstrap": "latest",
-    "angular-animate" : "latest"
+    "angular-animate": "latest",
+    "angular-ui-router": "latest"
   }
 }
