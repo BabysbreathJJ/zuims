@@ -4,9 +4,10 @@
 'use strict';
 
 
-angular.module('myApp.home', ['ngRoute', 'ngAnimate', 'ui.bootstrap'])
-    .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/home', {
+angular.module('myApp.home', ['ui.router', 'ngAnimate', 'ui.bootstrap'])
+    .config(['$stateProvider', function ($stateProvider) {
+        $stateProvider.state('home', {
+            url: '/home',
             templateUrl: 'view_home/home.html',
             controller: 'HomeCtrl'
         });

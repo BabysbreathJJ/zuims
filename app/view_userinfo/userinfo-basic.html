@@ -1,0 +1,34 @@
+<!-- userinfo-basic.html -->
+<div class="item">
+    <label for="name" class="info">真实姓名</label>
+    <input type="text" class="form-control" name="name" ng-model="formData.name">
+</div>
+<div class="item">
+    <label for="city" class="info">城市</label>
+    <input type="text" name="city" ng-model="formData.city">
+</div>
+<div class="item">
+    <label for="marriage" class="info">婚姻状况</label>
+    <input type="text" name="phone" ng-model="formData.marriage">
+</div>
+<div class="item">
+    <label for="birth" class="info">出生日期</label>
+    <input type="text" name="birth" class="form-control" uib-datepicker-popup="{{format}}" ng-model="birth" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+</div>
+<div class="item">
+    <label for="education" class="info">最高学历</label>
+    <input type="text" name="phone" ng-model="formData.education">
+</div>
+<div class="item">
+    <label for="graduate" class="info">毕业学校</label>
+    <input type="text" name="phone" ng-model="formData.graduate">
+</div>
+
+<div class="form-group">
+    <a ui-sref="userinfo.contact" class="btn">
+        联系信息 <span class="glyphicon glyphicon-circle-arrow-right"></span>
+    </a>
+</div>

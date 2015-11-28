@@ -4,9 +4,10 @@
 'use strict';
 
 
-angular.module('myApp.about', ['ngRoute', 'ngAnimate', 'ui.bootstrap'])
-    .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/about', {
+angular.module('myApp.about', ['ui.router', 'ngAnimate', 'ui.bootstrap'])
+    .config(['$stateProvider', function ($stateProvider) {
+        $stateProvider.state('about', {
+            url: '/about',
             templateUrl: 'view_about/about.html',
             controller: 'AboutCtrl'
         });
@@ -83,7 +84,7 @@ angular.module('myApp.about', ['ngRoute', 'ngAnimate', 'ui.bootstrap'])
         };
 
         $scope.detail3 = function () {
-            $scope.items = ['作为国内首家双语专业美食媒体，7年来，最美食从数百家星级酒店中甄选优秀餐厅作为推荐商户。','最美食根据会员的消费偏好和交通情况智能推荐适合每位会员的餐厅，一键完成预定。'];
+            $scope.items = ['作为国内首家双语专业美食媒体，7年来，最美食从数百家星级酒店中甄选优秀餐厅作为推荐商户。', '最美食根据会员的消费偏好和交通情况智能推荐适合每位会员的餐厅，一键完成预定。'];
             $scope.title = "智能推荐一键订";
             $scope.animationsEnabled = true;
             var modalInstance = $uibModal.open({
@@ -101,7 +102,6 @@ angular.module('myApp.about', ['ngRoute', 'ngAnimate', 'ui.bootstrap'])
                 }
             });
         };
-
 
 
     });
