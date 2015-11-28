@@ -13,6 +13,6 @@
 
 ### 源码部分
 
-源码是以git submodule的方式链接进zuims中，如果需要查看源码，可在zuims目录下执行`git update --remote`，或者前往<a href="http://202.120.40.28:6680/ase15_group02/zuims-user-service">http://202.120.40.28:6680/ase15_group02/zuims-user-service</a>>下载。
+源码是以git submodule的方式链接进zuims中，如果需要查看源码，可在zuims目录下执行`git update --remote`，或者前往<a href="http://202.120.40.28:6680/ase15_group02/zuims-restaurant-service">http://202.120.40.28:6680/ase15_group02/zuims-restaurant-service</a>下载。
 
-**PS: 直接clone zuims repo是不能直接得到源码的，需要自行前往zuims-user-service repo下载或者执行`git update --remote`**
+**PS: 直接clone zuims repo是不能直接得到源码的，需要自行前往zuims-restaurant-service下载或者执行`git update --remote`**
