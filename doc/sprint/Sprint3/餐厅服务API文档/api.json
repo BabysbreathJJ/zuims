@@ -1,0 +1,78 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "最美食用户相关API文档",
+        "description": "用户登录，注册等相关功能",
+        "version": "1.0.0"
+    },
+    "host": "127.0.0.1:8080",
+    "schemes": [
+        "http"
+    ],
+    "basePath": "/v1",
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/restaurants/recommand": {
+            "get": {
+                "summary": "推荐",
+                "description": "现在是写死的，之后进行基于地理位置和签约信息的推荐",
+                "tags": [
+                    "restaurants"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "图片，默认图片为png",
+                        "schema": {
+                            "$ref": "#/definitions/RecommandList"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "RecommandList": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/Restaurant"
+            }
+        },
+        "Restaurant": {
+            "type": "object",
+            "properties": {
+                "title": {
+                    "type": "string"
+                },
+                "image": {
+                    "type": "string"
+                },
+                "price": {
+                    "type": "string"
+                },
+                "address": {
+                    "type": "string"
+                }
+            }
+        },
+        "Error": {
+            "type": "object",
+            "properties": {
+                "error": {
+                    "type": "string"
+                },
+                "exception": {
+                    "type": "string"
+                },
+                "message": {
+                    "description": "错误信息",
+                    "type": "string"
+                },
+                "path": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
