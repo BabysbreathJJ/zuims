@@ -156,6 +156,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Hotel` (
   `HotelTele` VARCHAR(128) CHARACTER SET 'utf8' NULL,
   `HotelAddress` VARCHAR(512) CHARACTER SET 'utf8' NULL,
   `Location` POINT NOT NULL,
+  `ContractStat` INT NOT NULL,
   `Memo` TEXT CHARACTER SET 'utf8' NULL,
   PRIMARY KEY (`HotelID`))
 ENGINE = InnoDB;
@@ -273,3 +274,20 @@ USE `mydb`;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+DELIMITER //
+create Procedure insert_rest(	_City					varchar(128),
+								_HotelName				varchar(128),
+								_HotelTele				varchar(128),
+							    _HotelAddress			varchar(512),
+							    _location				varchar(128),
+                                out _restId int)
+Begin
+    start transaction;
+    INSERT INTO `mydb`.`Hotel`	
+	(City, HotelName, HotelTele, HotelAddress, Location)
+	VALUES
+   	(_City, _HotelName, _HotelTele, _HotelAddress, ST_GeomFromText(_location));  
+    select LAST_INSERT_ID() into _restId;
+	commit;
+End //
