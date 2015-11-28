@@ -28,3 +28,44 @@
     content: "";
     padding: 0;
 }
+
+.main-tab {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    z-index: 1000;
+    background-color: #8f8f8f;
+}
+
+.main-tab .tab-bg {
+    background: black;
+    filter: alpha(opacity:30);
+    opacity: 0.3;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    z-index: -1
+}
+
+.main-tab button {
+    border-radius: 0;
+    height: 3.1em;
+    font-size: 1.2em;
+}
+
+.main-tab .restaurant {
+    border-right: 0px;
+    width: 50%;
+    float: left;
+    color: #FFF;
+    color: #FFF !important;
+
+}
+
+.main-tab .myInfo {
+    width: 50%;
+    float: left;
+    color: #FFF;
+    color: #FFF !important;
+}
