@@ -1,0 +1,67 @@
+.rank {
+    display: table;
+    margin: 0 auto;
+}
+
+.rank .left {
+    display: table-cell;
+    padding: 0.5em;
+}
+
+.rank .middle {
+    display: table-cell;
+    padding: 0.5em;
+}
+
+.rank .right {
+    display: table-cell;
+    padding: 0.5em;
+}
+
+.search-results {
+    /*min-height: 20em;*/
+    overflow: hidden;
+}
+
+.search-results .dinning_bg {
+    min-height: 10em;
+    max-height: 10em;
+    /*height: 40em;*/
+    _height: expression(this.height > 800 ? "800px" : this.height);
+    width: 800px;
+    overflow: hidden;
+}
+
+.dinning {
+    background: rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5em;
+    position: relative;
+}
+
+.dinning .discount_logo {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    max-height: 8em;
+    min-height: 8em;
+}
+
+.dinning .reservation {
+    margin-top: 0.5em;
+    margin-bottom: 0em;
+    border-color: #AB6C7C;
+    background-color: #AB6C7C;
+    width: 50%;
+
+}
+
+.dinning button {
+    color: #FFF !important;
+    font-size: 0.5em;
+}
+
+.dinning p {
+    font-size: 5px;
+    margin: 0 0 1px;
+}

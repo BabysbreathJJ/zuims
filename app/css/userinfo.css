@@ -6,7 +6,7 @@
     letter-spacing: 0;
 }
 
-#form-container h3{
+#form-container h3 {
     margin-bottom: 15px;
     margin-top: 10px;
 }
@@ -20,7 +20,7 @@
 
 }
 
-.page-header h2{
+.page-header h2 {
     margin-top: 5px;
 }
 
@@ -36,7 +36,8 @@
     text-align: center;
     text-transform: uppercase;
 }
-#status-buttons a span{
+
+#status-buttons a span {
     color: #FFF;
 }
 
@@ -62,53 +63,145 @@
     color: #FFF;
 }
 
-#status-buttons a.active{
+#status-buttons a.active {
     color: #BC8F8F;
 }
 
-.userinfo{
-    margin-top: 1em;
-    margin-bottom: 1em;
-    padding-bottom: 0.5em;
+.userinfo {
+    margin: 1em 0;
+    margin-right: 1em;
     padding-top: 0.5em;
 }
-.userinfo .item{
+
+.userinfo .item {
     display: table;
     width: 100%;
+    margin: 0 auto;
     margin-bottom: 1em;
 }
-.userinfo input, .userinfo textarea{
+
+.userinfo input, .userinfo textarea {
     margin: 0 auto;
     display: table-cell;
-    /*width:90%;*/
     margin-right: 10px;
+    padding-left: 5px;
 }
-.userinfo textarea{
+
+.userinfo textarea {
     padding-top: 0;
     padding-bottom: 0;
     min-height: 6em;
     margin-top: 0.5em;
 }
 
-.userinfo .info{
+.userinfo .info {
     display: table-cell;
-    width: 32%;
+    width: 5em;
     text-align: right;
     font-size: 1.2em;
     line-height: 2.75em;
     padding-right: 8px;
     color: #696969;
 }
-.userinfo label{
+
+.userinfo label {
     text-align: left;
 }
 
-.userinfo .btn{
+.userinfo .btn {
     color: #fff;
     background-color: #6CA6CD;
     border-color: #6CA6CD;
 }
-.userInfoForm{
+
+.userInfoForm {
     margin-top: 1em;
     margin-bottom: 1em;
+}
+
+/*动画效果*/
+#signup-form {
+    position: relative;
+    min-height: 500px;
+    overflow: hidden;
+    /*padding: 30px;*/
+}
+
+#form-views {
+    width: auto;
+}
+
+/* basic styling for entering and leaving */
+/* left and right added to ensure full width */
+#form-views.ng-enter,
+#form-views.ng-leave {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    transition: 0.5s all ease;
+    -moz-transition: 0.5s all ease;
+    -webkit-transition: 0.5s all ease;
+}
+
+/* enter animation */
+#form-views.ng-enter {
+    -webkit-animation: slideInRight 0.5s both ease;
+    -moz-animation: slideInRight 0.5s both ease;
+    animation: slideInRight 0.5s both ease;
+}
+
+/* leave animation */
+#form-views.ng-leave {
+    -webkit-animation: slideOutLeft 0.5s both ease;
+    -moz-animation: slideOutLeft 0.5s both ease;
+    animation: slideOutLeft 0.5s both ease;
+}
+
+/* ANIMATIONS
+============================================================================= */
+/* slide out to the left */
+@keyframes slideOutLeft {
+    to {
+        transform: translateX(-200%);
+    }
+}
+
+@-moz-keyframes slideOutLeft {
+    to {
+        -moz-transform: translateX(-200%);
+    }
+}
+
+@-webkit-keyframes slideOutLeft {
+    to {
+        -webkit-transform: translateX(-200%);
+    }
+}
+
+/* slide in from the right */
+@keyframes slideInRight {
+    from {
+        transform: translateX(200%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@-moz-keyframes slideInRight {
+    from {
+        -moz-transform: translateX(200%);
+    }
+    to {
+        -moz-transform: translateX(0);
+    }
+}
+
+@-webkit-keyframes slideInRight {
+    from {
+        -webkit-transform: translateX(200%);
+    }
+    to {
+        -webkit-transform: translateX(0);
+    }
 }

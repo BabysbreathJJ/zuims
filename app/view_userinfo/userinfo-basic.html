@@ -13,10 +13,11 @@
 </div>
 <div class="item">
     <label for="birth" class="info">出生日期</label>
-    <input type="text" name="birth" class="form-control" uib-datepicker-popup="{{format}}" ng-model="birth" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
-              <span class="input-group-btn">
-                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-              </span>
+
+    <input type="text" kendo-date-picker
+           ng-model="birth"
+           k-format="'yyyy-MM-dd'"
+           style="height: 2.75em;width:100%" />
 </div>
 <div class="item">
     <label for="education" class="info">最高学历</label>

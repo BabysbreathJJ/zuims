@@ -1,0 +1,41 @@
+<div class="rank">
+    <div class="left">
+        <button>热门</button>
+    </div>
+    <div class="middle">
+        <button>价格</button>
+    </div>
+    <div class="right">
+        <button>城市</button>
+    </div>
+</div>
+
+
+<div class="search-results">
+    <div ng-repeat="result in results" class="dinning">
+
+        <img class="dinning_bg" ng-src="{{result.image}}" style="margin:auto;">
+        <img class="discount_logo" ng-src="images/discount.png">
+
+
+        <!--<div class="pic_description">-->
+        <!--<h4>{{result.title}}</h4>-->
+
+        <!--<p>{{result.price}}</p>-->
+
+        <!--<p>{{result.address}}</p>-->
+        <!--</div>-->
+        <h6>{{result.title}}</h6>
+
+        <p>{{result.price}}</p>
+
+        <p>{{result.address}}</p>
+
+        <div style="text-align: right">
+            <button class="reservation" ng-click="reserve(slide.title)" style="color: #FFF"> 一键定</button>
+        </div>
+    </div>
+
+
+</div>
+

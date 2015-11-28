@@ -1,25 +1,29 @@
 .toolbar {
     width: 100%;
-    display: flex;
+    display: table;
     margin-bottom: 1em;
 }
 
-.left {
-    flex: 20%;
-    /*margin-right: 3em;*/
+.toolbar .form-control{
+    height: 2.75em;
 }
 
-.right1 {
-    flex: 40%;
-    height: 34px;
-    margin-left: 1em;
-    margin-right: 0.5em;
-
+.toolbar .left {
+    display: table-cell;
+    height: 2.75em;
+    width: 5em;
 }
 
-.right2 {
-    flex: 10%;
-    height: 34px;
+.toolbar .middle {
+    display: table-cell;
+    padding-left: 0.5em;
+    padding-right: 0.2em;
+    height: 2.75em;
+}
+
+.toolbar .right {
+    display: table-cell;
+    width: 3em;
 }
 
 .recommends {
@@ -42,7 +46,9 @@
 }
 
 .recommends .carousel-control {
-    bottom: 6em;
+    bottom: 10em;
+    top: 5em;
+    color: #ffffff;
 }
 
 .reservation {

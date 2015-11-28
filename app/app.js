@@ -8,7 +8,8 @@ angular.module('myApp', [
         'myApp.about',
         'myApp.login',
         'myApp.home',
-        'myApp.userinfo'
+        'myApp.userinfo',
+        'myApp.dinninglist'
     ])
     .config(['$urlRouterProvider', function ($urlRouterProvider) {
         $urlRouterProvider.otherwise('/about');
