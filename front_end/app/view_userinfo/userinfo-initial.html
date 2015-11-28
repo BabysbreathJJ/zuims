@@ -1,0 +1,19 @@
+<!-- userinfo-initial.html -->
+<div class="item">
+    <label for="lastname" class="info">姓氏</label>
+    <input type="text" class="form-control" name="lastname" ng-model="formData.lastname">
+</div>
+<div class="item">
+    <label for="gender" class="info">性别</label>
+    <input type="text" name="email" ng-model="formData.gender">
+</div>
+<div class="item">
+    <label for="phone" class="info">手机号</label>
+    <input type="text" name="phone" ng-model="formData.phone">
+</div>
+
+<div class="form-group">
+    <a ui-sref="userinfo.basic" class="btn">
+        基本信息 <span class="glyphicon glyphicon-circle-arrow-right"></span>
+    </a>
+</div>
