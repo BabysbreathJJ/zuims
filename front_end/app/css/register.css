@@ -705,6 +705,7 @@ button:disabled,
         min-width: 0;
         width: 100%;
         padding: 1em;
+        margin-bottom: 2em;
     }
 
     #main .avatar:before {
@@ -782,6 +783,7 @@ body.is-loading #main {
     min-height: 100%;
     padding: 1.5em;
     z-index: 2;
+    margin-bottom: 2em;
 }
 
 #wrapper > * {
