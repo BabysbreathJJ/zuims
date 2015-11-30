@@ -4,7 +4,7 @@
 'use strict';
 
 
-angular.module('myApp.about', ['ui.router', 'ngAnimate', 'ui.bootstrap'])
+angular.module('myApp.about', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'ngCookies'])
     .config(['$stateProvider', function ($stateProvider) {
         $stateProvider.state('about', {
             url: '/about',
@@ -19,7 +19,12 @@ angular.module('myApp.about', ['ui.router', 'ngAnimate', 'ui.bootstrap'])
             $uibModalInstance.dismiss('确定');
         };
     })
-    .controller('AboutCtrl', function ($scope, $location, $uibModal) {
+    .controller('AboutCtrl', function ($scope, $location, $uibModal, $cookieStore, $state) {
+
+        if ($cookieStore.get('login')) {
+            $state.go('myinfo', {phone: $cookieStore.get('phone')});
+        }
+
         $scope.myInterval = 5000;
         $scope.noWrapSlides = false;
         var slides = $scope.slides = [];
@@ -41,6 +46,10 @@ angular.module('myApp.about', ['ui.router', 'ngAnimate', 'ui.bootstrap'])
 
         $scope.beFreeMem = function () {
             $location.path("/experience_register");
+        };
+
+        $scope.login = function () {
+            $location.path("/login");
         };
 
         $scope.detail1 = function () {

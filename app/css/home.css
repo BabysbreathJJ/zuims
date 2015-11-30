@@ -32,8 +32,8 @@
 }
 
 .recommends .dinning_bg {
-    min-height: 30em;
-    max-height: 30em;
+    min-height: 22em;
+    max-height: 22em;
     /*height: 40em;*/
     _height: expression(this.height > 800 ? "800px" : this.height);
     width: 800px;

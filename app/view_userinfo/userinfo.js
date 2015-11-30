@@ -61,8 +61,4 @@ angular.module('myApp.userinfo', ['ngAnimate', 'ui.router','kendo.directives'])
             alert('awesome!');
         };
 
-
-
-
-
     });

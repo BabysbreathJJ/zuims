@@ -9,8 +9,17 @@ angular.module('myApp', [
         'myApp.login',
         'myApp.home',
         'myApp.userinfo',
-        'myApp.dinninglist'
+        'myApp.dinninglist',
+        'myApp.myinfo'
     ])
     .config(['$urlRouterProvider', function ($urlRouterProvider) {
         $urlRouterProvider.otherwise('/about');
-    }]);
+    }])
+    .controller('TabCtrl', function ($scope, $location) {
+        $scope.goHome = function () {
+            $location.path('/home');
+        };
+        $scope.goUserInfo = function () {
+            $location.path('/about');
+        };
+    });
