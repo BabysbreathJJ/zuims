@@ -3,10 +3,10 @@
  */
 'use strict';
 
-angular.module('myApp.login', ['ui.router', 'ngAnimate', 'ui.bootstrap'])
+angular.module('myApp.login', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'ngCookies'])
     .config(['$stateProvider', function ($stateProvider) {
         $stateProvider.state('login', {
-            url:'/login',
+            url: '/login',
             templateUrl: 'view_login/login.html',
             controller: 'LoginCtrl'
         });
@@ -14,14 +14,15 @@ angular.module('myApp.login', ['ui.router', 'ngAnimate', 'ui.bootstrap'])
     //服务的工厂函数用来生成一个单例的对象或函数,这个对象或函数就是服务,存在于应用的整个生命周期内
     //服务的工厂函数既可以是一个函数也可以是一个数组
     .factory('LoginService', ['$http', function ($http) {
-        var baseUrl = "";
+        var baseUrl = "http://localhost:8080";
 
         var confirmUserRequest = function (userinfo) {
             return $http({
                 method: 'POST',
                 url: baseUrl + '/users/login',
-                data: $.param(userinfo),
-                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                data: JSON.stringify(userinfo),
+                headers: {'Content-Type': 'application/json'},
+                crossDomain: true
             });
         };
 
@@ -33,7 +34,7 @@ angular.module('myApp.login', ['ui.router', 'ngAnimate', 'ui.bootstrap'])
 
     }])
 
-    .controller('LoginCtrl', ['$scope', 'LoginService', function ($scope, LoginService) {
+    .controller('LoginCtrl', ['$scope', 'LoginService', '$state','$cookieStore', function ($scope, LoginService, $state, $cookieStore) {
         $scope.myInterval = 5000;
         $scope.noWrapSlides = false;
         var slides = $scope.slides = [];
@@ -51,13 +52,18 @@ angular.module('myApp.login', ['ui.router', 'ngAnimate', 'ui.bootstrap'])
         $scope.login = function () {
 
             $scope.userInfo = {
-                'phone': $scope.phone
+                'phone': $scope.phone,
+                'password': $scope.password
             };//放在function外面不能得到newUserInfo相关内容,因为没有进行双向绑定
             //alert(JSON.stringify($scope.newUserInfo));
-            console.log($scope.newUserInfo);
-            LoginService.confirmUser($scope.newUserInfo)
+            console.log($scope.userInfo);
+            LoginService.confirmUser($scope.userInfo)
                 .success(function (data, status) {
-                    alert("success");
+                    //alert("success");
+                    //$locaiton.path("/myinfo");
+                    $cookieStore.put('login','true');
+                    $cookieStore.put('phone',$scope.phone);
+                    $state.go('myinfo', { phone: $scope.phone });
                 })
 
         }
