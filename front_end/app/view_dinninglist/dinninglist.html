@@ -27,12 +27,12 @@
         <!--</div>-->
         <h6>{{result.title}}</h6>
 
-        <p>{{result.price}}</p>
+        <p>{{result.price|price}}</p>
 
         <p>{{result.address}}</p>
 
         <div style="text-align: right">
-            <button class="reservation" ng-click="reserve(slide.title)" style="color: #FFF"> 一键定</button>
+            <button class="reservation" ng-click="reserve(slide.title)" style="color: #FFF"> 一键订</button>
         </div>
     </div>
 

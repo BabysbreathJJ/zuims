@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/userinfo.css">
     <link rel="stylesheet" href="css/dinninglist.css">
+    <link rel="stylesheet" href="css/myinfo.css">
     <!--<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">-->
     <link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="components/kendoui/kendo.common.min.css">
@@ -53,10 +54,16 @@
 
 
 </div>
-<div class="main-tab">
+
+<div class="main-tab" ng-controller="TabCtrl">
     <div class="tab-bg"></div>
-    <button class="restaurant"><span class="glyphicon glyphicon-home" style="padding-right: 5px"></span>餐厅</button>
-    <button class="myInfo"><span class="glyphicon glyphicon-user" style="padding-right: 5px"></span>我的</button>
+    <button class="restaurant" ng-click="goHome()"><span class="glyphicon glyphicon-home"
+                                                         style="padding-right: 5px"></span>餐厅
+    </button>
+    <button class="myInfo" ng-click="goUserInfo()"><span class="glyphicon glyphicon-user"
+                                                         style="padding-right: 5px"></span>我的
+    </button>
+
 </div>
 
 <!--<div>Angular seed app: v<span app-version></span></div>-->
@@ -74,6 +81,8 @@
 <script src="components/kendoui/kendo.all.min.js"></script>
 <!--<script src="http://kendo.cdn.telerik.com/2014.2.716/js/kendo.ui.core.min.js"></script>-->
 <script src="components/kendoui/kendo.culture.zh-CN.min.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
+<script src="http://api.map.baidu.com/api?v=1.2" type="text/javascript"></script>
 <script src="app.js"></script>
 <script src="view_register/register.js"></script>
 <script src="view_about/about.js"></script>
@@ -81,6 +90,7 @@
 <script src="view_home/home.js"></script>
 <script src="view_userinfo/userinfo.js"></script>
 <script src="view_dinninglist/dinninglist.js"></script>
+<script src="view_myinfo/myinfo.js"></script>
 <script src="components/version/version.js"></script>
 <script src="components/version/version-directive.js"></script>
 <script src="components/version/interpolate-filter.js"></script>

@@ -50,17 +50,23 @@
 
 .main-tab button {
     border-radius: 0;
-    height: 3.1em;
+    height: 2.5em;
     font-size: 1.2em;
 }
 
+.main-tab button:hover {
+    border-color: #FFF;
+}
+
 .main-tab .restaurant {
-    border-right: 0px;
     width: 50%;
     float: left;
     color: #FFF;
     color: #FFF !important;
 
+}
+.main-tab .restaurant button{
+    border-right: 0.5px;
 }
 
 .main-tab .myInfo {
@@ -69,3 +75,8 @@
     color: #FFF;
     color: #FFF !important;
 }
+
+.main-tab .myInfo button{
+    border-left: 0.5px;
+}
+
