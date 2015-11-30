@@ -27,6 +27,45 @@
                         "schema": {
                             "$ref": "#/definitions/RecommandList"
                         }
+                    },
+                    "500": {
+                        "description": "error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/restaurants/search": {
+            "get": {
+                "summary": "搜索",
+                "description": "全文检索",
+                "tags": [
+                    "restaurants"
+                ],
+                "parameters": [
+                    {
+                        "name": "text",
+                        "in": "query",
+                        "description": "搜索词",
+                        "required": true,
+                        "type": "string",
+                        "format": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "搜索成功",
+                        "schema": {
+                            "$ref": "#/definitions/RecommandList"
+                        }
+                    },
+                    "500": {
+                        "description": "error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
                     }
                 }
             }
