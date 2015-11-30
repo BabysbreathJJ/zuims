@@ -50,6 +50,7 @@
 
 .main-tab button {
     border-radius: 0;
+<<<<<<< HEAD
     height: 2.5em;
     font-size: 1.2em;
 }
@@ -59,24 +60,39 @@
 }
 
 .main-tab .restaurant {
+=======
+    height: 3.1em;
+    font-size: 1.2em;
+}
+
+.main-tab .restaurant {
+    border-right: 0px;
+>>>>>>> ff724717408678ba1723a192d16d92c781d90b26
     width: 50%;
     float: left;
     color: #FFF;
     color: #FFF !important;
 
 }
+<<<<<<< HEAD
 .main-tab .restaurant button{
     border-right: 0.5px;
 }
+=======
+>>>>>>> ff724717408678ba1723a192d16d92c781d90b26
 
 .main-tab .myInfo {
     width: 50%;
     float: left;
     color: #FFF;
     color: #FFF !important;
+<<<<<<< HEAD
 }
 
 .main-tab .myInfo button{
     border-left: 0.5px;
 }
 
+=======
+}
+>>>>>>> ff724717408678ba1723a192d16d92c781d90b26

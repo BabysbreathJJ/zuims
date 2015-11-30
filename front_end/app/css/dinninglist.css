@@ -1,29 +1,43 @@
 .rank {
     display: table;
     margin: 0 auto;
+<<<<<<< HEAD
     width: 100%;
+=======
+>>>>>>> ff724717408678ba1723a192d16d92c781d90b26
 }
 
 .rank .left {
     display: table-cell;
+<<<<<<< HEAD
     padding-right: 0.5em;
     padding-top: 0;
+=======
+    padding: 0.5em;
+>>>>>>> ff724717408678ba1723a192d16d92c781d90b26
 }
 
 .rank .middle {
     display: table-cell;
     padding: 0.5em;
+<<<<<<< HEAD
     padding-top: 0;
+=======
+>>>>>>> ff724717408678ba1723a192d16d92c781d90b26
 }
 
 .rank .right {
     display: table-cell;
+<<<<<<< HEAD
     padding-left: 0.5em;
     padding-top: 0;
 }
 
 .rank button{
     height : 2.5em;
+=======
+    padding: 0.5em;
+>>>>>>> ff724717408678ba1723a192d16d92c781d90b26
 }
 
 .search-results {
@@ -46,10 +60,13 @@
     position: relative;
 }
 
+<<<<<<< HEAD
 .dinning h6{
     margin-top: 8px;
     margin-bottom: 5px;
 }
+=======
+>>>>>>> ff724717408678ba1723a192d16d92c781d90b26
 .dinning .discount_logo {
     position: absolute;
     left: 0;
@@ -60,12 +77,20 @@
 }
 
 .dinning .reservation {
+<<<<<<< HEAD
     margin-top: 0.7em;
     margin-bottom: 0em;
     border-color: #AB6C7C;
     background-color: #AB6C7C;
     width: 40%;
     border-radius: 0;
+=======
+    margin-top: 0.5em;
+    margin-bottom: 0em;
+    border-color: #AB6C7C;
+    background-color: #AB6C7C;
+    width: 50%;
+>>>>>>> ff724717408678ba1723a192d16d92c781d90b26
 
 }
 

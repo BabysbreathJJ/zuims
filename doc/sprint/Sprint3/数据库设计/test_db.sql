@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`User` (
   `last_name` VARCHAR(45) CHARACTER SET 'utf8' NOT NULL,
   `first_name` VARCHAR(45) CHARACTER SET 'utf8' NULL,
   `email` VARCHAR(45) NULL,
-  `photo` BLOB NOT NULL,
+  `photo` BLOB NULL,
   `memo` TEXT NULL,
   `password` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`phoneid`))
