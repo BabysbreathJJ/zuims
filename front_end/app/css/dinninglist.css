@@ -6,7 +6,7 @@
 
 .rank .left {
     display: table-cell;
-    padding-right: 0.5em;
+    /*padding-right: 0.5em;*/
     padding-top: 0;
 }
 
@@ -18,7 +18,7 @@
 
 .rank .right {
     display: table-cell;
-    padding-left: 0.5em;
+    /*padding-left: 1.5em;*/
     padding-top: 0;
 }
 
