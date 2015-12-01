@@ -6,6 +6,7 @@
 
 angular.module('myApp.dinninglist', ['ngAnimate', 'ui.router'])
 <<<<<<< HEAD
+<<<<<<< HEAD
     .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider) {
 
         $stateProvider
@@ -19,18 +20,33 @@ angular.module('myApp.dinninglist', ['ngAnimate', 'ui.router'])
                 url: '/dinninglist?search',
 =======
     .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+=======
+    .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider) {
+>>>>>>> 2a0f553375518588bd21b281467767962644662f
 
         $stateProvider
+        //.state('dinninglist',{
+        //    url: '/dinninglist/:search-word',
+        //    templateUrl: 'view_dinninglist/dinninglist.html',
+        //    controller: 'DinninglistCtrl'
+        //});
         // route to show our basic form (/form)
             .state('dinninglist', {
+<<<<<<< HEAD
                 url: '/dinninglist',
 >>>>>>> ff724717408678ba1723a192d16d92c781d90b26
+=======
+                url: '/dinninglist?search',
+>>>>>>> 2a0f553375518588bd21b281467767962644662f
                 templateUrl: 'view_dinninglist/dinninglist.html',
                 controller: 'DinninglistCtrl'
             });
 
     }])
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 2a0f553375518588bd21b281467767962644662f
     .filter('price', function () {
         return function (input) {
 
@@ -87,6 +103,7 @@ angular.module('myApp.dinninglist', ['ngAnimate', 'ui.router'])
         //    price: '137元/人',
         //    address: '静安区 大沽路427号(近成都北路)'
         //});
+<<<<<<< HEAD
 =======
     .controller('DinninglistCtrl', function ($scope) {
         var results = $scope.results = [];
@@ -115,6 +132,8 @@ angular.module('myApp.dinninglist', ['ngAnimate', 'ui.router'])
             address: '静安区 大沽路427号(近成都北路)'
         });
 >>>>>>> ff724717408678ba1723a192d16d92c781d90b26
+=======
+>>>>>>> 2a0f553375518588bd21b281467767962644662f
 
 
     });

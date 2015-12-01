@@ -62,10 +62,13 @@ angular.module('myApp.userinfo', ['ngAnimate', 'ui.router','kendo.directives'])
         };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 
 
 
 >>>>>>> ff724717408678ba1723a192d16d92c781d90b26
+=======
+>>>>>>> 2a0f553375518588bd21b281467767962644662f
     });
