@@ -1,0 +1,27 @@
+<div class="slides">
+    <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
+        <uib-slide ng-repeat="slide in dinning.images" >
+            <img ng-src="{{slide}}" style="margin:auto;">
+
+            <div class="carousel-caption">
+                <h4>最美食</h4>
+
+                <!--<p>{{dinning.introduction}}</p>-->
+            </div>
+        </uib-slide>
+    </uib-carousel>
+</div>
+<hr/>
+
+<h2 style="margin-top:10px">{{dinning.restaurantName}}</h2>
+<p>地址: {{dinning.restaurantAddress}}</p>
+<p>人均价格: {{dinning.averagePrice}}</p>
+<p>营业时间: {{dinning.restaurantOpenTime}}</p>
+<p>联系电话: {{dinning.restaurantTele}}</p>
+<hr/>
+
+<div style="margin-top: 2em">
+    <a class="button btn-lg" style="width: 90%;text-decoration: none" ng-click="newUser()">一键订</a>
+</div>
+
+

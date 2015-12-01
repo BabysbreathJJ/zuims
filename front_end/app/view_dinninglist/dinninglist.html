@@ -1,35 +1,41 @@
 <div class="rank">
     <div class="left">
-        <button>热门</button>
+        <button><span class="glyphicon glyphicon-heart" style="padding-right: 10px"> </span>热门</button>
     </div>
     <div class="middle">
-        <button>价格</button>
+        <button><span class="glyphicon glyphicon-yen" style="padding-right: 10px"></span>价格</button>
     </div>
     <div class="right">
-        <button>城市</button>
+        <select class="form-control" ng-model="city" ng-change="change(city)">
+            <option>北京</option>
+            <option>上海</option>
+            <option>广州</option>
+        </select>
     </div>
 </div>
 
 
 <div class="search-results">
     <div ng-repeat="result in results" class="dinning">
+        <div ng-click="dinningDetail(result.restaurantId)">
 
-        <img class="dinning_bg" ng-src="{{result.image}}" style="margin:auto;">
-        <img class="discount_logo" ng-src="images/discount.png">
+            <img class="dinning_bg" ng-src="{{result.image}}" style="margin:auto;">
+            <img class="discount_logo" ng-src="images/discount.png">
 
 
-        <!--<div class="pic_description">-->
-        <!--<h4>{{result.title}}</h4>-->
+            <!--<div class="pic_description">-->
+            <!--<h4>{{result.title}}</h4>-->
 
-        <!--<p>{{result.price}}</p>-->
+            <!--<p>{{result.price}}</p>-->
 
-        <!--<p>{{result.address}}</p>-->
-        <!--</div>-->
-        <h3>{{result.title}}</h3>
+            <!--<p>{{result.address}}</p>-->
+            <!--</div>-->
+            <h4>{{result.title}}</h4>
 
-        <p>{{result.price|price}}</p>
+            <p>{{result.price|price}}</p>
 
-        <p>{{result.address}}</p>
+            <p>{{result.address}}</p>
+        </div>
 
         <div style="text-align: right">
             <button class="reservation" ng-click="reserve(slide.title)" style="color: #FFF"> 一键订</button>

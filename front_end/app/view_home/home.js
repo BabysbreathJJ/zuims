@@ -4,7 +4,7 @@
 'use strict';
 
 
-angular.module('myApp.home', ['ui.router', 'ngAnimate', 'ui.bootstrap'])
+angular.module('myApp.home', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'myApp.constants'])
     .config(['$stateProvider', function ($stateProvider) {
         $stateProvider.state('home', {
             url: '/home',
@@ -18,27 +18,28 @@ angular.module('myApp.home', ['ui.router', 'ngAnimate', 'ui.bootstrap'])
             return input + " 人/元";
         }
     })
-    .factory('RecommandService', ['$http', function ($http) {
-        var baseUrl = "http://202.120.40.175:21100/restaurants/recommand";
+    .factory('RecommandService', ['$http', 'restaurantBaseUrl', function ($http, restaurantBaseUrl) {
+        //var baseUrl = "http://202.120.40.175:21100";
 
-        var getRecommandRequest = function () {
+        var getRecommandRequest = function (cname) {
             return $http({
                 method: 'GET',
-                url: baseUrl,
+                url: restaurantBaseUrl + '/restaurants/recommand/city?cname=' + cname,
                 crossDomain: true
             });
         };
 
         return {
-            getRecommand: function () {
-                return getRecommandRequest();
+            getRecommand: function (cname) {
+                return getRecommandRequest(cname);
             }
         }
 
     }])
-    .controller('HomeCtrl', function ($scope, $location, RecommandService,$state) {
+    .controller('HomeCtrl', function ($scope, $location, RecommandService, $state) {
         $scope.myInterval = 5000;
         $scope.noWrapSlides = false;
+        $scope.cname = "北京";
         var slides = $scope.slides = [];
 
         if (navigator.geolocation) {
@@ -49,16 +50,12 @@ angular.module('myApp.home', ['ui.router', 'ngAnimate', 'ui.bootstrap'])
         }
 
         $scope.reserve = function (data) {
-            alert(data);
+            //alert(data);
         };
-        RecommandService.getRecommand()
-            .success(function (data, status) {
-                $scope.slides = data;
-            });
 
         $scope.search = function () {
             //$location.path('/dinninglist?search=test');
-            $state.go('dinninglist', { search: $scope.keyword });
+            $state.go('dinninglist', {search: $scope.keyword, city: $scope.cname});
         };
 
 
@@ -73,8 +70,14 @@ angular.module('myApp.home', ['ui.router', 'ngAnimate', 'ui.bootstrap'])
 
             } else {
                 //浏览器不支持geolocation
-                $scope.myLocation = "北京";
+                $scope.cname = "北京";
+                RecommandService.getRecommand(cname)
+                    .success(function (data, status) {
+                        $scope.slides = data;
+                    });
+
             }
+
         }
 
         function onSuccess(position) {
@@ -83,7 +86,7 @@ angular.module('myApp.home', ['ui.router', 'ngAnimate', 'ui.bootstrap'])
             var longitude = position.coords.longitude;
             //纬度
             var latitude = position.coords.latitude;
-            alert('经度' + longitude + '，纬度' + latitude);
+            //alert('经度' + longitude + '，纬度' + latitude);
 
             //根据经纬度获取地理位置，不太准确，获取城市区域还是可以的
             var map = new BMap.Map("allmap");
@@ -91,13 +94,19 @@ angular.module('myApp.home', ['ui.router', 'ngAnimate', 'ui.bootstrap'])
             var gc = new BMap.Geocoder();
             gc.getLocation(point, function (rs) {
                 var addComp = rs.addressComponents;
-                alert(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
+                //alert(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
+                $scope.cname = addComp.city;
+                $scope.cname = $scope.cname.substring(0, $scope.cname.length - 1);
+                RecommandService.getRecommand($scope.cname)
+                    .success(function (data, status) {
+                        $scope.slides = data;
+                    });
             });
         }
 
         //失败时
-        function onError(error){
-            switch(error.code){
+        function onError(error) {
+            switch (error.code) {
                 case 1:
                     alert("位置服务被拒绝");
                     break;
@@ -113,6 +122,18 @@ angular.module('myApp.home', ['ui.router', 'ngAnimate', 'ui.bootstrap'])
             }
         }
 
-        //getLocation();
+        getLocation();
 
+        $scope.change = function (cname) {
+            RecommandService.getRecommand(cname)
+                .success(function (data, status) {
+                    $scope.slides = data;
+                    //console.log($scope.slides);
+                });
+        };
+
+
+        $scope.dinningDetail = function (restaurantId) {
+            $state.go('dinning', {id: restaurantId});
+        };
     });

@@ -1,6 +1,6 @@
 <div class="toolbar">
     <div class="left">
-        <select class="form-control left">
+        <select class="form-control left" ng-model="cname" ng-change="change(cname)">
             <option>北京</option>
             <option>上海</option>
             <option>广州</option>
@@ -8,7 +8,7 @@
     </div>
     <div class="middle">
 
-        <input type="text" ng-model="keyword" placeholder="搜索" >
+        <input type="text" ng-model="keyword" placeholder="搜索">
     </div>
     <div class="right">
         <button style="padding: 0 0.5em" ng-click="search()">搜索</button>
@@ -20,17 +20,19 @@
     <div class="recommends">
         <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
             <uib-slide ng-repeat="slide in slides" active="slide.active">
+                <div ng-click="dinningDetail(slide.restaurantId)">
 
-                <img class="dinning_bg" ng-src="{{slide.image}}" style="margin:auto;">
-                <img class="discount_logo" ng-src="images/discount.png">
+                    <img class="dinning_bg" ng-src="{{slide.image}}" style="margin:auto;">
+                    <img class="discount_logo" ng-src="images/discount.png">
 
 
-                <div class="pic_description">
-                    <h4>{{slide.title}}</h4>
+                    <div class="pic_description">
+                        <h4>{{slide.title}}</h4>
 
-                    <p>{{slide.price | price}}</p>
+                        <p>{{slide.price | price}}</p>
 
-                    <p>{{slide.address}}</p>
+                        <p>{{slide.address}}</p>
+                    </div>
                 </div>
                 <button class="reservation" ng-click="reserve(slide.title)"> 一键订</button>
             </uib-slide>

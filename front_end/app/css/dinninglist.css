@@ -6,7 +6,7 @@
 
 .rank .left {
     display: table-cell;
-    padding-right: 0.5em;
+    /*padding-right: 0.5em;*/
     padding-top: 0;
 }
 
@@ -18,12 +18,18 @@
 
 .rank .right {
     display: table-cell;
-    padding-left: 0.5em;
+    /*padding-left: 1.5em;*/
     padding-top: 0;
 }
 
-.rank button{
-    height : 2.5em;
+.rank button {
+    height: 2.5em;
+    width: 100%;
+    line-height: 1;
+}
+
+.rank .form-control{
+    height: 2.5em;
 }
 
 .search-results {
@@ -46,10 +52,6 @@
     position: relative;
 }
 
-.dinning h6{
-    margin-top: 8px;
-    margin-bottom: 5px;
-}
 .dinning .discount_logo {
     position: absolute;
     left: 0;
@@ -71,10 +73,15 @@
 
 .dinning button {
     color: #FFF !important;
-    font-size: 1.5em;
+    font-size: 1.2em;
+    text-align: center;
 }
 
 .dinning p {
-    font-size: 1.2em;
+    /*font-size: 1.2em;*/
     margin: 0 0 1px;
+}
+
+.glyphicon-yen:before {
+    content: "\00a5";
 }

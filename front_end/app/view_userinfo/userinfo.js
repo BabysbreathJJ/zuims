@@ -3,7 +3,7 @@
  */
 'use strict';
 
-angular.module('myApp.userinfo', ['ngAnimate', 'ui.router','kendo.directives'])
+angular.module('myApp.userinfo', ['ngAnimate', 'ui.router','kendo.directives','myApp.constants'])
     .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
         $stateProvider

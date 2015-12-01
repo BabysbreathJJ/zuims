@@ -3,7 +3,7 @@
  */
 'use strict';
 
-angular.module('myApp.myinfo', ['ui.router', 'ngAnimate', 'ui.bootstrap'])
+angular.module('myApp.myinfo', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'myApp.constants'])
     .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider) {
 
         $stateProvider
@@ -15,13 +15,13 @@ angular.module('myApp.myinfo', ['ui.router', 'ngAnimate', 'ui.bootstrap'])
             });
 
     }])
-    .factory('MyinfoService', ['$http', function ($http) {
-        var baseUrl = "http://202.120.40.175:21101";
+    .factory('MyinfoService', ['$http', 'userBaseUrl', function ($http, userBaseUrl) {
+        //var baseUrl = "http://202.120.40.175:21101";
 
         var getUserInfoRequest = function (phone) {
             return $http({
                 method: 'GET',
-                url: baseUrl + '/users?phone=' + phone,
+                url: userBaseUrl + '/users?phone=' + phone,
                 crossDomain: true
             });
         };

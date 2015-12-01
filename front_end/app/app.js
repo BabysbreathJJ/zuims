@@ -3,6 +3,7 @@
 // Declare app level module which depends on views, and components
 angular.module('myApp', [
         'ui.router',
+        'myApp.constants',
         'myApp.version',
         'myApp.register',
         'myApp.about',
@@ -10,7 +11,8 @@ angular.module('myApp', [
         'myApp.home',
         'myApp.userinfo',
         'myApp.dinninglist',
-        'myApp.myinfo'
+        'myApp.myinfo',
+        'myApp.dinning'
     ])
     .config(['$urlRouterProvider', function ($urlRouterProvider) {
         $urlRouterProvider.otherwise('/about');
@@ -23,3 +25,7 @@ angular.module('myApp', [
             $location.path('/about');
         };
     });
+
+angular.module('myApp.constants', [])
+    .constant('userBaseUrl', 'http://202.120.40.175:21101')
+    .constant('restaurantBaseUrl', 'http://202.120.40.175:21100');
