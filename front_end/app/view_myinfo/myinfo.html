@@ -1,0 +1,70 @@
+<div class="card card--front">
+    <!--<div class="card__number">4111 1111 1111 1111</div>-->
+    <!--<div class="card__expiry-date">10/17</div>-->
+    <div class=""></div>
+    <div class="card_pic">
+        <img class="dinning_bg" ng-src="./images/chen.jpg">
+
+        <div class="mem_level">免费会员</div>
+    </div>
+    <div class="card_info">
+        <div>
+            姓名: {{userinfo.lastname}}
+        </div>
+        <div>
+            职位: {{userinfo.position}}
+        </div>
+        <div>
+            手机: {{userinfo.phone}}
+        </div>
+        <div>
+            有效期至: 2020-11-30
+        </div>
+    </div>
+    <!--<div class="card_level">免费会员</div>-->
+    <div class="card_logo"><img src="./images/logo.png"></div>
+</div>
+<hr/>
+<div class="mem-right">
+    <button ng-click="showDescription()"><span class="glyphicon glyphicon-th-list"
+                                               style="padding-right: 5px;padding-left: 5px"></span>会员权益说明
+    </button>
+    <button class="explain" ng-click="fillInfo()"><span class="glyphicon glyphicon-edit"
+                                                        style="padding-right: 5px;padding-left: 5px"></span>完善会员信息
+    </button>
+</div>
+
+<div class="reservation-info">
+    <h4>预定信息</h4>
+    <table class="table">
+        <tr ng-repeat="info in historyInfos">
+            <td>
+                {{info.name}}
+            </td>
+            <td>
+                {{info.date}}
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="contact-us">
+    联系客服
+    反馈
+</div>
+
+<script type="text/ng-template" id="myModalContent.html">
+    <div class="modal-header">
+        <h3 class="modal-title">{{title}}</h3>
+    </div>
+    <div class="modal-body">
+        <ul>
+            <li ng-repeat="item in items">
+                {{ item }}
+            </li>
+        </ul>
+    </div>
+    <div class="modal-footer">
+        <button class="btn-sm explain" type="button" ng-click="ok()">确定</button>
+    </div>
+</script>

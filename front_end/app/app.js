@@ -9,12 +9,8 @@ angular.module('myApp', [
         'myApp.login',
         'myApp.home',
         'myApp.userinfo',
-<<<<<<< HEAD
         'myApp.dinninglist',
         'myApp.myinfo'
-=======
-        'myApp.dinninglist'
->>>>>>> ff724717408678ba1723a192d16d92c781d90b26
     ])
     .config(['$urlRouterProvider', function ($urlRouterProvider) {
         $urlRouterProvider.otherwise('/about');
