@@ -47,18 +47,60 @@ paths:
           description: error
           schema:
             $ref: '#/definitions/Error'
+  /restaurants/recommand/city:
+    get:
+      summary: 推荐
+      description: 根据城市推荐相应的餐厅
+      tags:
+        - restaurants
+      parameters:
+        - name: cname
+          in: query
+          description: 城市名称
+          required: true
+          type: string
+          format: string
+      responses:
+        200:
+          description: 推荐城市
+          schema:
+            $ref: '#/definitions/RecommandList'
+        500:
+          description: error
+          schema:
+            $ref: '#/definitions/Error'
+  /restaurants/info:
+    get:
+      summary: 详细信息
+      description: 餐厅详细信息
+      tags:
+        - restaurants
+      parameters:
+        - name: id
+          in: query
+          description: 餐厅id
+          required: true
+          type: integer
+          format: integer
+      responses:
+          200:
+            description: 详细信息
+            schema:
+              $ref: '#/definitions/CityList'
+          500:
+            description: error
+            schema:
+              $ref: '#/definitions/Error'
 definitions:
   RecommandList:
     type: array
     items:
       $ref: '#/definitions/Restaurant'
-      $ref: '#/definitions/Restaurant'
-      $ref: '#/definitions/Restaurant'
-      $ref: '#/definitions/Restaurant'
-      
   Restaurant:
     type: object
     properties:
+      restaurantId:
+        type: integer
       title:
         type: string
       image:
@@ -67,6 +109,37 @@ definitions:
         type: string
       address:
         type: string
+  CityList:
+    type: array
+    items:
+      $ref: '#/definitions/City'
+  City:
+    type: object
+    properties:
+      restaurantId:
+        type: integer
+      restaurantName:
+        type: string
+      restaurantTele:
+        type: string
+      restaurantAddress:
+        type: string
+      restaurantOpenTime:
+        type: string
+      introduction:
+        type: string
+      averagePrice:
+        type: string
+      smoke:
+        type: string
+      park:
+        type: string
+      images:
+        type: array
+        items:
+          $ref: '#/definitions/Pic'
+  Pic:
+    type: string
   Error:
     type: object
     properties:
