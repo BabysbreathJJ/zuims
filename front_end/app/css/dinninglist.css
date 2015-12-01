@@ -1,62 +1,29 @@
 .rank {
     display: table;
     margin: 0 auto;
-<<<<<<< HEAD
-<<<<<<< HEAD
     width: 100%;
-=======
->>>>>>> ff724717408678ba1723a192d16d92c781d90b26
-=======
-    width: 100%;
->>>>>>> 2a0f553375518588bd21b281467767962644662f
 }
 
 .rank .left {
     display: table-cell;
-<<<<<<< HEAD
-<<<<<<< HEAD
     padding-right: 0.5em;
     padding-top: 0;
-=======
-    padding: 0.5em;
->>>>>>> ff724717408678ba1723a192d16d92c781d90b26
-=======
-    padding-right: 0.5em;
-    padding-top: 0;
->>>>>>> 2a0f553375518588bd21b281467767962644662f
 }
 
 .rank .middle {
     display: table-cell;
     padding: 0.5em;
-<<<<<<< HEAD
-<<<<<<< HEAD
     padding-top: 0;
-=======
->>>>>>> ff724717408678ba1723a192d16d92c781d90b26
-=======
-    padding-top: 0;
->>>>>>> 2a0f553375518588bd21b281467767962644662f
 }
 
 .rank .right {
     display: table-cell;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 2a0f553375518588bd21b281467767962644662f
     padding-left: 0.5em;
     padding-top: 0;
 }
 
 .rank button{
     height : 2.5em;
-<<<<<<< HEAD
-=======
-    padding: 0.5em;
->>>>>>> ff724717408678ba1723a192d16d92c781d90b26
-=======
->>>>>>> 2a0f553375518588bd21b281467767962644662f
 }
 
 .search-results {
@@ -79,19 +46,10 @@
     position: relative;
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 2a0f553375518588bd21b281467767962644662f
 .dinning h6{
     margin-top: 8px;
     margin-bottom: 5px;
 }
-<<<<<<< HEAD
-=======
->>>>>>> ff724717408678ba1723a192d16d92c781d90b26
-=======
->>>>>>> 2a0f553375518588bd21b281467767962644662f
 .dinning .discount_logo {
     position: absolute;
     left: 0;
@@ -102,29 +60,12 @@
 }
 
 .dinning .reservation {
-<<<<<<< HEAD
-<<<<<<< HEAD
     margin-top: 0.7em;
     margin-bottom: 0em;
     border-color: #AB6C7C;
     background-color: #AB6C7C;
     width: 40%;
     border-radius: 0;
-=======
-    margin-top: 0.5em;
-    margin-bottom: 0em;
-    border-color: #AB6C7C;
-    background-color: #AB6C7C;
-    width: 50%;
->>>>>>> ff724717408678ba1723a192d16d92c781d90b26
-=======
-    margin-top: 0.7em;
-    margin-bottom: 0em;
-    border-color: #AB6C7C;
-    background-color: #AB6C7C;
-    width: 40%;
-    border-radius: 0;
->>>>>>> 2a0f553375518588bd21b281467767962644662f
 
 }
 
