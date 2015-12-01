@@ -14,7 +14,7 @@ angular.module('myApp.login', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'ngCook
     //服务的工厂函数用来生成一个单例的对象或函数,这个对象或函数就是服务,存在于应用的整个生命周期内
     //服务的工厂函数既可以是一个函数也可以是一个数组
     .factory('LoginService', ['$http', function ($http) {
-        var baseUrl = "http://localhost:8080";
+        var baseUrl = "http://202.120.40.175:21101";
 
         var confirmUserRequest = function (userinfo) {
             return $http({

@@ -16,7 +16,7 @@ angular.module('myApp.register', ['ui.router', 'ngAnimate', 'ui.bootstrap'])
     //服务的工厂函数用来生成一个单例的对象或函数,这个对象或函数就是服务,存在于应用的整个生命周期内
     //服务的工厂函数既可以是一个函数也可以是一个数组
     .factory('RegisterService', ['$http', function ($http) {
-        var baseUrl = "http://localhost:8080";
+        var baseUrl = "http://202.120.40.175:21101";
 
         var newUserRequest = function (newUser) {
             return $http({
