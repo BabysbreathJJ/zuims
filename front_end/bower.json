@@ -13,6 +13,7 @@
     "angular-ui": "latest",
     "angular-bootstrap": "latest",
     "angular-animate": "latest",
-    "angular-ui-router": "latest"
+    "angular-ui-router": "latest",
+    "angular-cookies":"1.4.8"
   }
 }
