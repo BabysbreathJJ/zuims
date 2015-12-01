@@ -16,7 +16,7 @@ angular.module('myApp.myinfo', ['ui.router', 'ngAnimate', 'ui.bootstrap'])
 
     }])
     .factory('MyinfoService', ['$http', function ($http) {
-        var baseUrl = "http://localhost:8080";
+        var baseUrl = "http://202.120.40.175:21101";
 
         var getUserInfoRequest = function (phone) {
             return $http({
