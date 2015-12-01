@@ -4,7 +4,7 @@
 'use strict';
 
 
-angular.module('myApp.about', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'ngCookies'])
+angular.module('myApp.about', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'ngCookies','myApp.constants'])
     .config(['$stateProvider', function ($stateProvider) {
         $stateProvider.state('about', {
             url: '/about',

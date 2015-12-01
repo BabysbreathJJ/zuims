@@ -4,7 +4,7 @@
 
 'use strict';
 
-angular.module('myApp.dinninglist', ['ngAnimate', 'ui.router'])
+angular.module('myApp.dinninglist', ['ngAnimate', 'ui.router', 'myApp.constants'])
     .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider) {
 
         $stateProvider
@@ -15,7 +15,7 @@ angular.module('myApp.dinninglist', ['ngAnimate', 'ui.router'])
         //});
         // route to show our basic form (/form)
             .state('dinninglist', {
-                url: '/dinninglist?search',
+                url: '/dinninglist?search&city',
                 templateUrl: 'view_dinninglist/dinninglist.html',
                 controller: 'DinninglistCtrl'
             });
@@ -27,13 +27,21 @@ angular.module('myApp.dinninglist', ['ngAnimate', 'ui.router'])
             return input + " 人/元";
         }
     })
-    .factory('DinningListService', ['$http', function ($http) {
-        var baseUrl = "http://202.120.40.175:21100";
+    .factory('DinningListService', ['$http', 'restaurantBaseUrl', function ($http, restaurantBaseUrl) {
+        //var baseUrl = "http://202.120.40.175:21100";
 
         var getRestaurantsRequest = function (keyword) {
             return $http({
                 method: 'GET',
-                url: baseUrl + '/restaurants/search?text=' + keyword,
+                url: restaurantBaseUrl + '/restaurants/search?text=' + keyword,
+                crossDomain: true
+            });
+        };
+
+        var getRecommandRequest = function (cname) {
+            return $http({
+                method: 'GET',
+                url: restaurantBaseUrl + '/restaurants/recommand/city?cname=' + cname,
                 crossDomain: true
             });
         };
@@ -41,42 +49,36 @@ angular.module('myApp.dinninglist', ['ngAnimate', 'ui.router'])
         return {
             getRestaurants: function (keyword) {
                 return getRestaurantsRequest(keyword);
+            },
+            getRecommand : function(city){
+                return getRecommandRequest(city);
             }
         }
 
     }])
-    .controller('DinninglistCtrl', function ($scope, $stateParams, DinningListService) {
+    .controller('DinninglistCtrl', function ($scope, $stateParams, DinningListService, $state) {
+        $scope.myInterval = 5000;
+        $scope.noWrapSlides = false;
         console.log($stateParams.search);
 
         DinningListService.getRestaurants($stateParams.search)
-            .success(function(data){
+            .success(function (data) {
                 $scope.results = data;
             });
-        //var results = $scope.results = [];
-        //results.push({
-        //    image: 'images/Eles.jpg',
-        //    title: 'Efes Turkish & Mediterranean Cuisine',
-        //    price: '195元/人',
-        //    address: '中国上海市浦东新区商城路665号1885文化广场B座一层'
-        //});
-        //results.push({
-        //    image: 'images/GoodFellas.jpg',
-        //    title: 'Goodfellas',
-        //    price: '263元/人',
-        //    address: '黄浦区 延安东路7号(中山东二路外滩)'
-        //});
-        //results.push({
-        //    image: 'images/Hakkasan.jpg',
-        //    title: 'Hakkasan',
-        //    price: '593元/人',
-        //    address: '黄浦区 中山东一路18号外滩18号5层(近南京东路, 地铁2&10'
-        //});
-        //results.push({
-        //    image: 'images/VANCA\'S.jpg',
-        //    title: 'VANCA\'S凡客极品',
-        //    price: '137元/人',
-        //    address: '静安区 大沽路427号(近成都北路)'
-        //});
+        $scope.city = $stateParams.city;
+        console.log($scope.city);
 
+
+        $scope.dinningDetail = function (restaurantId) {
+            $state.go('dinning', {id: restaurantId});
+        };
+
+
+        $scope.change = function(cname){
+            DinningListService.getRecommand(cname)
+                .success(function(data){
+                    $scope.results = data;
+                });
+        };
 
     });
