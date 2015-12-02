@@ -50,7 +50,7 @@ angular.module('myApp.userinfo', ['ngAnimate', 'ui.router','kendo.directives','m
         $urlRouterProvider.otherwise('/userinfo/initial');
 
     }])
-    .controller('FormCtrl', function ($scope) {
+    .controller('FormCtrl', function ($scope, $state) {
         kendo.culture("zh-CN");
 
         // we will store all of our form data in this object
@@ -59,6 +59,10 @@ angular.module('myApp.userinfo', ['ngAnimate', 'ui.router','kendo.directives','m
         // function to process the form
         $scope.processForm = function () {
             alert('awesome!');
+        };
+
+        $scope.basicSwipOver = function(link){
+            $state.go(link);
         };
 
     });

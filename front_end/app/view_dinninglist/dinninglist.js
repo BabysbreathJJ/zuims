@@ -59,7 +59,7 @@ angular.module('myApp.dinninglist', ['ngAnimate', 'ui.router', 'myApp.constants'
     .controller('DinninglistCtrl', function ($scope, $stateParams, DinningListService, $state) {
         $scope.myInterval = 5000;
         $scope.noWrapSlides = false;
-        console.log($stateParams.search);
+        $scope.order = 'distance';
 
         DinningListService.getRestaurants($stateParams.search)
             .success(function (data) {
