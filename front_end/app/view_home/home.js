@@ -4,7 +4,7 @@
 'use strict';
 
 
-angular.module('myApp.home', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'myApp.constants'])
+angular.module('myApp.home', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'myApp.constants', 'ngTouch'])
     .config(['$stateProvider', function ($stateProvider) {
         $stateProvider.state('home', {
             url: '/home',
@@ -121,24 +121,19 @@ angular.module('myApp.home', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'myApp.c
                     break;
             }
 
-            $scope.cname="定位失败";
+            $scope.cname = "定位失败";
         }
 
         getLocation();
 
-        $scope.change = function (cname) {
-            RecommandService.getRecommand(cname)
-                .success(function (data, status) {
-                    $scope.slides = data;
-
-                    $state.transitionTo($state.current, $stateParams, {
-                        reload: true,
-                        inherit: true,
-                        notify: true
-                    });
-                    //console.log($scope.slides);
-                });
-        };
+        //$scope.change = function (cname) {
+        //    RecommandService.getRecommand(cname)
+        //        .success(function (data, status) {
+        //            $scope.slides = data;
+        //            //for (var len = 0; len < data.length; len++)
+        //            $scope.slides[0].active = true;
+        //        });
+        //};
 
 
         $scope.dinningDetail = function (restaurantId) {
