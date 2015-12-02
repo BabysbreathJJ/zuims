@@ -81,3 +81,7 @@
 .mem-right button{
     padding: 0 0.5em;
 }
+
+.mem-right{
+    width: 100%;
+}
