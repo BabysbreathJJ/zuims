@@ -50,7 +50,7 @@ angular.module('myApp.dinninglist', ['ngAnimate', 'ui.router', 'myApp.constants'
             getRestaurants: function (keyword) {
                 return getRestaurantsRequest(keyword);
             },
-            getRecommand : function(city){
+            getRecommand: function (city) {
                 return getRecommandRequest(city);
             }
         }
@@ -74,11 +74,16 @@ angular.module('myApp.dinninglist', ['ngAnimate', 'ui.router', 'myApp.constants'
         };
 
 
-        $scope.change = function(cname){
+        $scope.change = function (cname) {
             DinningListService.getRecommand(cname)
-                .success(function(data){
+                .success(function (data) {
                     $scope.results = data;
                 });
+        };
+
+        $scope.sortInfo= function (condition) {
+            console.log(condition);
+            $scope.order = condition;
         };
 
     });

@@ -36,10 +36,10 @@ angular.module('myApp.home', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'myApp.c
         }
 
     }])
-    .controller('HomeCtrl', function ($scope, $location, RecommandService, $state) {
+    .controller('HomeCtrl', function ($scope, $location, RecommandService, $state, $stateParams) {
         $scope.myInterval = 5000;
         $scope.noWrapSlides = false;
-        $scope.cname = "北京";
+        $scope.cname = "";
         var slides = $scope.slides = [];
 
         if (navigator.geolocation) {
@@ -120,6 +120,8 @@ angular.module('myApp.home', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'myApp.c
                     alert("未知错误");
                     break;
             }
+
+            $scope.cname="定位失败";
         }
 
         getLocation();
@@ -128,6 +130,12 @@ angular.module('myApp.home', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'myApp.c
             RecommandService.getRecommand(cname)
                 .success(function (data, status) {
                     $scope.slides = data;
+
+                    $state.transitionTo($state.current, $stateParams, {
+                        reload: true,
+                        inherit: true,
+                        notify: true
+                    });
                     //console.log($scope.slides);
                 });
         };

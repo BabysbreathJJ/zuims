@@ -1,17 +1,18 @@
 <div class="toolbar">
     <div class="left">
-        <select class="form-control left" ng-model="cname" ng-change="change(cname)">
-            <option>北京</option>
-            <option>上海</option>
-            <option>广州</option>
-        </select>
+      <span class="glyphicon glyphicon-map-marker" style="color: rgba(255,0,0,0.5)"></span>{{cname}}
+        <!--<select class="form-control left" ng-model="cname" ng-change="change(cname)">-->
+            <!--<option>北京</option>-->
+            <!--<option>上海</option>-->
+            <!--<option>广州</option>-->
+        <!--</select>-->
     </div>
     <div class="middle">
 
         <input type="text" ng-model="keyword" placeholder="搜索">
     </div>
     <div class="right">
-        <button style="padding: 0 0.5em" ng-click="search()">搜索</button>
+        <button style="padding: 0 0.8em" ng-click="search()"><span class="glyphicon glyphicon-search"></span></button>
     </div>
 </div>
 <h4 style="text-align: left">适合我的餐厅:</h4>
