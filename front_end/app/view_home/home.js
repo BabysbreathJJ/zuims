@@ -96,7 +96,7 @@ angular.module('myApp.home', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'myApp.c
             var longitude = position.coords.longitude;
             //纬度
             var latitude = position.coords.latitude;
-            alert('经度' + longitude + '，纬度' + latitude);
+            //alert('经度' + longitude + '，纬度' + latitude);
 
             //根据经纬度获取地理位置，不太准确，获取城市区域还是可以的
             var map = new BMap.Map("allmap");
@@ -105,15 +105,15 @@ angular.module('myApp.home', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'myApp.c
             var gc = new BMap.Geocoder();
             gc.getLocation(point, function (rs) {
                 var addComp = rs.addressComponents;
-                alert(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
+                //alert(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
                 $scope.cname = addComp.city;
                 $scope.cname = $scope.cname.substring(0, $scope.cname.length - 1);
-                var pointA = new BMap.Point(106.486654, 29.490295);  // 创建点坐标A--大渡口区
-                var pointB = new BMap.Point(106.581515, 29.615467);  // 创建点坐标B--江北区
+                //var pointA = new BMap.Point(106.486654, 29.490295);  // 创建点坐标A--大渡口区
+                //var pointB = new BMap.Point(106.581515, 29.615467);  // 创建点坐标B--江北区
                 //alert('从大渡口区到江北区的距离是：' + map.getDistance(pointA, pointB) + ' 米。');
                 RecommandService.getRecommand($scope.cname)
                     .success(function (data, status) {
-
+                        $scope.slides = data;
                         //$scope.slides = function(){
                         //    return $filter('lowercase')($scope.name);
                         //};

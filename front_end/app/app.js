@@ -12,7 +12,8 @@ angular.module('myApp', [
         'myApp.userinfo',
         'myApp.dinninglist',
         'myApp.myinfo',
-        'myApp.dinning'
+        'myApp.dinning',
+        'myApp.image'
     ])
     .config(['$urlRouterProvider', function ($urlRouterProvider) {
         $urlRouterProvider.otherwise('/about');
