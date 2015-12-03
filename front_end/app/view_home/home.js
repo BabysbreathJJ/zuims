@@ -12,22 +12,6 @@ angular.module('myApp.home', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'myApp.c
             controller: 'HomeCtrl'
         });
     }])
-    .filter('price', function () {
-        return function (input) {
-
-            return input + " 人/元";
-        }
-    })
-    .filter('restaurantsInfos', function () {
-        return function (data, myPoint) {
-            for (var i = 0; i < data.length; i++) {
-                var restaurantPoint = new BMap.Point(data.longitude, data.latitude);
-                data.distance = map.getDistance(myPoint, restaurantPoint);
-                data.address = addComp.city + data.address;
-            }
-            return data;
-        }
-    })
     .factory('RecommandService', ['$http', 'restaurantBaseUrl', function ($http, restaurantBaseUrl) {
         //var baseUrl = "http://202.120.40.175:21100";
 
@@ -50,6 +34,10 @@ angular.module('myApp.home', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'myApp.c
         $scope.myInterval = 5000;
         $scope.noWrapSlides = false;
         $scope.cname = "";
+        var point = "";
+        var longitude = "";
+        //纬度
+        var latitude = "";
         var slides = $scope.slides = [];
 
         if (navigator.geolocation) {
@@ -65,7 +53,13 @@ angular.module('myApp.home', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'myApp.c
 
         $scope.search = function () {
             //$location.path('/dinninglist?search=test');
-            $state.go('dinninglist', {search: $scope.keyword, city: $scope.cname});
+            console.log(point);
+            $state.go('dinninglist', {
+                search: $scope.keyword,
+                city: $scope.cname,
+                longitude: longitude,
+                latitude: latitude
+            });
         };
 
 
@@ -93,14 +87,13 @@ angular.module('myApp.home', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'myApp.c
         function onSuccess(position) {
             //返回用户位置
             //经度
-            var longitude = position.coords.longitude;
+            longitude = position.coords.longitude;
             //纬度
-            var latitude = position.coords.latitude;
-            //alert('经度' + longitude + '，纬度' + latitude);
+            latitude = position.coords.latitude;
 
             //根据经纬度获取地理位置，不太准确，获取城市区域还是可以的
             var map = new BMap.Map("allmap");
-            var point = new BMap.Point(longitude, latitude);
+            point = new BMap.Point(longitude, latitude);
             //alert(point);
             var gc = new BMap.Geocoder();
             gc.getLocation(point, function (rs) {
@@ -108,18 +101,15 @@ angular.module('myApp.home', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'myApp.c
                 //alert(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
                 $scope.cname = addComp.city;
                 $scope.cname = $scope.cname.substring(0, $scope.cname.length - 1);
-                //var pointA = new BMap.Point(106.486654, 29.490295);  // 创建点坐标A--大渡口区
-                //var pointB = new BMap.Point(106.581515, 29.615467);  // 创建点坐标B--江北区
-                //alert('从大渡口区到江北区的距离是：' + map.getDistance(pointA, pointB) + ' 米。');
                 RecommandService.getRecommand($scope.cname)
                     .success(function (data, status) {
+                        for (var i = 0; i < data.length; i++) {
+                            var restaurantPoint = new BMap.Point(data[i].longitude, data[i].latitude);
+                            data[i].distance = map.getDistance(point, restaurantPoint);
+                            data[i].address = addComp.city + data[i].address;
+                        }
                         $scope.slides = data;
-                        //$scope.slides = function(){
-                        //    return $filter('lowercase')($scope.name);
-                        //};
-                        //
-                        //
-                        //$scope.slides = $filter('restaurantsInfos')(data, point);
+                        console.log(data);
                     });
             });
         }

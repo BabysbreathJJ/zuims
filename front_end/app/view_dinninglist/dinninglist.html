@@ -38,6 +38,9 @@
             <p>{{result.price|price}}</p>
 
             <p>{{result.address}}</p>
+
+            <p><span class="glyphicon glyphicon-map-marker" style="padding-right: 10px"></span>{{result.distance| km |
+                number:2 | distance}}</p>
         </div>
 
         <div style="text-align: right">

@@ -1,10 +1,10 @@
 <div class="toolbar">
     <div class="left">
-      <span class="glyphicon glyphicon-map-marker" style="color: rgba(255,0,0,0.5)"></span>{{cname}}
+        <span class="glyphicon glyphicon-map-marker" style="color: rgba(255,0,0,0.5)"></span>{{cname}}
         <!--<select class="form-control left" ng-model="cname" ng-change="change(cname)">-->
-            <!--<option>北京</option>-->
-            <!--<option>上海</option>-->
-            <!--<option>广州</option>-->
+        <!--<option>北京</option>-->
+        <!--<option>上海</option>-->
+        <!--<option>广州</option>-->
         <!--</select>-->
     </div>
     <div class="middle">
@@ -33,9 +33,11 @@
                         <p>{{slide.price | price}}</p>
 
                         <p>{{slide.address}}</p>
+
+                        <p><span class="glyphicon glyphicon-map-marker" style="padding-right: 10px"></span>{{slide.distance | km | number:2 | distance }}</p>
                     </div>
                 </div>
-                <button class="reservation" ng-click="reserve(slide.title)"> 一键订</button>
+                <button class="reservation" ng-click="reserve(slide.title)">一键订</button>
             </uib-slide>
         </uib-carousel>
     </div>

@@ -18,6 +18,24 @@ angular.module('myApp', [
     .config(['$urlRouterProvider', function ($urlRouterProvider) {
         $urlRouterProvider.otherwise('/about');
     }])
+    .filter('price', function () {
+        return function (input) {
+
+            return input + " 人/元";
+        }
+    })
+    .filter('km', function () {
+        return function (input) {
+
+            return (input/1000);
+        }
+    })
+    .filter('distance', function () {
+        return function (input) {
+
+            return input + " km";
+        }
+    })
     .controller('TabCtrl', function ($scope, $location) {
         $scope.goHome = function () {
             $location.path('/home');

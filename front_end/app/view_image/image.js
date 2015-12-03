@@ -9,6 +9,7 @@ angular.module('myApp.image', ['ui.router','ngImgCrop'])
             controller: 'Ctrl'
         });
     }])
+
     .controller('Ctrl', function($scope) {
         $scope.myImage='';
         $scope.myCroppedImage='';
