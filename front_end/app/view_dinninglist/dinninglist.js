@@ -51,53 +51,39 @@ angular.module('myApp.dinninglist', ['ngAnimate', 'ui.router', 'myApp.constants'
         $scope.city = $stateParams.city;
         var map = new BMap.Map("allmap");
         var point = new BMap.Point($stateParams.longitude, $stateParams.latitude);
-        var gc = new BMap.Geocoder();
-
 
         DinningListService.getRestaurants($stateParams.search)
             .success(function (data) {
-                $scope.results = new Array();
-                var tempfunc = function (i) {
-
+                for (var i = 0; i < data.length; i++) {
                     var restaurantPoint = new BMap.Point(data[i].longitude, data[i].latitude);
-                    var addComp;
-                    gc.getLocation(restaurantPoint, function (rs) {
-                        console.log(i);
-                        addComp = rs.addressComponents;
-                        console.log(addComp.city);
-                        data[i].address = addComp.city + data[i].address;
-                        $scope.results[i] = data[i];
-                        if (i < data.length - 1) {
-                            tempfunc(i + 1);
-                        } else {
-                            //$scope.results = data;
-                            $scope.$apply();
-                        }
-                    });
                     data[i].distance = map.getDistance(point, restaurantPoint);
-                };
-                tempfunc(0);
+                    data[i].address = data[i].city + data[i].address;
 
-                console.log(data);
-
-                //$scope.results = data;
+                }
+                $scope.results = data;
+                $scope.allResults = data;
             });
 
-        //console.log($scope.city);
-        var poit = $stateParams.point;
-        console.log(point);
 
         $scope.dinningDetail = function (restaurantId) {
             $state.go('dinning', {id: restaurantId});
         };
 
 
-        $scope.change = function (cname) {
-            DinningListService.getRecommand(cname)
-                .success(function (data) {
-                    $scope.results = data;
-                });
+        $scope.myCity = function (item) {
+            $scope.results = $scope.allResults;
+            var filteredData = new Array();
+            for (var i = 0; i < $scope.results.length; i++) {
+                if ($scope.results[i].city == item) {
+                    filteredData.push($scope.results[i]);
+                }
+            }
+            $scope.results = filteredData;
         };
+        $scope.change = function (cname) {
+            $scope.myCity(cname);
+        };
+
 
         $scope.sortInfo = function (condition) {
             console.log(condition);

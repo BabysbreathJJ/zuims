@@ -109,7 +109,7 @@ angular.module('myApp.home', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'myApp.c
                             data[i].address = addComp.city + data[i].address;
                         }
                         $scope.slides = data;
-                        console.log(data);
+                        //console.log(data);
                     });
             });
         }
