@@ -109,6 +109,12 @@ definitions:
         type: string
       address:
         type: string
+      longitude:
+        type: number
+      latitude:
+        type: number
+      city:
+        type: string
   CityList:
     type: array
     items:
@@ -133,6 +139,12 @@ definitions:
       smoke:
         type: string
       park:
+        type: string
+      longitude:
+        type: number
+      latitude:
+        type: number
+      city:
         type: string
       images:
         type: array
