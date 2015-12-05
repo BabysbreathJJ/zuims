@@ -12,11 +12,30 @@ angular.module('myApp', [
         'myApp.userinfo',
         'myApp.dinninglist',
         'myApp.myinfo',
-        'myApp.dinning'
+        'myApp.dinning',
+        'myApp.image'
     ])
     .config(['$urlRouterProvider', function ($urlRouterProvider) {
         $urlRouterProvider.otherwise('/about');
     }])
+    .filter('price', function () {
+        return function (input) {
+
+            return input + " 人/元";
+        }
+    })
+    .filter('km', function () {
+        return function (input) {
+
+            return (input/1000);
+        }
+    })
+    .filter('distance', function () {
+        return function (input) {
+
+            return input + " km";
+        }
+    })
     .controller('TabCtrl', function ($scope, $location) {
         $scope.goHome = function () {
             $location.path('/home');

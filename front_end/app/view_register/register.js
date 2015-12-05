@@ -137,7 +137,8 @@ angular.module('myApp.register', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'myA
                     //console.log(data);
                         $cookieStore.put('login', 'true');
                     $cookieStore.put('phone', $scope.phone);
-                    $state.go('myinfo', {phone: $scope.phone});
+                    //$state.go('myinfo', {phone: $scope.phone});
+                    $state.go('home');
                 });
 
         };

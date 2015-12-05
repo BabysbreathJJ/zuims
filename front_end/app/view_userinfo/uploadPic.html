@@ -1,0 +1,19 @@
+<h3>修改头像</h3>
+<hr/>
+<div>
+    <a href="javascript:;" class="file"><span class="glyphicon glyphicon-picture"></span>选择头像
+        <input type="file" accept="image/*" name="avatar" id="fileInput">
+    </a>
+    <a href="javascript:;" class="file"><span class="glyphicon glyphicon-saved"></span>上传头像
+
+    </a>
+
+</div>
+
+<div>
+    <div class="cropArea">
+        <img-crop image="myImage" result-image="myCroppedImage"></img-crop>
+    </div>
+    <div>头像预览:</div>
+    <div class="croppedPic"><img ng-src="{{myCroppedImage}}"/></div>
+</div>
