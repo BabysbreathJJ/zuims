@@ -161,6 +161,15 @@
                 },
                 "address": {
                     "type": "string"
+                },
+                "longitude": {
+                    "type": "number"
+                },
+                "latitude": {
+                    "type": "number"
+                },
+                "city": {
+                    "type": "string"
                 }
             }
         },
@@ -198,6 +207,15 @@
                     "type": "string"
                 },
                 "park": {
+                    "type": "string"
+                },
+                "longitude": {
+                    "type": "number"
+                },
+                "latitude": {
+                    "type": "number"
+                },
+                "city": {
                     "type": "string"
                 },
                 "images": {

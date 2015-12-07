@@ -7,3 +7,6 @@
 [submodule "src/RestaurantInfoSpider"]
 	path = src/RestaurantInfoSpider
 	url = git@github.com:HappyJimmy1993/RestaurantInfoSpider.git
+[submodule "src/zuims-merchant-management"]
+	path = src/zuims-merchant-management
+	url = git@github.com:gaocegege/zuims-merchant-management.git
