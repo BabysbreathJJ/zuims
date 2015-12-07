@@ -3,23 +3,28 @@
  */
 'use strict';
 
-angular.module('myApp.userinfo', ['ngAnimate', 'ui.router','kendo.directives','myApp.constants'])
+angular.module('myApp.userinfo', ['ngAnimate', 'ui.router', 'kendo.directives', 'myApp.constants', 'ngImgCrop'])
     .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
         $stateProvider
-        // route to show our basic form (/form)
+            .state('uploadPic', {
+                url: '/uploadPic',
+                templateUrl: 'view_userinfo/uploadPic.html',
+                controller: 'Ctrl'
+            })
+            // route to show our basic form (/form)
             .state('userinfo', {
                 url: '/userinfo',
                 templateUrl: 'view_userinfo/userinfo.html',
                 controller: 'FormCtrl'
             })
-
             // nested states
             // each of these sections will have their own view
             // url will be nested (/form/initial)
             .state('userinfo.initial', {
                 url: '/initial',
-                templateUrl: 'view_userinfo/userinfo-initial.html'
+                templateUrl: 'view_userinfo/userinfo-initial.html',
+                //controller: 'Ctrl'
             })
 
             // url will be /form/basic
@@ -50,15 +55,47 @@ angular.module('myApp.userinfo', ['ngAnimate', 'ui.router','kendo.directives','m
         $urlRouterProvider.otherwise('/userinfo/initial');
 
     }])
-    .controller('FormCtrl', function ($scope) {
+    .controller('FormCtrl', function ($scope, $state) {
         kendo.culture("zh-CN");
 
         // we will store all of our form data in this object
         $scope.formData = {};
 
+        $scope.myAvatar = './images/panda.jpg';
+
         // function to process the form
         $scope.processForm = function () {
             alert('awesome!');
         };
+
+        $scope.basicSwipOver = function (link) {
+            $state.go(link);
+        };
+
+        $scope.uploadPic = function () {
+            $state.go('uploadPic');
+        };
+
+    })
+    .controller('Ctrl', function ($scope) {
+
+
+        $scope.myImage = '';
+        $scope.myCroppedImage = '';
+
+        var handleFileSelect = function (evt) {
+            var file = evt.currentTarget.files[0];
+            var reader = new FileReader();
+            reader.onload = function (evt) {
+                $scope.$apply(function ($scope) {
+                    $scope.myImage = evt.target.result;
+                });
+            };
+            reader.readAsDataURL(file);
+
+        };
+        angular.element(document.querySelector('#fileInput')).on('change', handleFileSelect);
+
+
 
     });

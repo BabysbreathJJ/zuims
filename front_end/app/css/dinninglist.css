@@ -8,24 +8,42 @@
     display: table-cell;
     /*padding-right: 0.5em;*/
     padding-top: 0;
+    width: 30%;
+    padding-right: 0.3em;
 }
 
 .rank .middle {
     display: table-cell;
-    padding: 0.5em;
+    padding: 0.3em;
     padding-top: 0;
+    width: 30%;
+}
+
+.rank .middle button{
+    color: red !important;
+    border-color: red;
 }
 
 .rank .right {
     display: table-cell;
     /*padding-left: 1.5em;*/
+    padding-left: 0.3em;
     padding-top: 0;
+    width: 30%;
+}
+
+.rank .right button{
+    color: darkgreen !important;
+    border-color: darkgreen;
 }
 
 .rank button {
     height: 2.5em;
     width: 100%;
     line-height: 1;
+    padding: 0;
+    /*border-color: red;*/
+
 }
 
 .rank .form-control{

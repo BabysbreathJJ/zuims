@@ -1,11 +1,23 @@
 <!-- userinfo-initial.html -->
+<div class="item avatar">
+    <div style="display: table-cell">
+        <img class="myAvatar" ng-src="{{myAvatar}}" >
+
+        <div style="margin-top: 10px">
+            <a href="javascript:;" class="file" ng-click="uploadPic()"><span class="glyphicon glyphicon-edit"></span>修改头像
+                <!--<input type="file" accept="image/*" name="avatar" id="fileInput">-->
+            </a>
+        </div>
+    </div>
+</div>
+
 <div class="item">
     <label for="lastname" class="info">姓氏</label>
     <input type="text" class="form-control" name="lastname" ng-model="formData.lastname">
 </div>
 <div class="item">
     <label for="gender" class="info">性别</label>
-    <input type="text" name="email" ng-model="formData.gender">
+    <input type="text" name="gender" ng-model="formData.gender">
 </div>
 <div class="item">
     <label for="phone" class="info">手机号</label>

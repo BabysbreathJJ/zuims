@@ -63,7 +63,8 @@ angular.module('myApp.login', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'ngCook
                     //$locaiton.path("/myinfo");
                     $cookieStore.put('login', 'true');
                     $cookieStore.put('phone', $scope.phone);
-                    $state.go('myinfo', {phone: $scope.phone});
+                    //$state.go('myinfo', {phone: $scope.phone});
+                    $state.go('home');
                 })
 
         }

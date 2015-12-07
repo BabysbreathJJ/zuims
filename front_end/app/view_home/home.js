@@ -4,7 +4,7 @@
 'use strict';
 
 
-angular.module('myApp.home', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'myApp.constants'])
+angular.module('myApp.home', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'myApp.constants', 'ngTouch'])
     .config(['$stateProvider', function ($stateProvider) {
         $stateProvider.state('home', {
             url: '/home',
@@ -12,12 +12,6 @@ angular.module('myApp.home', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'myApp.c
             controller: 'HomeCtrl'
         });
     }])
-    .filter('price', function () {
-        return function (input) {
-
-            return input + " 人/元";
-        }
-    })
     .factory('RecommandService', ['$http', 'restaurantBaseUrl', function ($http, restaurantBaseUrl) {
         //var baseUrl = "http://202.120.40.175:21100";
 
@@ -36,10 +30,14 @@ angular.module('myApp.home', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'myApp.c
         }
 
     }])
-    .controller('HomeCtrl', function ($scope, $location, RecommandService, $state) {
+    .controller('HomeCtrl', function ($scope, $location, RecommandService, $state, $filter) {
         $scope.myInterval = 5000;
         $scope.noWrapSlides = false;
-        $scope.cname = "北京";
+        $scope.cname = "";
+        var point = "";
+        var longitude = "";
+        //纬度
+        var latitude = "";
         var slides = $scope.slides = [];
 
         if (navigator.geolocation) {
@@ -55,7 +53,13 @@ angular.module('myApp.home', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'myApp.c
 
         $scope.search = function () {
             //$location.path('/dinninglist?search=test');
-            $state.go('dinninglist', {search: $scope.keyword, city: $scope.cname});
+            console.log(point);
+            $state.go('dinninglist', {
+                search: $scope.keyword,
+                city: $scope.cname,
+                longitude: longitude,
+                latitude: latitude
+            });
         };
 
 
@@ -83,14 +87,14 @@ angular.module('myApp.home', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'myApp.c
         function onSuccess(position) {
             //返回用户位置
             //经度
-            var longitude = position.coords.longitude;
+            longitude = position.coords.longitude;
             //纬度
-            var latitude = position.coords.latitude;
-            //alert('经度' + longitude + '，纬度' + latitude);
+            latitude = position.coords.latitude;
 
             //根据经纬度获取地理位置，不太准确，获取城市区域还是可以的
             var map = new BMap.Map("allmap");
-            var point = new BMap.Point(longitude, latitude);
+            point = new BMap.Point(longitude, latitude);
+            //alert(point);
             var gc = new BMap.Geocoder();
             gc.getLocation(point, function (rs) {
                 var addComp = rs.addressComponents;
@@ -99,7 +103,13 @@ angular.module('myApp.home', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'myApp.c
                 $scope.cname = $scope.cname.substring(0, $scope.cname.length - 1);
                 RecommandService.getRecommand($scope.cname)
                     .success(function (data, status) {
+                        for (var i = 0; i < data.length; i++) {
+                            var restaurantPoint = new BMap.Point(data[i].longitude, data[i].latitude);
+                            data[i].distance = map.getDistance(point, restaurantPoint);
+                            data[i].address = addComp.city + data[i].address;
+                        }
                         $scope.slides = data;
+                        //console.log(data);
                     });
             });
         }
@@ -120,17 +130,20 @@ angular.module('myApp.home', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'myApp.c
                     alert("未知错误");
                     break;
             }
+
+            $scope.cname = "定位失败";
         }
 
         getLocation();
 
-        $scope.change = function (cname) {
-            RecommandService.getRecommand(cname)
-                .success(function (data, status) {
-                    $scope.slides = data;
-                    //console.log($scope.slides);
-                });
-        };
+        //$scope.change = function (cname) {
+        //    RecommandService.getRecommand(cname)
+        //        .success(function (data, status) {
+        //            $scope.slides = data;
+        //            //for (var len = 0; len < data.length; len++)
+        //            $scope.slides[0].active = true;
+        //        });
+        //};
 
 
         $scope.dinningDetail = function (restaurantId) {
