@@ -107,7 +107,7 @@
                 }
             }
         },
-        "/users/userinfocomplet": {
+        "/users/userinfocomplete": {
             "post": {
                 "summary": "用户登录",
                 "description": "用户根据唯一标识来登录\n",
@@ -174,7 +174,7 @@
                 }
             }
         },
-        "/users/userinfo": {
+        "/users/userInfo": {
             "get": {
                 "summary": "获取用户详细信息",
                 "description": "根据用户唯一标识获取用户详细信息",

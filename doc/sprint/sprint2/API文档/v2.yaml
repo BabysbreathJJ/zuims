@@ -73,7 +73,7 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
-  /users/userinfocomplet:
+  /users/userinfocomplete:
     post:
       summary: 用户登录
       description: |
@@ -119,7 +119,7 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
-  /users/userinfo:
+  /users/userInfo:
     get:
       summary: 获取用户详细信息
       description: 根据用户唯一标识获取用户详细信息
