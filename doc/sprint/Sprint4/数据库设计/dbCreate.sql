@@ -279,24 +279,24 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Restaurant2Picture` (
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
--- Table `mydb`.`Order`
+-- Table `mydb`.`DOrder`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Order` (
-  `orderid` INT NOT NULL AUTO_INCREMENT,
-  `phoneid` VARCHAR(45) NOT NULL,
-  `restaurantid` INT NOT NULL,
-  `ordertime` VARCHAR(45) NOT NULL,
+CREATE TABLE IF NOT EXISTS `mydb`.`DOrder` (
+  `DOrderid` INT NOT NULL AUTO_INCREMENT,
+  `userphone` VARCHAR(45) NOT NULL,
+  `resid` INT NOT NULL,
+  `orderTime` VARCHAR(45) NOT NULL,
   `state` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`orderid`),
-  INDEX `phoneid_idx` (`phoneid` ASC),
-  INDEX `restaurantid_idx` (`restaurantid` ASC),
+  PRIMARY KEY (`DOrderid`),
+  INDEX `phoneid_idx` (`userphone` ASC),
+  INDEX `restaurantid_idx` (`resid` ASC),
   CONSTRAINT `phoneid`
-    FOREIGN KEY (`phoneid`)
+    FOREIGN KEY (`userphone`)
     REFERENCES `mydb`.`User` (`phoneid`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `restaurantid`
-    FOREIGN KEY (`restaurantid`)
+    FOREIGN KEY (`resid`)
     REFERENCES `mydb`.`Restaurant` (`RestaurantID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
