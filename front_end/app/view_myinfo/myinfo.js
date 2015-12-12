@@ -42,8 +42,6 @@ angular.module('myApp.myinfo', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'myApp
     })
     .controller('MyinfoCtrl', function ($scope, $uibModal, $location, MyinfoService, $stateParams) {
 
-        $scope.formData = {};
-
         MyinfoService.getUserInfo($stateParams.phone)
             .success(function (data) {
                 $scope.userinfo = data;

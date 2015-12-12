@@ -21,7 +21,7 @@
     <div class="recommends">
         <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
             <uib-slide ng-repeat="slide in slides" active="slide.active">
-                <div ng-click="dinningDetail(slide.restaurantId)">
+                <div ng-click="dinningDetail(slide.restaurantId, slide.distance, slide.longitude, slide.latitude)">
 
                     <img class="dinning_bg" ng-src="{{slide.image}}" style="margin:auto;">
                     <img class="discount_logo" ng-src="images/discount.png">
@@ -34,7 +34,8 @@
 
                         <p>{{slide.address}}</p>
 
-                        <p><span class="glyphicon glyphicon-map-marker" style="padding-right: 10px"></span>{{slide.distance | km | number:2 | distance }}</p>
+                        <p><span class="glyphicon glyphicon-map-marker" style="padding-right: 10px"></span>{{slide.distance
+                            | km | number:2 | distance }}</p>
                     </div>
                 </div>
                 <button class="reservation" ng-click="reserve(slide.title)">一键订</button>

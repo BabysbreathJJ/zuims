@@ -13,10 +13,11 @@ angular.module('myApp', [
         'myApp.dinninglist',
         'myApp.myinfo',
         'myApp.dinning',
+        'myApp.reserve',
         'myApp.image'
     ])
     .config(['$urlRouterProvider', function ($urlRouterProvider) {
-        $urlRouterProvider.otherwise('/about');
+        $urlRouterProvider.otherwise('/reserve');
     }])
     .filter('price', function () {
         return function (input) {
@@ -27,7 +28,7 @@ angular.module('myApp', [
     .filter('km', function () {
         return function (input) {
 
-            return (input/1000);
+            return (input / 1000);
         }
     })
     .filter('distance', function () {

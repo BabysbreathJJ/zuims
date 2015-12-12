@@ -4,7 +4,7 @@
 'use strict';
 
 
-angular.module('myApp.about', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'ngCookies','myApp.constants'])
+angular.module('myApp.about', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'ngCookies', 'myApp.constants'])
     .config(['$stateProvider', function ($stateProvider) {
         $stateProvider.state('about', {
             url: '/about',
@@ -141,17 +141,19 @@ angular.module('myApp.about', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'ngCook
             });
         };
 
-        $scope.cname = "上海";
 
-        AboutService.getRecommand($scope.cname)
+        AboutService.getRecommand($cookieStore.get('locateCity'))
             .success(function (data, status) {
-                //for (var i = 0; i < data.length; i++) {
-                //    var restaurantPoint = new BMap.Point(data[i].longitude, data[i].latitude);
-                //    data[i].distance = map.getDistance(point, restaurantPoint);
-                //    data[i].address = addComp.city + data[i].address;
-                //}
+                var map = new BMap.Map("allmap");
+                var point = new BMap.Point($cookieStore.get('longitude'), $cookieStore.get('latitude'));
+                for (var i = 0; i < data.length; i++) {
+                    var restaurantPoint = new BMap.Point(data[i].longitude, data[i].latitude);
+                    data[i].distance = map.getDistance(point, restaurantPoint);
+                    data[i].address = $cookieStore.get('locateCity') + data[i].address;
+                }
                 $scope.results = data;
-                console.log(data);
+                //console.log(data);
             });
+
 
     });
