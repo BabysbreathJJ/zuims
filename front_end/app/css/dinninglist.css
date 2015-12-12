@@ -103,3 +103,9 @@
 .glyphicon-yen:before {
     content: "\00a5";
 }
+
+
+#myMap{
+    width: 100%;
+    height:500px;
+}

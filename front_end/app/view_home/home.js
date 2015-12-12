@@ -30,7 +30,7 @@ angular.module('myApp.home', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'myApp.c
         }
 
     }])
-    .controller('HomeCtrl', function ($scope, $location, RecommandService, $state, $filter) {
+    .controller('HomeCtrl', function ($scope, $location, RecommandService, $state, $cookieStore) {
         $scope.myInterval = 5000;
         $scope.noWrapSlides = false;
         $scope.cname = "";
@@ -101,6 +101,9 @@ angular.module('myApp.home', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'myApp.c
                 //alert(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
                 $scope.cname = addComp.city;
                 $scope.cname = $scope.cname.substring(0, $scope.cname.length - 1);
+                $cookieStore.put('longitude', longitude);
+                $cookieStore.put('latitude', latitude);
+                $cookieStore.put('locateCity', $scope.cname);
                 RecommandService.getRecommand($scope.cname)
                     .success(function (data, status) {
                         for (var i = 0; i < data.length; i++) {
@@ -136,17 +139,8 @@ angular.module('myApp.home', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'myApp.c
 
         getLocation();
 
-        //$scope.change = function (cname) {
-        //    RecommandService.getRecommand(cname)
-        //        .success(function (data, status) {
-        //            $scope.slides = data;
-        //            //for (var len = 0; len < data.length; len++)
-        //            $scope.slides[0].active = true;
-        //        });
-        //};
 
-
-        $scope.dinningDetail = function (restaurantId) {
-            $state.go('dinning', {id: restaurantId});
+        $scope.dinningDetail = function (restaurantId, distance, longitude, latitude) {
+            $state.go('dinning', {id: restaurantId, distance: distance, longitude: longitude, latitude: latitude});
         };
     });
