@@ -198,6 +198,9 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Restaurant` (
   `Memo` TEXT CHARACTER SET 'utf8' NULL,
   `City` VARCHAR(128) CHARACTER SET 'utf8' NULL,
   `Location` POINT NULL,
+  `Recommand` INT NOT NULL DEFAULT 0,
+  `Account` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`RestaurantID`))
 ENGINE = InnoDB;
 
