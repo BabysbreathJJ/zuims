@@ -200,7 +200,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Restaurant` (
   `Location` POINT NULL,
   `Recommand` INT NOT NULL DEFAULT 0,
   `Account` VARCHAR(45) NOT NULL,
-  `password` VARCHAR(45) NOT NULL,
+  `Password` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`RestaurantID`))
 ENGINE = InnoDB;
 
