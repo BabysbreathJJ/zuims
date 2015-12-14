@@ -1,2 +1,2 @@
 #!/bin/bash
-bootprint swagger v1.json target
+bootprint swagger $1 target
