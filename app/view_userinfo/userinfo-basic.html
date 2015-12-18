@@ -1,35 +1,40 @@
 <!-- userinfo-basic.html -->
-<div class="item">
-    <label for="name" class="info">真实姓名</label>
-    <input type="text" class="form-control" name="name" ng-model="formData.name">
-</div>
-<div class="item">
-    <label for="city" class="info">城市</label>
-    <input type="text" name="city" ng-model="formData.city">
-</div>
-<div class="item">
-    <label for="marriage" class="info">婚姻状况</label>
-    <input type="text" name="phone" ng-model="formData.marriage">
-</div>
-<div class="item">
-    <label for="birth" class="info">出生日期</label>
+<div ng-swipe-right="swipOver('contact')" ng-swipe-left="swipOver('initial')">
+    <div class="item">
+        <label for="name" class="info">真实姓名</label>
+        <input type="text" class="form-control" name="name" ng-model="formData.name">
+    </div>
+    <div class="item">
+        <label for="city" class="info">城市</label>
+        <input type="text" name="city" ng-model="formData.city">
+    </div>
+    <div class="item">
+        <label for="marriage" class="info">婚姻状况</label>
+        <input type="text" name="phone" ng-model="formData.marriage">
+    </div>
+    <div class="item">
+        <label for="birth" class="info">出生日期</label>
 
-    <input type="text" kendo-date-picker
-           ng-model="birth"
-           k-format="'yyyy-MM-dd'"
-           style="height: 2.75em;width:100%"/>
-</div>
-<div class="item">
-    <label for="education" class="info">最高学历</label>
-    <input type="text" name="phone" ng-model="formData.education">
-</div>
-<div class="item">
-    <label for="graduate" class="info">毕业学校</label>
-    <input type="text" name="phone" ng-model="formData.graduate">
-</div>
+        <input type="text" kendo-date-picker
+               ng-model="birth"
+               k-format="'yyyy-MM-dd'"
+               style="height: 2.75em;width:100%"/>
+    </div>
+    <div class="item">
+        <label for="education" class="info">最高学历</label>
+        <input type="text" name="phone" ng-model="formData.education">
+    </div>
+    <div class="item">
+        <label for="graduate" class="info">毕业学校</label>
+        <input type="text" name="phone" ng-model="formData.graduate">
+    </div>
 
-<div class="form-group">
-    <a ui-sref="userinfo.contact" class="btn">
-        联系信息 <span class="glyphicon glyphicon-circle-arrow-right"></span>
-    </a>
+    <div class="form-group">
+        <a ui-sref="userinfo.contact" class="btn">
+            联系信息 <span class="glyphicon glyphicon-circle-arrow-right"></span>
+        </a>
+        <a class="btn" ng-click="saveInfo()">
+            保存信息 <span class="glyphicon glyphicon-ok-circle"></span></span>
+        </a>
+    </div>
 </div>

@@ -4,13 +4,42 @@
 'use strict';
 
 
-angular.module('myApp.about', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'ngCookies'])
+angular.module('myApp.about', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'ngCookies', 'myApp.constants'])
     .config(['$stateProvider', function ($stateProvider) {
         $stateProvider.state('about', {
             url: '/about',
             templateUrl: 'view_about/about.html',
             controller: 'AboutCtrl'
         });
+    }])
+    .factory('AboutService', ['$http', 'restaurantBaseUrl', function ($http, restaurantBaseUrl) {
+        //var baseUrl = "http://202.120.40.175:21100";
+
+        var getRestaurantsRequest = function (keyword) {
+            return $http({
+                method: 'GET',
+                url: restaurantBaseUrl + '/restaurants/search?text=' + keyword,
+                crossDomain: true
+            });
+        };
+
+        var getRecommandRequest = function (cname) {
+            return $http({
+                method: 'GET',
+                url: restaurantBaseUrl + '/restaurants/recommand/city?cname=' + cname,
+                crossDomain: true
+            });
+        };
+
+        return {
+            getRestaurants: function (keyword) {
+                return getRestaurantsRequest(keyword);
+            },
+            getRecommand: function (city) {
+                return getRecommandRequest(city);
+            }
+        }
+
     }])
     .controller('ModalCtrl', function ($scope, $uibModalInstance, items, title) {
         $scope.items = items;
@@ -19,7 +48,7 @@ angular.module('myApp.about', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'ngCook
             $uibModalInstance.dismiss('确定');
         };
     })
-    .controller('AboutCtrl', function ($scope, $location, $uibModal, $cookieStore, $state) {
+    .controller('AboutCtrl', function ($scope, $location, $uibModal, $cookieStore, $state, AboutService) {
 
         if ($cookieStore.get('login')) {
             $state.go('myinfo', {phone: $cookieStore.get('phone')});
@@ -111,6 +140,20 @@ angular.module('myApp.about', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'ngCook
                 }
             });
         };
+
+
+        AboutService.getRecommand($cookieStore.get('locateCity'))
+            .success(function (data, status) {
+                var map = new BMap.Map("allmap");
+                var point = new BMap.Point($cookieStore.get('longitude'), $cookieStore.get('latitude'));
+                for (var i = 0; i < data.length; i++) {
+                    var restaurantPoint = new BMap.Point(data[i].longitude, data[i].latitude);
+                    data[i].distance = map.getDistance(point, restaurantPoint);
+                    data[i].address = $cookieStore.get('locateCity') + data[i].address;
+                }
+                $scope.results = data;
+                //console.log(data);
+            });
 
 
     });

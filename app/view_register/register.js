@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.register', ['ui.router', 'ngAnimate', 'ui.bootstrap'])
+angular.module('myApp.register', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'myApp.constants'])
     .config(['$stateProvider', function ($stateProvider) {
         $stateProvider.state('experience_register', {
                 url: '/experience_register',
@@ -15,13 +15,13 @@ angular.module('myApp.register', ['ui.router', 'ngAnimate', 'ui.bootstrap'])
     }])
     //服务的工厂函数用来生成一个单例的对象或函数,这个对象或函数就是服务,存在于应用的整个生命周期内
     //服务的工厂函数既可以是一个函数也可以是一个数组
-    .factory('RegisterService', ['$http', function ($http) {
-        var baseUrl = "http://localhost:8080";
+    .factory('RegisterService', ['$http', 'userBaseUrl', function ($http, userBaseUrl) {
+        //var baseUrl = "http://202.120.40.175:21101";
 
         var newUserRequest = function (newUser) {
             return $http({
                 method: 'POST',
-                url: baseUrl + '/users/register',
+                url: userBaseUrl + '/users/register',
                 data: JSON.stringify(newUser),
                 headers: {'Content-Type': 'application/json'},
                 crossDomain: true
@@ -105,7 +105,7 @@ angular.module('myApp.register', ['ui.router', 'ngAnimate', 'ui.bootstrap'])
         };
 
     }])
-    .controller('ExperienceRegisterCtrl', ['$scope', 'RegisterService', '$uibModal', function ($scope, RegisterService, $uibModal) {
+    .controller('ExperienceRegisterCtrl', ['$scope', 'RegisterService', '$uibModal', '$state', '$cookieStore', function ($scope, RegisterService, $uibModal, $state, $cookieStore) {
         $scope.myInterval = 5000;
         $scope.noWrapSlides = false;
         var slides = $scope.slides = [];
@@ -133,8 +133,12 @@ angular.module('myApp.register', ['ui.router', 'ngAnimate', 'ui.bootstrap'])
             RegisterService.newUser($scope.newUserInfo)
                 .success(function (data, status) {
                     if (data.success == true)
-                        alert("注册成功!");
+                    //alert("注册成功!");
                     //console.log(data);
+                        $cookieStore.put('login', 'true');
+                    $cookieStore.put('phone', $scope.phone);
+                    //$state.go('myinfo', {phone: $scope.phone});
+                    $state.go('home');
                 });
 
         };

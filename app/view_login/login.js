@@ -3,7 +3,7 @@
  */
 'use strict';
 
-angular.module('myApp.login', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'ngCookies'])
+angular.module('myApp.login', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'ngCookies', 'myApp.constants'])
     .config(['$stateProvider', function ($stateProvider) {
         $stateProvider.state('login', {
             url: '/login',
@@ -13,13 +13,13 @@ angular.module('myApp.login', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'ngCook
     }])
     //服务的工厂函数用来生成一个单例的对象或函数,这个对象或函数就是服务,存在于应用的整个生命周期内
     //服务的工厂函数既可以是一个函数也可以是一个数组
-    .factory('LoginService', ['$http', function ($http) {
-        var baseUrl = "http://localhost:8080";
+    .factory('LoginService', ['$http', 'userBaseUrl', function ($http, userBaseUrl) {
+        //var baseUrl = "http://202.120.40.175:21101";
 
         var confirmUserRequest = function (userinfo) {
             return $http({
                 method: 'POST',
-                url: baseUrl + '/users/login',
+                url: userBaseUrl + '/users/login',
                 data: JSON.stringify(userinfo),
                 headers: {'Content-Type': 'application/json'},
                 crossDomain: true
@@ -34,7 +34,7 @@ angular.module('myApp.login', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'ngCook
 
     }])
 
-    .controller('LoginCtrl', ['$scope', 'LoginService', '$state','$cookieStore', function ($scope, LoginService, $state, $cookieStore) {
+    .controller('LoginCtrl', ['$scope', 'LoginService', '$state', '$cookieStore', function ($scope, LoginService, $state, $cookieStore) {
         $scope.myInterval = 5000;
         $scope.noWrapSlides = false;
         var slides = $scope.slides = [];
@@ -61,9 +61,10 @@ angular.module('myApp.login', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'ngCook
                 .success(function (data, status) {
                     //alert("success");
                     //$locaiton.path("/myinfo");
-                    $cookieStore.put('login','true');
-                    $cookieStore.put('phone',$scope.phone);
-                    $state.go('myinfo', { phone: $scope.phone });
+                    $cookieStore.put('login', 'true');
+                    $cookieStore.put('phone', $scope.phone);
+                    //$state.go('myinfo', {phone: $scope.phone});
+                    $state.go('home');
                 })
 
         }

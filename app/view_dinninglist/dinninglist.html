@@ -1,35 +1,40 @@
 <div class="rank">
     <div class="left">
-        <button>热门</button>
+        <select class="form-control" ng-model="city" ng-change="change(city)">
+            <option value="北京">北京</option>
+            <option value="上海">上海</option>
+            <option value="广州">广州</option>
+        </select>
     </div>
     <div class="middle">
-        <button>价格</button>
+        <button ng-click="sortInfo('hot')"><span class="glyphicon glyphicon-heart" style="padding-right: 10px"> </span>热门
+        </button>
     </div>
     <div class="right">
-        <button>城市</button>
+        <button ng-click="sortInfo('price')"><span class="glyphicon glyphicon-yen" style="padding-right: 10px"></span>价格
+        </button>
     </div>
+
 </div>
 
 
 <div class="search-results">
-    <div ng-repeat="result in results" class="dinning">
+    <div ng-repeat="result in results | orderBy:order" class="dinning">
+        <div ng-click="dinningDetail(result.restaurantId)">
 
-        <img class="dinning_bg" ng-src="{{result.image}}" style="margin:auto;">
-        <img class="discount_logo" ng-src="images/discount.png">
+            <img class="dinning_bg" ng-src="{{result.image}}" style="margin:auto;">
+            <img class="discount_logo" ng-src="images/discount.png">
 
 
-        <!--<div class="pic_description">-->
-        <!--<h4>{{result.title}}</h4>-->
+            <h4>{{result.title}}</h4>
 
-        <!--<p>{{result.price}}</p>-->
+            <p>{{result.price|price}}</p>
 
-        <!--<p>{{result.address}}</p>-->
-        <!--</div>-->
-        <h6>{{result.title}}</h6>
+            <p>{{result.address}}</p>
 
-        <p>{{result.price|price}}</p>
-
-        <p>{{result.address}}</p>
+            <p><span class="glyphicon glyphicon-map-marker" style="padding-right: 10px"></span>{{result.distance| km |
+                number:2 | distance}}</p>
+        </div>
 
         <div style="text-align: right">
             <button class="reservation" ng-click="reserve(slide.title)" style="color: #FFF"> 一键订</button>

@@ -42,6 +42,31 @@
     <span class="detail"><a class="link_btn" href="" ng-click="detail3()">详细</a></span>
 </div>
 <hr/>
+<div class="search-results">
+    <div ng-repeat="result in results | orderBy:order" class="dinning">
+        <div ng-click="dinningDetail(result.restaurantId)">
+
+            <img class="dinning_bg" ng-src="{{result.image}}" style="margin:auto;">
+            <img class="discount_logo" ng-src="images/discount.png">
+
+
+            <h4>{{result.title}}</h4>
+
+            <p>{{result.price|price}}</p>
+
+            <p>{{result.address}}</p>
+
+            <p><span class="glyphicon glyphicon-map-marker" style="padding-right: 10px"></span>{{result.distance| km |
+                number:2 | distance}}</p>
+        </div>
+
+        <div style="text-align: right">
+            <button class="reservation" ng-click="reserve(slide.title)" style="color: #FFF"> 一键订</button>
+        </div>
+    </div>
+
+
+</div>
 
 <script type="text/ng-template" id="myModalContent.html">
     <div class="modal-header">

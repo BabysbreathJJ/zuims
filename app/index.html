@@ -12,7 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>最美食</title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
     <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
     <link rel="stylesheet" href="css/app.css">
@@ -22,8 +22,7 @@
     <link rel="stylesheet" href="css/userinfo.css">
     <link rel="stylesheet" href="css/dinninglist.css">
     <link rel="stylesheet" href="css/myinfo.css">
-    <!--<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">-->
-    <link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="components/kendoui/kendo.common.min.css">
     <link rel="stylesheet" href="components/kendoui/kendo.default.min.css">
     <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
@@ -44,7 +43,7 @@
         <div ui-view></div>
 
         <!-- Footer -->
-        <footer id="footer" style="color: #0f0f0f;font-size: 1.5em">
+        <footer id="footer" style="color: #0f0f0f;font-size: 1.5em;margin-top: 2em">
             <ul class="copyright">
                 <li>&copy; 最美食</li>
                 <li>Design: 最美食</a></li>
@@ -57,7 +56,7 @@
 
 <div class="main-tab" ng-controller="TabCtrl">
     <div class="tab-bg"></div>
-    <button class="restaurant" ng-click="goHome()"><span class="glyphicon glyphicon-home"
+    <button class="restaurant" ng-click="goHome()"><span class="glyphicon glyphicon-cutlery"
                                                          style="padding-right: 5px"></span>餐厅
     </button>
     <button class="myInfo" ng-click="goUserInfo()"><span class="glyphicon glyphicon-user"
@@ -82,7 +81,10 @@
 <!--<script src="http://kendo.cdn.telerik.com/2014.2.716/js/kendo.ui.core.min.js"></script>-->
 <script src="components/kendoui/kendo.culture.zh-CN.min.js"></script>
 <script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
-<!--<script src="http://api.map.baidu.com/api?v=1.2" type="text/javascript"></script>-->
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Qc6teGVqQ78qlFotnpHMAaoG"></script>
+<script src="bower_components/angular-touch/angular-touch.min.js"></script>
+<script src="bower_components/ng-img-crop/compile/minified/ng-img-crop.js"></script>
+<link rel="stylesheet" href="bower_components/ng-img-crop/compile/minified/ng-img-crop.css">
 <script src="app.js"></script>
 <script src="view_register/register.js"></script>
 <script src="view_about/about.js"></script>
@@ -91,6 +93,9 @@
 <script src="view_userinfo/userinfo.js"></script>
 <script src="view_dinninglist/dinninglist.js"></script>
 <script src="view_myinfo/myinfo.js"></script>
+<script src="view_dinning/dinning.js"></script>
+<script src="view_image/image.js"></script>
+<script src="view_reserve/reserve.js"></script>
 <script src="components/version/version.js"></script>
 <script src="components/version/version-directive.js"></script>
 <script src="components/version/interpolate-filter.js"></script>

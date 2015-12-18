@@ -4,36 +4,32 @@
 
 'use strict';
 
-angular.module('myApp.dinninglist', ['ngAnimate', 'ui.router'])
+angular.module('myApp.dinninglist', ['ngAnimate', 'ui.router', 'myApp.constants'])
     .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider) {
 
         $stateProvider
-        //.state('dinninglist',{
-        //    url: '/dinninglist/:search-word',
-        //    templateUrl: 'view_dinninglist/dinninglist.html',
-        //    controller: 'DinninglistCtrl'
-        //});
-        // route to show our basic form (/form)
             .state('dinninglist', {
-                url: '/dinninglist?search',
+                url: '/dinninglist?search&city&longitude&latitude',
                 templateUrl: 'view_dinninglist/dinninglist.html',
                 controller: 'DinninglistCtrl'
             });
 
     }])
-    .filter('price', function () {
-        return function (input) {
-
-            return input + " 人/元";
-        }
-    })
-    .factory('DinningListService', ['$http', function ($http) {
-        var baseUrl = "http://202.120.40.175:21100";
+    .factory('DinningListService', ['$http', 'restaurantBaseUrl', function ($http, restaurantBaseUrl) {
+        //var baseUrl = "http://202.120.40.175:21100";
 
         var getRestaurantsRequest = function (keyword) {
             return $http({
                 method: 'GET',
-                url: baseUrl + '/restaurants/search?text=' + keyword,
+                url: restaurantBaseUrl + '/restaurants/search?text=' + keyword,
+                crossDomain: true
+            });
+        };
+
+        var getRecommandRequest = function (cname) {
+            return $http({
+                method: 'GET',
+                url: restaurantBaseUrl + '/restaurants/recommand/city?cname=' + cname,
                 crossDomain: true
             });
         };
@@ -41,42 +37,57 @@ angular.module('myApp.dinninglist', ['ngAnimate', 'ui.router'])
         return {
             getRestaurants: function (keyword) {
                 return getRestaurantsRequest(keyword);
+            },
+            getRecommand: function (city) {
+                return getRecommandRequest(city);
             }
         }
 
     }])
-    .controller('DinninglistCtrl', function ($scope, $stateParams, DinningListService) {
-        console.log($stateParams.search);
+    .controller('DinninglistCtrl', function ($scope, $stateParams, DinningListService, $state) {
+        $scope.myInterval = 5000;
+        $scope.noWrapSlides = false;
+        $scope.order = 'distance';
+        $scope.city = $stateParams.city;
+        var map = new BMap.Map("allmap");
+        var point = new BMap.Point($stateParams.longitude, $stateParams.latitude);
 
         DinningListService.getRestaurants($stateParams.search)
-            .success(function(data){
-                $scope.results = data;
-            });
-        //var results = $scope.results = [];
-        //results.push({
-        //    image: 'images/Eles.jpg',
-        //    title: 'Efes Turkish & Mediterranean Cuisine',
-        //    price: '195元/人',
-        //    address: '中国上海市浦东新区商城路665号1885文化广场B座一层'
-        //});
-        //results.push({
-        //    image: 'images/GoodFellas.jpg',
-        //    title: 'Goodfellas',
-        //    price: '263元/人',
-        //    address: '黄浦区 延安东路7号(中山东二路外滩)'
-        //});
-        //results.push({
-        //    image: 'images/Hakkasan.jpg',
-        //    title: 'Hakkasan',
-        //    price: '593元/人',
-        //    address: '黄浦区 中山东一路18号外滩18号5层(近南京东路, 地铁2&10'
-        //});
-        //results.push({
-        //    image: 'images/VANCA\'S.jpg',
-        //    title: 'VANCA\'S凡客极品',
-        //    price: '137元/人',
-        //    address: '静安区 大沽路427号(近成都北路)'
-        //});
+            .success(function (data) {
+                for (var i = 0; i < data.length; i++) {
+                    var restaurantPoint = new BMap.Point(data[i].longitude, data[i].latitude);
+                    data[i].distance = map.getDistance(point, restaurantPoint);
+                    data[i].address = data[i].city + data[i].address;
 
+                }
+                $scope.results = data;
+                $scope.allResults = data;
+            });
+
+
+        $scope.dinningDetail = function (restaurantId) {
+            $state.go('dinning', {id: restaurantId});
+        };
+
+
+        $scope.myCity = function (item) {
+            $scope.results = $scope.allResults;
+            var filteredData = new Array();
+            for (var i = 0; i < $scope.results.length; i++) {
+                if ($scope.results[i].city == item) {
+                    filteredData.push($scope.results[i]);
+                }
+            }
+            $scope.results = filteredData;
+        };
+        $scope.change = function (cname) {
+            $scope.myCity(cname);
+        };
+
+
+        $scope.sortInfo = function (condition) {
+            console.log(condition);
+            $scope.order = condition;
+        };
 
     });

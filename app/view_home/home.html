@@ -1,17 +1,18 @@
 <div class="toolbar">
     <div class="left">
-        <select class="form-control left">
-            <option>北京</option>
-            <option>上海</option>
-            <option>广州</option>
-        </select>
+        <span class="glyphicon glyphicon-map-marker" style="color: rgba(255,0,0,0.5)"></span>{{cname}}
+        <!--<select class="form-control left" ng-model="cname" ng-change="change(cname)">-->
+        <!--<option>北京</option>-->
+        <!--<option>上海</option>-->
+        <!--<option>广州</option>-->
+        <!--</select>-->
     </div>
     <div class="middle">
 
-        <input type="text" ng-model="keyword" placeholder="搜索" >
+        <input type="text" ng-model="keyword" placeholder="搜索">
     </div>
     <div class="right">
-        <button style="padding: 0 0.5em" ng-click="search()">搜索</button>
+        <button style="padding: 0 0.8em" ng-click="search()"><span class="glyphicon glyphicon-search"></span></button>
     </div>
 </div>
 <h4 style="text-align: left">适合我的餐厅:</h4>
@@ -20,19 +21,24 @@
     <div class="recommends">
         <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
             <uib-slide ng-repeat="slide in slides" active="slide.active">
+                <div ng-click="dinningDetail(slide.restaurantId, slide.distance, slide.longitude, slide.latitude)">
 
-                <img class="dinning_bg" ng-src="{{slide.image}}" style="margin:auto;">
-                <img class="discount_logo" ng-src="images/discount.png">
+                    <img class="dinning_bg" ng-src="{{slide.image}}" style="margin:auto;">
+                    <img class="discount_logo" ng-src="images/discount.png">
 
 
-                <div class="pic_description">
-                    <h4>{{slide.title}}</h4>
+                    <div class="pic_description">
+                        <h4>{{slide.title}}</h4>
 
-                    <p>{{slide.price | price}}</p>
+                        <p>{{slide.price | price}}</p>
 
-                    <p>{{slide.address}}</p>
+                        <p>{{slide.address}}</p>
+
+                        <p><span class="glyphicon glyphicon-map-marker" style="padding-right: 10px"></span>{{slide.distance
+                            | km | number:2 | distance }}</p>
+                    </div>
                 </div>
-                <button class="reservation" ng-click="reserve(slide.title)"> 一键订</button>
+                <button class="reservation" ng-click="reserve(slide.title)">一键订</button>
             </uib-slide>
         </uib-carousel>
     </div>
