@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>最美食 -  用户登录</title>
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <!-- 开始顶部 固定 -->
+    <header class="bg-main navbar-fixed-top">
+      <div class="fl per50">
+        <a class="navbar-brand" href="index.html"><img src="images/logo.png" class="img-responsive" alt="最美食"></a>
+      </div>
+    </header>
+    <!--结束顶部-->
+    <!--轮播图开始-->
+    <div id="myCarousel" class="carousel slide mt50">
+       <!-- 轮播（Carousel）指标 -->
+       <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+       </ol>   
+       <!-- 轮播（Carousel）项目 -->
+       <div class="carousel-inner">
+          <div class="item active">
+             <img src="temp/1.jpg" alt="图片">
+          </div>
+          <div class="item">
+             <img src="temp/2.jpg" alt="图片">
+          </div>
+          <div class="item">
+             <img src="temp/3.jpg" alt="图片">
+          </div>
+       </div>
+    </div> 
+    <!--轮播图结束-->
+    <!--内容开始-->
+    <div class="pd15 mt5 mb80">
+      <div class="border border-r-5 bg-white padding">
+        <p class="tc font15 mt10">用户中心</p>
+        <p class="mt20">
+          <input type="text" class="form-control" placeholder="用户名">
+          <span class="font-red ml10 display-n"><span class="glyphicon glyphicon-remove"></span>这里是错误信息</span>
+           <span class="font-green ml10"><span class="glyphicon glyphicon-ok"></span>这里是正确信息</span>
+        </p>
+        <p class="mt10">
+          <input type="password" class="form-control" placeholder="密码">
+          <span class="font-red ml10 "><span class="glyphicon glyphicon-remove"></span>这里是错误信息</span>
+           <span class="font-green ml10 display-n"><span class="glyphicon glyphicon-ok"></span>这里是正确信息</span>
+        </p>
+        <p class="mt10">
+          <input type="checkbox" class="ml10 vertical-a-m">
+          <span class="vertical-a-m">记住我</span>
+        </p>
+        <p>
+          <a class="zms-btn" href="usercenter.html"><i class="fa fa-user"></i> <b>登 录</b></a>
+        </p>
+        <p>
+          <a class="zms-btn" href="reg.html"><i class="fa fa-user"></i> <b>注 册</b></a>
+        </p>
+      </div>
+    </div>
+    <!--内容结束-->
+    <!--底部菜单-->
+    <footer class="bg-main navbar-fixed-bottom ht60">
+      <div class="btn-group btn-group-justified">
+        <a href="#" class="btn ht60 font-white border-r"><span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span> 餐 厅</a>
+        <a href="#" class="btn ht60 font-white" > <span class="glyphicon glyphicon-user" aria-hidden="true"></span> 我 的</a>
+      </div>
+    </footer>
+    <!--结束底部菜单-->
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script>
+    <script type="text/javascript">
+      $('.carousel').carousel({
+      interval: 2000 //两秒自动轮播
+      }).carousel('cycle');
+      $("#myCarousel").swipe({
+        swipeStatus:function(event, phase, direction, distance, duration, fingers)
+          {
+            if(direction=="left"){
+              $('.carousel').carousel('next');
+            }
+            else if(direction=="right"){
+              $('.carousel').carousel('prev');
+            }
+          },
+          threshold:200,
+          maxTimeThreshold:5000,
+          fingers:'all'     
+      })
+    </script>
+  </body>
+</html>

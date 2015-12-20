@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>最美食 -  餐厅预定</title>
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/buttons.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <!-- 开始顶部 固定 -->
+    <header class="bg-main navbar-fixed-top">
+      <div class="fl per50">
+        <a class="navbar-brand" href="index.html"><img src="images/logo.png" class="img-responsive" alt="最美食"></a>
+      </div>
+      <!--排序开始-->
+      <ul class="list-unstyled  mt16 fr mr2">
+        <li class="fl  font-white font10  menu hot">
+          <span>热门 
+            <span class="glyphicon glyphicon-triangle-bottom"></span>
+            <span class="glyphicon glyphicon-triangle-top" style="display: none;"></span>
+          </span>
+        </li>
+        <li class="fl font-white  font10 menu price">
+          <span>价格 
+            <span class="glyphicon glyphicon-triangle-bottom"></span>
+            <span class="glyphicon glyphicon-triangle-top" style="display: none;"></span>
+          </span></li>
+        <li class="fl font-white  font10 b menu" data-toggle="modal" data-target="#myModal">
+          <span>城市 <span class="glyphicon glyphicon-triangle-bottom"></span></span>
+        </li>
+      </ul>
+      <!--排序结束-->  
+    </header>
+    <!--结束顶部-->    
+    
+    <div class="pd15 mt60 mb80">
+      <!--餐厅介绍开始-->
+      <div class="border border-r-5 bg-white padding mt10">
+        <div class="pos-r overflow-h">
+          <img src="temp/d1.jpg" class="img-responsive">
+          <div class="pos-a font-white bg-orange transform45 smy">三免一</div>
+        </div>
+        <p class="tc mt16"><b class="font14">北上海大酒店</b><i class="font-c-f8 ml10">hot</i></p>
+        <p id="date">
+          <span class="font-c-8f">日期：</span>
+          <span class="active plot">今天</span>
+          <span class="active plot">明天</span>
+          <span class="active plot">后天</span>
+          <span class="active plot">其他</span>
+        </p>
+        <p id="class">
+          <span class="font-c-8f">类别：</span>
+          <span class="active plot">午餐</span>
+          <span class="active plot">晚餐</span>
+          <span class="active plot">其他</span>
+        </p>
+        <p id="people-number">
+          <span class="font-c-8f">人数：</span>
+          <span class="active plot">1</span>
+          <span class="active plot">2</span>
+          <span class="active plot">3</span>
+          <span class="active plot">4</span>
+          <span class="active plot">More</span>
+        </p>
+        <p>
+          <span class="font-c-8f">总价：</span>
+          <span class="font-c-40">￥2650 <span class="font-c-8f text-d-lt">￥3272.53</span>（含15%服务费）</span>
+        </p>
+      </div>
+      <!--餐厅介绍结束-->
+      <div class="mt10 border-r-5 overflow-h">
+        <a href="usercenter.html"><div class="font-white ht40 tc progress-bar progress-bar-black progress-bar-striped" style="width:100%; height: 40px; line-height: 40px; font-size: 20px;">提 交 预 定</div></a>
+      </div>
+      <p class="tc mt10">提交后，您的信息将及时推送餐厅经理。</p>
+      <p class="tc">本单节约开支 <i class="font-c-f8 font20 ml4 mr4">812.53</i> 元</p>
+    </div>
+    
+    <!--底部菜单-->
+    <footer class="bg-main navbar-fixed-bottom ht60">
+      <div class="btn-group btn-group-justified">
+        <a href="lists.html" class="btn ht60 font-white border-r"><span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span> 餐 厅</a>
+        <a href="usercenter.html" class="btn ht60 font-white" > <span class="glyphicon glyphicon-user" aria-hidden="true"></span> 我 的</a>
+      </div>
+    </footer>
+    <!--结束底部菜单-->
+    <!--城市下拉-->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document" style="width:60%; margin: 0 auto;">
+        <div class="modal-content">
+          <div class="modal-header tc">
+            <h6 class="display-ib">城市列表</h6>
+            <span class="fr glyphicon glyphicon-remove" data-dismiss="modal" aria-label="Close"></span>
+          </div>
+          <div class="tc ht200 modal-body" style="overflow-y: scroll; padding: 0;">
+            <ul class="list-unstyled">
+              <li class="l-ht30 font14 border-b-1"><a href="#">上海</a></li>
+              <li class="l-ht30 font14 border-b-1"><a href="#">北京</a></li>
+              <li class="l-ht30 font14 border-b-1"><a href="#">广州</a></li>
+              <li class="l-ht30 font14 border-b-1"><a href="#">杭州</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--城市下拉-->
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    addClass($("#date"));
+    addClass($("#class"));
+    addClass($("#people-number"));
+    function addClass(obj){
+      var i = true;
+      obj.find('.plot').click(function(){ 
+        if(i){
+            $(this).addClass("plot-active");
+            i = false;
+        }
+        else{
+            $(this).removeClass("plot-active");
+            i = true;
+        }
+        
+      })
+    }
+    menu();
+    
+    function menu(){
+     
+      $(".menu").click(function(){
+
+          $(".menu").find('span').removeClass("font-c-f8");
+          $(this).find('span').addClass("font-c-f8");
+          i = false;
+      
+
+        
+      })
+    }
+    var i = true;
+    var j = true;
+    $(".hot").click(function(){
+      if(i){
+        $(this).find(".glyphicon-triangle-top").show();
+        $(this).find(".glyphicon-triangle-bottom").hide();
+        i = false;
+      }
+      else{
+        $(this).find(".glyphicon-triangle-top").hide();
+        $(this).find(".glyphicon-triangle-bottom").show();
+        i = true;
+      }
+    })
+    $(".price").click(function(){
+      if(j){
+        $(this).find(".glyphicon-triangle-top").show();
+        $(this).find(".glyphicon-triangle-bottom").hide();
+        j = false;
+      }
+      else{
+        $(this).find(".glyphicon-triangle-top").hide();
+        $(this).find(".glyphicon-triangle-bottom").show();
+        j = true;
+      }
+    })
+    </script>
+  </body>
+</html>

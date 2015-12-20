@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>最美食 -  用户信息</title>
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/buttons.css" rel="stylesheet">
+  </head>
+  <body>
+    <!-- 开始顶部 固定 -->
+    <header class="bg-main navbar-fixed-top">
+      <div class="fl per50">
+        <a class="navbar-brand" href="index.html"><img src="images/logo.png" class="img-responsive" alt="最美食"></a>
+      </div> 
+    </header>
+    <!--结束顶部-->
+    <!--内容开始-->
+    <div class="pd15 mt5 mb80 mt60">
+      <div class="border border-r-5 bg-white padding">
+		<!--步骤开始-->
+		<p class="tc font15 mt10">完善信息</p>
+		<ul class="list-unstyled tc border-bottom step">
+			<li class="display-ib per18 b-active initial-li">
+				<div class="img-circle tc ht40 l-ht40 w-40 bg-6 font-white margin-auto">1</div>
+				<p class="mt10 tc">初始信息</p>
+			</li>
+			<li class="display-ib per18  basic-li">
+				<div class="img-circle tc ht40 l-ht40 w-40 bg-6 font-white margin-auto">2</div>
+				<p class="mt10 tc">基本信息</p>
+			</li>
+			<li class="display-ib per18 connect-li">
+				<div class="img-circle tc ht40 l-ht40 w-40 bg-6 font-white margin-auto">3</div>
+				<p class="mt10 tc">联系信息</p>
+			</li>
+			<li class="display-ib per18 job-li">
+				<div class="img-circle tc ht40 l-ht40 w-40 bg-6 font-white margin-auto">4</div>
+				<p class="mt10 tc">职业信息</p>
+			</li>
+			<li class="display-ib per18 hobby-li">
+				<div class="img-circle tc ht40 l-ht40 w-40 bg-6 font-white margin-auto">5</div>
+				<p class="mt10 tc">兴趣爱好</p>
+			</li>
+		</ul>
+		<!--步骤结束-->
+		<!--初始信息开始-->
+		<div class="initial info">
+			<p>
+				<span class="display-ib tr per30">姓氏：</span>
+				<span class="display-ib per60">
+					<input type="text" class="form-control" name="name" placeholder="姓氏">
+					<span class="font-red ml10 display-n">这里是错误信息</span>
+				</span>
+			</p>
+			<p>
+				<span class="display-ib tr per30">性别：</span>
+				<span class="display-ib per60">
+					<input type="radio" name="sex" value="male" class="vertical-a-m">
+					<span class="vertical-a-m">男</span>
+					<input type="radio" name="sex" value="female" class="ml10 vertical-a-m">
+					<span class="vertical-a-m">女</span>
+				</span>
+			</p>
+			<p>
+				<span class="display-ib tr per30">手机号：</span>
+				<span class="display-ib per60">
+					<input type="text" class="form-control" name="name" placeholder="手机号">
+					<span class="font-red ml10 display-n">这里是错误信息</span>
+				</span>
+			</p>
+			<p>
+				<span class="display-ib per100 tc">
+					<button class="btn btn-black">保存</button>
+					<button class="btn btn-black  goto-basic fr">下一步<span class="glyphicon glyphicon-circle-arrow-right ml10"></span></button>
+				</span>
+			</p>
+		</div>
+		<!--初始信息结束-->
+		<!--基本信息开始-->
+		<div class="basic display-n info">
+			<p>
+				<span class="display-ib tr per30">真实姓名：</span>
+				<span class="display-ib per60">
+					<input type="text" class="form-control" name="name" placeholder="真实姓名">
+					<span class="font-red ml10 display-n">这里是错误信息</span>
+				</span>
+			</p>
+			<p>
+				<span class="display-ib tr per30">城市：</span>
+				<span class="display-ib per60">
+					<input type="text" class="form-control" name="name" placeholder="城市">
+					<span class="font-red ml10 display-n">这里是错误信息</span>
+				</span>
+			</p>
+			<p>
+				<span class="display-ib tr per30">真实照片：</span>
+				<span class="display-ib per60 tc">
+					<label for="head-logo" class="bg-gray tc display-ib pos-r img-circle w-80 ht80 l-ht80 border border-purple vertical-a-m cursor-p overflow-h">上传头像</label>
+					<input type="file" id="head-logo" class="top-200 pos-a" accept="image/*">
+					<span class="font-red ml10 display-n">这里是错误信息</span>
+				</span>	
+			</p>
+			<p>
+				<span class="display-ib tr per30">婚姻状况：</span>
+				<span class="display-ib per60">
+					<input type="radio" name="marriage" value="hasm" class="vertical-a-m">
+					<span class="vertical-a-m">已婚</span>
+					<input type="radio" name="marriage" value="notm" class="ml10 vertical-a-m">
+					<span class="vertical-a-m">未婚</span>
+				</span>
+			</p>
+			<p>
+				<span class="display-ib tr per30 vertical-a-m">出生日期：</span>
+				<span class="display-ib per60 vertical-a-m">
+					<input type="date" class="form-control vertical-a-m" name="date" placeholder="出生日期">
+					<span class="font-red ml10 display-n">这里是错误信息</span>
+				</span>
+			</p>
+			<p>
+				<span class="display-ib tr per30 vertical-a-m">最高学历：</span>
+				<span class="display-ib per60 vertical-a-m">
+					<input type="text" class="form-control vertical-a-m" name="" placeholder="最高学历">
+					<span class="font-red ml10 display-n">这里是错误信息</span>
+				</span>
+			</p>
+			<p>
+				<span class="display-ib tr per30 vertical-a-m">毕业学校：</span>
+				<span class="display-ib per60 vertical-a-m">
+					<input type="text" class="form-control vertical-a-m" name="" placeholder="毕业学校">
+					<span class="font-red ml10 display-n">这里是错误信息</span>
+				</span>
+			</p>
+			<p>
+				<span class="display-ib per100 tc">
+					<button class="btn btn-black  goto-initial fl"><span class="glyphicon glyphicon-circle-arrow-left mr10"></span>上一步</button>
+					<button class="btn btn-black">保存</button>
+					<button class="btn btn-black goto-connect fr">下一步<span class="glyphicon glyphicon-circle-arrow-right ml10"></span></button>
+				</span>
+			</p>
+		</div>
+		<!--基本信息结束-->
+		<!--联系信息开始-->
+		<div class="connect display-n info">
+			<p>
+				<span class="display-ib tr per30 vertical-a-m">QQ：</span>
+				<span class="display-ib per60 vertical-a-m">
+					<input type="tel" class="form-control vertical-a-m" name="" placeholder="QQ号码">
+					<span class="font-red ml10 display-n">这里是错误信息</span>
+				</span>
+			</p>
+			<p>
+				<span class="display-ib tr per30 vertical-a-m">微信：</span>
+				<span class="display-ib per60 vertical-a-m">
+					<input type="text" class="form-control vertical-a-m" name="" placeholder="微信">
+					<span class="font-red ml10 display-n">这里是错误信息</span>
+				</span>
+			</p>
+			<p>
+				<span class="display-ib tr per30 vertical-a-m">邮箱：</span>
+				<span class="display-ib per60 vertical-a-m">
+					<input type="email" class="form-control vertical-a-m" name="" placeholder="邮箱">
+				</span>
+			</p>
+			<p>
+				<span class="display-ib tr per30 vertical-a-m">固定号码：</span>
+				<span class="display-ib per60 vertical-a-m">
+					<input type="tel" class="form-control vertical-a-m" name="" placeholder="固定号码">
+					<span class="font-red ml10 display-n">这里是错误信息</span>
+				</span>
+			</p>
+			<p>
+				<span class="display-ib per100 tc">
+					<button class="btn btn-black  goto-basic fl"><span class="glyphicon glyphicon-circle-arrow-left mr10"></span>上一步</button>
+					<button class="btn btn-black">保存</button>
+					<button class="btn btn-black goto-job fr">下一步<span class="glyphicon glyphicon-circle-arrow-right ml10"></span></button>
+				</span>
+			</p>
+		</div>
+		<!--联系信息结束-->
+		<!--职业信息开始-->
+		<div class="job display-n info">
+			<p>
+				<span class="display-ib tr per30 vertical-a-m">公司/机构：</span>
+				<span class="display-ib per60 vertical-a-m">
+					<input type="text" class="form-control vertical-a-m" name="" placeholder="公司/机构">
+					<span class="font-red ml10 display-n">这里是错误信息</span>
+				</span>
+			</p>
+			<p>
+				<span class="display-ib tr per30 vertical-a-m">职位：</span>
+				<span class="display-ib per60 vertical-a-m">
+					<select class="form-control vertical-a-m">
+						<option value="">请选择</option>
+						<option value="">前端工程师</option>
+					</select>
+				</span>
+			</p>
+			<p>
+				<span class="display-ib tr per30 vertical-a-m">所属行业：</span>
+				<span class="display-ib per60 vertical-a-m">
+					<select class="form-control vertical-a-m">
+						<option value="">请选择</option>
+						<option value="">前端工程师</option>
+					</select>
+				</span>
+			</p>
+			<p>
+				<span class="display-ib tr per30 vertical-a-m">收入：</span>
+				<span class="display-ib per60 vertical-a-m">
+					<select class="form-control vertical-a-m">
+						<option value="">请选择</option>
+						<option value="">前端工程师</option>
+					</select>
+				</span>
+			</p>
+			<p>
+				<span class="display-ib per100 tc">
+					<button class="btn btn-black  goto-connect fl"><span class="glyphicon glyphicon-circle-arrow-left mr10"></span>上一步</button>
+					<button class="btn btn-black">保存</button>
+					<button class="btn btn-black goto-hobby fr">下一步<span class="glyphicon glyphicon-circle-arrow-right ml10"></span></button>
+				</span>
+			</p>
+		</div>
+		<!--职业信息结束-->
+		<!--兴趣信息开始-->
+		<div class="hobby info display-n">
+			<p>
+				<span class="display-ib tr per30 vertical-a-m">偏好菜系：</span>
+				<span class="display-ib per60 vertical-a-m">
+					<select class="form-control vertical-a-m">
+						<option value="">请选择</option>
+						<option value="">菜系</option>
+					</select>
+				</span>
+			</p>
+			<p>
+				<span class="display-ib tr per30 vertical-a-m">偏好价位：</span>
+				<span class="display-ib per60 vertical-a-m">
+					<select class="form-control vertical-a-m">
+						<option value="">请选择</option>
+						<option value="">价位</option>
+					</select>
+				</span>
+			</p>
+			<p>
+				<span class="display-ib tr per30 vertical-a-m">偏好类型：</span>
+				<span class="display-ib per60 vertical-a-m">
+					<select class="form-control vertical-a-m">
+						<option value="">请选择</option>
+						<option value="">类型</option>
+					</select>
+				</span>
+			</p>
+			<p>
+				<span class="display-ib tr per30 vertical-a-m">偏好城市：</span>
+				<span class="display-ib per60 vertical-a-m">
+					<select class="form-control vertical-a-m">
+						<option value="">请选择</option>
+						<option value="">城市</option>
+					</select>
+				</span>
+			</p>
+			<p>
+				<span class="display-ib tr per30 vertical-a-m">偏好区域：</span>
+				<span class="display-ib per60 vertical-a-m">
+					<select class="form-control vertical-a-m">
+						<option value="">请选择</option>
+						<option value="">区域</option>
+					</select>
+				</span>
+			</p>
+			<p>
+				<span class="display-ib tr per30 vertical-a-m">就餐目的：</span>
+				<span class="display-ib per60 vertical-a-m">
+					<select class="form-control vertical-a-m">
+						<option value="">请选择</option>
+						<option value="">商务宴请</option>
+					</select>
+				</span>
+			</p>
+			<p>
+				<span class="display-ib tr per30 vertical-a-m">其他兴趣：</span>
+				<span class="display-ib per60 vertical-a-m">
+					<select class="form-control vertical-a-m">
+						<option value="">请选择</option>
+						<option value="">兴趣1</option>
+					</select>
+				</span>
+			</p>
+			<p>
+				<span class="display-ib per100 tc">
+					<button class="btn btn-black  goto-job fl"><span class="glyphicon glyphicon-circle-arrow-left mr10"></span>上一步</button>
+					<button class="btn btn-black">保存</button>
+				</span>
+			</p>
+		</div>
+		<!--兴趣信息结束-->
+      </div>
+    </div>
+    <!--内容结束-->
+    <!--底部菜单-->
+    <footer class="bg-main navbar-fixed-bottom ht60">
+      <div class="btn-group btn-group-justified">
+        <a href="lists.html" class="btn ht60 font-white border-r"><span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span> 餐 厅</a>
+        <a href="usercenter.html" class="btn ht60 font-white" > <span class="glyphicon glyphicon-user" aria-hidden="true"></span> 我 的</a>
+      </div>
+    </footer>
+    <!--结束底部菜单-->
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+    	$(function(){
+    		$(".goto-initial").click(function(){
+    			$(".step").find('li').removeClass('b-active');
+    			$(".initial-li").addClass("b-active");
+    			$(".info").hide();
+    			$(".initial").show();
+    		});
+    		$(".goto-basic").click(function(){
+    			$(".step").find('li').removeClass('b-active');
+    			$(".basic-li").addClass("b-active");
+    			$(".info").hide();
+    			$(".basic").show();
+    		});
+    		$(".goto-connect").click(function(){ 
+    			$(".step").find('li').removeClass('b-active');
+    			$(".connect-li").addClass("b-active");
+    			$(".info").hide();
+    			$(".connect").show();
+    		});
+    		$(".goto-job").click(function(){
+    			$(".step").find('li').removeClass('b-active');
+    			$(".job-li").addClass("b-active");
+    			$(".info").hide();
+    			$(".job").show();
+    		});
+    		$(".goto-hobby").click(function(){
+    			$(".step").find('li').removeClass('b-active');
+    			$(".hobby-li").addClass("b-active");
+    			$(".info").hide();
+    			$(".hobby").show();
+    		});
+
+    	})
+    </script>
+  </body>
+</html>
