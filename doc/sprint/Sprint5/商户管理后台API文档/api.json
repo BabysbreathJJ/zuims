@@ -79,7 +79,7 @@
                 }
             }
         },
-        "/restaurants/info": {
+        "/restaurant/info": {
             "get": {
                 "summary": "获得商户信息",
                 "tags": [
@@ -177,7 +177,7 @@
                 }
             }
         },
-        "/restaurants/linkman": {
+        "/restaurant/linkman": {
             "get": {
                 "summary": "获得商户对应的联系人",
                 "tags": [
@@ -212,7 +212,7 @@
                 }
             }
         },
-        "/restaurants/linkman/add": {
+        "/restaurant/linkman/add": {
             "post": {
                 "summary": "添加联系人",
                 "tags": [
@@ -248,7 +248,7 @@
                 }
             }
         },
-        "/restaurants/linkman/delete": {
+        "/restaurant/linkman/delete": {
             "post": {
                 "summary": "删除联系人",
                 "tags": [

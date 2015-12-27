@@ -45,7 +45,7 @@
         </td>
                     </tr>
                     <tr>
-                        <td><a href="#operation--restaurants-info-get">GET /restaurants/info</a></td>
+                        <td><a href="#operation--restaurant-info-get">GET /restaurant/info</a></td>
                         <td><p>获得商户信息</p>
         </td>
                     </tr>
@@ -60,17 +60,17 @@
         </td>
                     </tr>
                     <tr>
-                        <td><a href="#operation--restaurants-linkman-get">GET /restaurants/linkman</a></td>
+                        <td><a href="#operation--restaurant-linkman-get">GET /restaurant/linkman</a></td>
                         <td><p>获得商户对应的联系人</p>
         </td>
                     </tr>
                     <tr>
-                        <td><a href="#operation--restaurants-linkman-add-post">POST /restaurants/linkman/add</a></td>
+                        <td><a href="#operation--restaurant-linkman-add-post">POST /restaurant/linkman/add</a></td>
                         <td><p>添加联系人</p>
         </td>
                     </tr>
                     <tr>
-                        <td><a href="#operation--restaurants-linkman-delete-post">POST /restaurants/linkman/delete</a></td>
+                        <td><a href="#operation--restaurant-linkman-delete-post">POST /restaurant/linkman/delete</a></td>
                         <td><p>删除联系人</p>
         </td>
                     </tr>
@@ -813,6 +813,382 @@
                         </section>
                 </div>
             </div>    
+        <span id="path--restaurant-info"></span>
+            <div id="operation--restaurant-info-get" class="swagger--panel-operation-get panel">
+                <div class="panel-heading">
+                    <div class="operation-summary">&#x83B7;&#x5F97;&#x5546;&#x6237;&#x4FE1;&#x606F;</div>
+                    <h3 class="panel-title"><span class="operation-name">GET</span> <strong>/restaurant/info</strong></h3>
+                        Tags:
+                            <a href="#tag-restaurants">restaurants</a>
+                </div>
+                <div class="panel-body">
+                    <section class="sw-operation-description">
+                        
+                    </section>
+                    
+                        <section class="sw-request-params">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th class="sw-param-name"></th>
+                                    <th class="sw-param-description"></th>
+                                    <th class="sw-param-type"></th>
+                                    <th class="sw-param-data-type"></th>
+                                    <th class="sw-param-annotation"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                        <tr>
+                                            <td>
+                                                id
+                                            <td><p>餐厅id</p>
+                                        </td>
+                                            <td>query</td>
+                                            <td><span class="json-property-type">integer</span>    <span class="json-property-format">(int32)</span>
+                                        <span class="json-property-range" title="Value limits"></span>
+                                        
+                                            </td>
+                                            <td>
+                                                    <span class="json-property-required"></span>
+                                            </td>
+                                        </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                    
+                        <section class="sw-responses">
+                                <p><a href="#sw-default-produces">Uses default content-types: </a>
+                                    <span class="label label-default">application/json</span> 
+                                </p>
+                            
+                            <dl>
+                                    <dt class="sw-response-200">
+                                        200 OK
+                                    
+                                    </dt>
+                                    <dd class="sw-response-200">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>餐厅详细信息</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                                <div  class="panel panel-definition">
+                                                    <div class="panel-body">
+                                                                <a class="json-schema-ref" href="#/definitions/RestaurantDetailDTO">RestaurantDetailDTO</a>
+                                                    </div>
+                                                </div></div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-default">
+                                        default 
+                                    
+                                    </dt>
+                                    <dd class="sw-response-default">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Unexpected error</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                                <div  class="panel panel-definition">
+                                                    <div class="panel-body">
+                                                                <a class="json-schema-ref" href="#/definitions/Error">Error</a>
+                                                    </div>
+                                                </div></div>
+                                            
+                                            </div>                </dd>
+                            </dl>
+                        </section>
+                </div>
+            </div>    
+        <span id="path--restaurant-linkman"></span>
+            <div id="operation--restaurant-linkman-get" class="swagger--panel-operation-get panel">
+                <div class="panel-heading">
+                    <div class="operation-summary">&#x83B7;&#x5F97;&#x5546;&#x6237;&#x5BF9;&#x5E94;&#x7684;&#x8054;&#x7CFB;&#x4EBA;</div>
+                    <h3 class="panel-title"><span class="operation-name">GET</span> <strong>/restaurant/linkman</strong></h3>
+                        Tags:
+                            <a href="#tag-restaurants">restaurants</a>
+                </div>
+                <div class="panel-body">
+                    <section class="sw-operation-description">
+                        
+                    </section>
+                    
+                        <section class="sw-request-params">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th class="sw-param-name"></th>
+                                    <th class="sw-param-description"></th>
+                                    <th class="sw-param-type"></th>
+                                    <th class="sw-param-data-type"></th>
+                                    <th class="sw-param-annotation"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                        <tr>
+                                            <td>
+                                                id
+                                            <td><p>餐厅id</p>
+                                        </td>
+                                            <td>query</td>
+                                            <td><span class="json-property-type">integer</span>    <span class="json-property-format">(int32)</span>
+                                        <span class="json-property-range" title="Value limits"></span>
+                                        
+                                            </td>
+                                            <td>
+                                                    <span class="json-property-required"></span>
+                                            </td>
+                                        </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                    
+                        <section class="sw-responses">
+                                <p><a href="#sw-default-produces">Uses default content-types: </a>
+                                    <span class="label label-default">application/json</span> 
+                                </p>
+                            
+                            <dl>
+                                    <dt class="sw-response-200">
+                                        200 OK
+                                    
+                                    </dt>
+                                    <dd class="sw-response-200">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>餐厅联系人</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                                <div  class="panel panel-definition">
+                                                    <div class="panel-body">
+                                                            
+                                                                            <section class="json-schema-array-items">
+                                                                                <span class="json-property-type">    <a class="json-schema-ref" href="#/definitions/linkMan">linkMan</a>
+                                                                                </span>
+                                                                                <span class="json-property-range" title="Value limits"></span>
+                                                                                
+                                                                                <div class="json-inner-schema">
+                                                                                    
+                                                                                </div>
+                                                                            </section>    </div>
+                                                </div></div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-default">
+                                        default 
+                                    
+                                    </dt>
+                                    <dd class="sw-response-default">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Unexpected error</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                                <div  class="panel panel-definition">
+                                                    <div class="panel-body">
+                                                                <a class="json-schema-ref" href="#/definitions/Error">Error</a>
+                                                    </div>
+                                                </div></div>
+                                            
+                                            </div>                </dd>
+                            </dl>
+                        </section>
+                </div>
+            </div>    
+        <span id="path--restaurant-linkman-add"></span>
+            <div id="operation--restaurant-linkman-add-post" class="swagger--panel-operation-post panel">
+                <div class="panel-heading">
+                    <div class="operation-summary">&#x6DFB;&#x52A0;&#x8054;&#x7CFB;&#x4EBA;</div>
+                    <h3 class="panel-title"><span class="operation-name">POST</span> <strong>/restaurant/linkman/add</strong></h3>
+                        Tags:
+                            <a href="#tag-restaurants">restaurants</a>
+                </div>
+                <div class="panel-body">
+                    <section class="sw-operation-description">
+                        
+                    </section>
+                        
+                            <section class="sw-request-body">
+                                
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p><p>payload</p>
+                        </p>
+                                            </div>
+                                            <div class="col-md-6 sw-request-model">
+                            <div  class="panel panel-definition">
+                                <div class="panel-body">
+                                            <a class="json-schema-ref" href="#/definitions/addLinkManBody">addLinkManBody</a>
+                                </div>
+                            </div></div>
+                                        </div>
+                            </section>        
+                    
+                        <section class="sw-responses">
+                                <p><a href="#sw-default-produces">Uses default content-types: </a>
+                                    <span class="label label-default">application/json</span> 
+                                </p>
+                            
+                            <dl>
+                                    <dt class="sw-response-200">
+                                        200 OK
+                                    
+                                    </dt>
+                                    <dd class="sw-response-200">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>OK</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                                <div  class="panel panel-definition">
+                                                    <div class="panel-body">
+                                                            
+                                                                            <section class="json-schema-array-items">
+                                                                                <span class="json-property-type">    <a class="json-schema-ref" href="#/definitions/linkMan">linkMan</a>
+                                                                                </span>
+                                                                                <span class="json-property-range" title="Value limits"></span>
+                                                                                
+                                                                                <div class="json-inner-schema">
+                                                                                    
+                                                                                </div>
+                                                                            </section>    </div>
+                                                </div></div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-default">
+                                        default 
+                                    
+                                    </dt>
+                                    <dd class="sw-response-default">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Unexpected error</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                                <div  class="panel panel-definition">
+                                                    <div class="panel-body">
+                                                                <a class="json-schema-ref" href="#/definitions/Error">Error</a>
+                                                    </div>
+                                                </div></div>
+                                            
+                                            </div>                </dd>
+                            </dl>
+                        </section>
+                </div>
+            </div>    
+        <span id="path--restaurant-linkman-delete"></span>
+            <div id="operation--restaurant-linkman-delete-post" class="swagger--panel-operation-post panel">
+                <div class="panel-heading">
+                    <div class="operation-summary">&#x5220;&#x9664;&#x8054;&#x7CFB;&#x4EBA;</div>
+                    <h3 class="panel-title"><span class="operation-name">POST</span> <strong>/restaurant/linkman/delete</strong></h3>
+                        Tags:
+                            <a href="#tag-restaurants">restaurants</a>
+                </div>
+                <div class="panel-body">
+                    <section class="sw-operation-description">
+                        
+                    </section>
+                        
+                            <section class="sw-request-body">
+                                
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p><p>payload</p>
+                        </p>
+                                            </div>
+                                            <div class="col-md-6 sw-request-model">
+                            <div  class="panel panel-definition">
+                                <div class="panel-body">
+                                            <a class="json-schema-ref" href="#/definitions/deleteLinkeManBody">deleteLinkeManBody</a>
+                                </div>
+                            </div></div>
+                                        </div>
+                            </section>        
+                    
+                        <section class="sw-responses">
+                                <p><a href="#sw-default-produces">Uses default content-types: </a>
+                                    <span class="label label-default">application/json</span> 
+                                </p>
+                            
+                            <dl>
+                                    <dt class="sw-response-200">
+                                        200 OK
+                                    
+                                    </dt>
+                                    <dd class="sw-response-200">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>OK</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                                <div  class="panel panel-definition">
+                                                    <div class="panel-body">
+                                                            
+                                                                            <section class="json-schema-array-items">
+                                                                                <span class="json-property-type">    <a class="json-schema-ref" href="#/definitions/linkMan">linkMan</a>
+                                                                                </span>
+                                                                                <span class="json-property-range" title="Value limits"></span>
+                                                                                
+                                                                                <div class="json-inner-schema">
+                                                                                    
+                                                                                </div>
+                                                                            </section>    </div>
+                                                </div></div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-default">
+                                        default 
+                                    
+                                    </dt>
+                                    <dd class="sw-response-default">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Unexpected error</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                                <div  class="panel panel-definition">
+                                                    <div class="panel-body">
+                                                                <a class="json-schema-ref" href="#/definitions/Error">Error</a>
+                                                    </div>
+                                                </div></div>
+                                            
+                                            </div>                </dd>
+                            </dl>
+                        </section>
+                </div>
+            </div>    
         <span id="path--restaurant-login"></span>
             <div id="operation--restaurant-login-post" class="swagger--panel-operation-post panel">
                 <div class="panel-heading">
@@ -1109,382 +1485,6 @@
                                                     <div class="panel-body">
                                                                 <a class="json-schema-ref" href="#/definitions/Success">Success</a>
                                                     </div>
-                                                </div></div>
-                                            
-                                            </div>                </dd>
-                                    <dt class="sw-response-default">
-                                        default 
-                                    
-                                    </dt>
-                                    <dd class="sw-response-default">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <p>Unexpected error</p>
-                                            
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                
-                                                <div class="col-md-6 sw-response-model">
-                                                <div  class="panel panel-definition">
-                                                    <div class="panel-body">
-                                                                <a class="json-schema-ref" href="#/definitions/Error">Error</a>
-                                                    </div>
-                                                </div></div>
-                                            
-                                            </div>                </dd>
-                            </dl>
-                        </section>
-                </div>
-            </div>    
-        <span id="path--restaurants-info"></span>
-            <div id="operation--restaurants-info-get" class="swagger--panel-operation-get panel">
-                <div class="panel-heading">
-                    <div class="operation-summary">&#x83B7;&#x5F97;&#x5546;&#x6237;&#x4FE1;&#x606F;</div>
-                    <h3 class="panel-title"><span class="operation-name">GET</span> <strong>/restaurants/info</strong></h3>
-                        Tags:
-                            <a href="#tag-restaurants">restaurants</a>
-                </div>
-                <div class="panel-body">
-                    <section class="sw-operation-description">
-                        
-                    </section>
-                    
-                        <section class="sw-request-params">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-param-name"></th>
-                                    <th class="sw-param-description"></th>
-                                    <th class="sw-param-type"></th>
-                                    <th class="sw-param-data-type"></th>
-                                    <th class="sw-param-annotation"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td>
-                                                id
-                                            <td><p>餐厅id</p>
-                                        </td>
-                                            <td>query</td>
-                                            <td><span class="json-property-type">integer</span>    <span class="json-property-format">(int32)</span>
-                                        <span class="json-property-range" title="Value limits"></span>
-                                        
-                                            </td>
-                                            <td>
-                                                    <span class="json-property-required"></span>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
-                    
-                        <section class="sw-responses">
-                                <p><a href="#sw-default-produces">Uses default content-types: </a>
-                                    <span class="label label-default">application/json</span> 
-                                </p>
-                            
-                            <dl>
-                                    <dt class="sw-response-200">
-                                        200 OK
-                                    
-                                    </dt>
-                                    <dd class="sw-response-200">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <p>餐厅详细信息</p>
-                                            
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                
-                                                <div class="col-md-6 sw-response-model">
-                                                <div  class="panel panel-definition">
-                                                    <div class="panel-body">
-                                                                <a class="json-schema-ref" href="#/definitions/RestaurantDetailDTO">RestaurantDetailDTO</a>
-                                                    </div>
-                                                </div></div>
-                                            
-                                            </div>                </dd>
-                                    <dt class="sw-response-default">
-                                        default 
-                                    
-                                    </dt>
-                                    <dd class="sw-response-default">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <p>Unexpected error</p>
-                                            
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                
-                                                <div class="col-md-6 sw-response-model">
-                                                <div  class="panel panel-definition">
-                                                    <div class="panel-body">
-                                                                <a class="json-schema-ref" href="#/definitions/Error">Error</a>
-                                                    </div>
-                                                </div></div>
-                                            
-                                            </div>                </dd>
-                            </dl>
-                        </section>
-                </div>
-            </div>    
-        <span id="path--restaurants-linkman"></span>
-            <div id="operation--restaurants-linkman-get" class="swagger--panel-operation-get panel">
-                <div class="panel-heading">
-                    <div class="operation-summary">&#x83B7;&#x5F97;&#x5546;&#x6237;&#x5BF9;&#x5E94;&#x7684;&#x8054;&#x7CFB;&#x4EBA;</div>
-                    <h3 class="panel-title"><span class="operation-name">GET</span> <strong>/restaurants/linkman</strong></h3>
-                        Tags:
-                            <a href="#tag-restaurants">restaurants</a>
-                </div>
-                <div class="panel-body">
-                    <section class="sw-operation-description">
-                        
-                    </section>
-                    
-                        <section class="sw-request-params">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-param-name"></th>
-                                    <th class="sw-param-description"></th>
-                                    <th class="sw-param-type"></th>
-                                    <th class="sw-param-data-type"></th>
-                                    <th class="sw-param-annotation"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td>
-                                                id
-                                            <td><p>餐厅id</p>
-                                        </td>
-                                            <td>query</td>
-                                            <td><span class="json-property-type">integer</span>    <span class="json-property-format">(int32)</span>
-                                        <span class="json-property-range" title="Value limits"></span>
-                                        
-                                            </td>
-                                            <td>
-                                                    <span class="json-property-required"></span>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
-                    
-                        <section class="sw-responses">
-                                <p><a href="#sw-default-produces">Uses default content-types: </a>
-                                    <span class="label label-default">application/json</span> 
-                                </p>
-                            
-                            <dl>
-                                    <dt class="sw-response-200">
-                                        200 OK
-                                    
-                                    </dt>
-                                    <dd class="sw-response-200">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <p>餐厅联系人</p>
-                                            
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                
-                                                <div class="col-md-6 sw-response-model">
-                                                <div  class="panel panel-definition">
-                                                    <div class="panel-body">
-                                                            
-                                                                            <section class="json-schema-array-items">
-                                                                                <span class="json-property-type">    <a class="json-schema-ref" href="#/definitions/linkMan">linkMan</a>
-                                                                                </span>
-                                                                                <span class="json-property-range" title="Value limits"></span>
-                                                                                
-                                                                                <div class="json-inner-schema">
-                                                                                    
-                                                                                </div>
-                                                                            </section>    </div>
-                                                </div></div>
-                                            
-                                            </div>                </dd>
-                                    <dt class="sw-response-default">
-                                        default 
-                                    
-                                    </dt>
-                                    <dd class="sw-response-default">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <p>Unexpected error</p>
-                                            
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                
-                                                <div class="col-md-6 sw-response-model">
-                                                <div  class="panel panel-definition">
-                                                    <div class="panel-body">
-                                                                <a class="json-schema-ref" href="#/definitions/Error">Error</a>
-                                                    </div>
-                                                </div></div>
-                                            
-                                            </div>                </dd>
-                            </dl>
-                        </section>
-                </div>
-            </div>    
-        <span id="path--restaurants-linkman-add"></span>
-            <div id="operation--restaurants-linkman-add-post" class="swagger--panel-operation-post panel">
-                <div class="panel-heading">
-                    <div class="operation-summary">&#x6DFB;&#x52A0;&#x8054;&#x7CFB;&#x4EBA;</div>
-                    <h3 class="panel-title"><span class="operation-name">POST</span> <strong>/restaurants/linkman/add</strong></h3>
-                        Tags:
-                            <a href="#tag-restaurants">restaurants</a>
-                </div>
-                <div class="panel-body">
-                    <section class="sw-operation-description">
-                        
-                    </section>
-                        
-                            <section class="sw-request-body">
-                                
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <p><p>payload</p>
-                        </p>
-                                            </div>
-                                            <div class="col-md-6 sw-request-model">
-                            <div  class="panel panel-definition">
-                                <div class="panel-body">
-                                            <a class="json-schema-ref" href="#/definitions/addLinkManBody">addLinkManBody</a>
-                                </div>
-                            </div></div>
-                                        </div>
-                            </section>        
-                    
-                        <section class="sw-responses">
-                                <p><a href="#sw-default-produces">Uses default content-types: </a>
-                                    <span class="label label-default">application/json</span> 
-                                </p>
-                            
-                            <dl>
-                                    <dt class="sw-response-200">
-                                        200 OK
-                                    
-                                    </dt>
-                                    <dd class="sw-response-200">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <p>OK</p>
-                                            
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                
-                                                <div class="col-md-6 sw-response-model">
-                                                <div  class="panel panel-definition">
-                                                    <div class="panel-body">
-                                                            
-                                                                            <section class="json-schema-array-items">
-                                                                                <span class="json-property-type">    <a class="json-schema-ref" href="#/definitions/linkMan">linkMan</a>
-                                                                                </span>
-                                                                                <span class="json-property-range" title="Value limits"></span>
-                                                                                
-                                                                                <div class="json-inner-schema">
-                                                                                    
-                                                                                </div>
-                                                                            </section>    </div>
-                                                </div></div>
-                                            
-                                            </div>                </dd>
-                                    <dt class="sw-response-default">
-                                        default 
-                                    
-                                    </dt>
-                                    <dd class="sw-response-default">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <p>Unexpected error</p>
-                                            
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                
-                                                <div class="col-md-6 sw-response-model">
-                                                <div  class="panel panel-definition">
-                                                    <div class="panel-body">
-                                                                <a class="json-schema-ref" href="#/definitions/Error">Error</a>
-                                                    </div>
-                                                </div></div>
-                                            
-                                            </div>                </dd>
-                            </dl>
-                        </section>
-                </div>
-            </div>    
-        <span id="path--restaurants-linkman-delete"></span>
-            <div id="operation--restaurants-linkman-delete-post" class="swagger--panel-operation-post panel">
-                <div class="panel-heading">
-                    <div class="operation-summary">&#x5220;&#x9664;&#x8054;&#x7CFB;&#x4EBA;</div>
-                    <h3 class="panel-title"><span class="operation-name">POST</span> <strong>/restaurants/linkman/delete</strong></h3>
-                        Tags:
-                            <a href="#tag-restaurants">restaurants</a>
-                </div>
-                <div class="panel-body">
-                    <section class="sw-operation-description">
-                        
-                    </section>
-                        
-                            <section class="sw-request-body">
-                                
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <p><p>payload</p>
-                        </p>
-                                            </div>
-                                            <div class="col-md-6 sw-request-model">
-                            <div  class="panel panel-definition">
-                                <div class="panel-body">
-                                            <a class="json-schema-ref" href="#/definitions/deleteLinkeManBody">deleteLinkeManBody</a>
-                                </div>
-                            </div></div>
-                                        </div>
-                            </section>        
-                    
-                        <section class="sw-responses">
-                                <p><a href="#sw-default-produces">Uses default content-types: </a>
-                                    <span class="label label-default">application/json</span> 
-                                </p>
-                            
-                            <dl>
-                                    <dt class="sw-response-200">
-                                        200 OK
-                                    
-                                    </dt>
-                                    <dd class="sw-response-200">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <p>OK</p>
-                                            
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                
-                                                <div class="col-md-6 sw-response-model">
-                                                <div  class="panel panel-definition">
-                                                    <div class="panel-body">
-                                                            
-                                                                            <section class="json-schema-array-items">
-                                                                                <span class="json-property-type">    <a class="json-schema-ref" href="#/definitions/linkMan">linkMan</a>
-                                                                                </span>
-                                                                                <span class="json-property-range" title="Value limits"></span>
-                                                                                
-                                                                                <div class="json-inner-schema">
-                                                                                    
-                                                                                </div>
-                                                                            </section>    </div>
                                                 </div></div>
                                             
                                             </div>                </dd>
