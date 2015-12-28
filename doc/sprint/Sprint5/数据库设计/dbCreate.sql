@@ -265,7 +265,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Restaurant2Picture` (
   `restaurantid` INT NOT NULL,
   `pictureid` INT NOT NULL,
   `picture_type` INT NULL,
-  `vaild` INT NOT NULL,
+  `valid` INT NOT NULL,
   PRIMARY KEY (`restaurantid`, `pictureid`),
   INDEX `PictureID_fk_idx` (`pictureid` ASC),
   INDEX `RestaurantID_fk_idx` (`restaurantid` ASC),
