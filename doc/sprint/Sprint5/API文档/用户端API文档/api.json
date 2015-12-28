@@ -1,0 +1,769 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "最美食用户相关API文档",
+        "description": "用户登录，注册等相关功能",
+        "version": "1.0.0"
+    },
+    "host": "127.0.0.1:8080",
+    "schemes": [
+        "http"
+    ],
+    "basePath": "/v1",
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/users/images": {
+            "get": {
+                "summary": "获得用户头像",
+                "description": "目前无论phone，返回都是默认头像",
+                "tags": [
+                    "users"
+                ],
+                "parameters": [
+                    {
+                        "name": "phone",
+                        "in": "query",
+                        "description": "手机号",
+                        "required": true,
+                        "type": "string",
+                        "format": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "图片，默认图片为png"
+                    }
+                }
+            }
+        },
+        "/users/register": {
+            "post": {
+                "summary": "用户注册",
+                "description": "用户访问时，调用该接口进行注册\n",
+                "tags": [
+                    "users"
+                ],
+                "parameters": [
+                    {
+                        "name": "payload",
+                        "in": "body",
+                        "description": "payload",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UserRegister"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "注册成功",
+                        "schema": {
+                            "schema": null,
+                            "$ref": "#/definitions/User"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/users/login": {
+            "post": {
+                "summary": "用户登录",
+                "description": "用户根据唯一标识来登录\n",
+                "tags": [
+                    "users"
+                ],
+                "parameters": [
+                    {
+                        "name": "payload",
+                        "in": "body",
+                        "description": "payload",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UserLogin"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "登录成功",
+                        "schema": {
+                            "$ref": "#/definitions/Success"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/users/userinfocomplete": {
+            "post": {
+                "summary": "用户登录",
+                "description": "用户根据唯一标识来登录\n",
+                "tags": [
+                    "users"
+                ],
+                "parameters": [
+                    {
+                        "name": "payload",
+                        "in": "body",
+                        "description": "payload",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UserInfo"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "登录成功",
+                        "schema": {
+                            "$ref": "#/definitions/Success"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/users": {
+            "get": {
+                "summary": "获得用户信息",
+                "description": "根据用户唯一标识获得用户信息\n",
+                "tags": [
+                    "users"
+                ],
+                "parameters": [
+                    {
+                        "name": "phone",
+                        "in": "query",
+                        "description": "手机号",
+                        "required": true,
+                        "type": "string",
+                        "format": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "登录成功",
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/users/userInfo": {
+            "get": {
+                "summary": "获取用户详细信息",
+                "description": "根据用户唯一标识获取用户详细信息",
+                "tags": [
+                    "users"
+                ],
+                "parameters": [
+                    {
+                        "name": "phone",
+                        "in": "query",
+                        "description": "手机号",
+                        "required": true,
+                        "type": "string",
+                        "format": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "详细信息",
+                        "schema": {
+                            "$ref": "#/definitions/Userinfo"
+                        }
+                    },
+                    "500": {
+                        "description": "error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/restaurants/recommand": {
+            "get": {
+                "summary": "推荐",
+                "description": "现在是写死的，之后进行基于地理位置和签约信息的推荐",
+                "tags": [
+                    "restaurants"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "图片，默认图片为png",
+                        "schema": {
+                            "$ref": "#/definitions/RecommandList"
+                        }
+                    },
+                    "500": {
+                        "description": "error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/restaurants/search": {
+            "get": {
+                "summary": "搜索",
+                "description": "全文检索",
+                "tags": [
+                    "restaurants"
+                ],
+                "parameters": [
+                    {
+                        "name": "text",
+                        "in": "query",
+                        "description": "搜索词",
+                        "required": true,
+                        "type": "string",
+                        "format": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "搜索成功",
+                        "schema": {
+                            "$ref": "#/definitions/RecommandList"
+                        }
+                    },
+                    "500": {
+                        "description": "error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/restaurants/recommand/city": {
+            "get": {
+                "summary": "推荐",
+                "description": "根据城市推荐相应的餐厅",
+                "tags": [
+                    "restaurants"
+                ],
+                "parameters": [
+                    {
+                        "name": "cname",
+                        "in": "query",
+                        "description": "城市名称",
+                        "required": true,
+                        "type": "string",
+                        "format": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "推荐城市",
+                        "schema": {
+                            "$ref": "#/definitions/RecommandList"
+                        }
+                    },
+                    "500": {
+                        "description": "error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/restaurants/info": {
+            "get": {
+                "summary": "详细信息",
+                "description": "餐厅详细信息",
+                "tags": [
+                    "restaurants"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "餐厅id",
+                        "required": true,
+                        "type": "integer",
+                        "format": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "详细信息",
+                        "schema": {
+                            "$ref": "#/definitions/CityList"
+                        }
+                    },
+                    "500": {
+                        "description": "error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/restaurant/register": {
+            "post": {
+                "summary": "商户注册",
+                "description": "商户访问时，调用该接口进行注册\n",
+                "tags": [
+                    "restaurants"
+                ],
+                "parameters": [
+                    {
+                        "name": "payload",
+                        "in": "body",
+                        "description": "payload",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/RestaurantRegister"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "注册成功",
+                        "schema": {
+                            "schema": null,
+                            "$ref": "#/definitions/Success"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/restaurant/login": {
+            "post": {
+                "summary": "商户登录",
+                "description": "商户根据唯一标识来登录\n",
+                "tags": [
+                    "restaurants"
+                ],
+                "parameters": [
+                    {
+                        "name": "payload",
+                        "in": "body",
+                        "description": "payload",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/RestaurantLogin"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "登录成功",
+                        "schema": {
+                            "$ref": "#/definitions/Restaurant"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "RestaurantLogin": {
+            "type": "object",
+            "properties": {
+                "account": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                }
+            }
+        },
+        "RestaurantRegister": {
+            "type": "object",
+            "properties": {
+                "account": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                }
+            }
+        },
+        "RecommandList": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/Restaurant"
+            }
+        },
+        "Restaurant": {
+            "type": "object",
+            "properties": {
+                "restaurantId": {
+                    "type": "integer"
+                },
+                "account": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "image": {
+                    "type": "string"
+                },
+                "price": {
+                    "type": "string"
+                },
+                "address": {
+                    "type": "string"
+                },
+                "longitude": {
+                    "type": "number"
+                },
+                "latitude": {
+                    "type": "number"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "persistTable": {
+                    "type": "integer"
+                }
+            }
+        },
+        "CityList": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/City"
+            }
+        },
+        "City": {
+            "type": "object",
+            "properties": {
+                "restaurantId": {
+                    "type": "integer"
+                },
+                "restaurantName": {
+                    "type": "string"
+                },
+                "restaurantTele": {
+                    "type": "string"
+                },
+                "restaurantAddress": {
+                    "type": "string"
+                },
+                "restaurantOpenTime": {
+                    "type": "string"
+                },
+                "introduction": {
+                    "type": "string"
+                },
+                "averagePrice": {
+                    "type": "string"
+                },
+                "smoke": {
+                    "type": "string"
+                },
+                "park": {
+                    "type": "string"
+                },
+                "longitude": {
+                    "type": "number"
+                },
+                "latitude": {
+                    "type": "number"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "persistTable": {
+                    "type": "integer"
+                },
+                "images": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Pic"
+                    }
+                }
+            }
+        },
+        "Pic": {
+            "type": "string"
+        },
+        "UserRegister": {
+            "type": "object",
+            "properties": {
+                "phone": {
+                    "type": "string"
+                },
+                "lastname": {
+                    "type": "string"
+                },
+                "gender": {
+                    "type": "integer"
+                },
+                "password": {
+                    "type": "string"
+                }
+            }
+        },
+        "UserLogin": {
+            "type": "object",
+            "properties": {
+                "phone": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                }
+            }
+        },
+        "UserInfo": {
+            "type": "object",
+            "properties": {
+                "phoneid": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "birth": {
+                    "type": "string"
+                },
+                "marriage": {
+                    "type": "string"
+                },
+                "education": {
+                    "type": "string"
+                },
+                "graduate": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string"
+                },
+                "qq": {
+                    "type": "string"
+                },
+                "wechat": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "tel": {
+                    "type": "string"
+                },
+                "lastname": {
+                    "type": "string"
+                },
+                "gender": {
+                    "type": "string"
+                },
+                "prefer_cooking": {
+                    "type": "string"
+                },
+                "prefer_price": {
+                    "type": "string"
+                },
+                "prefer_restaurant": {
+                    "type": "string"
+                },
+                "prefer_city": {
+                    "type": "string"
+                },
+                "prefer_district": {
+                    "type": "string"
+                },
+                "dinning_purpose": {
+                    "type": "string"
+                },
+                "other_insterests": {
+                    "type": "string"
+                },
+                "position": {
+                    "type": "string"
+                },
+                "industry": {
+                    "type": "string"
+                },
+                "income": {
+                    "type": "string"
+                },
+                "company": {
+                    "type": "string"
+                },
+                "loyaltyPoints": {
+                    "type": "string"
+                }
+            }
+        },
+        "User": {
+            "type": "object",
+            "properties": {
+                "phone": {
+                    "type": "string"
+                },
+                "lastname": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string",
+                    "description": "可能为null"
+                },
+                "viplevel": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "1为一般用户，2为vip"
+                }
+            }
+        },
+        "Userinfo": {
+            "type": "object",
+            "properties": {
+                "phoneid": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "birth": {
+                    "type": "string"
+                },
+                "marriage": {
+                    "type": "string"
+                },
+                "education": {
+                    "type": "string"
+                },
+                "graduate": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string"
+                },
+                "qq": {
+                    "type": "string"
+                },
+                "wechat": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "tel": {
+                    "type": "string"
+                },
+                "lastname": {
+                    "type": "string"
+                },
+                "gender": {
+                    "type": "string"
+                },
+                "prefer_cooking": {
+                    "type": "string"
+                },
+                "prefer_price": {
+                    "type": "string"
+                },
+                "prefer_restaurant": {
+                    "type": "string"
+                },
+                "prefer_city": {
+                    "type": "string"
+                },
+                "prefer_district": {
+                    "type": "string"
+                },
+                "dinning_purpose": {
+                    "type": "string"
+                },
+                "other_insterests": {
+                    "type": "string"
+                },
+                "position": {
+                    "type": "string"
+                },
+                "industry": {
+                    "type": "string"
+                },
+                "income": {
+                    "type": "string"
+                },
+                "company": {
+                    "type": "string"
+                },
+                "loyaltyPoints": {
+                    "type": "string"
+                }
+            }
+        },
+        "Success": {
+            "type": "object",
+            "properties": {
+                "success": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "Error": {
+            "type": "object",
+            "properties": {
+                "error": {
+                    "type": "string"
+                },
+                "exception": {
+                    "type": "string"
+                },
+                "message": {
+                    "description": "错误信息",
+                    "type": "string"
+                },
+                "path": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
