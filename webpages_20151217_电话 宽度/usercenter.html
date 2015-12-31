@@ -7,14 +7,15 @@
     <title>最美食 -  用户登录</title>
     <link href="css/main.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
+    <link href="css/buttons.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
   </head>
   <body>
     <!-- 开始顶部 固定 -->
     <header class="bg-main navbar-fixed-top">
       <div class="fl per50">
-        <a class="navbar-brand" href="index.html"><img src="images/logo.png" class="img-responsive" alt="最美食"></a>
+          <a class="navbar-brand" href="index.html"><img src="images/logo.png" class="per90" alt="最美食">
+              <span class="glyphicon glyphicon-home font-9 fr font12" style="margin-top: -20px;"></span></a>
       </div>  
     </header>
     <!--结束顶部-->
@@ -52,7 +53,10 @@
         </div> 
       </div>
       <p class="tc per60 margin-auto mt10">
-        <a href="userinfo.html" class="zms-btn font16" type="submit"><i class="fa fa-user"></i><b>会员权益和升级</b></a>
+        <a href="userinfo.html" class="button-block button-rounded ht30 l-ht30 button-highlight font16" type="submit"><i class="fa fa-user"></i><b>会员权益和升级</b></a>
+      </p>
+      <p class="tc per60 margin-auto mt10">
+        <a href="userinfo.html" class="button-block button-rounded ht30 l-ht30 button-highlight font16" type="submit"><i class="fa fa-user"></i><b>完善个人信息</b><b style="display: none;">填写个人信息</b></a>
       </p>
     </div>
     <!--会员卡结束-->
@@ -161,9 +165,9 @@
     </div>
     <!--反馈-->
     <!--弹出层结束-->
-    <script src="js/jquery-1.11.3.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script>
+    <script src="js/plugins/jquery-1.11.3.min.js"></script>
+    <script src="js/plugins/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/plugins/jquery.touchSwipe.min.js"></script>
     <script type="text/javascript">
       $('.carousel').carousel({
       interval: 2000 //两秒自动轮播

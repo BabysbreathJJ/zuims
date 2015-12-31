@@ -15,7 +15,8 @@
     <!-- 开始顶部 固定 -->
     <header class="bg-main navbar-fixed-top">
       <div class="fl per50">
-        <a class="navbar-brand" href="index.html"><img src="images/logo.png" class="img-responsive" alt="最美食"></a>
+          <a class="navbar-brand" href="index.html"><img src="images/logo.png" class="per90" alt="最美食">
+              <span class="glyphicon glyphicon-home font-9 fr font12" style="margin-top: -20px;"></span></a>
       </div> 
     </header>
     <!--结束顶部-->
@@ -134,6 +135,13 @@
 					<span class="font-red ml10 display-n">这里是错误信息</span>
 				</span>
 			</p>
+            <p>
+                <span class="display-ib tr per30 vertical-a-m">信用卡信息：</span>
+				<span class="display-ib per60 vertical-a-m">
+					<input type="tel" class="form-control vertical-a-m" name="" placeholder="信用卡信息">
+					<span class="font-red ml10 display-n">这里是错误信息</span>
+				</span>
+            </p>
 			<p>
 				<span class="display-ib per100 tc">
 					<button class="btn btn-black  goto-initial fl"><span class="glyphicon glyphicon-circle-arrow-left mr10"></span>上一步</button>
@@ -310,8 +318,8 @@
       </div>
     </footer>
     <!--结束底部菜单-->
-    <script src="js/jquery-1.11.3.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="js/plugins/jquery-1.11.3.min.js"></script>
+    <script src="js/plugins/bootstrap.min.js"></script>
     <script>
     	$(function(){
     		$(".goto-initial").click(function(){
