@@ -16,7 +16,7 @@
       <div class="fl per50">
           <a class="navbar-brand" href="index.html"><img src="images/logo.png" class="per90" alt="最美食">
               <span class="glyphicon glyphicon-home font-9 fr font12" style="margin-top: -20px;"></span></a>
-      </div>  
+      </div>
     </header>
     <!--结束顶部-->
     <!--会员卡开始-->
@@ -26,29 +26,29 @@
           <img src="images/user-logo.png" class="img-responsive border-white border-r-5">
           <p>
             <img src="images/diamond.png" width="20px;" class="ml5">
-            <span class="font-c-35">钻石会员</span>
+            <span class="font-c-35 vipLevel"></span>
           </p>
         </div>
         <div class="fl per70 pl30">
           <p>
             <span class="font-c-8f">卡号 ：</span>
-            <span class="font-c-f8 font14">00001</span>
+            <span class="font-c-f8 font14 card"></span>
           </p>
           <p>
             <span class="font-c-8f">姓名 ：</span>
-            <span class="font14">潘新Simon</span>
+            <span class="font14 name"></span>
           </p>
           <p>
             <span class="font-c-8f">职务 ：</span>
-            <span class="font14">最美食CEO</span>
+            <span class="font14 post"></span>
           </p>
           <p>
             <span class="font-c-8f">手机 ：</span>
-            <span class="font14"><a class="font-defaul" href="tel:13659996566" >13659996566</a></span>
+            <span class="font14"><a class="font-defaul phone"></a></span>
           </p>
           <p class="mt30">
             <span class="font-c-8f">有效期至：</span>
-            <span>2115-12-13 22:14</span>
+            <span class="time">2115-12-13 22:14</span>
           </p>
         </div> 
       </div>
@@ -167,25 +167,8 @@
     <!--弹出层结束-->
     <script src="js/plugins/jquery-1.11.3.min.js"></script>
     <script src="js/plugins/bootstrap.min.js"></script>
+    <script src="js/plugins/jquery.cookie.js"></script>
     <script type="text/javascript" src="js/plugins/jquery.touchSwipe.min.js"></script>
-    <script type="text/javascript">
-      $('.carousel').carousel({
-      interval: 2000 //两秒自动轮播
-      }).carousel('cycle');
-      $("#myCarousel").swipe({
-        swipeStatus:function(event, phase, direction, distance, duration, fingers)
-          {
-            if(direction=="left"){
-              $('.carousel').carousel('next');
-            }
-            else if(direction=="right"){
-              $('.carousel').carousel('prev');
-            }
-          },
-          threshold:200,
-          maxTimeThreshold:5000,
-          fingers:'all'     
-      })
-    </script>
+    <script type="text/javascript" src="js/model/usercenter.js"></script>
   </body>
 </html>
