@@ -142,18 +142,19 @@
         
       })
     }
-    var i = true;
+    var k = true;
     var j = true;
     $(".hot").click(function(){
-      if(i){
+        debugger;
+      if(k){
         $(this).find(".glyphicon-triangle-top").show();
         $(this).find(".glyphicon-triangle-bottom").hide();
-        i = false;
+        k = false;
       }
       else{
         $(this).find(".glyphicon-triangle-top").hide();
         $(this).find(".glyphicon-triangle-bottom").show();
-        i = true;
+        k = true;
       }
     })
     $(".price").click(function(){

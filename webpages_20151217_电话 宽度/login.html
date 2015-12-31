@@ -44,24 +44,22 @@
       <div class="border border-r-5 bg-white padding">
         <p class="tc font15 mt10">用户中心</p>
         <p class="mt20">
-          <input type="text" class="form-control" placeholder="用户名">
-          <span class="font-red ml10 display-n"><span class="glyphicon glyphicon-remove"></span>这里是错误信息</span>
-           <span class="font-green ml10"><span class="glyphicon glyphicon-ok"></span>这里是正确信息</span>
+          <input type="text" class="form-control" id="user" placeholder="用户名">
         </p>
         <p class="mt10">
-          <input type="password" class="form-control" placeholder="密码">
-          <span class="font-red ml10 "><span class="glyphicon glyphicon-remove"></span>这里是错误信息</span>
-           <span class="font-green ml10 display-n"><span class="glyphicon glyphicon-ok"></span>这里是正确信息</span>
+          <input type="password" class="form-control" id="pass" placeholder="密码">
+          <span class="font-red ml10 display-n"><span class="glyphicon glyphicon-remove"></span><span class="wrongMessage"></span></span>
+          <!--<span class="font-green ml10 display-n"><span class="glyphicon glyphicon-ok"></span>这里是正确信息</span>-->
         </p>
         <p class="mt10">
-          <input type="checkbox" class="ml10 vertical-a-m">
+          <input type="checkbox" id="remember" class="ml10 vertical-a-m">
           <span class="vertical-a-m">记住我</span>
         </p>
         <p>
-          <a class="zms-btn" href="usercenter.html"><i class="fa fa-user"></i> <b>登 录</b></a>
+          <a class="zms-btn" id="login"><i class="fa fa-user"></i> <b>登 录</b></a>
         </p>
         <p>
-          <a class="zms-btn" href="reg.html"><i class="fa fa-user"></i> <b>注 册</b></a>
+          <a class="zms-btn" href="regpay.html"><i class="fa fa-user"></i> <b>注 册</b></a>
         </p>
       </div>
     </div>
@@ -75,26 +73,9 @@
     </footer>
     <!--结束底部菜单-->
     <script src="js/plugins/jquery-1.11.3.min.js"></script>
+    <script src="js/plugins/jquery.cookie.js"></script>
     <script src="js/plugins/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/plugins/jquery.touchSwipe.min.js"></script>
-    <script type="text/javascript">
-      $('.carousel').carousel({
-      interval: 2000 //两秒自动轮播
-      }).carousel('cycle');
-      $("#myCarousel").swipe({
-        swipeStatus:function(event, phase, direction, distance, duration, fingers)
-          {
-            if(direction=="left"){
-              $('.carousel').carousel('next');
-            }
-            else if(direction=="right"){
-              $('.carousel').carousel('prev');
-            }
-          },
-          threshold:200,
-          maxTimeThreshold:5000,
-          fingers:'all'     
-      })
-    </script>
+    <script type="text/javascript" src="js/model/login.js"></script>
   </body>
 </html>
