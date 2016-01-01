@@ -35,7 +35,7 @@ $(function(){
                 cname = "北京";
             }
         },{enableHighAccuracy: true});
-        console.log($.cookie('locateCity'));
+        //console.log($.cookie('locateCity'));
         $("#current-city").html($.cookie('locateCity'));
         //默认加载
         loadRes($.cookie('locateCity'));
@@ -55,7 +55,7 @@ $(function(){
                     '<li class="fl ml5 mr5">' +
                     '<div class="w-300 r-single">' +
                     '<div class="pos-r overflow-h">' +
-                    '<a class="display-ib pos-a per100 ht300" href="order.html?id='+data[data.length-1].restaurantId+'">'+
+                    '<a class="display-ib pos-a per100 ht300" href="details.html?id='+data[data.length-1].restaurantId+'">'+
                     '</a>'+
                     '<img src="'+data[data.length-1].image+' "class="img-responsive">' +
                     '<div class="pos-a font-white bg-orange transform45 smy">三免一</div>' +
@@ -87,7 +87,7 @@ $(function(){
                     '<li class="fl ml5 mr5">' +
                     '<div class="w-300 r-single">' +
                     '<div class="pos-r overflow-h">' +
-                    '<a class="display-ib pos-a per100 ht300" href="order.html?id='+data[0].restaurantId+'">'+
+                    '<a class="display-ib pos-a per100 ht300" href="details.html?id='+data[0].restaurantId+'">'+
                     '</a>'+
                     '<img src="'+data[0].image+' "class="img-responsive">' +
                     '<div class="pos-a font-white bg-orange transform45 smy">三免一</div>' +
@@ -123,8 +123,9 @@ $(function(){
                             '<li class="fl ml5 mr5">'+
                             '<div class="w-300 r-single r-active">'+
                             '<div class="pos-r overflow-h">'+
-                            '<a class="display-ib pos-a per100 ht300" href="order.html?id='+data[i].restaurantId+'">'+
+                            '<a class="display-ib pos-a per100 ht300" href="details.html?id='+data[i].restaurantId+'">'+
                             '</a>'+
+                            '<input type="hidden" value="'+data[i].restaurantId+'">'+
                             '<img src="'+data[i].image+' "class="img-responsive">'+
                             '<div class="pos-a font-white bg-orange transform45 smy">三免一</div>'+
                             '<div class="pos-a tc per100 bottom20">'+
@@ -158,8 +159,9 @@ $(function(){
                             '<li class="fl ml5 mr5">' +
                             '<div class="w-300 r-single">' +
                             '<div class="pos-r overflow-h">' +
-                            '<a class="display-ib pos-a per100 ht300" href="order.html?id='+data[i].restaurantId+'">'+
+                            '<a class="display-ib pos-a per100 ht300" href="details.html?id='+data[i].restaurantId+'">'+
                             '</a>'+
+                            '<input type="hidden" value="'+data[i].restaurantId+'">'+
                             '<img src="'+data[i].image+' "class="img-responsive">' +
                             '<div class="pos-a font-white bg-orange transform45 smy">三免一</div>' +
                             '<div class="pos-a tc per100 bottom20">' +
@@ -295,13 +297,14 @@ $(function(){
         $("#current-city").text($(this).text());
         $("#myModal").modal('hide');
         loadRes($(this).text());
+        $.cookie('locateCity', $(this).text());
     })
 })
 //一键定点击事件
 $("#orderClick").click(function(){
     var href = $(".r-active").find('a').attr('href');
-    window.location.href = href;
-})
-
+    var id = $(".r-active").find('input').val();
+    window.location.href = "order.html?id="+id;
+});
 
 

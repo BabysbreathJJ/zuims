@@ -5,7 +5,7 @@
 var hasLogin = function(){
     if(!$.cookie('login'))
     {
-        window.location.href = "login.html";
+        window.location.href = "reg.html";
     }
 }();
 //取cookie中的phone加载用户信息

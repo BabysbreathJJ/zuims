@@ -21,7 +21,7 @@
     <div class="pd15 mt70">
       <div class="border border-r-5 bg-white padding">
         <div class="pos-r">
-          <img src="temp/d1.jpg" class="per100" id="d-img">
+          <img src="" class="per100" id="d-img">
           <div class="pos-a tc per100 bottom20">
             <p class="bg-t display-ib per90 ht40 l-ht40 font-white">最佳新开业精品酒店</p>
           </div>
@@ -29,56 +29,39 @@
         <!--图片列表开始-->
         <div class="overflow-x-auto carousel">
           <ul class="list-unstyled pr10 ht60 img-list mt10 pos-r overflow-h">
-            <li class="fl pl10 border-r-5">
-              <img src="temp/d1.jpg" class="per100">
-            </li>
-            <li class="fl pl10 border-r-5">
-              <img src="temp/d2.jpg" class="per100">
-            </li>
-            <li class="fl pl10 border-r-5">
-              <img src="temp/d3.jpg" class="per100">
-            </li>
-            <li class="fl pl10 border-r-5">
-              <img src="temp/d4.jpg" class="per100">
-            </li>
-            <li class="fl pl10 border-r-5">
-              <img src="temp/d1.jpg" class="per100">
-            </li>
-            <li class="fl pl10 border-r-5">
-              <img src="temp/d2.jpg" class="per100">
-            </li>
           </ul>
         </div>
         <!--图片列表结束-->
         <!--餐厅介绍开始-->
         <div class="pl10 pr10 pos-r">
           <div class="mb16">
-            <b class="font16">曼妙西餐厅</b>
+            <b class="font16 resName"></b>
             <span class="display-ib ht20 l-ht20 pl5 pr5 border ml10">三免一餐厅</span>
           </div>
           <p>
             <span class="font-c-8f">地址 ：</span>
-            <span class="font-c-40">北京市东城区史家胡同41号 | 约1.5km</span>
+            <span class="font-c-40 address"></span>
           </p>
           <p>
             <span class="font-c-8f">电话 ：</span>
-            <span class="font-c-40">010-52190227，010-51692222</span>
+            <span class="font-c-40 tel"></span>
           </p>
           <p>
             <span class="font-c-8f">每位：</span>
-            <span class="font-c-40">￥150 <span class="font-c-8f text-d-lt">￥200</span>（含15%服务费）</span>
+            <span class="font-c-40 price"></span>
+            <span>元</span>
           </p>
           <p>
             <span class="font-c-8f">餐厅类别：</span>
-            <span class="font-c-40">酒吧、午餐套餐、周末早午餐</span>
+            <span class="font-c-40 type"></span>
           </p>
           <p>
             <span class="font-c-8f">停车泊位：</span>
-            <span class="font-c-40">2小时免费</span>
+            <span class="font-c-40 park"></span>
           </p>
           <p>
             <span class="font-c-8f">营业时间：</span>
-            <span class="font-c-40">10:00 - 24:00</span>
+            <span class="font-c-40 openTime"></span>
           </p>
           <div class="ht30">
             <a href="order.html"><span class="btn btn-danger fr pl20 pr20 mt-20">预 订</span></a>
@@ -147,23 +130,6 @@
     <!--结束底部菜单-->
     <script src="js/plugins/jquery-1.11.3.min.js"></script>
     <script src="js/plugins/bootstrap.min.js"></script>
-    <script type="text/javascript">
-    $(function(){
-
-      /*图片点击*/
-
-      var img = $(".img-list").find('img');
-      img.css("width",(document.body.clientWidth-150)/4+"px")
-      img.css("height",img.css("width"));
-      img.click(function(){
-        var src = $(this).attr("src");
-        $("#d-img").attr("src",src);
-      })
-      /**/
-      var length = $(".img-list").find('img').length;
-      var width = parseInt(img.css("width"))*(length+1);
-      $(".img-list").css("width",width+'px');
-    })
-    </script>
+    <script type="text/javascript" src="js/model/details.js"></script>
   </body>
 </html>
