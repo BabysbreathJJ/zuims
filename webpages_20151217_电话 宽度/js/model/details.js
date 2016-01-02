@@ -54,7 +54,6 @@ var load = function(){
 
 }();
 
-
 //获取url参数
 function getUrlParam(name){
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");

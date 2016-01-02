@@ -18,22 +18,22 @@
               <span class="glyphicon glyphicon-home font-9 fr font12" style="margin-top: -20px;"></span></a>
       </div>
       <!--排序开始-->
-      <ul class="list-unstyled  mt16 fr mr2">
-        <li class="fl  font-white font10  menu hot">
-          <span>热门 
-            <span class="glyphicon glyphicon-triangle-bottom"></span>
-            <span class="glyphicon glyphicon-triangle-top" style="display: none;"></span>
-          </span>
-        </li>
-        <li class="fl font-white  font10 menu price">
-          <span>价格 
-            <span class="glyphicon glyphicon-triangle-bottom"></span>
-            <span class="glyphicon glyphicon-triangle-top" style="display: none;"></span>
-          </span></li>
-        <li class="fl font-white  font10 b menu" data-toggle="modal" data-target="#myModal">
-          <span>城市 <span class="glyphicon glyphicon-triangle-bottom"></span></span>
-        </li>
-      </ul>
+      <!--<ul class="list-unstyled  mt16 fr mr2">-->
+        <!--<li class="fl  font-white font10  menu hot">-->
+          <!--<span>热门 -->
+            <!--<span class="glyphicon glyphicon-triangle-bottom"></span>-->
+            <!--<span class="glyphicon glyphicon-triangle-top" style="display: none;"></span>-->
+          <!--</span>-->
+        <!--</li>-->
+        <!--<li class="fl font-white  font10 menu price">-->
+          <!--<span>价格 -->
+            <!--<span class="glyphicon glyphicon-triangle-bottom"></span>-->
+            <!--<span class="glyphicon glyphicon-triangle-top" style="display: none;"></span>-->
+          <!--</span></li>-->
+        <!--<li class="fl font-white  font10 b menu" data-toggle="modal" data-target="#myModal">-->
+          <!--<span>城市 <span class="glyphicon glyphicon-triangle-bottom"></span></span>-->
+        <!--</li>-->
+      <!--</ul>-->
       <!--排序结束-->  
     </header>
     <!--结束顶部-->    
@@ -42,10 +42,11 @@
       <!--餐厅介绍开始-->
       <div class="border border-r-5 bg-white padding mt10">
         <div class="pos-r overflow-h">
-          <img src="temp/d1.jpg" class="img-responsive">
+          <img src="" class="img-responsive" id="d-img">
           <div class="pos-a font-white bg-orange transform45 smy">三免一</div>
+          <input type="hidden" name="resId">
         </div>
-        <p class="tc mt16"><b class="font14">北上海大酒店</b><i class="font-c-f8 ml10">hot</i></p>
+        <p class="tc mt16"><b class="font14 resName"></b><i class="font-c-f8 ml10">hot</i></p>
         <p id="date">
           <span class="font-c-8f">日期：</span>
           <span class="active plot">今天</span>
@@ -110,65 +111,6 @@
     <!--城市下拉-->
     <script src="js/plugins/jquery-1.11.3.min.js"></script>
     <script src="js/plugins/bootstrap.min.js"></script>
-    <script type="text/javascript">
-    addClass($("#date"));
-    addClass($("#class"));
-    addClass($("#people-number"));
-    function addClass(obj){
-      var i = true;
-      obj.find('.plot').click(function(){ 
-        if(i){
-            $(this).addClass("plot-active");
-            i = false;
-        }
-        else{
-            $(this).removeClass("plot-active");
-            i = true;
-        }
-        
-      })
-    }
-    menu();
-    
-    function menu(){
-     
-      $(".menu").click(function(){
-
-          $(".menu").find('span').removeClass("font-c-f8");
-          $(this).find('span').addClass("font-c-f8");
-          i = false;
-      
-
-        
-      })
-    }
-    var k = true;
-    var j = true;
-    $(".hot").click(function(){
-        debugger;
-      if(k){
-        $(this).find(".glyphicon-triangle-top").show();
-        $(this).find(".glyphicon-triangle-bottom").hide();
-        k = false;
-      }
-      else{
-        $(this).find(".glyphicon-triangle-top").hide();
-        $(this).find(".glyphicon-triangle-bottom").show();
-        k = true;
-      }
-    })
-    $(".price").click(function(){
-      if(j){
-        $(this).find(".glyphicon-triangle-top").show();
-        $(this).find(".glyphicon-triangle-bottom").hide();
-        j = false;
-      }
-      else{
-        $(this).find(".glyphicon-triangle-top").hide();
-        $(this).find(".glyphicon-triangle-bottom").show();
-        j = true;
-      }
-    })
-    </script>
+    <script type="text/javascript" src="js/model/order.js"></script>
   </body>
 </html>

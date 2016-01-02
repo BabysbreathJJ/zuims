@@ -7,38 +7,46 @@ $(function(){
 
 //地理位置
     var  getLocation = function(){
-        var cname = "";
-        var geolocation = new BMap.Geolocation();
-        geolocation.getCurrentPosition(function(r){
-            if(this.getStatus() == BMAP_STATUS_SUCCESS){
-                //根据经纬度获取地理位置，不太准确，获取城市区域还是可以的
-                var map = new BMap.Map("allmap");
-                point = new BMap.Point(r.point.lng, r.point.lat);
-                var gc = new BMap.Geocoder();
-                gc.getLocation(point, function (rs) {
+        if($.cookie('locateCity')){
+            $("#current-city").html($.cookie('locateCity'));
+            loadRes($.cookie('locateCity'));
+        }
+        else{
+            var cname = "";
+            var geolocation = new BMap.Geolocation();
+            geolocation.getCurrentPosition(function(r){
+                if(this.getStatus() == BMAP_STATUS_SUCCESS){
+                    //根据经纬度获取地理位置，不太准确，获取城市区域还是可以的
+                    var map = new BMap.Map("allmap");
+                    point = new BMap.Point(r.point.lng, r.point.lat);
+                    var gc = new BMap.Geocoder();
+                    gc.getLocation(point, function (rs) {
 
-                    var addComp = rs.addressComponents;
-                    //alert(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
-                    var localName = addComp.city;
-                    localName = localName.substring(0, localName.length - 1);
-                    if(localName != "上海" != "北京"||localName != "上海"||localName != "广州"||localName != "杭州"){
-                        cname = "北京";
-                    }
-                    else{
-                        cname = localName;
-                    }
-                    $.cookie('locateCity', cname);
-                });
-                //alert('您的位置：'+r.point.lng+','+r.point.lat);
-            }
-            else {
-                cname = "北京";
-            }
-        },{enableHighAccuracy: true});
-        //console.log($.cookie('locateCity'));
-        $("#current-city").html($.cookie('locateCity'));
-        //默认加载
-        loadRes($.cookie('locateCity'));
+                        var addComp = rs.addressComponents;
+                        //alert(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
+                        var localName = addComp.city;
+                        localName = localName.substring(0, localName.length - 1);
+                        if(localName != "上海" != "北京"||localName != "上海"||localName != "广州"||localName != "杭州"){
+                            cname = "北京";
+                        }
+                        else{
+                            cname = localName;
+                        }
+                        $.cookie('locateCity', cname,{ expires: 0.2});
+                    });
+                    //alert('您的位置：'+r.point.lng+','+r.point.lat);
+                }
+                else {
+                    cname = "北京";
+                }
+            },{enableHighAccuracy: true});
+            //console.log($.cookie('locateCity'));
+            $("#current-city").html($.cookie('locateCity'));
+            //默认加载
+            loadRes($.cookie('locateCity'));
+        }
+
+
     }();
     //第一次加载
     $("#myModal").modal('hide');
