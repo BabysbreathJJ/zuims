@@ -17,6 +17,7 @@ var load = function(){
             $(".openTime").html(data.restaurantOpenTime);
             $(".price").html(data.averagePrice);
             $(".type").html(data.restaurantType);
+            $(".order").attr("href",'order.html?id='+data.restaurantId)
             $(".park").html(data.park);
             var tel = data.restaurantTele.split(" ");
             //console.log(data.restaurantTele.split(" "));
