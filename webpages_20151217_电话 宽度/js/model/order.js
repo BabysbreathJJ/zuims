@@ -21,8 +21,8 @@ var loadRes = function(){
 
 }();
 //选择日期及餐厅类别
-addClass($("#date"),false);
-addClass($("#class"),false);
+addClass($("#date"),true);
+addClass($("#class"),true);
 addClass($("#people-number"),true);
 function addClass(obj,isClear){
     var i = true;

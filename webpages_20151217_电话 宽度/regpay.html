@@ -22,36 +22,43 @@
       <div class="ht242 border border-r-5 bg-white padding">
         <p class="tc font15 mt10">免费注册</p>
         <p class="mt20">
-          <input type="text" class="form-control" placeholder="姓氏">
-          <span class="font-red ml10"><span class="glyphicon glyphicon-remove"></span>这里是错误信息</span>
+          <input type="text" class="form-control" name="lastName" placeholder="姓氏">
+          <span class="lastNameErr display-n">
+              <span class="glyphicon glyphicon-remove font-red ml10"></span><span class="font-red msg">这里是错误信息</span>
+          </span>
         </p>
         <p>
-          <input type="radio" name="sex" value="male" class="vertical-a-m">
+          <input type="radio" name="gender" value="0" class="vertical-a-m">
           <span class="vertical-a-m">男</span>
-          <input type="radio" name="sex" value="female" class="ml10 vertical-a-m">
+          <input type="radio" name="gender" value="1" class="ml10 vertical-a-m">
           <span class="vertical-a-m">女</span>
+          <div class="genderErr font12 display-n">
+              <span class="glyphicon glyphicon-remove font-red ml10"></span><span class="font-red msg">这里是错误信息</span>
+          </div>
         </p>
         <p>
-          <input type="tel" class="form-control" placeholder="手机号">
-          <span class="font-red ml10 display-n"><span class="glyphicon glyphicon-remove"></span>这里是错误信息</span>
-           <span class="font-green ml10"><span class="glyphicon glyphicon-ok"></span>这里是正确信息</span>
+          <input type="tel" class="form-control" name="tel" placeholder="手机号">
+          <span class="telErr display-n">
+              <span class="glyphicon glyphicon-remove font-red ml10"></span><span class="font-red msg">这里是错误信息</span>
+          </span>
+        </p>
+        <!--<p>-->
+          <!--<input type="tel" class="form-control" style="width:60%; display: inline-block;" placeholder="验证码">-->
+          <!--<a href="#" class="display-ib tr" style="width: 36%;">重新发送</a>-->
+          <!--<span class="font-red ml10 display-n"><span class="glyphicon glyphicon-remove"></span>这里是错误信息</span>-->
+          <!--<span class="font-green ml10"><span class="glyphicon glyphicon-ok"></span>这里是正确信息</span>-->
+        <!--</p>-->
+        <p>
+          <input type="password" class="form-control" name="pass" placeholder="密码">
         </p>
         <p>
-          <input type="tel" class="form-control" style="width:60%; display: inline-block;" placeholder="验证码">
-          <a href="#" class="display-ib tr" style="width: 36%;">重新发送</a>
-          <span class="font-red ml10 display-n"><span class="glyphicon glyphicon-remove"></span>这里是错误信息</span>
-          <span class="font-green ml10"><span class="glyphicon glyphicon-ok"></span>这里是正确信息</span>
-        </p>
-        <p>
-          <input type="password" class="form-control" placeholder="密码">
-          <span class="font-red ml10 display-n">这里是错误信息</span>
-        </p>
-        <p>
-          <input type="password" class="form-control" placeholder="再次输入密码">
-          <span class="font-red ml10 display-n">这里是错误信息</span>
+          <input type="password" class="form-control" name="passAgain" placeholder="再次输入密码">
+          <span class="passAgainErr display-n">
+              <span class="glyphicon glyphicon-remove font-red ml10"></span><span class="font-red msg">这里是错误信息</span>
+          </span>
         </p>
         <p class="pl30 pr30">
-          <a class="zms-btn" type="submit"  href="userinfo.html"><i class="fa fa-user"></i> <b>注 册</b></a>
+          <a class="zms-btn" id="submit"><i class="fa fa-user"></i> <b>注 册</b></a>
         </p>
       </div>
       <!--注册框下部分开始-->
@@ -72,7 +79,8 @@
       </div>
     </footer>
     <!--结束底部菜单-->
-    <script src="js/jquery-1.8.1.min.js"></script>
+    <script src="js/plugins/jquery-1.11.3.min.js"></script>
     <script src="js/plugins/bootstrap.min.js"></script>
+    <script src="js/model/reg.js"></script>
   </body>
 </html>
