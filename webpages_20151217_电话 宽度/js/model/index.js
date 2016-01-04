@@ -17,6 +17,7 @@ $(function () {
                 point = new BMap.Point(r.point.lng, r.point.lat);
                 var gc = new BMap.Geocoder();
 
+
                 if ($.cookie('locateCity')) {
                     $("#current-city").html($.cookie('locateCity'));
                     loadRes($.cookie('locateCity'), point, map);
