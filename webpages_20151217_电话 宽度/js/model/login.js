@@ -34,6 +34,7 @@ $("#login").click(function(){
             'phone' : user,
             'password' : pass
         };
+        console.log(JSON.stringify(userInfo))
         $.ajax({
             url : loginUrl,
             type:'POST',
