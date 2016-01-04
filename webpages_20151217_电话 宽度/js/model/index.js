@@ -34,11 +34,12 @@ $(function(){
                             cname = localName;
                         }
                         $.cookie('locateCity', cname,{ expires: 0.2});
+                        $("#current-city").html($.cookie('locateCity'));
+                        loadRes($.cookie('locateCity'));
                     });
                     //alert('您的位置：'+r.point.lng+','+r.point.lat);
                 }
                 else {
-
                     cname = "北京";
                     $.cookie('locateCity', cname,{ expires: 0.2});
                 }
@@ -61,7 +62,7 @@ $(function(){
             crossDomain: true,
             success: function (data) {
                 var updateInfo = "";
-                console.log(data[data.length-1].restaurantId)
+                //console.log(data[data.length-1].restaurantId)
                 var firstLi =
                     '<li class="fl ml5 mr5">' +
                     '<div class="w-300 r-single">' +
