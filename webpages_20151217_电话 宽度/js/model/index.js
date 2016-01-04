@@ -22,12 +22,11 @@ $(function(){
                     point = new BMap.Point(r.point.lng, r.point.lat);
                     var gc = new BMap.Geocoder();
                     gc.getLocation(point, function (rs) {
-                        debugger;
                         var addComp = rs.addressComponents;
                         //alert(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
                         var localName = addComp.city;
                         localName = localName.substring(0, localName.length - 1);
-                        if(localName != "上海" != "北京"||localName != "上海"||localName != "广州"||localName != "杭州"){
+                        if(localName != "北京"&&localName != "上海"&&localName != "广州"&&localName != "杭州"){
                             cname = "北京";
                         }
                         else{
