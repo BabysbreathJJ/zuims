@@ -7,6 +7,7 @@ $(function(){
 
 //地理位置
     var  getLocation = function(){
+
         if($.cookie('locateCity')){
             $("#current-city").html($.cookie('locateCity'));
             loadRes($.cookie('locateCity'));
@@ -21,7 +22,7 @@ $(function(){
                     point = new BMap.Point(r.point.lng, r.point.lat);
                     var gc = new BMap.Geocoder();
                     gc.getLocation(point, function (rs) {
-
+                        debugger;
                         var addComp = rs.addressComponents;
                         //alert(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
                         var localName = addComp.city;
@@ -37,7 +38,9 @@ $(function(){
                     //alert('您的位置：'+r.point.lng+','+r.point.lat);
                 }
                 else {
+
                     cname = "北京";
+                    $.cookie('locateCity', cname,{ expires: 0.2});
                 }
             },{enableHighAccuracy: true});
             //console.log($.cookie('locateCity'));
