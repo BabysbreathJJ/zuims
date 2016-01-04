@@ -7,6 +7,7 @@ $(function(){
 
 //地理位置
     var  getLocation = function(){
+
         if($.cookie('locateCity')){
             $("#current-city").html($.cookie('locateCity'));
             loadRes($.cookie('locateCity'));
@@ -21,7 +22,7 @@ $(function(){
                     point = new BMap.Point(r.point.lng, r.point.lat);
                     var gc = new BMap.Geocoder();
                     gc.getLocation(point, function (rs) {
-
+                        debugger;
                         var addComp = rs.addressComponents;
                         //alert(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
                         var localName = addComp.city;
@@ -33,13 +34,16 @@ $(function(){
                             cname = localName;
                         }
                         $.cookie('locateCity', cname,{ expires: 0.2});
-                        alert(localName);
+
+                        $("#current-city").html($.cookie('locateCity'));
+                        loadRes($.cookie('locateCity'));
                     });
                     //alert('您的位置：'+r.point.lng+','+r.point.lat);
 
                 }
                 else {
                     cname = "北京";
+                    $.cookie('locateCity', cname,{ expires: 0.2});
                 }
             },{enableHighAccuracy: true});
             //console.log($.cookie('locateCity'));
@@ -58,7 +62,7 @@ $(function(){
             crossDomain: true,
             success: function (data) {
                 var updateInfo = "";
-                console.log(data)
+                //console.log(data[data.length-1].restaurantId)
                 var firstLi =
                     '<li class="fl ml5 mr5">' +
                     '<div class="w-300 r-single">' +
