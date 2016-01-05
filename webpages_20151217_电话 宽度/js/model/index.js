@@ -24,7 +24,6 @@ $(function () {
                 }
 
                 gc.getLocation(point, function (rs) {
-                    debugger;
                     var addComp = rs.addressComponents;
                     //alert(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
                     var localName = addComp.city;
