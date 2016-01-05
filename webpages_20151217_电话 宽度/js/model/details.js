@@ -6,6 +6,7 @@
 var load = function () {
     var id = getUrlParam('id');
     var resUrl = 'http://202.120.40.175:21100/restaurants/info';
+    $('#jumpToOrder').attr('href','order.html?id='+id);
 
     $.ajax({
         url: resUrl,
