@@ -66,6 +66,7 @@ angular.module('myApp.userinfo', ['ngAnimate', 'ui.router', 'kendo.directives', 
         };
 
         var saveuserInfoRequest = function (phone, formData) {
+            console.log(formData);
             return $http({
                 method: "POST",
                 url: userBaseUrl + '/users/userinfocomplete?phone=' + phone,

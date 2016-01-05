@@ -58,7 +58,6 @@ angular.module('myApp.home', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'myApp.c
                 search: $scope.keyword,
                 city: $scope.cname,
                 longitude: longitude,
-                latitude: latitude
             });
         };
 

@@ -48,6 +48,13 @@ $("#submit").click(function(){
                     contentType : 'application/json',
                     success : function(data){
                         console.log(data);
+                        $.cookie('login', 'true');
+                        $.cookie('phone', tel);
+                        window.location.ref = "index.html";
+                    },
+                    error : function(data){
+                        $(".telErr").find(".msg").html(data.responseJSON.message);
+                        $(".telErr").removeClass("display-n");
                     }
                 })
             }

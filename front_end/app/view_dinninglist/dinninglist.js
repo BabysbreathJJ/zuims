@@ -56,7 +56,7 @@ angular.module('myApp.dinninglist', ['ngAnimate', 'ui.router', 'myApp.constants'
             .success(function (data) {
                 for (var i = 0; i < data.length; i++) {
                     var restaurantPoint = new BMap.Point(data[i].longitude, data[i].latitude);
-                    data[i].distance = map.getDistance(point, restaurantPoint);
+                        data[i].distance = map.getDistance(point, restaurantPoint);
                     data[i].address = data[i].city + data[i].address;
 
                 }

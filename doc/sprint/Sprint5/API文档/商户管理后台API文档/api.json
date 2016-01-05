@@ -1,0 +1,809 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "商户管理后台API文档",
+        "description": "zuims商户管理后台页面",
+        "version": "1.0.0"
+    },
+    "host": "202.120.40.175:21104",
+    "schemes": [
+        "http"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/restaurant/login": {
+            "post": {
+                "summary": "餐厅用户登录",
+                "tags": [
+                    "restaurants"
+                ],
+                "parameters": [
+                    {
+                        "name": "payload",
+                        "in": "body",
+                        "description": "payload",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/registerAndLoginBody"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/RestaurantDTO"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/restaurant/register": {
+            "post": {
+                "summary": "餐厅用户注册",
+                "tags": [
+                    "restaurants"
+                ],
+                "parameters": [
+                    {
+                        "name": "payload",
+                        "in": "body",
+                        "description": "payload",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/registerAndLoginBody"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/RestaurantDTO"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/restaurant/info": {
+            "get": {
+                "summary": "获得商户信息",
+                "tags": [
+                    "restaurants"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "餐厅id",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "餐厅详细信息",
+                        "schema": {
+                            "$ref": "#/definitions/RestaurantDetailDTO"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/restaurant/uploadFrontImage": {
+            "post": {
+                "summary": "餐厅用户上传首页图片",
+                "tags": [
+                    "restaurants"
+                ],
+                "parameters": [
+                    {
+                        "name": "payload",
+                        "in": "body",
+                        "description": "payload",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/imageUploadBody"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Success"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/restaurant/uploadNormalImage": {
+            "post": {
+                "summary": "餐厅用户上传首页图片",
+                "tags": [
+                    "restaurants"
+                ],
+                "parameters": [
+                    {
+                        "name": "payload",
+                        "in": "body",
+                        "description": "payload",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/imageUploadBody"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Success"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/restaurant/linkman": {
+            "get": {
+                "summary": "获得商户对应的联系人",
+                "tags": [
+                    "restaurants"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "餐厅id",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "餐厅联系人",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/linkMan"
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/restaurant/linkman/add": {
+            "post": {
+                "summary": "添加联系人",
+                "tags": [
+                    "restaurants"
+                ],
+                "parameters": [
+                    {
+                        "name": "payload",
+                        "in": "body",
+                        "description": "payload",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/addLinkManBody"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/linkMan"
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/restaurant/linkman/delete": {
+            "post": {
+                "summary": "删除联系人",
+                "tags": [
+                    "restaurants"
+                ],
+                "parameters": [
+                    {
+                        "name": "payload",
+                        "in": "body",
+                        "description": "payload",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/deleteLinkeManBody"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/linkMan"
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/order/makeorder": {
+            "post": {
+                "summary": "创建订单",
+                "description": "创建订单的同时，会推送给前端和邮箱",
+                "tags": [
+                    "orders"
+                ],
+                "parameters": [
+                    {
+                        "name": "payload",
+                        "in": "body",
+                        "description": "payload",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/makeOrderBody"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/OrderInfoDTO"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/order/autoconfirmorder": {
+            "get": {
+                "summary": "自动接单",
+                "tags": [
+                    "restaurants"
+                ],
+                "parameters": [
+                    {
+                        "name": "orderId",
+                        "in": "query",
+                        "description": "订单id",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "接单成功与否会存在state字段中",
+                        "schema": {
+                            "$ref": "#/definitions/OrderInfoDTO"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/order/comfirmOrder": {
+            "get": {
+                "summary": "手动接单",
+                "tags": [
+                    "restaurants"
+                ],
+                "parameters": [
+                    {
+                        "name": "orderId",
+                        "in": "query",
+                        "description": "订单id",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "opt",
+                        "in": "query",
+                        "description": "操作，1为确认，其他拒绝",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "接单成功与否会存在state字段中",
+                        "schema": {
+                            "$ref": "#/definitions/OrderInfoDTO"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/order/finishOrder": {
+            "get": {
+                "summary": "结束订单",
+                "tags": [
+                    "restaurants"
+                ],
+                "parameters": [
+                    {
+                        "name": "orderId",
+                        "in": "query",
+                        "description": "订单id",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/OrderInfoDTO"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/order/infoByorderid": {
+            "get": {
+                "summary": "根据id得到订单详情",
+                "tags": [
+                    "restaurants"
+                ],
+                "parameters": [
+                    {
+                        "name": "orderId",
+                        "in": "query",
+                        "description": "订单id",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/OrderInfoDTO"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/order/infoByphoneid": {
+            "get": {
+                "summary": "根据手机得到所有订单",
+                "tags": [
+                    "restaurants"
+                ],
+                "parameters": [
+                    {
+                        "name": "phoneId",
+                        "in": "query",
+                        "description": "手机号",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/OrderInfoDTO"
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/order/infoByrestaurantid": {
+            "get": {
+                "summary": "根据餐厅得到所有订单",
+                "tags": [
+                    "restaurants"
+                ],
+                "parameters": [
+                    {
+                        "name": "restaurantId",
+                        "in": "query",
+                        "description": "餐厅id",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/OrderInfoDTO"
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "registerAndLoginBody": {
+            "type": "object",
+            "properties": {
+                "account": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                }
+            }
+        },
+        "imageUploadBody": {
+            "type": "object",
+            "properties": {
+                "restaurantId": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "imageValue": {
+                    "type": "string"
+                },
+                "pictureIntro": {
+                    "type": "string"
+                }
+            }
+        },
+        "addLinkManBody": {
+            "type": "object",
+            "properties": {
+                "restaurantId": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "phone": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "position": {
+                    "type": "string"
+                },
+                "linkmanName": {
+                    "type": "string"
+                }
+            }
+        },
+        "deleteLinkeManBody": {
+            "type": "object",
+            "properties": {
+                "linkmanId": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "restaurantId": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            }
+        },
+        "makeOrderBody": {
+            "type": "object",
+            "properties": {
+                "phoneId": {
+                    "type": "string"
+                },
+                "restaurantId": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "more": {
+                    "type": "string"
+                },
+                "dinerNum": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "orderTime": {
+                    "type": "string"
+                },
+                "dorderSum": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            }
+        },
+        "OrderInfoDTO": {
+            "type": "object",
+            "properties": {
+                "orderId": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "restaurantId": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "phoneId": {
+                    "type": "string"
+                },
+                "orderTime": {
+                    "type": "string"
+                },
+                "state": {
+                    "type": "string"
+                },
+                "createTime": {
+                    "type": "string"
+                },
+                "dinerNum": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "more": {
+                    "type": "string"
+                },
+                "handleType": {
+                    "type": "string"
+                },
+                "dorderSum": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "restaurantName": {
+                    "type": "string"
+                },
+                "userLastName": {
+                    "type": "string"
+                },
+                "userFirstName": {
+                    "type": "string"
+                },
+                "userEmail": {
+                    "type": "string"
+                }
+            }
+        },
+        "linkMan": {
+            "type": "object",
+            "properties": {
+                "linkmanId": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "restaurantId": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "linkmanName": {
+                    "type": "string"
+                },
+                "linkmanPhone": {
+                    "type": "string"
+                },
+                "linkmanEmail": {
+                    "type": "string"
+                },
+                "position": {
+                    "type": "string"
+                }
+            }
+        },
+        "RestaurantDTO": {
+            "type": "object",
+            "properties": {
+                "restaurantId": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "image": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "price": {
+                    "type": "string"
+                },
+                "address": {
+                    "type": "string"
+                },
+                "latitude": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "longitude": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "persistTable": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "预留桌数"
+                }
+            }
+        },
+        "RestaurantDetailDTO": {
+            "type": "object",
+            "properties": {
+                "restaurantId": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "restaurantName": {
+                    "type": "string"
+                },
+                "restaurantTele": {
+                    "type": "string"
+                },
+                "restaurantAddress": {
+                    "type": "string"
+                },
+                "restaurantOpenTime": {
+                    "type": "string"
+                },
+                "introduction": {
+                    "type": "string"
+                },
+                "averagePrice": {
+                    "type": "string"
+                },
+                "smoke": {
+                    "type": "string"
+                },
+                "park": {
+                    "type": "string"
+                },
+                "images": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "latitude": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "longitude": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "persistTable": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "预留桌数"
+                }
+            }
+        },
+        "Success": {
+            "type": "object",
+            "properties": {
+                "isSuccess": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "Error": {
+            "type": "object",
+            "properties": {
+                "error": {
+                    "type": "string"
+                },
+                "exception": {
+                    "type": "string"
+                },
+                "message": {
+                    "description": "错误信息",
+                    "type": "string"
+                },
+                "path": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
