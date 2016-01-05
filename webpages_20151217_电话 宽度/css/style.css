@@ -330,3 +330,7 @@ a {
 #orderInfo {
     overflow-y: auto;
 }
+
+.indent {
+    text-indent: 2em;
+}

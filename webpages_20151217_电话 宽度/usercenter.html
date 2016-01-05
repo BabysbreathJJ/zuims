@@ -24,7 +24,8 @@
 <div class="pl10 pr10 mt60">
     <div class="border-r-5 user-shadow bg-user padding20 overflow-h">
         <div class=" fl per30">
-            <img src="images/user-logo.png" class="img-responsive border-white border-r-5">
+            <img id="avatar" style="width: 80px;height: 80px" src="images/user-logo.png"
+                 class="img-responsive border-white border-r-5">
 
             <p style="padding-top: 10px">
                 <img src="images/diamond.png" width="20px;" class="ml5">
@@ -58,7 +59,8 @@
         </div>
     </div>
     <p class="tc per60 margin-auto mt10">
-        <a href="userinfo.html" class="button-block button-rounded ht30 l-ht30 button-highlight font16" type="submit"><i
+        <a data-toggle="modal" data-target="#memInterest"
+           class="button-block button-rounded ht30 l-ht30 button-highlight font16" type="submit"><i
                 class="fa fa-user"></i><b>会员权益和升级</b></a>
     </p>
 
@@ -93,12 +95,14 @@
 <!--预定信息结束-->
 <!--按钮开始-->
 <div class="mb80 overflow-h mt20">
-    <div class="per50 fl tc">
-        <span class="btn btn-default per70" data-toggle="modal" data-target="#myModal">联系客服</span>
-    </div>
-    <div class="per50 fl tc">
-        <span class="btn btn-default per70" data-toggle="modal" data-target="#myModal1">反 馈</span>
-    </div>
+    <!--<div class="per50 fl tc">-->
+    <!--<span class="btn btn-default per70" data-toggle="modal" data-target="#myModal">联系客服</span>-->
+    <!--</div>-->
+    <!--<div class="per50 fl tc">-->
+    <!--<span class="btn btn-default per70" data-toggle="modal" data-target="#myModal1">反 馈</span>-->
+    <!--</div>-->
+    <h5 style="text-align: center">联系客服与反馈: 400-800-10020</h5>
+
 </div>
 
 <!--按钮结束-->
@@ -113,63 +117,106 @@
 </footer>
 <!--结束底部菜单-->
 <!--弹出层开始-->
-<!--联系客服-->
-<div class="modal fade top48" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<!--&lt;!&ndash;联系客服&ndash;&gt;-->
+<!--<div class="modal fade top48" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">-->
+<!--<div class="modal-dialog" role="document">-->
+<!--<div class="modal-content">-->
+<!--<div class="modal-header">-->
+<!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span-->
+<!--aria-hidden="true">&times;</span></button>-->
+<!--<h4 class="modal-title" id="myModalLabel">联系客服</h4>-->
+<!--</div>-->
+<!--<div class="modal-body">-->
+<!--<div class="mt20">-->
+<!--<input class="form-control" placeholder="标题">-->
+<!--</div>-->
+<!--<div class="mt20">-->
+<!--<textarea class="form-control" placeholder="内容"></textarea>-->
+<!--</div>-->
+<!--<div class="mt20 tc">-->
+<!--<button type="button" class="btn btn-black" data-dismiss="modal" aria-label="Close">提交</button>-->
+<!--<button type="button" class="btn btn-danger ml20" data-dismiss="modal" aria-label="Close">取消-->
+<!--</button>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--&lt;!&ndash;联系客服&ndash;&gt;-->
+<!--&lt;!&ndash;反馈&ndash;&gt;-->
+<!--<div class="modal fade top48" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1">-->
+<!--<div class="modal-dialog" role="document">-->
+<!--<div class="modal-content">-->
+<!--<div class="modal-header">-->
+<!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span-->
+<!--aria-hidden="true">&times;</span></button>-->
+<!--<h4 class="modal-title">反馈</h4>-->
+<!--</div>-->
+<!--<div class="modal-body">-->
+<!--<div class="mt20">-->
+<!--<input class="form-control" placeholder="标题">-->
+<!--</div>-->
+<!--<div class="mt20">-->
+<!--<textarea class="form-control" placeholder="内容"></textarea>-->
+<!--</div>-->
+<!--<div class="mt20 tc">-->
+<!--<button type="button" class="btn btn-black" data-dismiss="modal" aria-label="Close">提交</button>-->
+<!--<button type="button" class="btn btn-danger ml20" data-dismiss="modal" aria-label="Close">取消-->
+<!--</button>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--&lt;!&ndash;反馈&ndash;&gt;-->
+
+<!--会员权益说明-->
+<div class="modal fade top48" id="memInterest" tabindex="-1" role="dialog" aria-labelledby="memInterest">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                         aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">联系客服</h4>
+                <h4 class="modal-title">会员权益说明</h4>
             </div>
             <div class="modal-body">
-                <div class="mt20">
-                    <input class="form-control" placeholder="标题"></input>
+
+                <h5>体验会员权益</h5>
+
+                <div style="padding: 0 10px">
+                    <li>每人可免费试用最美食体验会员30个自然日。</li>
+
+                    <li>体验会员可享受最美食全国范围内的合作商户消费三免一优惠。限酒店自助餐。每月限优惠2单。</li>
+
+                    <li>最终解释权归最美食所有.</li>
                 </div>
-                <div class="mt20">
-                    <textarea class="form-control" placeholder="内容"></textarea>
-                </div>
-                <div class="mt20 tc">
-                    <button type="button" class="btn btn-black" data-dismiss="modal" aria-label="Close">提交</button>
-                    <button type="button" class="btn btn-danger ml20" data-dismiss="modal" aria-label="Close">取消
-                    </button>
+
+                <h5>付费会员权益</h5>
+
+                <div style="padding: 0 10px">
+                    <li> 会员为邀请制。会员年费：388元/年。</li>
+                    <li>会员等级包括黄金会员、铂金会员、钻石会员</li>
+
+                    <li>尊享会员消费优惠不限次数。</li>
+
+                    <li> 3免1优惠范围：可通过最美食预定的自助餐、下午茶、大堂吧、商务套餐、周末早午餐等。</li>
+
+                    <li>专享VIP待遇，会员积分等权益。</li>
+
+                    <li>铂金和钻石会员每年可特权提升若干名其他会员的会员等级（豁免其会员费）。</li>
+
+                    <li>最终解释权归最美食所有。</li>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!--联系客服-->
-<!--反馈-->
-<div class="modal fade top48" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                        aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">反馈</h4>
-            </div>
-            <div class="modal-body">
-                <div class="mt20">
-                    <input class="form-control" placeholder="标题"></input>
-                </div>
-                <div class="mt20">
-                    <textarea class="form-control" placeholder="内容"></textarea>
-                </div>
-                <div class="mt20 tc">
-                    <button type="button" class="btn btn-black" data-dismiss="modal" aria-label="Close">提交</button>
-                    <button type="button" class="btn btn-danger ml20" data-dismiss="modal" aria-label="Close">取消
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!--反馈-->
-<!--弹出层结束-->
-<script src="js/plugins/jquery-1.11.3.min.js"></script>
-<script src="js/plugins/bootstrap.min.js"></script>
-<script src="js/plugins/jquery.cookie.js"></script>
-<script type="text/javascript" src="js/plugins/jquery.touchSwipe.min.js"></script>
-<script type="text/javascript" src="js/model/usercenter.js"></script>
+    <!--会员权益说明-->
+
+    <!--弹出层结束-->
+    <script src="js/plugins/jquery-1.11.3.min.js"></script>
+    <script src="js/plugins/bootstrap.min.js"></script>
+    <script src="js/plugins/jquery.cookie.js"></script>
+    <script type="text/javascript" src="js/plugins/jquery.touchSwipe.min.js"></script>
+    <script type="text/javascript" src="js/model/usercenter.js"></script>
 </body>
 </html>

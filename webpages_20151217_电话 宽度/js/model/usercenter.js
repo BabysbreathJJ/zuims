@@ -9,7 +9,7 @@ var hasLogin = function () {
 }();
 //取cookie中的phone加载用户信息
 var getUser = function () {
-    var userUrl = "http://202.120.40.175:21101/users/userInfo";
+    var userUrl = "http://202.120.40.175:21101/users";
     var phone = $.cookie('phone');
     $.ajax({
         url: userUrl,
@@ -18,27 +18,22 @@ var getUser = function () {
         dataType: 'JSON',
         success: function (data) {
             $(".vipLevel").html(data.vipLevel);
-            if (data.name == null)
+            if (data.firstname == null)
                 $(".name").html(data.lastname);
             else
-                $(".name").html(data.name);
+                $(".name").html(data.firstname);
             $(".phone").html(data.phone);
-            $(".post").html("程序员");
+            $(".post").html(data.position);
             //$(".post"),html(data.position);
             $('.phone').attr('href', 'tel:' + data.phone);
         }
 
 
     });
-//    //获取用户头像
-//    $.ajax({
-//        url : userUrl+'/images',
-//        type : 'GET',
-//        dataType : 'JSON',
-//        success : function(data){
-//            console.log(data);
-//        }
-//    });
+
+    //获取用户头像
+    $("#avatar").attr('src', 'http://202.120.40.175:21101/users/images?phone=' + phone);
+
 
 }();
 
@@ -113,15 +108,20 @@ $(function () {
             });
 
             haveOrders = true;
-
-            showMoreOrders(orderInfos, 0, 3);
+            if (orderInfos.length >= 3)
+                showMoreOrders(orderInfos, 0, 3);
+            else
+                showMoreOrders(orderInfos, 0, orderInfos.length)
 
             var index = 3;
 
             $("#operation").on('click', '.hideOrders', function () {
                 index = 3;
                 $("#orderInfo").html('<tr><th class="per40 tc">餐厅名称</th><th class="per40 tc">预定时间</th> <th class="per20 tc">状态</th> </tr>');
-                showMoreOrders(orderInfos, 0, 3);
+                if (orderInfos.length >= 3)
+                    showMoreOrders(orderInfos, 0, 3);
+                else
+                    showMoreOrders(orderInfos, 0, orderInfos.length)
                 $('#operation').html('<div class="tc mt10 moreOrders" style="margin-bottom: 5px"> <span class="font-c-35">更多 <span class="glyphicon glyphicon-menu-down"></span></span></div>');
             });
 
