@@ -1,174 +1,175 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>最美食 -  用户登录</title>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>最美食 - 用户登录</title>
     <link href="css/main.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/buttons.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-  </head>
-  <body>
-    <!-- 开始顶部 固定 -->
-    <header class="bg-main navbar-fixed-top">
-      <div class="fl per50">
-          <a class="navbar-brand" href="index.html"><img src="images/logo.png" class="per90" alt="最美食">
-              <span class="glyphicon glyphicon-home font-9 fr font12" style="margin-top: -20px;"></span></a>
-      </div>
-    </header>
-    <!--结束顶部-->
-    <!--会员卡开始-->
-    <div class="pl10 pr10 mt60">
-      <div class="border-r-5 user-shadow bg-user padding20 overflow-h">
+</head>
+<body>
+<!-- 开始顶部 固定 -->
+<header class="bg-main navbar-fixed-top">
+    <div class="fl per50">
+        <a class="navbar-brand" href="index.html"><img src="images/logo.png" class="per90" alt="最美食">
+            <span class="glyphicon glyphicon-home font-9 fr font12" style="margin-top: -20px;"></span></a>
+    </div>
+</header>
+<!--结束顶部-->
+<!--会员卡开始-->
+<div class="pl10 pr10 mt60">
+    <div class="border-r-5 user-shadow bg-user padding20 overflow-h">
         <div class=" fl per30">
-          <img src="images/user-logo.png" class="img-responsive border-white border-r-5">
-          <p>
-            <img src="images/diamond.png" width="20px;" class="ml5">
-            <span class="font-c-35 vipLevel"></span>
-          </p>
+            <img src="images/user-logo.png" class="img-responsive border-white border-r-5">
+
+            <p style="padding-top: 10px">
+                <img src="images/diamond.png" width="20px;" class="ml5">
+                <span class="font-c-35 vipLevel"></span>
+            </p>
         </div>
         <div class="fl per70 pl30">
-          <p>
-            <span class="font-c-8f">卡号 ：</span>
-            <span class="font-c-f8 font14 card"></span>
-          </p>
-          <p>
-            <span class="font-c-8f">姓名 ：</span>
-            <span class="font14 name"></span>
-          </p>
-          <p>
-            <span class="font-c-8f">职务 ：</span>
-            <span class="font14 post"></span>
-          </p>
-          <p>
-            <span class="font-c-8f">手机 ：</span>
-            <span class="font14"><a class="font-defaul phone"></a></span>
-          </p>
-          <p class="mt30">
-            <span class="font-c-8f">有效期至：</span>
-            <span class="time">2115-12-13 22:14</span>
-          </p>
-        </div> 
-      </div>
-      <p class="tc per60 margin-auto mt10">
-        <a href="userinfo.html" class="button-block button-rounded ht30 l-ht30 button-highlight font16" type="submit"><i class="fa fa-user"></i><b>会员权益和升级</b></a>
-      </p>
-      <p class="tc per60 margin-auto mt10">
-        <a href="userinfo.html" class="button-block button-rounded ht30 l-ht30 button-highlight font16" type="submit"><i class="fa fa-user"></i><b>完善个人信息</b><b style="display: none;">填写个人信息</b></a>
-      </p>
+            <!--<p>-->
+            <!--<span class="font-c-8f">卡号 ：</span>-->
+            <!--<span class="font-c-f8 font14 card"></span>-->
+            <!--</p>-->
+            <p>
+                <span class="font-c-8f">姓名 ：</span>
+                <span class="font14 name"></span>
+            </p>
+
+            <p>
+                <span class="font-c-8f">职务 ：</span>
+                <span class="font14 post"></span>
+            </p>
+
+            <p>
+                <span class="font-c-8f">手机 ：</span>
+                <span class="font14"><a class="font-defaul phone"></a></span>
+            </p>
+
+            <p class="mt30">
+                <span class="font-c-8f">有效期至：</span>
+                <span class="time">2016-03-01 24:00</span>
+            </p>
+        </div>
     </div>
-    <!--会员卡结束-->
-    <!--预定信息开始-->
-    <div class="pd15 mt5">
-      <div class="ht252 border border-r-5 bg-white">
+    <p class="tc per60 margin-auto mt10">
+        <a href="userinfo.html" class="button-block button-rounded ht30 l-ht30 button-highlight font16" type="submit"><i
+                class="fa fa-user"></i><b>会员权益和升级</b></a>
+    </p>
+
+    <p class="tc per60 margin-auto mt10">
+        <a href="userinfo.html" class="button-block button-rounded ht30 l-ht30 button-highlight font16" type="submit"><i
+                class="fa fa-user"></i><b>完善个人信息</b><b style="display: none;">填写个人信息</b></a>
+    </p>
+</div>
+<!--会员卡结束-->
+<!--预定信息开始-->
+<div class="pd15 mt5">
+    <div class="ht252 border border-r-5 bg-white" style="height: auto">
         <p class="border-o-5 pl10 ml10 mt10">
-          <b>
-            预订信息
-          </b>
+            <b>
+                预订信息
+            </b>
         </p>
-        <table class="table table-striped mt20 user-info">
-          <tr>
-            <th class="per40 tc">餐厅名称</th>
-            <th class="per40 tc">预定时间</th>
-            <th class="per20 tc">状态</th>
-          </tr>
-          <tr>
-            <td class="tl">上海静安锦庐餐厅 </td>
-            <td class="tc"><small>2015-12-13 12:20</small></td>
-            <td class="tc font-red">待处理</td>
-          </tr>
-          <tr>
-            <td class="tl">名称长度超过4 锦庐餐厅</td>
-            <td class="tc"><small>2015-12-13 12:20</small></td>
-            <td class="tc font-green">已确认</td>
-          </tr>
-          <tr>
-            <td class="tl">北京朝阳白四家府宴  </td>
-            <td class="tc"><small>2015-12-13 12:20</small></td>
-            <td class="tc">已完成</td>
-          </tr>
+        <table class="table table-striped mt20" id="orderInfo" style="margin-bottom: 10px">
+            <tr>
+                <th class="per40 tc">餐厅名称</th>
+                <th class="per40 tc">预定时间</th>
+                <th class="per20 tc">状态</th>
+            </tr>
         </table>
-        <div class="tc mt10">
-          <a href="#" class="font-c-35">更多 <span class="glyphicon glyphicon-menu-down"></span></a>
+        <div id="operation">
+            <div class="tc mt10 moreOrders" style="margin-bottom: 5px">
+                <span class="font-c-35">更多 <span class="glyphicon glyphicon-menu-down"></span></span>
+            </div>
         </div>
-      </div>
     </div>
-    <!--预定信息结束-->
-    <!--按钮开始-->
-    <div class="mb80 overflow-h mt20">
-      <div class="per50 fl tc">
-        <span class="btn btn-default per70"  data-toggle="modal" data-target="#myModal">联系客服</span>
-      </div>
-      <div class="per50 fl tc">
+</div>
+<!--预定信息结束-->
+<!--按钮开始-->
+<div class="mb80 overflow-h mt20">
+    <div class="per50 fl tc">
+        <span class="btn btn-default per70" data-toggle="modal" data-target="#myModal">联系客服</span>
+    </div>
+    <div class="per50 fl tc">
         <span class="btn btn-default per70" data-toggle="modal" data-target="#myModal1">反 馈</span>
-      </div>
     </div>
-    
-    <!--按钮结束-->
-    <!--底部菜单-->
-    <footer class="bg-main navbar-fixed-bottom ht60">
-      <div class="btn-group btn-group-justified">
-        <a href="lists.html" class="btn ht60 font-white border-r"><span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span> 餐 厅</a>
-        <a href="usercenter.html" class="btn ht60 font-white" > <span class="glyphicon glyphicon-user" aria-hidden="true"></span> 我 的</a>
-      </div>
-    </footer>
-    <!--结束底部菜单-->
-    <!--弹出层开始-->
-    <!--联系客服-->
-    <div class="modal fade top48" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
+</div>
+
+<!--按钮结束-->
+<!--底部菜单-->
+<footer class="bg-main navbar-fixed-bottom ht60">
+    <div class="btn-group btn-group-justified">
+        <a href="lists.html" class="btn ht60 font-white border-r"><span class="glyphicon glyphicon-cutlery"
+                                                                        aria-hidden="true"></span> 餐 厅</a>
+        <a href="usercenter.html" class="btn ht60 font-white"> <span class="glyphicon glyphicon-user"
+                                                                     aria-hidden="true"></span> 我 的</a>
+    </div>
+</footer>
+<!--结束底部菜单-->
+<!--弹出层开始-->
+<!--联系客服-->
+<div class="modal fade top48" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
         <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">联系客服</h4>
-          </div>
-          <div class="modal-body">
-            <div class="mt20">
-              <input class="form-control" placeholder="标题"></input>
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">联系客服</h4>
             </div>
-            <div class="mt20">
-              <textarea class="form-control" placeholder="内容"></textarea>
+            <div class="modal-body">
+                <div class="mt20">
+                    <input class="form-control" placeholder="标题"></input>
+                </div>
+                <div class="mt20">
+                    <textarea class="form-control" placeholder="内容"></textarea>
+                </div>
+                <div class="mt20 tc">
+                    <button type="button" class="btn btn-black" data-dismiss="modal" aria-label="Close">提交</button>
+                    <button type="button" class="btn btn-danger ml20" data-dismiss="modal" aria-label="Close">取消
+                    </button>
+                </div>
             </div>
-            <div class="mt20 tc">
-              <button type="button" class="btn btn-black" data-dismiss="modal" aria-label="Close">提交</button>
-              <button type="button" class="btn btn-danger ml20" data-dismiss="modal" aria-label="Close">取消</button>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
-    <!--联系客服-->
-    <!--反馈-->
-    <div class="modal fade top48" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1">
-      <div class="modal-dialog" role="document">
+</div>
+<!--联系客服-->
+<!--反馈-->
+<div class="modal fade top48" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1">
+    <div class="modal-dialog" role="document">
         <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">反馈</h4>
-          </div>
-          <div class="modal-body">
-            <div class="mt20">
-              <input class="form-control" placeholder="标题"></input>
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">反馈</h4>
             </div>
-            <div class="mt20">
-              <textarea class="form-control" placeholder="内容"></textarea>
+            <div class="modal-body">
+                <div class="mt20">
+                    <input class="form-control" placeholder="标题"></input>
+                </div>
+                <div class="mt20">
+                    <textarea class="form-control" placeholder="内容"></textarea>
+                </div>
+                <div class="mt20 tc">
+                    <button type="button" class="btn btn-black" data-dismiss="modal" aria-label="Close">提交</button>
+                    <button type="button" class="btn btn-danger ml20" data-dismiss="modal" aria-label="Close">取消
+                    </button>
+                </div>
             </div>
-            <div class="mt20 tc">
-              <button type="button" class="btn btn-black" data-dismiss="modal" aria-label="Close">提交</button>
-              <button type="button" class="btn btn-danger ml20" data-dismiss="modal" aria-label="Close">取消</button>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
-    <!--反馈-->
-    <!--弹出层结束-->
-    <script src="js/plugins/jquery-1.11.3.min.js"></script>
-    <script src="js/plugins/bootstrap.min.js"></script>
-    <script src="js/plugins/jquery.cookie.js"></script>
-    <script type="text/javascript" src="js/plugins/jquery.touchSwipe.min.js"></script>
-    <script type="text/javascript" src="js/model/usercenter.js"></script>
-  </body>
+</div>
+<!--反馈-->
+<!--弹出层结束-->
+<script src="js/plugins/jquery-1.11.3.min.js"></script>
+<script src="js/plugins/bootstrap.min.js"></script>
+<script src="js/plugins/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/plugins/jquery.touchSwipe.min.js"></script>
+<script type="text/javascript" src="js/model/usercenter.js"></script>
+</body>
 </html>

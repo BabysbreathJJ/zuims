@@ -326,3 +326,7 @@ a {
     margin-left: 5px;
     width: 100px;
 }
+
+#orderInfo {
+    overflow-y: auto;
+}
