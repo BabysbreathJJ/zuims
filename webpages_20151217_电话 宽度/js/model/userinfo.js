@@ -49,9 +49,8 @@ $("span[name='save']").click(function(){
         success : function(data){
             if(data.success){
                 alert("保存成功");
-                setTimeout(function(){
-                    window.location.href = "usercenter.html";
-                },1000)
+                window.location.href = "usercenter.html";
+
             }
         }
     })
