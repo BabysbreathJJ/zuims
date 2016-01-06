@@ -40,17 +40,16 @@ $("#submit").click(function(){
                     'password' : pass,
                     'gender' : gender
                 }
-                console.log(user)
                 $.ajax({
                     url : regUrl,
                     type : "POST",
                     data : JSON.stringify(user),
                     contentType : 'application/json',
                     success : function(data){
-                        console.log(data);
+                        debugger;
                         $.cookie('login', 'true');
                         $.cookie('phone', tel);
-                        window.location.ref = "index.html";
+                        window.location.href = "index.html";
                     },
                     error : function(data){
                         $(".telErr").find(".msg").html(data.responseJSON.message);

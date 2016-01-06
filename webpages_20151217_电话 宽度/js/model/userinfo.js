@@ -40,7 +40,7 @@ var phone = $.cookie('phone');
 $("span[name='save']").click(function(){
     var userInfoUrl = "http://202.120.40.175:21101/users/userinfocomplete?phone="+$("input[name='phoneid']").val();
     var userdata = $("form[name='userinfo']").serializeObject();
-    console.log(JSON.stringify(userdata));
+    var isUpload = false;
     $.ajax({
         url : userInfoUrl,
         type : "POST",
@@ -48,18 +48,19 @@ $("span[name='save']").click(function(){
         contentType: 'application/json',
         success : function(data){
             if(data.success){
-
+                alert("保存成功");
+                setTimeout(function(){
+                    window.location.href = "usercenter.html";
+                },1000)
             }
         }
     })
     //头像上传
     var uploadImg = function(){
         var uploadUrl = "http://202.120.40.175:21101/users/uploadImage";
-        var img = document.getElementById("imgsrc");
-        var base64 = getBase64Image(img).split(',')[1];
         var uploadData = {
-            'phoneid' : phone,
-            'imageValue' : base64
+            'phoneId' : phone,
+            'imageValue' : $("#imgUrl").val()
         }
         $.ajax({
             url : uploadUrl,
@@ -103,18 +104,13 @@ var loadUserInfo = function(){
         data : {phone : phone},
         success : function(data){
             addData(data);
+            //获取用户头像
+            var img = $('<img class="img-responsive" style="width : 80px;">');
+            img.attr("src",'http://202.120.40.175:21101/users/images?phone=' + phone)
+            $(".displayImg").html(img);
         }
     })
-    //获取用户头像
-    var getUserImgUrl = "http://202.120.40.175:21101/users/images";
-    $.ajax({
-        url : getUserImgUrl,
-        type : "GET",
-        data : {phone : phone},
-        success : function(data){
 
-        }
-    })
 }();
 //图片展示
 function displayImg(result) {
@@ -137,8 +133,11 @@ function displayImg(result) {
         reader.readAsDataURL(file);
         reader.onload = function (e) {
             $("#imgsrc").css('width','80px');
-            var base64 = this.result.split(',')[1];//这个没用到
+            console.log(this.result);
+            var base64 = this.result.split(',')[1];
+            console.log(base64)
             $("#imgUrl").val(base64);
+            result.html("");
             result.html('<img id="imgsrc" class="img-responsive" src="' + this.result + '" alt=""/>')
         }
     }
@@ -181,16 +180,4 @@ function addData(r){
         if (key && d[key])
             $(this).val(d[key]);
     }).end();
-}
-//图片base64
-function getBase64Image(img) {
-    var canvas = document.createElement("canvas");
-    canvas.width = img.width;
-    canvas.height = img.height;
-
-    var ctx = canvas.getContext("2d");
-    ctx.drawImage(img, 0, 0, img.width, img.height);
-
-    var dataURL = canvas.toDataURL("image/*");
-    return dataURL
 }

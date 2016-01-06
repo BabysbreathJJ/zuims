@@ -68,22 +68,28 @@ $("#login").click(function () {
             data: JSON.stringify(userInfo),
             success: function (msg) {
                 $(".font-red").addClass("display-n");
+                var args = getUrlParam();
                 if ($("#remember").is(':checked')) {
                     $.cookie('login', 'true', {expires: 60000000});
                     $.cookie('phone', msg.phone, {expires: 60000000});
+                    if (args['id'] == null)
+                        window.location.href = "index.html";
+                    else {
+                        var url = "order.html?myDate=" + args.myDate + "&myTime=" + args.myTime + "&dinerNum=" + args.dinerNum + "&pay=" + args.pay + "&originPrice=" + args.originPrice + "&more=" + args.more + "&id=" + args.id;
+                        location.href = encodeURI(url);
+                    }
                 }
                 else {
                     $.cookie('login', 'true');
                     $.cookie('phone', msg.phone);
+                    if (args['id'] == null)
+                        window.location.href = "index.html";
+                    else {
+                        var url = "order.html?myDate=" + args.myDate + "&myTime=" + args.myTime + "&dinerNum=" + args.dinerNum + "&pay=" + args.pay + "&originPrice=" + args.originPrice + "&more=" + args.more + "&id=" + args.id;
+                        location.href = encodeURI(url);
+                    }
                 }
 
-                var args = getUrlParam();
-                if (args['id'] == null)
-                    window.location.href = "index.html";
-                else {
-                    var url = "order.html?myDate=" + args.myDate + "&myTime=" + args.myTime + "&dinerNum=" + args.dinerNum + "&pay=" + args.pay + "&originPrice=" + args.originPrice + "&more=" + args.more + "&id=" + args.id;
-                    location.href = encodeURI(url);
-                }
             },
             error: function () {
                 $(".font-red").removeClass("display-n");
