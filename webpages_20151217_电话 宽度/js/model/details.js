@@ -97,6 +97,7 @@ function getUrlParam(name) {
 }
 //推荐餐厅
 function like(type){
+    var allRes = [];
     var city = $.cookie('locateCity');
     var getresUrl = 'http://202.120.40.175:21100//restaurants/recommand/city?cname=' + city;
     $.ajax({
@@ -104,10 +105,11 @@ function like(type){
         url: getresUrl,
         crossDomain: true,
         success: function (data) {
+            allRes = data;
             for(var i = 0;i < data.length; i++){
                 if(data[i].restaurantType == type){
                     var likeRes = '<a href="details.html?id="'+data[i].restaurantId+' style="text-decoration:none;">'+
-                                  '<img src="'+data[i].image+'" class="fl per40 mr20">'+
+                                  '<img src="'+data[i].image+'" class="fl per40 mr20 ht80">'+
                                   '<div class="overflow-h">'+
                                   '<p class="font-c-f8 font16">'+data[i].title+'</p>'+
                                   '<p class="font-c-8f">地址：'+data[i].address+'</p>'+
@@ -121,4 +123,24 @@ function like(type){
             }
         }
     })
+    //更多点击
+    $("#more").click(function(){
+        var moreLike = "";
+        for(var i = 0;i < allRes.length;i ++){
+            if(allRes[i].restaurantType == type){
+                var likeRes = '<a href="details.html?id='+allRes[i].restaurantId+' style="text-decoration:none;">'+
+                    '<img src="'+allRes[i].image+'" class="fl per40 mr20 ht80">'+
+                    '<div class="overflow-h">'+
+                    '<p class="font-c-f8 font16">'+allRes[i].title+'</p>'+
+                    '<p class="font-c-8f">地址：'+allRes[i].address+'</p>'+
+                    '<p class="font-c-8f">人均消费：￥'+allRes[i].price+'</p>'+
+                    '</div>'+
+                    '</a>';
+                moreLike += likeRes;
+            }
+        }
+        $(".like").append(moreLike);
+        $(this).addClass("display-n");
+    })
+
 }
