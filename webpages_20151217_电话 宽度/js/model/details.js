@@ -40,7 +40,9 @@ var load = function () {
             $(".type").html(data.restaurantType);
             $(".order").attr("href",'order.html?id='+data.restaurantId)
             $(".park").html(data.park);
-
+            if(data.discountType[0] == '暂无'){
+                $(".smy").addClass("display-n");
+            }
 
 
             var tel = data.restaurantTele.split(" ");

@@ -11,6 +11,7 @@
       <change type="DELETED" beforePath="F:\github\zuims\webpages_20151217_电话 宽度\js\plugins\jquery-1.8.1.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpages_20151217_电话 宽度/details.html" afterPath="$PROJECT_DIR$/webpages_20151217_电话 宽度/details.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpages_20151217_电话 宽度/js/model/details.js" afterPath="$PROJECT_DIR$/webpages_20151217_电话 宽度/js/model/details.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="zuims.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -151,8 +152,18 @@
       <file leaf-file-name="details.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webpages_20151217_电话 宽度/details.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.10344828" vertical-offset="2077" max-vertical-offset="2860">
-              <caret line="104" column="33" selection-start-line="104" selection-start-column="33" selection-end-line="104" selection-end-column="33" />
+            <state vertical-scroll-proportion="-6.8965516" vertical-offset="240" max-vertical-offset="2880">
+              <caret line="22" column="36" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="order.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webpages_20151217_电话 宽度/order.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.965517" vertical-offset="340" max-vertical-offset="2880">
+              <caret line="30" column="12" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="77" />
               <folding />
             </state>
           </provider>
@@ -161,8 +172,8 @@
       <file leaf-file-name="details.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/webpages_20151217_电话 宽度/js/model/details.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.61538464" vertical-offset="2268" max-vertical-offset="3040">
-              <caret line="131" column="77" selection-start-line="131" selection-start-column="77" selection-end-line="131" selection-end-column="77" />
+            <state vertical-scroll-proportion="0.7692308" vertical-offset="420" max-vertical-offset="3080">
+              <caret line="43" column="48" selection-start-line="43" selection-start-column="48" selection-end-line="43" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -281,7 +292,7 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="F:/gexamples/Migo-exercise" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FullScreen" value="false" />
   </component>
@@ -529,13 +540,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webpages_20151217_电话 宽度/order.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="2420">
-          <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/front_end/app/view_register/register.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6293706" vertical-offset="0" max-vertical-offset="3460">
@@ -753,18 +757,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/webpages_20151217_电话 宽度/order.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.965517" vertical-offset="340" max-vertical-offset="2880">
+          <caret line="30" column="12" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/webpages_20151217_电话 宽度/details.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.10344828" vertical-offset="2077" max-vertical-offset="2860">
-          <caret line="104" column="33" selection-start-line="104" selection-start-column="33" selection-end-line="104" selection-end-column="33" />
+        <state vertical-scroll-proportion="-6.8965516" vertical-offset="240" max-vertical-offset="2880">
+          <caret line="22" column="36" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/webpages_20151217_电话 宽度/js/model/details.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.61538464" vertical-offset="2268" max-vertical-offset="3040">
-          <caret line="131" column="77" selection-start-line="131" selection-start-column="77" selection-end-line="131" selection-end-column="77" />
+        <state vertical-scroll-proportion="0.7692308" vertical-offset="420" max-vertical-offset="3080">
+          <caret line="43" column="48" selection-start-line="43" selection-start-column="48" selection-end-line="43" selection-end-column="48" />
           <folding />
         </state>
       </provider>
