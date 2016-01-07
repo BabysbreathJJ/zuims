@@ -94,6 +94,7 @@ function getUrlParam(name) {
 }
 //推荐餐厅
 function like(type){
+    debugger;
     var city = $.cookie('locateCity');
     var getresUrl = 'http://202.120.40.175:21100//restaurants/recommand/city?cname=' + city;
     $.ajax({
@@ -102,6 +103,7 @@ function like(type){
         crossDomain: true,
         success: function (data) {
             for(var i = 0;i < data.length; i++){
+                debugger;
                 if(data[i].restaurantType == type){
                     var likeRes = '<a href="details.html?id="+data[i].restaurantId style="text-decoration:none;">'+
                                   '<img src="'+data[i].image[0]+'" class="fl per40 mr20">'+
