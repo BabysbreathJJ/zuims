@@ -129,7 +129,7 @@ $(function () {
                     '<div class="introduce">' +
                     '<p class="tc mt16"><b class="font16">' + data[0].title + '</b><i class="font-c-f8 ml10">hot</i></p>' +
                     '<p class="tc">' +
-                    '<span>95</span> 次预订 <span>5921</span>次浏览' +
+                    //'<span>95</span> 次预订 <span>5921</span>次浏览' +
                     '</p>' +
                     '<p>' +
                     '<span class="font-c-8f">每位：</span>' +
@@ -168,7 +168,7 @@ $(function () {
                             '<div class="introduce">' +
                             '<p class="tc mt16"><b class="font16">' + data[i].title + '</b><i class="font-c-f8 ml10">hot</i></p>' +
                             '<p class="tc">' +
-                            '<span>95</span> 次预订 <span>5921</span>次浏览' +
+                                //'<span>95</span> 次预订 <span>5921</span>次浏览' +
                             '</p>' +
                             '<p>' +
                             '<span class="font-c-8f">每位：</span>' +
@@ -204,7 +204,7 @@ $(function () {
                             '<div class="introduce">' +
                             '<p class="tc mt16"><b class="font16">' + data[i].title + '</b><i class="font-c-f8 ml10">hot</i></p>' +
                             '<p class="tc">' +
-                            '<span>95</span> 次预订 <span>5921</span>次浏览' +
+                                //'<span>95</span> 次预订 <span>5921</span>次浏览' +
                             '</p>' +
                             '<p>' +
                             '<span class="font-c-8f">每位：</span>' +

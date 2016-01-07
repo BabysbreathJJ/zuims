@@ -110,7 +110,7 @@ function like(type){
             allRes = data;
             for(var i = 0;i < data.length; i++){
                 if(data[i].restaurantType == type){
-                    var likeRes = '<a href="details.html?id="'+data[i].restaurantId+' style="text-decoration:none;">'+
+                    var likeRes = '<a href="details.html?id='+data[i].restaurantId+'" style="text-decoration:none;">'+
                                   '<img src="'+data[i].image+'" class="fl per40 mr20 ht80">'+
                                   '<div class="overflow-h">'+
                                   '<p class="font-c-f8 font16">'+data[i].title+'</p>'+
@@ -130,7 +130,7 @@ function like(type){
         var moreLike = "";
         for(var i = 0;i < allRes.length;i ++){
             if(allRes[i].restaurantType == type){
-                var likeRes = '<a href="details.html?id='+allRes[i].restaurantId+' style="text-decoration:none;">'+
+                var likeRes = '<a href="details.html?id='+allRes[i].restaurantId+'" style="text-decoration:none;">'+
                     '<img src="'+allRes[i].image+'" class="fl per40 mr20 ht80">'+
                     '<div class="overflow-h">'+
                     '<p class="font-c-f8 font16">'+allRes[i].title+'</p>'+
@@ -141,7 +141,7 @@ function like(type){
                 moreLike += likeRes;
             }
         }
-        $(".like").append(moreLike);
+        $(".like").html(moreLike);
         $(this).addClass("display-n");
     })
 
