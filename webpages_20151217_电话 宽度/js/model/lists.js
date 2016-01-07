@@ -192,7 +192,14 @@ function searchRes(resName){
 $(".city-item").click(function(){
     $("#current-city").text($(this).text());
     $("#myModal").modal('hide');
-    loadRes($.cookie('locateCity'));
+    $.cookie('locateCity',$(this).text())
+    resData = getData($.cookie('locateCity'));
+    more(resData,index);
+    //更多
+    $("#more").click(function(){
+        index+=10;
+        more(proData,index)
+    });
 })
 
 

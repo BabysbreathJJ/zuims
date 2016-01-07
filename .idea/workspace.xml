@@ -10,6 +10,7 @@
       <change type="DELETED" beforePath="F:\github\zuims\webpages_20151217_电话 宽度\js\npm.js" afterPath="" />
       <change type="DELETED" beforePath="F:\github\zuims\webpages_20151217_电话 宽度\js\plugins\jquery-1.8.1.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpages_20151217_电话 宽度/js/model/lists.js" afterPath="$PROJECT_DIR$/webpages_20151217_电话 宽度/js/model/lists.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="zuims.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -77,8 +78,8 @@
       <file leaf-file-name="lists.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/webpages_20151217_电话 宽度/js/model/lists.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6260297" vertical-offset="1140" max-vertical-offset="4540">
-              <caret line="76" column="15" selection-start-line="76" selection-start-column="15" selection-end-line="76" selection-end-column="15" />
+            <state vertical-scroll-proportion="0.6046128" vertical-offset="3513" max-vertical-offset="4680">
+              <caret line="194" column="40" selection-start-line="194" selection-start-column="40" selection-end-line="194" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -738,8 +739,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/webpages_20151217_电话 宽度/js/model/lists.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6260297" vertical-offset="1140" max-vertical-offset="4540">
-          <caret line="76" column="15" selection-start-line="76" selection-start-column="15" selection-end-line="76" selection-end-column="15" />
+        <state vertical-scroll-proportion="0.6046128" vertical-offset="3513" max-vertical-offset="4680">
+          <caret line="194" column="40" selection-start-line="194" selection-start-column="40" selection-end-line="194" selection-end-column="40" />
           <folding />
         </state>
       </provider>
