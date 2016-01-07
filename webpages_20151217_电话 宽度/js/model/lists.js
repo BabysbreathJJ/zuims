@@ -17,17 +17,18 @@ function getData(cname){
         data : {cname : cname},
         crossDomain: true,
         success : function(data){
-            resData = data;
+            for(var i = 0; i < data.length; i++){
+                if(parseInt(data[i].price) > 0){
+                    resData.push(data[i]);
+                }
+            }
+            //resData = data;
         }
     })
     return resData;
 }
 //处理数据
 var resData = getData($.cookie('locateCity'));
-//从下到上价格数据
-var priceDownData = sort(resData);
-//从上到下价格数据
-var priceUpData = priceDownData.reverse();
 //产品数据
 var proData = [];
 for(var i = 0;i < resData.length; i ++){
@@ -36,17 +37,23 @@ for(var i = 0;i < resData.length; i ++){
     }
 }
 //初始化页面添加data
-var addData = function(){
-    more(resData,index);
-}();
+more(resData,index);
+//更多
+$("#more").click(function(){
+    index+=10;
+    more(proData,index)
+});
 //价格排序
 $('.price').click(function(){
+    index = 10;
+    $(".result").html("");
+    var data = [];
     if(price){
         //从下到上
         $(this).find(".glyphicon-triangle-top").show();
         $(this).find(".glyphicon-triangle-bottom").hide();
         price = false;
-        more(priceDownData,index);
+        data = sort(resData);
 
     }
     else{
@@ -54,14 +61,30 @@ $('.price').click(function(){
         $(this).find(".glyphicon-triangle-top").hide();
         $(this).find(".glyphicon-triangle-bottom").show();
         price = true;
-        more(priceUpData,index);
+        data = sort(resData).reverse();
+
     }
+    $('html,body').animate({scrollTop: '0px'}, 300);
+    more(data,index);
+    //更多
+    $("#more").click(function(){
+        index+=10;
+        more(data,index)
+    });
 });
 //产品排序
 $(".pro-item").click(function(){
+    index = 10;
     $("#current-pro").text($(this).text());
     $("#myModal1").modal('hide');
+    $('html,body').animate({scrollTop: '0px'}, 300);
     more(proData,index);
+    //更多
+    $("#more").click(function(){
+        index+=10;
+        more(proData,index)
+    });
+
 })
 //dom添加
 function loadDiv(data){
@@ -122,12 +145,9 @@ function more(data,index){
         newData.push(data[i]);
     }
     var resInfo = loadDiv(newData);
+    $(".resList").html("")
     $(".resList").html(resInfo);
-    //更多
-    $("#more").click(function(){
-        index+=10;
-        more(newData,index)
-    });
+
 }
 
 //热门点击
