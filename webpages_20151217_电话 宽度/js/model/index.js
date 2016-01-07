@@ -79,8 +79,8 @@ $(function () {
                         data[i].distance = formatDistance(map.getDistance(point, restaurantPoint));
                 }
 
-
                 var updateInfo = "";
+                var smy = '<div class="pos-a font-white bg-orange transform45 smy">三免一</div>';
                 //console.log(data[data.length-1].restaurantId)
                 var firstLi =
                     '<li class="fl ml5 mr5">' +
@@ -147,6 +147,9 @@ $(function () {
                     '</div>' +
                     '</li>';
                 for (var i = 0; i < data.length; i++) {
+                    if(data[i].discountType[0] == "暂无"){
+                        smy = "";
+                    }
                     if (i == 0) {
 
                         var restaurantInfo =
@@ -157,7 +160,7 @@ $(function () {
                             '</a>' +
                             '<input type="hidden" value="' + data[i].restaurantId + '">' +
                             '<img src="' + data[i].image + ' "class="img-responsive">' +
-                            '<div class="pos-a font-white bg-orange transform45 smy">三免一</div>' +
+                             smy +
                             '<div class="pos-a tc per100 bottom20">' +
                             '<p class="bg-t display-ib per100 l-ht30 font-white">' + data[i].title + '</p>' +
                             '</div>' +
@@ -193,7 +196,7 @@ $(function () {
                             '</a>' +
                             '<input type="hidden" value="' + data[i].restaurantId + '">' +
                             '<img src="' + data[i].image + ' "class="img-responsive">' +
-                            '<div class="pos-a font-white bg-orange transform45 smy">三免一</div>' +
+                             smy +
                             '<div class="pos-a tc per100 bottom20">' +
                             '<p class="bg-t display-ib per100 l-ht30 font-white">' + data[i].title + '</p>' +
                             '</div>' +
@@ -221,7 +224,7 @@ $(function () {
 
                     }
 
-
+                    //console.log(data[i].discountType[0])
                     updateInfo += restaurantInfo;
                 }
 

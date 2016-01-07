@@ -132,10 +132,8 @@ function displayImg(result) {
         reader.readAsDataURL(file);
         reader.onload = function (e) {
             $("#imgsrc").css('width','80px');
-            console.log(this.result);
             var base64 = this.result.split(',')[1];
-            console.log(base64)
-            $("#imgUrl").val(base64);
+            $("#imgUrl").val(this.result);
             result.html("");
             result.html('<img id="imgsrc" class="img-responsive" src="' + this.result + '" alt=""/>')
         }

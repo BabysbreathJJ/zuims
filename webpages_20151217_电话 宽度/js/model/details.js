@@ -52,6 +52,8 @@ var load = function () {
                 telInfo += aTel;
             }
             $(".tel").append(telInfo);
+            //猜你喜欢
+            like(data.restaurantType);
             //添加图片
             $("#d-img").attr('src', data.images[0])
             var imgInfo = "";
@@ -89,4 +91,31 @@ function getUrlParam(name) {
     else {
         return null;
     }
+}
+//推荐餐厅
+function like(type){
+    var city = $.cookie('locateCity');
+    var getresUrl = 'http://202.120.40.175:21100//restaurants/recommand/city?cname=' + city;
+    $.ajax({
+        method: 'GET',
+        url: getresUrl,
+        crossDomain: true,
+        success: function (data) {
+            for(var i = 0;i < data.length; i++){
+                if(data[i].restaurantType == type){
+                    var likeRes = '<a href="details.html?id="+data[i].restaurantId style="text-decoration:none;">'+
+                                  '<img src="'+data[i].image[0]+'" class="fl per40 mr20">'+
+                                  '<div class="overflow-h">'+
+                                  '<p class="font-c-f8 font16">'+data[i].restaurantName+'</p>'+
+                                  '<p class="font-c-8f">地址：'+data[i].restaurantAddress+'</p>'+
+                                  '<p class="font-c-8f">人均消费：￥'+data[i].averagePrice+'</p>'+
+                                  '</div>'+
+                                  '</a>';
+
+                    $(".like").html(likeRes);
+                    return ;
+                }
+            }
+        }
+    })
 }
