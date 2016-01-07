@@ -70,21 +70,36 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="order.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="order.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/order.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.35008666">
-              <caret line="119" column="83" selection-start-line="119" selection-start-column="83" selection-end-line="119" selection-end-column="83" />
+            <state vertical-scroll-proportion="-13.75">
+              <caret line="22" column="11" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
+              <folding>
+                <element signature="n#style#0;n#select#0;n#p#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="order.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/model/order.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.42429283">
+              <caret line="91" column="28" selection-start-line="91" selection-start-column="28" selection-end-line="91" selection-end-column="28" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="order.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/model/order.js">
+      <file leaf-file-name="login.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/model/login.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="57" column="20" selection-start-line="57" selection-start-column="20" selection-end-line="57" selection-end-column="20" />
+              <caret line="87" column="130" selection-start-line="87" selection-start-column="130" selection-end-line="87" selection-end-column="130" />
               <folding />
             </state>
           </provider>
@@ -95,7 +110,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+              <folding>
+                <marker date="1452142920000" expanded="true" signature="165:472" placeholder="{&quot;type&quot;: &quot;GET&quot;...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -104,7 +121,7 @@
         <entry file="file://$PROJECT_DIR$/details.html">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="22.208334">
-              <caret line="68" column="16" selection-start-line="68" selection-start-column="16" selection-end-line="68" selection-end-column="16" />
+              <caret line="69" column="14" selection-start-line="69" selection-start-column="14" selection-end-line="69" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -120,7 +137,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/js/model/login.js" />
         <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/reg.html" />
         <option value="$PROJECT_DIR$/js/model/usercenter.js" />
@@ -129,6 +145,7 @@
         <option value="$PROJECT_DIR$/js/model/details.js" />
         <option value="$PROJECT_DIR$/js/model/index.js" />
         <option value="$PROJECT_DIR$/order.html" />
+        <option value="$PROJECT_DIR$/js/model/login.js" />
         <option value="$PROJECT_DIR$/js/model/order.js" />
       </list>
     </option>
@@ -139,9 +156,9 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="3" />
-    <option name="y" value="23" />
-    <option name="width" value="1280" />
+    <option name="x" value="1517" />
+    <option name="y" value="249" />
+    <option name="width" value="1415" />
     <option name="height" value="721" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -284,15 +301,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="3" y="23" width="1280" height="721" extended-state="6" />
+    <frame x="1517" y="249" width="1415" height="721" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19698173" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21090387" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964131" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -520,13 +537,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/model/login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0201885">
-          <caret line="92" column="3" selection-start-line="92" selection-start-column="3" selection-end-line="92" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -603,7 +613,7 @@
     <entry file="file://$PROJECT_DIR$/details.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="22.208334">
-          <caret line="68" column="16" selection-start-line="68" selection-start-column="16" selection-end-line="68" selection-end-column="16" />
+          <caret line="69" column="14" selection-start-line="69" selection-start-column="14" selection-end-line="69" selection-end-column="14" />
           <folding />
         </state>
       </provider>
@@ -612,7 +622,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1452142920000" expanded="true" signature="165:472" placeholder="{&quot;type&quot;: &quot;GET&quot;...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -620,14 +632,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.44925123">
           <caret line="60" column="39" selection-start-line="60" selection-start-column="39" selection-end-line="60" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/model/order.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="57" column="20" selection-start-line="57" selection-start-column="20" selection-end-line="57" selection-end-column="20" />
           <folding />
         </state>
       </provider>
@@ -640,10 +644,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/model/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="87" column="130" selection-start-line="87" selection-start-column="130" selection-end-line="87" selection-end-column="130" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/order.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35008666">
-          <caret line="119" column="83" selection-start-line="119" selection-start-column="83" selection-end-line="119" selection-end-column="83" />
+        <state vertical-scroll-proportion="-13.75">
+          <caret line="22" column="11" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
+          <folding>
+            <element signature="n#style#0;n#select#0;n#p#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/model/order.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.42429283">
+          <caret line="91" column="28" selection-start-line="91" selection-start-column="28" selection-end-line="91" selection-end-column="28" />
           <folding />
         </state>
       </provider>

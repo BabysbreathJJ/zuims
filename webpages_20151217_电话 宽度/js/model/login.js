@@ -75,7 +75,7 @@ $("#login").click(function () {
                     if (args['id'] == null)
                         window.location.href = "index.html";
                     else {
-                        var url = "order.html?myDate=" + args.myDate + "&myTime=" + args.myTime + "&dinerNum=" + args.dinerNum + "&pay=" + args.pay + "&originPrice=" + args.originPrice + "&more=" + args.more + "&id=" + args.id;
+                        var url = "order.html?myDate=" + args.myDate + "&myTime=" + args.myTime + '&orderDate=' + args.orderDate + "&dinerNum=" + args.dinerNum + "&pay=" + args.pay + "&originPrice=" + args.originPrice + "&more=" + args.more + "&id=" + args.id;
                         location.href = encodeURI(url);
                     }
                 }
@@ -85,7 +85,7 @@ $("#login").click(function () {
                     if (args['id'] == null)
                         window.location.href = "index.html";
                     else {
-                        var url = "order.html?myDate=" + args.myDate + "&myTime=" + args.myTime + "&dinerNum=" + args.dinerNum + "&pay=" + args.pay + "&originPrice=" + args.originPrice + "&more=" + args.more + "&id=" + args.id;
+                        var url = "order.html?myDate=" + args.myDate + "&myTime=" + args.myTime + '&orderDate=' + args.orderDate + "&dinerNum=" + args.dinerNum + "&pay=" + args.pay + "&originPrice=" + args.originPrice + "&more=" + args.more + "&id=" + args.id;
                         location.href = encodeURI(url);
                     }
                 }
