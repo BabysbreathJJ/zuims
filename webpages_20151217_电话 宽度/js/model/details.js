@@ -67,14 +67,17 @@ var load = function () {
             //图片点击
             var img = $(".img-list").find('img');
             img.css("width", (document.body.clientWidth - 150) / 4 + "px")
+            var length = $(".img-list").find('img').length;
+            var width = parseInt(img.css("width")) * (length + 2);
+            $(".img-list").css("width", width + 'px');
+
+
             img.css("height", img.css("width"));
             img.click(function () {
                 var src = $(this).attr("src");
                 $("#d-img").attr("src", src);
             })
-            var length = $(".img-list").find('img').length;
-            var width = parseInt(img.css("width")) * (length + 1);
-            $(".img-list").css("width", width + 'px');
+
         }
 
     })
@@ -94,7 +97,6 @@ function getUrlParam(name) {
 }
 //推荐餐厅
 function like(type){
-    debugger;
     var city = $.cookie('locateCity');
     var getresUrl = 'http://202.120.40.175:21100//restaurants/recommand/city?cname=' + city;
     $.ajax({
@@ -103,14 +105,13 @@ function like(type){
         crossDomain: true,
         success: function (data) {
             for(var i = 0;i < data.length; i++){
-                debugger;
                 if(data[i].restaurantType == type){
-                    var likeRes = '<a href="details.html?id="+data[i].restaurantId style="text-decoration:none;">'+
-                                  '<img src="'+data[i].image[0]+'" class="fl per40 mr20">'+
+                    var likeRes = '<a href="details.html?id="'+data[i].restaurantId+' style="text-decoration:none;">'+
+                                  '<img src="'+data[i].image+'" class="fl per40 mr20">'+
                                   '<div class="overflow-h">'+
-                                  '<p class="font-c-f8 font16">'+data[i].restaurantName+'</p>'+
-                                  '<p class="font-c-8f">地址：'+data[i].restaurantAddress+'</p>'+
-                                  '<p class="font-c-8f">人均消费：￥'+data[i].averagePrice+'</p>'+
+                                  '<p class="font-c-f8 font16">'+data[i].title+'</p>'+
+                                  '<p class="font-c-8f">地址：'+data[i].address+'</p>'+
+                                  '<p class="font-c-8f">人均消费：￥'+data[i].price+'</p>'+
                                   '</div>'+
                                   '</a>';
 
