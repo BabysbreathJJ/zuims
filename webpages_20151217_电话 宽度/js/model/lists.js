@@ -22,13 +22,17 @@ function loadRes(cname){
 //dom添加
 function loadDiv(data){
     var resInfo = "";
+    var smy = '<div class="pos-a font-white bg-orange transform45 smy">三免一</div>';
+    if(data[i].discountType[0] == "暂无"){
+        smy = "";
+    }
     for(var i = 0;i < data.length;i ++){
         var resDiv = '<div class="border border-r-5 bg-white padding mt10">'+
             '<div class="pos-r overflow-h">'+
             '<a href="details.html?id='+data[i].restaurantId+'">'+
             '<img src="'+data[i].image+'" class="img-responsive">'+
             '</a>'+
-            '<div class="pos-a font-white bg-orange transform45 smy">三免一</div>'+
+             smy+
             '</div>'+
             '<div class="pl10 pr10 pos-r mt20">'+
             '<div class="mb16">'+
