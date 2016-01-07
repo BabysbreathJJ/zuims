@@ -190,6 +190,7 @@ function searchRes(resName){
 
 //选择城市下拉列表触发事件
 $(".city-item").click(function(){
+    index = 10;
     $("#current-city").text($(this).text());
     $("#myModal").modal('hide');
     $.cookie('locateCity',$(this).text())

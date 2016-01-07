@@ -86,9 +86,10 @@ $(function () {
                     '<li class="fl ml5 mr5">' +
                     '<div class="w-300 r-single">' +
                     '<div class="pos-r overflow-h">' +
-                    '<a class="display-ib pos-a per100 ht300" href="details.html?id=' + data[data.length - 1].restaurantId + '">' +
-                    '</a>' +
+                    '<a href="details.html?id=' + data[data.length - 1].restaurantId + '">' +
+                    '<input type="hidden" value="' + data[data.length - 1].restaurantId + '">' +
                     '<img src="' + data[data.length - 1].image + ' "class="img-responsive">' +
+                    '</a>' +
                     '<div class="pos-a font-white bg-orange transform45 smy">三免一</div>' +
                     '<div class="pos-a tc per100 bottom20">' +
                     '<p class="bg-t display-ib per100 l-ht30 font-white">' + data[data.length - 1].title + '</p>' +
@@ -118,9 +119,10 @@ $(function () {
                     '<li class="fl ml5 mr5">' +
                     '<div class="w-300 r-single">' +
                     '<div class="pos-r overflow-h">' +
-                    '<a class="display-ib pos-a per100 ht300" href="details.html?id=' + data[0].restaurantId + '">' +
-                    '</a>' +
+                    '<a href="details.html?id=' + data[0].restaurantId + '">' +
+                    '<input type="hidden" value="' + data[0].restaurantId + '">' +
                     '<img src="' + data[0].image + ' "class="img-responsive">' +
+                    '</a>' +
                     '<div class="pos-a font-white bg-orange transform45 smy">三免一</div>' +
                     '<div class="pos-a tc per100 bottom20">' +
                     '<p class="bg-t display-ib per100 l-ht30 font-white">' + data[0].title + '</p>' +
@@ -156,10 +158,10 @@ $(function () {
                             '<li class="fl ml5 mr5">' +
                             '<div class="w-300 r-single r-active">' +
                             '<div class="pos-r overflow-h">' +
-                            '<a class="display-ib pos-a per100 ht300" href="details.html?id=' + data[i].restaurantId + '">' +
-                            '</a>' +
+                            '<a href="details.html?id=' + data[i].restaurantId + '">' +
                             '<input type="hidden" value="' + data[i].restaurantId + '">' +
                             '<img src="' + data[i].image + ' "class="img-responsive">' +
+                            '</a>' +
                              smy +
                             '<div class="pos-a tc per100 bottom20">' +
                             '<p class="bg-t display-ib per100 l-ht30 font-white">' + data[i].title + '</p>' +
@@ -192,10 +194,10 @@ $(function () {
                             '<li class="fl ml5 mr5">' +
                             '<div class="w-300 r-single">' +
                             '<div class="pos-r overflow-h">' +
-                            '<a class="display-ib pos-a per100 ht300" href="details.html?id=' + data[i].restaurantId + '">' +
-                            '</a>' +
+                            '<a href="details.html?id=' + data[i].restaurantId + '">' +
                             '<input type="hidden" value="' + data[i].restaurantId + '">' +
                             '<img src="' + data[i].image + ' "class="img-responsive">' +
+                            '</a>' +
                              smy +
                             '<div class="pos-a tc per100 bottom20">' +
                             '<p class="bg-t display-ib per100 l-ht30 font-white">' + data[i].title + '</p>' +
