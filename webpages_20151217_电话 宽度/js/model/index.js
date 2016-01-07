@@ -4,16 +4,17 @@
 $(function () {
 //餐厅交互地址
     var restaurantBaseUrl = 'http://202.120.40.175:21100';
-
+    var map;
+    var point = "";
 //地理位置
     var getLocation = function () {
         var cname = "";
         var geolocation = new BMap.Geolocation();
-        var point = "";
+
         geolocation.getCurrentPosition(function (r) {
             if (this.getStatus() == BMAP_STATUS_SUCCESS) {
                 //根据经纬度获取地理位置，不太准确，获取城市区域还是可以的
-                var map = new BMap.Map("allmap");
+                map = new BMap.Map("allmap");
                 point = new BMap.Point(r.point.lng, r.point.lat);
                 var gc = new BMap.Geocoder();
 
@@ -326,7 +327,7 @@ $(function () {
     $(".city-item").click(function () {
         $("#current-city").text($(this).text());
         $("#myModal").modal('hide');
-        loadRes($(this).text());
+        loadRes($(this).text(), point, map);
         $.cookie('locateCity', $(this).text());
     })
 })

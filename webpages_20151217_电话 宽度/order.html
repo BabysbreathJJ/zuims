@@ -106,26 +106,25 @@
     </div>
 </footer>
 <!--结束底部菜单-->
-<!--城市下拉-->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document" style="width:60%; margin: 0 auto;">
+
+<!--预订成功弹出框-->
+<div class="modal fade top48" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModal">
+    <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header tc">
-                <h6 class="display-ib">城市列表</h6>
-                <span class="fr glyphicon glyphicon-remove" data-dismiss="modal" aria-label="Close"></span>
+            <div class="modal-header">
+                <h4 class="modal-title">预订消息</h4>
             </div>
-            <div class="tc ht200 modal-body" style="overflow-y: scroll; padding: 0;">
-                <ul class="list-unstyled">
-                    <li class="l-ht30 font14 border-b-1"><a href="#">上海</a></li>
-                    <li class="l-ht30 font14 border-b-1"><a href="#">北京</a></li>
-                    <li class="l-ht30 font14 border-b-1"><a href="#">广州</a></li>
-                    <li class="l-ht30 font14 border-b-1"><a href="#">杭州</a></li>
-                </ul>
+            <div class="modal-body">
+                您的预订信息已发送到商家!
+                <div class="mt20 tc">
+                    <button type="button" class="btn btn-black" id="feedbackConfirm">确定</button>
+                </div>
             </div>
         </div>
     </div>
 </div>
-<!--城市下拉-->
+<!--预订成功弹出框-->
+
 <script src="js/plugins/jquery-1.11.3.min.js"></script>
 <script src="js/plugins/jquery.cookie.js"></script>
 <script src="js/plugins/moment.min.js"></script>
@@ -135,3 +134,5 @@
 <script type="text/javascript" src="js/model/order.js"></script>
 </body>
 </html>
+
+

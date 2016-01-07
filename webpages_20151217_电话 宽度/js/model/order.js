@@ -153,9 +153,10 @@ $(function () {
 
     $("#completeOrder").click(function () {
         var phoneId = $.cookie("phone");
-        var restaurantId = parseInt(getUrlParam('id'));
+        var args = getUrlParam();
+        var restaurantId = parseInt(args['id']);
         var more = $("#remark").val();
-        var dinerNum = $("#dinerNum").val();
+        var dinerNum = parseInt($("#dinerNum").val());
         var pay = Number($("#pay").text());
         var orderTime = $("#orderTime").val();
         var orderDate = $("#hiddenDate").val();
@@ -173,13 +174,9 @@ $(function () {
             var myOrderInfo = {};
             var myDate = $("#orderDate").text();
             var myTime = orderTime;
-            var dinerNum = dinerNum;
-            var pay = pay;
             var originPrice = $("#originPrice").text();
-            var more = more;
             var args = getUrlParam();
-            var id = args['id'];
-            console.log(myOrderInfo);
+            var id = parseInt(args['id']);
             var url = "login.html?myDate=" + myDate + "&myTime=" + myTime + "&dinerNum=" + dinerNum + "&pay=" + pay + "&originPrice=" + originPrice + "&more=" + more + "&id=" + id;
             location.href = encodeURI(url);
         }
@@ -192,7 +189,11 @@ $(function () {
                 crossDomain: true,
                 async: true,
                 success: function (data) {
-                    alert("预订信息已发送到商家!");
+                    $('#confirmModal').modal('show');
+                    $('#feedbackConfirm').click(function () {
+                        location.href = 'usercenter.html';
+                    });
+
                 }
             });
         }
