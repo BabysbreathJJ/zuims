@@ -18,12 +18,14 @@ function loadRes(cname){
             var newData = data;
             var index = 10;
             more(newData,index)
+            //价格排序
+            sortPrice(newData,index);
+            //更多
             $("#more").click(function(){
                 index+=10;
                 more(newData,index)
             });
-            //价格排序
-            sortPrice(newData,index);
+
 
         }
 
@@ -91,6 +93,7 @@ function sortPrice(newData,index){
 
         if(price){
             //从下到上
+            index = 10;
             $(this).find(".glyphicon-triangle-top").show();
             $(this).find(".glyphicon-triangle-bottom").hide();
             price = false;
@@ -99,19 +102,17 @@ function sortPrice(newData,index){
         }
         else{
             //从上到下
+            index = 10;
             $(this).find(".glyphicon-triangle-top").hide();
             $(this).find(".glyphicon-triangle-bottom").show();
             price = true;
             newData = newData.reverse();
-            console.log(newData);
 
         }
         $('html,body').animate({scrollTop: '0px'}, 300);
         more(newData,index)
-        $("#more").click(function(){
-            index+=10;
-            more(newData,index)
-        })
+
+        //console.log(index);
     });
 }
 //热门点击
