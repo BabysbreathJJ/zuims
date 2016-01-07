@@ -56,16 +56,24 @@
             </select>
         </p>
         <input type="text" style="display: none" id="hiddenDate"/>
+        <input type="text" style="display: none" id="payType">
 
         <p id="people-number">
             <span class="font-c-8f">人数：</span>
             <input class="plot order-item" type="number" value="3" id="dinerNum" min="1"/>
         </p>
 
-        <p>
-            <input type="text" id="averagePrice" style="display: none"/>
+        <input type="text" id="averagePrice" style="display: none"/>
+
+        <p id="discountPay">
+
             <span class="font-c-8f">总价：</span>
-            <span class="font-c-40">￥<span id="pay"></span> <span class="font-c-8f text-d-lt" id="originPrice"></span>（含15%服务费）</span>
+            <span class="font-c-40">￥<span id="payLess"></span> <span class="font-c-8f text-d-lt" id="originPrice"></span>（含15%服务费）</span>
+        </p>
+
+        <p id="originPay">
+            <span class="font-c-8f">总价：</span>
+            <span class="font-c-40">￥<span id="payMore"></span> </span>
         </p>
 
         <div class="mt10 border-r-5 overflow-h">
