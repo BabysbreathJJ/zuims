@@ -104,7 +104,7 @@ function like(type){
             for(var i = 0;i < data.length; i++){
                 if(data[i].restaurantType == type){
                     var likeRes = '<a href="details.html?id="+data[i].restaurantId style="text-decoration:none;">'+
-                                  '<img src="'+data[i].images[0]+'" class="fl per40 mr20">'+
+                                  '<img src="'+data[i].image[0]+'" class="fl per40 mr20">'+
                                   '<div class="overflow-h">'+
                                   '<p class="font-c-f8 font16">'+data[i].restaurantName+'</p>'+
                                   '<p class="font-c-8f">地址：'+data[i].restaurantAddress+'</p>'+
