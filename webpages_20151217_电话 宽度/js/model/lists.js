@@ -5,32 +5,64 @@
 var resUrl = 'http://202.120.40.175:21100';
 var price = true;//排序时候用
 var hot = true;//排序时候用
-loadRes($.cookie('locateCity'));
-$("#current-city").html($.cookie('locateCity'));
-function loadRes(cname){
-
+var index = 10;
+$("#current-city").html($.cookie('locateCity'));//获取城市
+//获取数据
+function getData(cname){
+    var resData = [];
     $.ajax({
         url : resUrl + "/restaurants/city",
         type : "GET",
+        async: false,
         data : {cname : cname},
         crossDomain: true,
         success : function(data){
-            var newData = data;
-            var index = 10;
-            more(newData,index)
-            //价格排序
-            sortPrice(newData,index);
-            //更多
-            $("#more").click(function(){
-                index+=10;
-                more(newData,index)
-            });
-
-
+            resData = data;
         }
-
     })
+    return resData;
 }
+//处理数据
+var resData = getData($.cookie('locateCity'));
+//从下到上价格数据
+var priceDownData = sort(resData);
+//从上到下价格数据
+var priceUpData = priceDownData.reverse();
+//产品数据
+var proData = [];
+for(var i = 0;i < resData.length; i ++){
+    if(resData[i].restaurantType == $(this).text()){
+        proData.push(resData[i]);
+    }
+}
+//初始化页面添加data
+var addData = function(){
+    more(resData,index);
+}();
+//价格排序
+$('.price').click(function(){
+    if(price){
+        //从下到上
+        $(this).find(".glyphicon-triangle-top").show();
+        $(this).find(".glyphicon-triangle-bottom").hide();
+        price = false;
+        more(priceDownData,index);
+
+    }
+    else{
+        //从上到下
+        $(this).find(".glyphicon-triangle-top").hide();
+        $(this).find(".glyphicon-triangle-bottom").show();
+        price = true;
+        more(priceUpData,index);
+    }
+});
+//产品排序
+$(".pro-item").click(function(){
+    $("#current-pro").text($(this).text());
+    $("#myModal1").modal('hide');
+    more(proData,index);
+})
 //dom添加
 function loadDiv(data){
     var resInfo = "";
@@ -44,7 +76,7 @@ function loadDiv(data){
             '<a href="details.html?id='+data[i].restaurantId+'">'+
             '<img src="'+data[i].image+'" class="img-responsive">'+
             '</a>'+
-             smy+
+            smy+
             '</div>'+
             '<div class="pl10 pr10 pos-r mt20">'+
             '<div class="mb16">'+
@@ -78,6 +110,11 @@ function loadDiv(data){
     }
     return resInfo;
 }
+//搜素餐厅
+$(".search").click(function(){
+    var resName = $(".searchText").val()
+    searchRes(resName);
+})
 //点击更多处理数据
 function more(data,index){
     var newData = [];
@@ -86,35 +123,13 @@ function more(data,index){
     }
     var resInfo = loadDiv(newData);
     $(".resList").html(resInfo);
-}
-//价格排序
-function sortPrice(newData,index){
-    $('.price').click(function(){
-
-        if(price){
-            //从下到上
-            index = 10;
-            $(this).find(".glyphicon-triangle-top").show();
-            $(this).find(".glyphicon-triangle-bottom").hide();
-            price = false;
-            newData = sort(newData,'small')
-
-        }
-        else{
-            //从上到下
-            index = 10;
-            $(this).find(".glyphicon-triangle-top").hide();
-            $(this).find(".glyphicon-triangle-bottom").show();
-            price = true;
-            newData = newData.reverse();
-
-        }
-        $('html,body').animate({scrollTop: '0px'}, 300);
+    //更多
+    $("#more").click(function(){
+        index+=10;
         more(newData,index)
-
-        //console.log(index);
     });
 }
+
 //热门点击
 $('.hot').click(function(){
     if(hot){
@@ -130,14 +145,10 @@ $('.hot').click(function(){
         hot = true;
     }
 });
-//搜素餐厅
-$(".search").click(function(){
-    var resName = $(".searchText").val()
-    searchRes(resName);
-})
+
 
 function searchRes(resName){
-
+    var index = 10;
     $.ajax({
         url : resUrl + "/restaurants/search",
         type : "GET",
@@ -150,10 +161,7 @@ function searchRes(resName){
                     result.push(data[i]);
                 }
             }
-            console.log(result)
-            var resInfo = loadDiv(result);
-            $(".resList").html("");
-            $(".resList").append(resInfo);
+            more(result,index);
         }
 
     })
@@ -164,32 +172,30 @@ function searchRes(resName){
 $(".city-item").click(function(){
     $("#current-city").text($(this).text());
     $("#myModal").modal('hide');
-    $.cookie('locateCity', $(this).text());
     loadRes($.cookie('locateCity'));
 })
+
+
 //上部点击
-menu();
-function menu(){
+var  menu = function(){
     $(".menu").click(function(){
         $(".menu").find('span').removeClass("font-c-f8");
         $(this).find('span').addClass("font-c-f8");
     })
-}
-
-
+}();
 //价格排序
 function sort(array){
     var i = 0, len = array.length,
         j, d;
     for(; i<len; i++){
         for(j=0; j<len; j++){
-                if(parseInt(array[i].price) < parseInt(array[j].price)){
-                    d = array[j];
-                    array[j] = array[i];
-                    array[i] = d;
-                }
+            if(parseInt(array[i].price) < parseInt(array[j].price)){
+                d = array[j];
+                array[j] = array[i];
+                array[i] = d;
+            }
         }
     }
     return array;
-
 }
+
