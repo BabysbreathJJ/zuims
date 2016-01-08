@@ -29,31 +29,31 @@ function getData(cname){
 }
 //处理数据
 var resData = getData($.cookie('locateCity'));
-//产品数据
-var proData = [];
-for(var i = 0;i < resData.length; i ++){
-    if(resData[i].restaurantType == $(this).text()){
-        proData.push(resData[i]);
-    }
-}
+
 //初始化页面添加data
 more(resData,index);
 //更多
 $("#more").click(function(){
     index+=10;
-    more(proData,index)
+    if(resData.length < index){
+        alert("没有更多了")
+        return false;
+    }
+    else{
+        more(resData,index)
+    }
+
 });
 //价格排序
 $('.price').click(function(){
     index = 10;
     $(".result").html("");
-    var data = [];
     if(price){
         //从下到上
         $(this).find(".glyphicon-triangle-top").show();
         $(this).find(".glyphicon-triangle-bottom").hide();
         price = false;
-        data = sort(resData);
+        resData = sort(resData);
 
     }
     else{
@@ -61,29 +61,27 @@ $('.price').click(function(){
         $(this).find(".glyphicon-triangle-top").hide();
         $(this).find(".glyphicon-triangle-bottom").show();
         price = true;
-        data = sort(resData).reverse();
+        resData = sort(resData).reverse();
 
     }
     $('html,body').animate({scrollTop: '0px'}, 300);
-    more(data,index);
-    //更多
-    $("#more").click(function(){
-        index+=10;
-        more(data,index)
-    });
+    more(resData,index);
 });
 //产品排序
 $(".pro-item").click(function(){
     index = 10;
+    //产品数据
+    var proData = [];
+    for(var i = 0;i < resData.length; i ++){
+        if(resData[i].restaurantType == $(this).text()){
+            proData.push(resData[i]);
+        }
+    }
+    resData = proData;
     $("#current-pro").text($(this).text());
     $("#myModal1").modal('hide');
     $('html,body').animate({scrollTop: '0px'}, 300);
-    more(proData,index);
-    //更多
-    $("#more").click(function(){
-        index+=10;
-        more(proData,index)
-    });
+    more(resData,index);
 
 })
 //dom添加
@@ -140,6 +138,10 @@ $(".search").click(function(){
 })
 //点击更多处理数据
 function more(data,index){
+    if(data.length < index){
+        index = data.length;
+
+    }
     var newData = [];
     for(var i = 0; i < index; i ++){
         newData.push(data[i]);
