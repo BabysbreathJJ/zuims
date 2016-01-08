@@ -71,6 +71,7 @@ $('.price').click(function(){
 $(".pro-item").click(function(){
     index = 10;
     //产品数据
+    resData = getData($.cookie('locateCity'));
     var proData = [];
     for(var i = 0;i < resData.length; i ++){
         if(resData[i].restaurantType == $(this).text()){
