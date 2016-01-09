@@ -10,7 +10,6 @@
       <change type="DELETED" beforePath="F:\github\zuims\webpages_20151217_电话 宽度\js\npm.js" afterPath="" />
       <change type="DELETED" beforePath="F:\github\zuims\webpages_20151217_电话 宽度\js\plugins\jquery-1.8.1.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpages_20151217_电话 宽度/js/model/userinfo.js" afterPath="$PROJECT_DIR$/webpages_20151217_电话 宽度/js/model/userinfo.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="zuims.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -99,10 +98,10 @@
       <file leaf-file-name="userinfo.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/webpages_20151217_电话 宽度/js/model/userinfo.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.23076923" vertical-offset="1508" max-vertical-offset="4540">
-              <caret line="82" column="12" selection-start-line="82" selection-start-column="12" selection-end-line="82" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.8251748" vertical-offset="1428" max-vertical-offset="4440">
+              <caret line="95" column="34" selection-start-line="95" selection-start-column="34" selection-end-line="95" selection-end-column="34" />
               <folding>
-                <marker date="1452321928970" expanded="true" signature="4122:4135" placeholder="..." />
+                <marker date="1452322765627" expanded="true" signature="4329:4342" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -849,10 +848,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/webpages_20151217_电话 宽度/js/model/userinfo.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23076923" vertical-offset="1508" max-vertical-offset="4540">
-          <caret line="82" column="12" selection-start-line="82" selection-start-column="12" selection-end-line="82" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.8251748" vertical-offset="1428" max-vertical-offset="4440">
+          <caret line="95" column="34" selection-start-line="95" selection-start-column="34" selection-end-line="95" selection-end-column="34" />
           <folding>
-            <marker date="1452321928970" expanded="true" signature="4122:4135" placeholder="..." />
+            <marker date="1452322765627" expanded="true" signature="4329:4342" placeholder="..." />
           </folding>
         </state>
       </provider>
