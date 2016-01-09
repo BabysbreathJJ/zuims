@@ -123,7 +123,7 @@ var loadBas = function(){
         data : {phone : phone},
         success : function(data){
             var gender = "";
-            if(data.gender == '0'){
+            if(data.gender == '1'){
                 gender = "男"
             }
             else{
