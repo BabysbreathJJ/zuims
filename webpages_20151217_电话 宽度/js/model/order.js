@@ -196,7 +196,17 @@ $(function () {
         var args = getUrlParam();
         var restaurantId = parseInt(args['id']);
         var more = $("#remark").val();
-        var dinerNum = parseInt($("#dinerNum").val());
+        var dinerNum = $("#dinerNum").val();
+        var reg = /^\d+$/;
+        if (!dinerNum.match(reg)) {
+            alert('订单人数应为不小于1的数字');
+            return;
+        }
+        dinerNum = parseInt(dinerNum);
+        if (dinerNum < 1) {
+            alert("订单人数最少为1!");
+            return;
+        }
         var pay;
         if ($("#payType").val() == 'discountPay') {
             pay = $("#payLess").text();
