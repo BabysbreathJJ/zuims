@@ -42,6 +42,7 @@ var load = function () {
             $(".park").html(data.park);
             if(data.discountType[0] == '暂无'){
                 $(".smy").addClass("display-n");
+                $(".smy-label").addClass('display-n');
             }
 
 
@@ -57,6 +58,10 @@ var load = function () {
             //猜你喜欢
             like(data.restaurantType);
             //添加图片
+            if(data.images[0] == 'http://202.120.40.175:21100/restaurants/images?relativePath=NonePicture.jpg')
+            {
+                data.images[0] = 'http://202.120.40.175:21100/restaurants/images?relativePath=NonePicture2.jpg';
+            }
             $("#d-img").attr('src', data.images[0])
             var imgInfo = "";
             for (var j = 0; j < data.images.length; j++) {
