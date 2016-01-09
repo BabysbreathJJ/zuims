@@ -42,9 +42,10 @@ function showMoreOrders(orderInfo, start, len) {
     var showOrder = '';
     for (var i = 0; i < len; i++) {
         showOrder += '<tr>' +
-            '<td>' + orderInfo[start + i].restaurantName + '</td>' +
-            '<td class="tc"><small>' + orderInfo[start + i].orderTime + '</small></td>' +
-            '<td class="tc state">' + orderInfo[start + i].state + '</td>' +
+            '<input type="hidden" class="orderNum" value="'+orderInfo[start + i].orderId+'">'+
+            '<td class="resName">' + orderInfo[start + i].restaurantName + '</td>' +
+            '<td class="tc"><small class="orderTime">' + orderInfo[start + i].orderTime + '</small></td>' +
+            '<td class="tc state orderState">' + orderInfo[start + i].state + '</td>' +
             '</tr>';
     }
     $("#orderInfo").append(showOrder);
