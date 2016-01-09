@@ -93,6 +93,11 @@ function loadDiv(data){
         if(data[i].discountType[0] == "暂无"){
             smy = "";
         }
+        if(data[i].image == 'http://202.120.40.175:21100/restaurants/images?relativePath=NonePicture.jpg')
+        {
+            console.log(data[i].image);
+            data[i].image = 'http://202.120.40.175:21100/restaurants/images?relativePath=NonePicture2.jpg';
+        }
         var resDiv = '<div class="border border-r-5 bg-white padding mt10">'+
             '<div class="pos-r overflow-h">'+
             '<a href="details.html?id='+data[i].restaurantId+'">'+
