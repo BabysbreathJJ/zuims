@@ -79,6 +79,8 @@ $("span[name='save']").click(function(){
         })
         //头像上传
         var uploadImg = function(){
+            var imgNow = document.getElementById('imgsrc');
+            
             var uploadUrl = "http://202.120.40.175:21101/users/uploadImage";
             var uploadData = {
                 'phoneId' : phone,
@@ -91,8 +93,8 @@ $("span[name='save']").click(function(){
                 contentType: 'application/json',
                 success : function(data){
                     if(data.success){
-                        alert("保存成功");
-                        window.location.href = "usercenter.html";
+                        //alert("保存成功");
+                        //window.location.href = "usercenter.html";
                     }
                 }
             })
@@ -130,10 +132,10 @@ var loadUserInfo = function(){
         success : function(data){
             addData(data);
             //获取用户头像
-            //var img = $('<img class="img-responsive" style="width : 80px;">');
-            //img.attr("src",'http://202.120.40.175:21101/users/images?phone=' + phone);
+            var img = $('<img class="img-responsive" id="imgsrc" style="width : 80px;">');
+            img.attr("src",'http://202.120.40.175:21101/users/images?phone=' + phone);
 
-            $(".displayImg").html("修改头像");
+            $(".displayImg").html(img);
         }
     })
 
@@ -210,8 +212,11 @@ function getBase64Image(img) {
     var canvas = document.createElement("canvas");
     canvas.width = img.width;
     canvas.height = img.height;
-    var ctx = canvas.getContext("2d");
-    ctx.drawImage(img, 0, 0, img.width, img.height);
+
+    //var ctx = canvas.getContext("2d");
+    //ctx.drawImage(img, 0, 0, img.width, img.height);
+
     var dataURL = canvas.toDataURL("image/png");
-    return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+    return dataURL
+
 }
