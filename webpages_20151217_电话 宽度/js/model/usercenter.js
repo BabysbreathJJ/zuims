@@ -63,7 +63,23 @@ function showMoreOrders(orderInfo, start, len) {
 $(function () {
 
     var orderUrl = 'http://202.120.40.175:21104/order/infoByphoneid?phoneId=' + $.cookie('phone');
-    var haveOrders = false;
+
+    $(".user-info").find("tr").click(function(){
+        var orderNum = $(this).find('.orderNum').val();
+        var name = $(this).find('.resName').html();
+        var orderTime = $(this).find('.orderTime').html();
+        var orderState = $(this).find('.orderState').html();
+        $("#orderNum").html(orderNum);
+        $("#resName").html(name);
+        $("#orderTime").html(orderTime);
+        $("#orderState").html(orderState);
+        $('#myModa2').modal('show');
+    });
+
+
+
+
+
 
     $.ajax({
         url: orderUrl,
@@ -107,7 +123,6 @@ $(function () {
 
             });
 
-            haveOrders = true;
             if (orderInfos.length >= 3)
                 showMoreOrders(orderInfos, 0, 3);
             else
