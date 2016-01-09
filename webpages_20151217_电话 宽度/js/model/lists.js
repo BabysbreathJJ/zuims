@@ -189,7 +189,16 @@ function searchRes(resName){
                     result.push(data[i]);
                 }
             }
-            more(result,index);
+
+            if(result.length == 0){
+                debugger;
+                var div = '<div class="tc mt20">抱歉，没有找到相关的内容，<br>请尝试其他关键字。</div>'
+                $(".resList").html(div)
+            }
+            else{
+                more(result,index);
+            }
+
         }
 
     })
