@@ -35,45 +35,73 @@ $(function(){
     });
 
 })
+//清除错误信息
+$("input").focus(function(){
+    var name = $(this).attr('name');
+    $("."+name+"Err").addClass("display-n");
+});
 //保存
 var phone = $.cookie('phone');
 $("span[name='save']").click(function(){
-    var userInfoUrl = "http://202.120.40.175:21101/users/userinfocomplete?phone="+$("input[name='phoneid']").val();
-    var userdata = $("form[name='userinfo']").serializeObject();
-    var isUpload = false;
-    $.ajax({
-        url : userInfoUrl,
-        type : "POST",
-        data : JSON.stringify(userdata),
-        contentType: 'application/json',
-        success : function(data){
-            if(data.success){
-                alert("保存成功");
-                window.location.href = "usercenter.html";
-
-            }
+    var email = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
+    var isCor = true;
+    if($("input[name='email']").val() != ""){
+        if(email.test($("input[name='email']").val())){
+            isCor = true;
         }
-    })
-    //头像上传
-    var uploadImg = function(){
-        var uploadUrl = "http://202.120.40.175:21101/users/uploadImage";
-        var uploadData = {
-            'phoneId' : phone,
-            'imageValue' : $("#imgUrl").val()
+        else{
+            $(".step").find('li').removeClass('b-active');
+            $(".connect-li").addClass("b-active");
+            $(".info").hide();
+            $(".connect").show();
+            $(".emailErr").removeClass("display-n");
+            isCor = false;
         }
+    }
+    else{
+        isCor = true;
+    }
+    if(isCor){
+        var userInfoUrl = "http://202.120.40.175:21101/users/userinfocomplete?phone="+$("input[name='phoneid']").val();
+        var userdata = $("form[name='userinfo']").serializeObject();
         $.ajax({
-            url : uploadUrl,
+            url : userInfoUrl,
             type : "POST",
-            data : JSON.stringify(uploadData),
+            data : JSON.stringify(userdata),
             contentType: 'application/json',
             success : function(data){
                 if(data.success){
+                    //alert("保存成功");
+                    //window.location.href = "usercenter.html";
 
                 }
             }
         })
+        //头像上传
+        var uploadImg = function(){
+            var imgNow = document.getElementById('imgsrc');
+            
+            var uploadUrl = "http://202.120.40.175:21101/users/uploadImage";
+            var uploadData = {
+                'phoneId' : phone,
+                'imageValue' : $("#imgUrl").val()
+            }
+            $.ajax({
+                url : uploadUrl,
+                type : "POST",
+                data : JSON.stringify(uploadData),
+                contentType: 'application/json',
+                success : function(data){
+                    if(data.success){
+                        //alert("保存成功");
+                        //window.location.href = "usercenter.html";
+                    }
+                }
+            })
 
-    }();
+        }();
+    }
+
 
 })
 //基本信息加载
@@ -104,8 +132,9 @@ var loadUserInfo = function(){
         success : function(data){
             addData(data);
             //获取用户头像
-            var img = $('<img class="img-responsive" style="width : 80px;">');
-            img.attr("src",'http://202.120.40.175:21101/users/images?phone=' + phone)
+            var img = $('<img class="img-responsive" id="imgsrc" style="width : 80px;">');
+            img.attr("src",'http://202.120.40.175:21101/users/images?phone=' + phone);
+
             $(".displayImg").html(img);
         }
     })
@@ -132,8 +161,8 @@ function displayImg(result) {
         reader.readAsDataURL(file);
         reader.onload = function (e) {
             $("#imgsrc").css('width','80px');
-            var base64 = this.result.split(',')[1];
-            $("#imgUrl").val(this.result);
+            var base64 = this.result.replace(/^data:image\/(png|jpg);base64,/, "");
+            $("#imgUrl").val(base64);
             result.html("");
             result.html('<img id="imgsrc" class="img-responsive" src="' + this.result + '" alt=""/>')
         }
@@ -177,4 +206,17 @@ function addData(r){
         if (key && d[key])
             $(this).val(d[key]);
     }).end();
+}
+//获取图片base64
+function getBase64Image(img) {
+    var canvas = document.createElement("canvas");
+    canvas.width = img.width;
+    canvas.height = img.height;
+
+    //var ctx = canvas.getContext("2d");
+    //ctx.drawImage(img, 0, 0, img.width, img.height);
+
+    var dataURL = canvas.toDataURL("image/png");
+    return dataURL
+
 }

@@ -12,7 +12,7 @@ $("#submit").click(function(){
         $(".lastNameErr").removeClass('display-n')
         return false;
     }
-    else if($("input[name='gender']").val() == ""){
+    else if($("input[type='radio'][name='gender']:checked").length == "0"){
         $(".genderErr").removeClass('display-n')
         return false;
     }
@@ -30,7 +30,7 @@ $("#submit").click(function(){
         if(pass == passAgain){
             var telTest = /^1[3|4|5|8][0-9]\d{4,8}$/;
             var lastName = $("input[name='lastName']").val();
-            var gender = $("input[name='gender']").val();
+            var gender = parseInt($("input[name='gender']:checked").val());
             var tel = $("input[name='tel']").val();
             var pass = $("input[name='pass']").val();
             if(telTest.test(tel)){
@@ -38,7 +38,7 @@ $("#submit").click(function(){
                     'lastname' : lastName,
                     'phone' : tel,
                     'password' : pass,
-                    'gender' : gender
+                    'man' : gender
                 }
                 $.ajax({
                     url : regUrl,
@@ -46,10 +46,9 @@ $("#submit").click(function(){
                     data : JSON.stringify(user),
                     contentType : 'application/json',
                     success : function(data){
-                        debugger;
                         $.cookie('login', 'true');
                         $.cookie('phone', tel);
-                        window.location.href = "index.html";
+                        window.location.href = "usercenter.html";
                     },
                     error : function(data){
                         $(".telErr").find(".msg").html(data.responseJSON.message);
