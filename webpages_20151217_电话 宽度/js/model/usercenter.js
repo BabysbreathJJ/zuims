@@ -42,7 +42,7 @@ function showMoreOrders(orderInfo, start, len) {
     var showOrder = '';
     for (var i = 0; i < len; i++) {
         showOrder += '<tr>' +
-            '<input type="hidden" class="orderNum" value="'+orderInfo[start + i].orderId+'">'+
+            '<input type="hidden" class="orderNum" value="' + orderInfo[start + i].orderId + '">' +
             '<td class="resName">' + orderInfo[start + i].restaurantName + '</td>' +
             '<td class="tc"><small class="orderTime">' + orderInfo[start + i].orderTime + '</small></td>' +
             '<td class="tc state orderState">' + orderInfo[start + i].state + '</td>' +
@@ -64,23 +64,6 @@ function showMoreOrders(orderInfo, start, len) {
 $(function () {
 
     var orderUrl = 'http://202.120.40.175:21104/order/infoByphoneid?phoneId=' + $.cookie('phone');
-
-    $(".user-info").find("tr").click(function(){
-        var orderNum = $(this).find('.orderNum').val();
-        var name = $(this).find('.resName').html();
-        var orderTime = $(this).find('.orderTime').html();
-        var orderState = $(this).find('.orderState').html();
-        $("#orderNum").html(orderNum);
-        $("#resName").html(name);
-        $("#orderTime").html(orderTime);
-        $("#orderState").html(orderState);
-        $('#myModa2').modal('show');
-    });
-
-
-
-
-
 
     $.ajax({
         url: orderUrl,
@@ -130,6 +113,20 @@ $(function () {
                 showMoreOrders(orderInfos, 0, orderInfos.length)
 
             var index = 3;
+
+
+            $(".user-info").on('click', 'tr', function () {
+                var orderNum = $(this).find('.orderNum').val();
+                var name = $(this).find('.resName').html();
+                var orderTime = $(this).find('.orderTime').html();
+                var orderState = $(this).find('.orderState').html();
+                $("#orderNum").html(orderNum);
+                $("#resName").html(name);
+                $("#orderTime").html(orderTime);
+                $("#orderState").html(orderState);
+                $('#orderDetails').modal('show');
+            });
+
 
             $("#operation").on('click', '.hideOrders', function () {
                 index = 3;
