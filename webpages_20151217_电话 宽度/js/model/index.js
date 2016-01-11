@@ -168,7 +168,7 @@ $(function () {
                         smyPrice = '<span class="font-c-40">￥' + data[i].price+'';
                     }
                     else{
-                        smyPrice = '<span class="font-c-40">￥' + data[i].price*2/3 + '<span class="font-c-8f text-d-lt ml5">￥'+data[i].price+'</span></span>';
+                        smyPrice = '<span class="font-c-40">￥' + parseInt(data[i].price*2/3) + '<span class="font-c-8f text-d-lt ml5">￥'+data[i].price+'</span></span>';
                     }
                     if (i == 0) {
 
