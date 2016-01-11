@@ -166,9 +166,9 @@ $(function () {
                             '<div class="w-300 r-single r-active">' +
                             '<div class="pos-r overflow-h">' +
                             '<a href="details.html?id=' + data[i].restaurantId + '">' +
+                            '</a>' +
                             '<input type="hidden" value="' + data[i].restaurantId + '">' +
                             '<img src="' + data[i].image + ' "class="img-responsive">' +
-                            '</a>' +
                              smy +
                             '<div class="pos-a tc per100 bottom20">' +
                             '<p class="bg-t display-ib per100 l-ht30 font-white">' + data[i].title + '</p>' +
@@ -202,9 +202,10 @@ $(function () {
                             '<div class="w-300 r-single">' +
                             '<div class="pos-r overflow-h">' +
                             '<a href="details.html?id=' + data[i].restaurantId + '">' +
+                            '</a>' +
                             '<input type="hidden" value="' + data[i].restaurantId + '">' +
                             '<img src="' + data[i].image + ' "class="img-responsive">' +
-                            '</a>' +
+
                              smy +
                             '<div class="pos-a tc per100 bottom20">' +
                             '<p class="bg-t display-ib per100 l-ht30 font-white">' + data[i].title + '</p>' +
@@ -250,20 +251,27 @@ $(function () {
                 function goright() {
                     var left = $(".r-list").css("left");
                     if (parseInt(left) <= -(length - 2) * 270 - 50) {
-                        $(".r-list").animate({'left': initialleft});
-                        $(".r-list").css("left", initialleft);
-                        i = 1;
-                        $(".r-single").removeClass('r-active');
-                        $($(".r-single")[i]).addClass('r-active');
-                        //$($(".r-single")[length-1]).addClass('r-active');
-
+                        if(!$(".r-list").is(":animated")){
+                            $(".r-list").animate({'left': initialleft});
+                            i = 1;
+                            $(".r-single").removeClass('r-active');
+                            $($(".r-single")[i]).addClass('r-active');
+                        }
+                        else{
+                            return;
+                        }
 
                     }
                     else {
-                        $(".r-list").animate({'left': parseInt(left) - 290 + 'px'});
-                        $(".r-single").removeClass('r-active');
-                        $($(".r-single")[i + 1]).addClass('r-active');
-                        i = i + 1;
+                        if(!$(".r-list").is(":animated")) {
+                            $(".r-list").animate({'left': parseInt(left) - 290 + 'px'});
+                            $(".r-single").removeClass('r-active');
+                            $($(".r-single")[i + 1]).addClass('r-active');
+                            i = i + 1;
+                        }
+                        else{
+                            return;
+                        }
                     }
                 }
 
@@ -271,25 +279,34 @@ $(function () {
                     var left = $(".r-list").css("left");
 
                     if (parseInt(left) >= (parseInt(initialleft) - 30)) {
-                        $(".r-list").animate({'left': (-((length - 2) * 290) + ((document.body.clientWidth - 290) / 2)) + 'px'});
-                        //$(".r-list").css("left","-850px");
-                        i = length - 2;
-                        $(".r-single").removeClass('r-active');
-
-                        $($(".r-single")[i]).addClass('r-active');
+                        if(!$(".r-list").is(":animated")) {
+                            $(".r-list").animate({'left': (-((length - 2) * 290) + ((document.body.clientWidth - 290) / 2)) + 'px'});
+                            //$(".r-list").css("left","-850px");
+                            i = length - 2;
+                            $(".r-single").removeClass('r-active');
+                            $($(".r-single")[i]).addClass('r-active');
+                        }
+                        else{
+                            return;
+                        }
 
 
                     }
                     else {
-                        $(".r-single").removeClass('r-active');
-                        $($(".r-single")[i - 1]).addClass('r-active');
-                        $(".r-list").animate({'left': parseInt(left) + 290 + 'px'});
-                        i = i - 1;
+                        if(!$(".r-list").is(":animated")) {
+                            $(".r-single").removeClass('r-active');
+                            $($(".r-single")[i - 1]).addClass('r-active');
+                            $(".r-list").animate({'left': parseInt(left) + 290 + 'px'});
+                            i = i - 1;
+                        }
+                        else{
+                            return;
+                        }
                     }
                 }
 
                 /*滑动*/
-                $(".r-list").swipe({
+                $(".swipe").swipe({
                     swipeStatus: function (event, phase, direction, distance, duration, fingers) {
                         if (direction == "left") {
                             goright();
@@ -308,6 +325,18 @@ $(function () {
                     maxTimeThreshold: 5000,
                     fingers: 'all'
                 });
+                //点击跳转
+                $(".r-list").find('li').swipe({
+                    swipeStatus: function (event, phase, direction, distance, duration, fingers) {
+                        if (phase == 'cancel' && duration != '0' && distance == '0') {
+                            var href = $(this).find('a').attr("href");
+                            window.location.href = href;
+                        }
+                    },
+                    threshold: 200,
+                    maxTimeThreshold: 5000,
+                    fingers: 'all'
+                })
 
             }
         });
