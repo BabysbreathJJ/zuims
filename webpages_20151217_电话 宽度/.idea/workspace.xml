@@ -21,16 +21,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="lists.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lists.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="39.0">
-              <caret line="32" column="35" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="usercenter.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/usercenter.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -61,12 +51,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="order.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="order.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/model/order.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.65">
+            <state vertical-scroll-proportion="0.0">
               <caret line="128" column="44" selection-start-line="128" selection-start-column="44" selection-end-line="128" selection-end-column="44" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/model/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.5">
+              <caret line="32" column="78" selection-start-line="32" selection-start-column="78" selection-end-line="32" selection-end-column="78" />
+              <folding>
+                <marker date="1452515129000" expanded="true" signature="10129:12012" placeholder="..." />
+                <marker date="1452515129000" expanded="true" signature="10190:11974" placeholder="..." />
+                <marker date="1452515129000" expanded="true" signature="10253:10842" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -135,7 +139,6 @@
       <list>
         <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/reg.html" />
-        <option value="$PROJECT_DIR$/js/model/index.js" />
         <option value="$PROJECT_DIR$/js/model/login.js" />
         <option value="$PROJECT_DIR$/usercenter.html" />
         <option value="$PROJECT_DIR$/js/model/usercenter.js" />
@@ -145,6 +148,7 @@
         <option value="$PROJECT_DIR$/lists.html" />
         <option value="$PROJECT_DIR$/order.html" />
         <option value="$PROJECT_DIR$/js/model/order.js" />
+        <option value="$PROJECT_DIR$/js/model/index.js" />
       </list>
     </option>
   </component>
@@ -418,8 +422,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="82" column="6" selection-start-line="82" selection-start-column="6" selection-end-line="82" selection-end-column="6" />
           <folding>
-            <marker date="1452512796000" expanded="true" signature="4296:4317" placeholder="..." />
-            <marker date="1452512796000" expanded="true" signature="5206:5227" placeholder="..." />
+            <marker date="1452514860000" expanded="true" signature="4337:4358" placeholder="..." />
+            <marker date="1452514860000" expanded="true" signature="5247:5268" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -642,17 +646,9 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="63" column="13" selection-start-line="63" selection-start-column="13" selection-end-line="63" selection-end-column="13" />
           <folding>
-            <marker date="1452512796000" expanded="true" signature="4296:4317" placeholder="..." />
-            <marker date="1452512796000" expanded="true" signature="5206:5227" placeholder="..." />
+            <marker date="1452514860000" expanded="true" signature="4337:4358" placeholder="..." />
+            <marker date="1452514860000" expanded="true" signature="5247:5268" placeholder="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/model/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="60" column="39" selection-start-line="60" selection-start-column="39" selection-end-line="60" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -793,9 +789,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/model/order.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.65">
+        <state vertical-scroll-proportion="0.0">
           <caret line="128" column="44" selection-start-line="128" selection-start-column="44" selection-end-line="128" selection-end-column="44" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/model/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5">
+          <caret line="32" column="78" selection-start-line="32" selection-start-column="78" selection-end-line="32" selection-end-column="78" />
+          <folding>
+            <marker date="1452515129000" expanded="true" signature="10129:12012" placeholder="..." />
+            <marker date="1452515129000" expanded="true" signature="10190:11974" placeholder="..." />
+            <marker date="1452515129000" expanded="true" signature="10253:10842" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
