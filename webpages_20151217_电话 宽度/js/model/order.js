@@ -125,9 +125,14 @@ var loadRes = function () {
                 $("#orderTime").val(args['myTime']);
                 $("#dinerNum").val(args['dinerNum']);
                 $("#remark").val(args['more']);
-                $("#originPrice").text(args['originPrice']);
-                pay = args['pay'];
-                $("#payLess").text(pay);
+                if (args['originPrice'] == undefined)
+                    $("#payMore").text(pay);
+                else {
+                    $("#originPrice").text(args['originPrice']);
+                    pay = args['pay'];
+                    $("#payLess").text(pay);
+                }
+
             }
 
             $("#address").text(data.restaurantAddress);

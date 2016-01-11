@@ -30,7 +30,7 @@ $(function () {
                     //alert(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
                     var localName = addComp.city;
                     localName = localName.substring(0, localName.length - 1);
-                    if (localName != "北京" && localName != "上海" && localName && "广州" && localName != "杭州") {
+                    if (localName != "北京" && localName != "上海" && localName != "广州" && localName != "杭州") {
                         cname = "北京";
                     }
                     else {
@@ -133,7 +133,7 @@ $(function () {
                     '<div class="introduce">' +
                     '<p class="tc mt16"><b class="font16">' + data[0].title + '</b><i class="font-c-f8 ml10">hot</i></p>' +
                     '<p class="tc">' +
-                    //'<span>95</span> 次预订 <span>5921</span>次浏览' +
+                        //'<span>95</span> 次预订 <span>5921</span>次浏览' +
                     '</p>' +
                     '<p>' +
                     '<span class="font-c-8f">每位：</span>' +
@@ -154,21 +154,21 @@ $(function () {
 
                     var img = "";
                     $.ajax({
-                        url : frontImageUrl+ data[i].restaurantId,
-                        type : "GET",
+                        url: frontImageUrl + data[i].restaurantId,
+                        type: "GET",
                         async: false,
-                        success : function(data){
+                        success: function (data) {
                             img = data.picname;
                         }
                     })
                     var smyPrice = "";
                     var smy = '<div class="pos-a font-white bg-orange transform45 smy">三免一</div>';
-                    if(data[i].discountType[0] == "暂无"){
+                    if (data[i].discountType[0] == "暂无") {
                         smy = "";
-                        smyPrice = '<span class="font-c-40">￥' + data[i].price+'';
+                        smyPrice = '<span class="font-c-40">￥' + data[i].price + '';
                     }
-                    else{
-                        smyPrice = '<span class="font-c-40">￥' + parseInt(data[i].price*2/3) + '<span class="font-c-8f text-d-lt ml5">￥'+data[i].price+'</span></span>';
+                    else {
+                        smyPrice = '<span class="font-c-40">￥' + parseInt(data[i].price * 2 / 3) + '<span class="font-c-8f text-d-lt ml5">￥' + data[i].price + '</span></span>';
                     }
                     if (i == 0) {
 
@@ -180,7 +180,7 @@ $(function () {
                             '</a>' +
                             '<input type="hidden" value="' + data[i].restaurantId + '">' +
                             '<img src="' + img + ' "class="img-responsive">' +
-                             smy +
+                            smy +
                             '<div class="pos-a tc per100 bottom20">' +
                             '<p class="bg-t display-ib per100 l-ht30 font-white">' + data[i].title + '</p>' +
                             '</div>' +
@@ -192,7 +192,7 @@ $(function () {
                             '</p>' +
                             '<p>' +
                             '<span class="font-c-8f">每位：</span>' +
-                                smyPrice+
+                            smyPrice +
                             '</p>' +
                             '<p>' +
                             '<span class="font-c-8f">地址 ：</span>' +
@@ -215,9 +215,9 @@ $(function () {
                             '<a href="details.html?id=' + data[i].restaurantId + '">' +
                             '</a>' +
                             '<input type="hidden" value="' + data[i].restaurantId + '">' +
-                            '<img src="' +  img + ' "class="img-responsive">' +
+                            '<img src="' + img + ' "class="img-responsive">' +
 
-                             smy +
+                            smy +
                             '<div class="pos-a tc per100 bottom20">' +
                             '<p class="bg-t display-ib per100 l-ht30 font-white">' + data[i].title + '</p>' +
                             '</div>' +
@@ -229,7 +229,7 @@ $(function () {
                             '</p>' +
                             '<p>' +
                             '<span class="font-c-8f">每位：</span>' +
-                                smyPrice +
+                            smyPrice +
                             '</p>' +
                             '<p>' +
                             '<span class="font-c-8f">地址 ：</span>' +
@@ -262,25 +262,25 @@ $(function () {
                 function goright() {
                     var left = $(".r-list").css("left");
                     if (parseInt(left) <= -(length - 2) * 270 - 50) {
-                        if(!$(".r-list").is(":animated")){
+                        if (!$(".r-list").is(":animated")) {
                             $(".r-list").animate({'left': initialleft});
                             i = 1;
                             $(".r-single").removeClass('r-active');
                             $($(".r-single")[i]).addClass('r-active');
                         }
-                        else{
+                        else {
                             return;
                         }
 
                     }
                     else {
-                        if(!$(".r-list").is(":animated")) {
+                        if (!$(".r-list").is(":animated")) {
                             $(".r-list").animate({'left': parseInt(left) - 290 + 'px'});
                             $(".r-single").removeClass('r-active');
                             $($(".r-single")[i + 1]).addClass('r-active');
                             i = i + 1;
                         }
-                        else{
+                        else {
                             return;
                         }
                     }
@@ -290,27 +290,27 @@ $(function () {
                     var left = $(".r-list").css("left");
 
                     if (parseInt(left) >= (parseInt(initialleft) - 30)) {
-                        if(!$(".r-list").is(":animated")) {
+                        if (!$(".r-list").is(":animated")) {
                             $(".r-list").animate({'left': (-((length - 2) * 290) + ((document.body.clientWidth - 290) / 2)) + 'px'});
                             //$(".r-list").css("left","-850px");
                             i = length - 2;
                             $(".r-single").removeClass('r-active');
                             $($(".r-single")[i]).addClass('r-active');
                         }
-                        else{
+                        else {
                             return;
                         }
 
 
                     }
                     else {
-                        if(!$(".r-list").is(":animated")) {
+                        if (!$(".r-list").is(":animated")) {
                             $(".r-single").removeClass('r-active');
                             $($(".r-single")[i - 1]).addClass('r-active');
                             $(".r-list").animate({'left': parseInt(left) + 290 + 'px'});
                             i = i - 1;
                         }
-                        else{
+                        else {
                             return;
                         }
                     }
