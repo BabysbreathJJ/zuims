@@ -83,6 +83,8 @@ var loadRes = function () {
         type: "GET",
         dataType: "JSON",
         success: function (data) {
+            if (data.images[0] == 'http://202.120.40.175:21100/restaurants/images?relativePath=NonePicture.jpg')
+                data.images[0] = 'http://202.120.40.175:21100/restaurants/images?relativePath=NonePicture2.jpg';
             $("#d-img").attr("src", data.images[0]);
             $("input[name='resId']").val(data.restaurantId);
             $(".resName").html(data.restaurantName);
