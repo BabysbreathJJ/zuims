@@ -93,23 +93,25 @@ var loadRes = function () {
             var discount = data.discountType;
             var originPrice = 0;
             var pay = 0;
-            if (discount[0] !== 'discount') {
+
+            //根据优惠类型判断是不是三免一优惠
+            if (discount[0] !== 'discount') {//不是三免一优惠,只显示原价,不显示优惠后的信息
                 $("#discountPay").hide();
                 $("#payType").val('originPay');
                 originPrice = Number(averagePrice) * 3;
                 $("#payMore").text(originPrice);
                 $(".smy").hide();
             }
-            else {
+            else {//三免一优惠类型,初始时,人数默认为3
                 $("#originPay").hide();
                 $("#payType").val('discountPay');
                 originPrice = Number(averagePrice) * 3;
-                pay = originPrice - 3 / 3 * averagePrice;//默认是预定数是三个人
+                pay = originPrice - 3 / 3 * averagePrice;
                 $("#payLess").text(pay);
             }
 
-
-            if (args['myDate'] == undefined) {
+            //判断是否是从登陆界面跳转过来
+            if (args['myDate'] == undefined) {//不是从登陆界面跳转过来
                 $("#originPrice").text("￥" + originPrice);
                 $("#orderDate").text(formatDate(new Date()));
                 $("#hiddenDate").val(orderDate(new Date()));
@@ -117,14 +119,13 @@ var loadRes = function () {
                 $("#dinerNum").val(3);
 
             }
-            else {
+            else {//从登陆界面跳转过来,恢复之前填写的信息
                 $("#orderDate").text(args['myDate']);
                 $("#hiddenDate").val((args['orderDate']));
                 $("#orderTime").val(args['myTime']);
                 $("#dinerNum").val(args['dinerNum']);
                 $("#remark").val(args['more']);
-                originPrice = Number(averagePrice) * parseInt(args['dinerNum']);
-                $("#originPrice").text("￥" + originPrice);
+                $("#originPrice").text(args['originPrice']);
                 pay = args['pay'];
                 $("#payLess").text(pay);
             }
@@ -138,18 +139,6 @@ var loadRes = function () {
 }();
 
 $(function () {
-
-    //var content = getUrlParam();
-    //$("#orderDate").text(content['myDate']);
-    //$("#orderTime").val(content['myTime']);
-    //$("#dinerNum").val(content['dinerNum']);
-    //$("#remark").val(content['more']);
-    //$(".pay").text(content['pay']);
-    //if ($("#payType").val() == 'discountPay') {
-    //
-    //    $("#originPrice").text(content['originPrice']);
-    //}
-
 
     $('.dropdown-toggle').dropdown();
     $('#selectDate').datetimepicker({
