@@ -191,7 +191,6 @@ function searchRes(resName){
             }
 
             if(result.length == 0){
-                debugger;
                 var div = '<div class="tc mt20">抱歉，没有找到相关的内容，<br>请尝试其他关键字。</div>'
                 $(".resList").html(div)
             }
@@ -208,6 +207,8 @@ function searchRes(resName){
 //选择城市下拉列表触发事件
 $(".city-item").click(function(){
     index = 10;
+    var span = '<span id="current-pro">产品 <span class="glyphicon glyphicon-triangle-bottom"></span></span>'
+    $("#current-pro").html(span);
     $("#current-city").text($(this).text());
     $("#myModal").modal('hide');
     $.cookie('locateCity',$(this).text())

@@ -80,7 +80,8 @@ $(function () {
                 }
 
                 var updateInfo = "";
-                var smy = '<div class="pos-a font-white bg-orange transform45 smy">三免一</div>';
+
+
                 //console.log(data[data.length-1].restaurantId)
                 var firstLi =
                     '<li class="fl ml5 mr5">' +
@@ -149,8 +150,14 @@ $(function () {
                     '</div>' +
                     '</li>';
                 for (var i = 0; i < data.length; i++) {
+                    var smyPrice = "";
+                    var smy = '<div class="pos-a font-white bg-orange transform45 smy">三免一</div>';
                     if(data[i].discountType[0] == "暂无"){
                         smy = "";
+                        smyPrice = '<span class="font-c-40">￥' + data[i].price+'';
+                    }
+                    else{
+                        smyPrice = '<span class="font-c-40">￥' + data[i].price + '<span class="font-c-8f text-d-lt ml5">￥'+data[i].price*3/2+'</span></span>';
                     }
                     if (i == 0) {
 
@@ -174,7 +181,7 @@ $(function () {
                             '</p>' +
                             '<p>' +
                             '<span class="font-c-8f">每位：</span>' +
-                            '<span class="font-c-40">￥' + data[i].price + '<span class="font-c-8f text-d-lt">￥200</span>（含15%服务费）</span>' +
+                                smyPrice+
                             '</p>' +
                             '<p>' +
                             '<span class="font-c-8f">地址 ：</span>' +
@@ -210,7 +217,7 @@ $(function () {
                             '</p>' +
                             '<p>' +
                             '<span class="font-c-8f">每位：</span>' +
-                            '<span class="font-c-40">￥' + data[i].price + '<span class="font-c-8f text-d-lt">￥200</span>（含15%服务费）</span>' +
+                                smyPrice +
                             '</p>' +
                             '<p>' +
                             '<span class="font-c-8f">地址 ：</span>' +

@@ -122,8 +122,15 @@ var loadBas = function(){
         type : "GET",
         data : {phone : phone},
         success : function(data){
+            var gender = "";
+            if(data.gender == '1'){
+                gender = "男"
+            }
+            else{
+                gender = "女"
+            }
             $("input[name='lastname']").val(data.lastname).attr('readonly','readonly');
-            $("input[name='gender'][value="+data.gender+"]").attr("checked",true).attr('readonly','readonly');
+            $("input[name='gender']").val(gender).attr('readonly','readonly');
             $("input[name='phone']").val(data.phone).attr('readonly','readonly');
             $("input[name='phoneid']").val(data.phone);
         }
