@@ -88,8 +88,9 @@ $(".pro-item").click(function(){
 //dom添加
 function loadDiv(data){
     var resInfo = "";
-    var smy = '<div class="pos-a font-white bg-orange transform45 smy">三免一</div>';
+    var smy = '';
     for(var i = 0;i < data.length;i ++){
+        smy = '<div class="pos-a font-white bg-orange transform45 smy">三免一</div>';
         if(data[i].discountType[0] == "暂无"){
             smy = "";
         }
@@ -103,7 +104,7 @@ function loadDiv(data){
             '<a href="details.html?id='+data[i].restaurantId+'">'+
             '<img src="'+data[i].image+'" class="img-responsive">'+
             '</a>'+
-            smy+
+             smy+
             '</div>'+
             '<div class="pl10 pr10 pos-r mt20">'+
             '<div class="mb16">'+
