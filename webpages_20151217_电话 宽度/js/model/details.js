@@ -79,15 +79,16 @@ var load = function () {
                     var width = parseInt(img.css("width")) * (length + 2);
                     $(".img-list").css("width", width + 'px');
                     img.css("height", img.css("width"));
+                    //图片点击
+
+                    img.click(function () {
+                        var src = $(this).attr("src");
+                        $("#d-img").attr("src", src);
+                    })
                 }
             })
 
-            //图片点击
 
-            img.click(function () {
-                var src = $(this).attr("src");
-                $("#d-img").attr("src", src);
-            })
 
         }
 
