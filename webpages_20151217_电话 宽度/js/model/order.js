@@ -104,7 +104,7 @@ var loadRes = function () {
                 $("#originPay").hide();
                 $("#payType").val('discountPay');
                 originPrice = Number(averagePrice) * 3;
-                pay = originPrice - 3 / 3 * averagePrice;
+                pay = originPrice - 3 / 3 * averagePrice;//默认是预定数是三个人
                 $("#payLess").text(pay);
             }
 
@@ -124,7 +124,9 @@ var loadRes = function () {
                 $("#dinerNum").val(args['dinerNum']);
                 $("#remark").val(args['more']);
                 originPrice = Number(averagePrice) * parseInt(args['dinerNum']);
-                $("#payMore").text(originPrice);
+                $("#originPrice").text("￥" + originPrice);
+                pay = args['pay'];
+                $("#payLess").text(pay);
             }
 
             $("#address").text(data.restaurantAddress);
