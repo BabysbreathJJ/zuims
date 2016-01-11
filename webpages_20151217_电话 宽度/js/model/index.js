@@ -6,6 +6,7 @@ $(function () {
     var restaurantBaseUrl = 'http://202.120.40.175:21100';
     var map;
     var point = "";
+    var frontImageUrl = "http://202.120.40.175:21104/restaurant/frontimage?id=";
 //地理位置
     var getLocation = function () {
         var cname = "";
@@ -150,6 +151,16 @@ $(function () {
                     '</div>' +
                     '</li>';
                 for (var i = 0; i < data.length; i++) {
+
+                    var img = "";
+                    $.ajax({
+                        url : frontImageUrl+ data[i].restaurantId,
+                        type : "GET",
+                        async: false,
+                        success : function(data){
+                            img = data.picname;
+                        }
+                    })
                     var smyPrice = "";
                     var smy = '<div class="pos-a font-white bg-orange transform45 smy">三免一</div>';
                     if(data[i].discountType[0] == "暂无"){
@@ -157,7 +168,7 @@ $(function () {
                         smyPrice = '<span class="font-c-40">￥' + data[i].price+'';
                     }
                     else{
-                        smyPrice = '<span class="font-c-40">￥' + data[i].price + '<span class="font-c-8f text-d-lt ml5">￥'+data[i].price*3/2+'</span></span>';
+                        smyPrice = '<span class="font-c-40">￥' + data[i].price*2/3 + '<span class="font-c-8f text-d-lt ml5">￥'+data[i].price+'</span></span>';
                     }
                     if (i == 0) {
 
@@ -168,7 +179,7 @@ $(function () {
                             '<a href="details.html?id=' + data[i].restaurantId + '">' +
                             '</a>' +
                             '<input type="hidden" value="' + data[i].restaurantId + '">' +
-                            '<img src="' + data[i].image + ' "class="img-responsive">' +
+                            '<img src="' + img + ' "class="img-responsive">' +
                              smy +
                             '<div class="pos-a tc per100 bottom20">' +
                             '<p class="bg-t display-ib per100 l-ht30 font-white">' + data[i].title + '</p>' +
@@ -204,7 +215,7 @@ $(function () {
                             '<a href="details.html?id=' + data[i].restaurantId + '">' +
                             '</a>' +
                             '<input type="hidden" value="' + data[i].restaurantId + '">' +
-                            '<img src="' + data[i].image + ' "class="img-responsive">' +
+                            '<img src="' +  img + ' "class="img-responsive">' +
 
                              smy +
                             '<div class="pos-a tc per100 bottom20">' +

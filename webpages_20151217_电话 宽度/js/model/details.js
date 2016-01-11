@@ -38,7 +38,7 @@ var load = function () {
             $(".openTime").html(data.restaurantOpenTime);
             $(".price").html(data.averagePrice);
             $(".type").html(data.restaurantType);
-            $(".order").attr("href",'order.html?id='+data.restaurantId)
+            $(".order").attr("href",'order.html?id='+data.restaurantId);
             $(".park").html(data.park);
             if(data.discountType[0] == '暂无'){
                 $(".smy").addClass("display-n");
@@ -58,28 +58,32 @@ var load = function () {
             //猜你喜欢
             like(data.restaurantType);
             //添加图片
-            if(data.images[0] == 'http://202.120.40.175:21100/restaurants/images?relativePath=NonePicture.jpg')
-            {
-                data.images[0] = 'http://202.120.40.175:21100/restaurants/images?relativePath=NonePicture2.jpg';
-            }
-            $("#d-img").attr('src', data.images[0])
-            var imgInfo = "";
-            for (var j = 0; j < data.images.length; j++) {
-                var imgli = '<li class="fl pl10 border-r-5">' +
-                    '<img src="' + data.images[j] + '" class="per100">' +
-                    '</li>';
-                imgInfo += imgli;
-            }
-            $(".img-list").append(imgInfo);
+            $.ajax({
+                url : "http://202.120.40.175:21104/restaurant/normalimage?id="+id,
+                type : "GET",
+                success : function(data){
+                    $("#d-img").attr('src', data[0].picname)
+                    var imgInfo = "";
+
+                    for (var j = 0; j < data.length; j++) {
+                        var imgli = '<li class="fl pl10 border-r-5">' +
+                            '<img src="' + data[j].picname + '" class="per100">' +
+                            '</li>';
+                        imgInfo += imgli;
+                    }
+                    $(".img-list").append(imgInfo);
+                    //图片列表
+                    var img = $(".img-list").find('img');
+                    img.css("width", (document.body.clientWidth - 150) / 4 + "px")
+                    var length = $(".img-list").find('img').length;
+                    var width = parseInt(img.css("width")) * (length + 2);
+                    $(".img-list").css("width", width + 'px');
+                    img.css("height", img.css("width"));
+                }
+            })
+
             //图片点击
-            var img = $(".img-list").find('img');
-            img.css("width", (document.body.clientWidth - 150) / 4 + "px")
-            var length = $(".img-list").find('img').length;
-            var width = parseInt(img.css("width")) * (length + 2);
-            $(".img-list").css("width", width + 'px');
 
-
-            img.css("height", img.css("width"));
             img.click(function () {
                 var src = $(this).attr("src");
                 $("#d-img").attr("src", src);
