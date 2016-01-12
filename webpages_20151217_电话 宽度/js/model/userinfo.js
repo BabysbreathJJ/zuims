@@ -72,6 +72,7 @@ $("span[name='save']").click(function(){
             contentType: 'application/json',
             success : function(data){
                 if(data.success){
+
                     //alert("保存成功");
                     //window.location.href = "usercenter.html";
 
@@ -98,8 +99,8 @@ $("span[name='save']").click(function(){
                     contentType: 'application/json',
                     success : function(data){
                         if(data.success){
-                            alert("保存成功");
-                            window.location.href = "usercenter.html";
+                            //alert("保存成功");
+                            //window.location.href = "usercenter.html";
                         }
                     }
                 })
@@ -130,7 +131,8 @@ var loadBas = function(){
                 gender = "女"
             }
             $("input[name='lastname']").val(data.lastname).attr('readonly','readonly');
-            $("input[name='gender']").val(gender).attr('readonly','readonly');
+            $("input[name='gender']").val(data.gender);
+            $(".gender").val(gender).attr('readonly','readonly');
             $("input[name='phone']").val(data.phone).attr('readonly','readonly');
             $("input[name='phoneid']").val(data.phone);
         }
