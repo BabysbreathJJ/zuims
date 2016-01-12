@@ -73,6 +73,22 @@ function orderDate(date) {
     return year + '-' + month + '-' + day;
 }
 
+
+function compareTime(myDate, orderTime) {
+    var date = new Date(myDate + ' ' + orderTime);
+    var myTime = date.getTime();
+    var now = new Date();
+    var time = now.getTime();
+    console.log((myTime - time) / 1000 / 3600);
+    if (myTime - time < 0)
+        return false;
+
+    return true;
+
+
+}
+
+
 //加载餐厅
 var loadRes = function () {
     var args = getUrlParam();
@@ -188,8 +204,10 @@ $(function () {
 
     });
 
-
     $("#completeOrder").click(function () {
+
+        console.log('s');
+
         var phoneId = $.cookie("phone");
         var args = getUrlParam();
         var restaurantId = parseInt(args['id']);
@@ -214,6 +232,13 @@ $(function () {
         var orderTime = $("#orderTime").val();
         var orderDate = $("#hiddenDate").val();
         var orderDateTime = orderDate + " " + orderTime;
+
+
+        if (!compareTime(orderDate, orderTime)) {
+            alert('请选择正确的订餐时间!');
+            return;
+        }
+
         var orderInfo = {
             phoneId: phoneId,
             restaurantId: restaurantId,

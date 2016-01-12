@@ -91,7 +91,7 @@ function loadDiv(data){
     var smy = '';
     for(var i = 0;i < data.length;i ++){
         smy = '<div class="pos-a font-white bg-orange transform45 smy">三免一</div>';
-        if(data[i].discountType[0] == "暂无"){
+        if(data[i].discountType[0] == "none"){
             smy = "";
         }
         if(data[i].image == 'http://202.120.40.175:21100/restaurants/images?relativePath=NonePicture.jpg')
