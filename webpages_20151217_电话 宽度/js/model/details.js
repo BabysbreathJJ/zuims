@@ -62,11 +62,17 @@ var load = function () {
                 url : "http://202.120.40.175:21104/restaurant/normalimage?id="+id,
                 type : "GET",
                 success : function(data){
+
+
+                    $("#d-img").attr('src', data[1].picname);
+                    $("#introduction").html(data[1].introduction);
+
                     //取数组后五个
                     var newData = data.slice(-5);
                     if(data.length < 5){
                         newData = data;
                     }
+
                     var imgInfo = "";
 
                     for (var j = 0; j < newData.length; j++) {
