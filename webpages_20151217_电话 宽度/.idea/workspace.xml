@@ -63,14 +63,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="details.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="details.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/model/details.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.25">
-              <caret line="42" column="44" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="44" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="81" column="26" selection-start-line="81" selection-start-column="26" selection-end-line="81" selection-end-column="26" />
               <folding>
-                <marker date="1452570371000" expanded="true" signature="4339:4360" placeholder="..." />
-                <marker date="1452570371000" expanded="true" signature="5249:5270" placeholder="..." />
+                <marker date="1452571138000" expanded="true" signature="4340:4361" placeholder="..." />
+                <marker date="1452571138000" expanded="true" signature="5250:5271" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -86,6 +86,16 @@
                 <marker date="1452570307000" expanded="true" signature="10192:11976" placeholder="..." />
                 <marker date="1452570307000" expanded="true" signature="10255:10844" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="details.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/details.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.5989583">
+              <caret line="26" column="77" selection-start-line="26" selection-start-column="77" selection-end-line="26" selection-end-column="77" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -122,16 +132,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="regpay.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/regpay.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindManager">
@@ -147,13 +147,13 @@
         <option value="$PROJECT_DIR$/js/model/login.js" />
         <option value="$PROJECT_DIR$/usercenter.html" />
         <option value="$PROJECT_DIR$/js/model/usercenter.js" />
-        <option value="$PROJECT_DIR$/details.html" />
         <option value="$PROJECT_DIR$/lists.html" />
         <option value="$PROJECT_DIR$/order.html" />
         <option value="$PROJECT_DIR$/js/model/order.js" />
         <option value="$PROJECT_DIR$/js/model/index.js" />
         <option value="$PROJECT_DIR$/js/model/lists.js" />
         <option value="$PROJECT_DIR$/js/model/details.js" />
+        <option value="$PROJECT_DIR$/details.html" />
       </list>
     </option>
   </component>
@@ -163,8 +163,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="90" />
-    <option name="y" value="24" />
+    <option name="x" value="15" />
+    <option name="y" value="23" />
     <option name="width" value="1190" />
     <option name="height" value="720" />
   </component>
@@ -337,7 +337,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="90" y="24" width="1190" height="720" extended-state="0" />
+    <frame x="15" y="23" width="1190" height="720" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1873396" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -424,8 +424,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="82" column="6" selection-start-line="82" selection-start-column="6" selection-end-line="82" selection-end-column="6" />
           <folding>
-            <marker date="1452570371000" expanded="true" signature="4339:4360" placeholder="..." />
-            <marker date="1452570371000" expanded="true" signature="5249:5270" placeholder="..." />
+            <marker date="1452571138000" expanded="true" signature="4340:4361" placeholder="..." />
+            <marker date="1452571138000" expanded="true" signature="5250:5271" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -655,14 +655,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/details.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="45.875">
-          <caret line="40" column="16" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="16.5">
@@ -776,12 +768,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/model/details.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25">
-          <caret line="42" column="44" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="44" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="81" column="26" selection-start-line="81" selection-start-column="26" selection-end-line="81" selection-end-column="26" />
           <folding>
-            <marker date="1452570371000" expanded="true" signature="4339:4360" placeholder="..." />
-            <marker date="1452570371000" expanded="true" signature="5249:5270" placeholder="..." />
+            <marker date="1452571138000" expanded="true" signature="4340:4361" placeholder="..." />
+            <marker date="1452571138000" expanded="true" signature="5250:5271" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/details.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5989583">
+          <caret line="26" column="77" selection-start-line="26" selection-start-column="77" selection-end-line="26" selection-end-column="77" />
+          <folding />
         </state>
       </provider>
     </entry>

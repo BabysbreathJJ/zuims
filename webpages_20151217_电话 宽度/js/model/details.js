@@ -62,7 +62,7 @@ var load = function () {
                 url : "http://202.120.40.175:21104/restaurant/normalimage?id="+id,
                 type : "GET",
                 success : function(data){
-                    $("#d-img").attr('src', data[0].picname)
+                    $("#d-img").attr('src', data[0].picname);
                     var imgInfo = "";
 
                     for (var j = 0; j < data.length; j++) {
