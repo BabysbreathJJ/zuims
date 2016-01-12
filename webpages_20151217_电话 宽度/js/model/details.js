@@ -62,12 +62,13 @@ var load = function () {
                 url : "http://202.120.40.175:21104/restaurant/normalimage?id="+id,
                 type : "GET",
                 success : function(data){
-                    $("#d-img").attr('src', data[0].picname)
+                    $("#d-img").attr('src', data[1].picname);
+                    $("#introduction").html(data[1].introduction);
                     var imgInfo = "";
 
-                    for (var j = 0; j < data.length; j++) {
+                    for (var j = 1; j < data.length; j++) {
                         var imgli = '<li class="fl pl10 border-r-5">' +
-                            '<img src="' + data[j].picname + '" class="per100">' +
+                            '<img id="'+j+'" src="' + data[j].picname + '" class="per100">' +
                             '</li>';
                         imgInfo += imgli;
                     }
@@ -82,6 +83,8 @@ var load = function () {
                     //图片点击
 
                     img.click(function () {
+                        var index = $(this).attr("id");
+                        $("#introduction").html(data[index].introduction);
                         var src = $(this).attr("src");
                         $("#d-img").attr("src", src);
                     })
