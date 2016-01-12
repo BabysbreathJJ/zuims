@@ -64,6 +64,7 @@ $("span[name='save']").click(function(){
     if(isCor){
         var userInfoUrl = "http://202.120.40.175:21101/users/userinfocomplete?phone="+$("input[name='phoneid']").val();
         var userdata = $("form[name='userinfo']").serializeObject();
+<<<<<<< HEAD
         console.log(userdata);
         //$.ajax({
         //    url : userInfoUrl,
@@ -79,6 +80,23 @@ $("span[name='save']").click(function(){
         //        }
         //    }
         //})
+=======
+        $.ajax({
+            url : userInfoUrl,
+            type : "POST",
+            async : false,
+            data : JSON.stringify(userdata),
+            contentType: 'application/json',
+            success : function(data){
+                if(data.success){
+
+                    //alert("保存成功");
+                    //window.location.href = "usercenter.html";
+
+                }
+            }
+        })
+>>>>>>> c0633e6fe21252fc95b6a8d50c157eb3085a23a8
         //头像上传
         var uploadImg = function(){
             var uploadUrl = "http://202.120.40.175:21101/users/uploadImage";
@@ -92,6 +110,7 @@ $("span[name='save']").click(function(){
                 return false;
             }
             else{
+<<<<<<< HEAD
                 //$.ajax({
                 //    url : uploadUrl,
                 //    type : "POST",
@@ -104,6 +123,20 @@ $("span[name='save']").click(function(){
                 //        }
                 //    }
                 //})
+=======
+                $.ajax({
+                    url : uploadUrl,
+                    type : "POST",
+                    data : JSON.stringify(uploadData),
+                    contentType: 'application/json',
+                    success : function(data){
+                        if(data.success){
+                            //alert("保存成功");
+                            //window.location.href = "usercenter.html";
+                        }
+                    }
+                })
+>>>>>>> c0633e6fe21252fc95b6a8d50c157eb3085a23a8
             }
 
 
@@ -131,7 +164,8 @@ var loadBas = function(){
                 gender = "女"
             }
             $("input[name='lastname']").val(data.lastname).attr('readonly','readonly');
-            $("input[name='gender']").val(gender).attr('readonly','readonly');
+            $("input[name='gender']").val(data.gender);
+            $(".gender").val(gender).attr('readonly','readonly');
             $("input[name='phone']").val(data.phone).attr('readonly','readonly');
             $("input[name='phoneid']").val(data.phone);
         }
