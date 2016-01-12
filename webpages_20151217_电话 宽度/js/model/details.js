@@ -62,29 +62,30 @@ var load = function () {
                 url : "http://202.120.40.175:21104/restaurant/normalimage?id="+id,
                 type : "GET",
                 success : function(data){
-                    $("#d-img").attr('src', data[1].picname);
-                    $("#introduction").html(data[1].introduction);
+                    //取数组后五个
+                    var newData = data.slice(-5);
+                    if(data.length < 5){
+                        newData = data;
+                    }
                     var imgInfo = "";
 
-                    for (var j = 1; j < data.length; j++) {
-                        var imgli = '<li class="fl pl10 border-r-5">' +
-                            '<img id="'+j+'" src="' + data[j].picname + '" class="per100">' +
+                    for (var j = 0; j < newData.length; j++) {
+                        var imgli = '<li class="fl pl4 per20 border-r-5">' +
+                            '<img id="'+j+'" src="' + newData[j].picname + '" class="per100">' +
                             '</li>';
                         imgInfo += imgli;
                     }
                     $(".img-list").append(imgInfo);
                     //图片列表
                     var img = $(".img-list").find('img');
-                    img.css("width", (document.body.clientWidth - 150) / 4 + "px")
-                    var length = $(".img-list").find('img').length;
-                    var width = parseInt(img.css("width")) * (length + 2);
-                    $(".img-list").css("width", width + 'px');
-                    img.css("height", img.css("width"));
+                    //大图
+                    $("#d-img").attr('src', newData[0].picname);
+                    $("#introduction").html(newData[0].introduction);
                     //图片点击
 
                     img.click(function () {
                         var index = $(this).attr("id");
-                        $("#introduction").html(data[index].introduction);
+                        $("#introduction").html(newData[index].introduction);
                         var src = $(this).attr("src");
                         $("#d-img").attr("src", src);
                     })

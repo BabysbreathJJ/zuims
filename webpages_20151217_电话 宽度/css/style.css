@@ -83,7 +83,12 @@ a {
 .mt-20 {
     margin-top: -10px;
 }
-
+.pl4{
+    padding-left: 4px;
+}
+.pr4{
+    padding-right: 4px;
+}
 .pd15 {
     padding-left: 15px;
     padding-right: 15px;
