@@ -28,26 +28,6 @@ function getUrlParam() {
     return args;
 }
 
-function compareDate(orderDate) {
-    var date = new Date();
-    var input = orderDate.split('-');
-    if (input[0] < date.getFullYear())
-        return false;
-    if (input[1].charAt(0) == '0') {
-        if (input[1].charAt(1) < date.getMonth())
-            return false;
-    }
-    else if (input[1] < date.getMonth)
-        return false;
-    if (input[2].charAt(0) == '0') {
-        if (input[2].charAt(1) < date.getDate())
-            return false;
-    }
-    else if (input[2] < date.getDate())
-        return false;
-
-    return true;
-}
 
 function formatDate(date) {
     var year = date.getFullYear();
@@ -95,25 +75,15 @@ function orderDate(date) {
 
 
 function compareTime(myDate, orderTime) {
-    var date = new Date();
-    if (myDate == orderDate(date)) {
-        var input = orderTime.split(':');
-        var hour = date.getHours();
-        var minute = date.getMinutes();
-        var second = date.getSeconds();
-        if (input[0] < hour && hour > 19) {
-            return 0;
-        }
-        if (input[0] < hour && hour < 19)
-            return -1;
-        if (input[1] < minute) {
-            return -1;
-        }
-        if (input[2] < second) {
-            return -1;
-        }
-    }
-    return 1;
+    var date = new Date(myDate + ' ' + orderTime);
+    var myTime = date.getTime();
+    var now = new Date();
+    var time = now.getTime();
+    console.log((myTime - time) / 1000 / 3600);
+    if (myTime - time < 0)
+        return false;
+
+    return true;
 
 
 }
@@ -263,26 +233,12 @@ $(function () {
         var orderDate = $("#hiddenDate").val();
         var orderDateTime = orderDate + " " + orderTime;
 
-        if (!compareDate(orderDate)) {
-            alert("请选择正确的就餐日期!");
+
+        if (!compareTime(orderDate, orderTime)) {
+            alert('请选择正确的订餐时间!');
             return;
         }
 
-        if (compareDate(orderDate)) {
-            if (compareTime(orderDate, orderTime) == -1) {
-                alert("请选择正确的订餐时间!");
-                return;
-            }
-
-
-            if (compareTime(orderDate, orderTime) == 0)
-            {
-                alert('当前日期没有可以预定的时间段!');
-                return;
-            }
-
-
-        }
         var orderInfo = {
             phoneId: phoneId,
             restaurantId: restaurantId,
