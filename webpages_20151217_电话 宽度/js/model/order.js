@@ -162,21 +162,21 @@ var loadRes = function () {
 $(function () {
 
     $('.dropdown-toggle').dropdown();
-    $('#selectDate').datetimepicker({
+    $('.selectDate').datetimepicker({
         inline: true,
         viewMode: 'days',
         format: 'yyyy-MM-dd',
         locale: 'zh-cn'
     });
 
-    var selectDate = $('#selectDate').data("DateTimePicker");
+    var selectDate = $('.selectDate').data("DateTimePicker");
 
     selectDate.hide();
-    $('#selectDate').click(function () {
+    $('.selectDate').click(function () {
         selectDate.toggle();
     });
 
-    $('#selectDate').datetimepicker()
+    $('.selectDate').datetimepicker()
         .on('dp.change', function (e) {
             var eventDate = e.date._d;
 
