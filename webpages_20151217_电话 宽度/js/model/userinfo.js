@@ -64,20 +64,21 @@ $("span[name='save']").click(function(){
     if(isCor){
         var userInfoUrl = "http://202.120.40.175:21101/users/userinfocomplete?phone="+$("input[name='phoneid']").val();
         var userdata = $("form[name='userinfo']").serializeObject();
-        $.ajax({
-            url : userInfoUrl,
-            type : "POST",
-            async : false,
-            data : JSON.stringify(userdata),
-            contentType: 'application/json',
-            success : function(data){
-                if(data.success){
-                    //alert("保存成功");
-                    //window.location.href = "usercenter.html";
-
-                }
-            }
-        })
+        console.log(userdata);
+        //$.ajax({
+        //    url : userInfoUrl,
+        //    type : "POST",
+        //    async : false,
+        //    data : JSON.stringify(userdata),
+        //    contentType: 'application/json',
+        //    success : function(data){
+        //        if(data.success){
+        //            //alert("保存成功");
+        //            //window.location.href = "usercenter.html";
+        //
+        //        }
+        //    }
+        //})
         //头像上传
         var uploadImg = function(){
             var uploadUrl = "http://202.120.40.175:21101/users/uploadImage";
@@ -91,18 +92,18 @@ $("span[name='save']").click(function(){
                 return false;
             }
             else{
-                $.ajax({
-                    url : uploadUrl,
-                    type : "POST",
-                    data : JSON.stringify(uploadData),
-                    contentType: 'application/json',
-                    success : function(data){
-                        if(data.success){
-                            alert("保存成功");
-                            window.location.href = "usercenter.html";
-                        }
-                    }
-                })
+                //$.ajax({
+                //    url : uploadUrl,
+                //    type : "POST",
+                //    data : JSON.stringify(uploadData),
+                //    contentType: 'application/json',
+                //    success : function(data){
+                //        if(data.success){
+                //            alert("保存成功");
+                //            window.location.href = "usercenter.html";
+                //        }
+                //    }
+                //})
             }
 
 

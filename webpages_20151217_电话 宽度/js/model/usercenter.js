@@ -21,7 +21,7 @@ var getUser = function () {
             if (data.firstname == null)
                 $(".name").html(data.lastname);
             else
-                $(".name").html(data.firstname);
+                $(".name").html(data.lastname + data.firstname);
             $(".phone").html(data.phone);
             $(".post").html(data.position);
             //$(".post"),html(data.position);
