@@ -62,12 +62,9 @@ $("span[name='save']").click(function(){
         isCor = true;
     }
     if(isCor){
+        $("span[name='save']").attr("disabled",true);
         var userInfoUrl = "http://202.120.40.175:21101/users/userinfocomplete?phone="+$("input[name='phoneid']").val();
         var userdata = $("form[name='userinfo']").serializeObject();
-<<<<<<< HEAD
-=======
-
->>>>>>> c2bdae5f1d947a24d497af49b6ce2e3e5e3d2422
         $.ajax({
             url : userInfoUrl,
             type : "POST",
@@ -83,10 +80,6 @@ $("span[name='save']").click(function(){
                 }
             }
         })
-<<<<<<< HEAD
-=======
-
->>>>>>> c2bdae5f1d947a24d497af49b6ce2e3e5e3d2422
         //头像上传
         var uploadImg = function(){
             var uploadUrl = "http://202.120.40.175:21101/users/uploadImage";
@@ -100,10 +93,6 @@ $("span[name='save']").click(function(){
                 return false;
             }
             else{
-<<<<<<< HEAD
-=======
-
->>>>>>> c2bdae5f1d947a24d497af49b6ce2e3e5e3d2422
                 $.ajax({
                     url : uploadUrl,
                     type : "POST",
@@ -111,8 +100,8 @@ $("span[name='save']").click(function(){
                     contentType: 'application/json',
                     success : function(data){
                         if(data.success){
-                            //alert("保存成功");
-                            //window.location.href = "usercenter.html";
+                            alert("保存成功");
+                            window.location.href = "usercenter.html";
                         }
                     }
                 })
@@ -161,7 +150,7 @@ var loadUserInfo = function(){
         success : function(data){
             addData(data);
             //获取用户头像
-            var img = $('<img class="img-responsive" id="imgsrc" style="width : 80px;">');
+            var img = $('<img  id="imgsrc" width="80" height="80">');
             img.attr("src",'http://202.120.40.175:21101/users/images?phone=' + phone);
 
             $(".displayImg").html(img);
@@ -193,7 +182,7 @@ function displayImg(result) {
             var base64 = this.result.split(',')[1];
             $("#imgUrl").val(base64);
             result.html("");
-            result.html('<img id="imgsrc" class="img-responsive" src="' + this.result + '" alt=""/>')
+            result.html('<img id="imgsrc" width="80" height="80" src="' + this.result + '" alt=""/>')
         }
     }
 }
