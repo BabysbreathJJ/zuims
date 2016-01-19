@@ -63,38 +63,69 @@ var load = function () {
                 type : "GET",
                 success : function(data){
 
-
-                    $("#d-img").attr('src', data[1].picname);
-                    $("#introduction").html(data[1].introduction);
-
                     //取数组后五个
                     var newData = data.slice(-5);
                     if(data.length < 5){
                         newData = data;
                     }
-
+                    var bigImg = "";
                     var imgInfo = "";
 
                     for (var j = 0; j < newData.length; j++) {
-                        var imgli = '<li class="fl pl4 per20 border-r-5">' +
-                            '<img id="'+j+'" src="' + newData[j].picname + '" class="per100">' +
-                            '</li>';
-                        imgInfo += imgli;
-                    }
-                    $(".img-list").append(imgInfo);
-                    //图片列表
-                    var img = $(".img-list").find('img');
-                    //大图
-                    $("#d-img").attr('src', newData[0].picname);
-                    $("#introduction").html(newData[0].introduction);
-                    //图片点击
+                        if(j == 0){
+                            var imgBig = '<div class="item active">'+
+                                         '<div class="pos-r overflow-h">'+
+                                         '<img src="'+newData[j].picname+'" class="per100">'+
+                                         '<div class="pos-a tc per100 bottom20">'+
+                                         '<p class="bg-t display-ib per90 ht40 l-ht40 font-white introduction">'+
+                                            newData[j].introduction+
+                                         '</p>'+
+                                         '</div>'+
+                                         '</div>'+
+                                         '</div>';
+                            var imgli = '<li class="fl pl4 per20 border-r-5 active" data-slide-to="'+j+'" data-target="#myCarousel">' +
+                                '<img id="'+j+'"   src="' + newData[j].picname + '" class="per100">' +
+                                '</li>';
+                        }
+                        else{
+                            var imgBig = '<div class="item">'+
+                                '<div class="pos-r overflow-h">'+
+                                '<img src="'+newData[j].picname+'" class="per100">'+
+                                '<div class="pos-a tc per100 bottom20">'+
+                                '<p class="bg-t display-ib per90 ht40 l-ht40 font-white introduction">'+
+                                    newData[j].introduction+
+                                '</p>'+
+                                '</div>'+
+                                '</div>'+
+                                '</div>';
+                            var imgli = '<li class="fl pl4 per20 border-r-5" data-slide-to="'+j+'" data-target="#myCarousel">' +
+                                '<img id="'+j+'"   src="' + newData[j].picname + '" class="per100">' +
+                                '</li>';
+                        }
 
-                    img.click(function () {
-                        var index = $(this).attr("id");
-                        $("#introduction").html(newData[index].introduction);
-                        var src = $(this).attr("src");
-                        $("#d-img").attr("src", src);
-                    })
+                        imgInfo += imgli;
+                        bigImg += imgBig;
+                    }
+                    $(".carousel-inner").append(bigImg);
+                    $(".img-list").append(imgInfo);
+                    //自动播放
+                    $('.carousel').carousel({
+                        interval: 3000 //两秒自动轮播
+                    }).carousel('cycle');
+                    //左右滑动
+                    $("#myCarousel").swipe({
+                        swipeStatus: function (event, phase, direction, distance, duration, fingers) {
+                            if (direction == "left") {
+                                $('.carousel').carousel('next');
+                            }
+                            else if (direction == "right") {
+                                $('.carousel').carousel('prev');
+                            }
+                        },
+                        threshold: 200,
+                        maxTimeThreshold: 5000,
+                        fingers: 'all'
+                    });
                 }
             })
 
