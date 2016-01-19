@@ -64,6 +64,10 @@ $("span[name='save']").click(function(){
     if(isCor){
         var userInfoUrl = "http://202.120.40.175:21101/users/userinfocomplete?phone="+$("input[name='phoneid']").val();
         var userdata = $("form[name='userinfo']").serializeObject();
+<<<<<<< HEAD
+=======
+
+>>>>>>> c2bdae5f1d947a24d497af49b6ce2e3e5e3d2422
         $.ajax({
             url : userInfoUrl,
             type : "POST",
@@ -79,6 +83,10 @@ $("span[name='save']").click(function(){
                 }
             }
         })
+<<<<<<< HEAD
+=======
+
+>>>>>>> c2bdae5f1d947a24d497af49b6ce2e3e5e3d2422
         //头像上传
         var uploadImg = function(){
             var uploadUrl = "http://202.120.40.175:21101/users/uploadImage";
@@ -92,6 +100,10 @@ $("span[name='save']").click(function(){
                 return false;
             }
             else{
+<<<<<<< HEAD
+=======
+
+>>>>>>> c2bdae5f1d947a24d497af49b6ce2e3e5e3d2422
                 $.ajax({
                     url : uploadUrl,
                     type : "POST",
