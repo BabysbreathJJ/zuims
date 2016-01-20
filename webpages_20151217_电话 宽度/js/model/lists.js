@@ -91,12 +91,13 @@ function loadDiv(data){
     var smy = '';
     for(var i = 0;i < data.length;i ++){
         smy = '<div class="pos-a font-white bg-orange transform45 smy">三免一</div>';
+        var price = Math.round(data[i].price*0.67);
         if(data[i].discountType[0] == "none"){
             smy = "";
+            price = data[i].price;
         }
         if(data[i].image == 'http://202.120.40.175:21100/restaurants/images?relativePath=NonePicture.jpg')
         {
-            console.log(data[i].image);
             data[i].image = 'http://202.120.40.175:21100/restaurants/images?relativePath=NonePicture2.jpg';
         }
         var resDiv = '<div class="border border-r-5 bg-white padding mt10">'+
@@ -117,8 +118,8 @@ function loadDiv(data){
             '</a>'+
             '</div>'+
             '<p>'+
-            '<span class="font-c-8f">每位 :</span>'+
-            '<span class="font-c-40">￥'+data[i].price+
+            '<span class="font-c-8f">每位：</span>'+
+            '<span class="font-c-40">￥'+price+
             '</span>'+
             '</p>'+
             '<p>'+
