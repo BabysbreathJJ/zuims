@@ -64,6 +64,14 @@ $("span[name='save']").click(function(){
     if(isCor){
         $("span[name='save']").attr("disabled",true);
         var userInfoUrl = "http://202.120.40.175:21101/users/userinfocomplete?phone="+$("input[name='phoneid']").val();
+        debugger;
+        if($('.name').val().substring(0,1) == $("input[name='lastname']").val()){
+            var name = $('.name').val().substring(1);
+        }
+        else{
+            var name = $('.name').val();
+        }
+        $("input[name='name']").val(name)
         var userdata = $("form[name='userinfo']").serializeObject();
         $.ajax({
             url : userInfoUrl,
@@ -149,6 +157,7 @@ var loadUserInfo = function(){
         data : {phone : phone},
         success : function(data){
             addData(data);
+            $(".name").val(data.lastname+data.name);
             //获取用户头像
             var img = $('<img  id="imgsrc" width="80" height="80">');
             img.attr("src",'http://202.120.40.175:21101/users/images?phone=' + phone);

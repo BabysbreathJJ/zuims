@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="8191b8b4-58ae-4c84-9452-ac4791c009d6" name="!changes.default.changelist.name!" comment="">
       <change type="DELETED" beforePath="F:\github\zuims\webpages_20151217_电话 宽度\js\plugins\jquery-1.8.1.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpages_20151217_电话 宽度/lists.html" afterPath="$PROJECT_DIR$/webpages_20151217_电话 宽度/lists.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpages_20151217_电话 宽度/js/model/lists.js" afterPath="$PROJECT_DIR$/webpages_20151217_电话 宽度/js/model/lists.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpages_20151217_电话 宽度/userinfo.html" afterPath="$PROJECT_DIR$/webpages_20151217_电话 宽度/userinfo.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpages_20151217_电话 宽度/js/model/userinfo.js" afterPath="$PROJECT_DIR$/webpages_20151217_电话 宽度/js/model/userinfo.js" />
     </list>
     <ignored path="zuims.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -78,11 +77,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lists.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="lists.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webpages_20151217_电话 宽度/lists.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.44198895" vertical-offset="60" max-vertical-offset="2500">
-              <caret line="15" column="46" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="46" />
+            <state vertical-scroll-proportion="-8.965517" vertical-offset="60" max-vertical-offset="2500">
+              <caret line="16" column="41" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -100,11 +99,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="userinfo.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="userinfo.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/webpages_20151217_电话 宽度/js/model/userinfo.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="4640">
-              <caret line="102" column="38" selection-start-line="102" selection-start-column="38" selection-end-line="102" selection-end-column="38" />
+            <state vertical-scroll-proportion="0.34965035" vertical-offset="720" max-vertical-offset="4820">
+              <caret line="46" column="21" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -146,8 +145,8 @@
       <file leaf-file-name="userinfo.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webpages_20151217_电话 宽度/userinfo.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="5420" max-vertical-offset="6320">
-              <caret line="271" column="60" selection-start-line="271" selection-start-column="60" selection-end-line="271" selection-end-column="60" />
+            <state vertical-scroll-proportion="-8.275862" vertical-offset="980" max-vertical-offset="6340">
+              <caret line="61" column="74" selection-start-line="61" selection-start-column="66" selection-end-line="61" selection-end-column="74" />
               <folding />
             </state>
           </provider>
@@ -232,8 +231,6 @@
         <option value="$PROJECT_DIR$/webpages_20151217_电话 宽度/order.html" />
         <option value="$PROJECT_DIR$/webpages_20151217_电话 宽度/js/model/order.js" />
         <option value="$PROJECT_DIR$/webpages_20151217_电话 宽度/css/style.css" />
-        <option value="$PROJECT_DIR$/webpages_20151217_电话 宽度/userinfo.html" />
-        <option value="$PROJECT_DIR$/webpages_20151217_电话 宽度/js/model/userinfo.js" />
         <option value="$PROJECT_DIR$/webpages_20151217_电话 宽度/login.html" />
         <option value="$PROJECT_DIR$/webpages_20151217_电话 宽度/js/model/login.js" />
         <option value="$PROJECT_DIR$/webpages_20151217_电话 宽度/js/model/index.js" />
@@ -241,6 +238,8 @@
         <option value="$PROJECT_DIR$/webpages_20151217_电话 宽度/js/model/lists.js" />
         <option value="$PROJECT_DIR$/webpages_20151217_电话 宽度/details.html" />
         <option value="$PROJECT_DIR$/webpages_20151217_电话 宽度/lists.html" />
+        <option value="$PROJECT_DIR$/webpages_20151217_电话 宽度/userinfo.html" />
+        <option value="$PROJECT_DIR$/webpages_20151217_电话 宽度/js/model/userinfo.js" />
       </list>
     </option>
   </component>
@@ -821,14 +820,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webpages_20151217_电话 宽度/userinfo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="5400" max-vertical-offset="6320">
-          <caret line="271" column="60" selection-start-line="271" selection-start-column="60" selection-end-line="271" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/webpages_20151217_电话 宽度/usercenter.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1980" max-vertical-offset="5260">
@@ -845,14 +836,6 @@
             <marker date="1450594418719" expanded="true" signature="1547:1700" placeholder="..." />
             <marker date="1450594418719" expanded="true" signature="1640:1668" placeholder="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webpages_20151217_电话 宽度/js/model/userinfo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="4640">
-          <caret line="102" column="38" selection-start-line="102" selection-start-column="38" selection-end-line="102" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -914,11 +897,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/webpages_20151217_电话 宽度/lists.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44198895" vertical-offset="60" max-vertical-offset="2500">
-          <caret line="15" column="46" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="46" />
+        <state vertical-scroll-proportion="-8.965517" vertical-offset="60" max-vertical-offset="2500">
+          <caret line="16" column="41" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
           <folding>
             <element signature="n#style#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpages_20151217_电话 宽度/userinfo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.275862" vertical-offset="980" max-vertical-offset="6340">
+          <caret line="61" column="74" selection-start-line="61" selection-start-column="66" selection-end-line="61" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpages_20151217_电话 宽度/js/model/userinfo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34965035" vertical-offset="720" max-vertical-offset="4820">
+          <caret line="46" column="21" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
