@@ -47,6 +47,7 @@ function getUrlParam() {
 
 //登录
 var loginUrl = "http://202.120.40.175:21101/users/login";
+$("#remember").attr('checked',true);
 $("#login").click(function () {
     var user = $("#user").val();
     var pass = $("#pass").val();

@@ -56,7 +56,7 @@ var load = function () {
             }
             $(".tel").append(telInfo);
             //猜你喜欢
-            like(data.restaurantType);
+            like(data.restaurantType,id);
             //添加图片
             $.ajax({
                 url : "http://202.120.40.175:21104/restaurant/normalimage?id="+id,
@@ -112,6 +112,13 @@ var load = function () {
                     $('.carousel').carousel({
                         interval: 3000 //两秒自动轮播
                     }).carousel('cycle');
+                    //点击滑动
+                    $(".left0").click(function(){
+                        $('.carousel').carousel('prev');
+                    });
+                    $(".right0").click(function(){
+                        $('.carousel').carousel('next');
+                    });
                     //左右滑动
                     $("#myCarousel").swipe({
                         swipeStatus: function (event, phase, direction, distance, duration, fingers) {
@@ -149,7 +156,7 @@ function getUrlParam(name) {
     }
 }
 //推荐餐厅
-function like(type){
+function like(type,id){
     var allRes = [];
     var city = $.cookie('locateCity');
     var getresUrl = 'http://202.120.40.175:21100//restaurants/recommand/city?cname=' + city;
@@ -160,13 +167,16 @@ function like(type){
         success: function (data) {
             allRes = data;
             for(var i = 0;i < data.length; i++){
-                if(data[i].restaurantType == type){
-                    var likeRes = '<a href="details.html?id='+data[i].restaurantId+'" style="text-decoration:none;">'+
-                                  '<img src="'+data[i].image+'" class="fl per40 mr20 ht80">'+
+                if(data[i].restaurantId == id){
+                    allRes.splice(i,1)
+                }
+                if(allRes[i].restaurantType == type){
+                    var likeRes = '<a href="details.html?id='+allRes[i].restaurantId+'" style="text-decoration:none;">'+
+                                  '<img src="'+allRes[i].image+'" class="fl per40 mr20 ht80">'+
                                   '<div class="overflow-h">'+
-                                  '<p class="font-c-f8 font16">'+data[i].title+'</p>'+
-                                  '<p class="font-c-8f">地址：'+data[i].address+'</p>'+
-                                  '<p class="font-c-8f">人均消费：￥'+data[i].price+'</p>'+
+                                  '<p class="font-c-f8 font16">'+allRes[i].title+'</p>'+
+                                  '<p class="font-c-8f">地址：'+allRes[i].address+'</p>'+
+                                  '<p class="font-c-8f">人均消费：￥'+allRes[i].price+'</p>'+
                                   '</div>'+
                                   '</a>';
 
