@@ -18,13 +18,17 @@ var getUser = function () {
         dataType: 'JSON',
         success: function (data) {
             $(".vipLevel").html(data.vipLevel);
-            if (data.firstname == null)
-                $(".name").html(data.lastname);
+            var gender;
+            if (data.gender == 0)
+                gender = "女士";
             else
-                $(".name").html(data.lastname + data.firstname);
+                gender = "先生";
+            if (data.firstname == null)
+                $(".name").html(data.lastname + gender);
+            else
+                $(".name").html(data.lastname + data.firstname + gender);
             $(".phone").html(data.phone);
             $(".post").html(data.position);
-            //$(".post"),html(data.position);
             $('.phone').attr('href', 'tel:' + data.phone);
         }
 
