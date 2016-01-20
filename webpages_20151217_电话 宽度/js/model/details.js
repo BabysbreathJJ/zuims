@@ -36,13 +36,17 @@ var load = function () {
             $(".resName").html(data.restaurantName);
             $(".address").html(data.restaurantAddress);
             $(".openTime").html(data.restaurantOpenTime);
-            $(".price").html(data.averagePrice);
+
             $(".type").html(data.restaurantType);
             $(".order").attr("href",'order.html?id='+data.restaurantId);
             $(".park").html(data.park);
             if(data.discountType[0] == 'none'){
                 $(".smy").addClass("display-n");
                 $(".smy-label").addClass('display-n');
+                $(".price").html(data.averagePrice);
+            }
+            else{
+                $(".price").html(Math.round(data.averagePrice*0.67));
             }
 
 
