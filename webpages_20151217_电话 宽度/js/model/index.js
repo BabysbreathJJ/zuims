@@ -7,6 +7,33 @@ $(function () {
     var map;
     var point = "";
     var frontImageUrl = "http://202.120.40.175:21104/restaurant/frontimage?id=";
+    var aCity = [];
+    //获取城市列表
+    var getCityList =  function(){
+        $.ajax({
+            url : "http://202.120.40.175:21108/cities",
+            type : "GET",
+            crossDomin : true,
+            contentType: 'application/json',
+            success : function(data){
+                var liList = "";
+                for(var i = 0;i < data.length;i ++){
+                    aCity.push(data[i].name);
+                    var li = '<li class="l-ht30 font14 border-b-1 city-item"><a href="#">'+data[i].name+'</a></li>';
+                    liList += li;
+                }
+
+                $(".cityList").append(liList);
+                //选择城市下拉列表触发事件
+                $(".city-item").click(function () {
+                    $("#current-city").text($(this).text());
+                    $("#myModal").modal('hide');
+                    loadRes($(this).text(), point, map);
+                    $.cookie('locateCity', $(this).text());
+                })
+            }
+        })
+    }();
 //地理位置
     var getLocation = function () {
         var cname = "";
@@ -375,13 +402,7 @@ $(function () {
         maxTimeThreshold: 5000,
         fingers: 'all'
     })
-    //选择城市下拉列表触发事件
-    $(".city-item").click(function () {
-        $("#current-city").text($(this).text());
-        $("#myModal").modal('hide');
-        loadRes($(this).text(), point, map);
-        $.cookie('locateCity', $(this).text());
-    })
+
 })
 //一键定点击事件
 $("#orderClick").click(function () {
