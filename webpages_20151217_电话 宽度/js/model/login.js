@@ -92,7 +92,7 @@ $("#login").click(function () {
                 }
 
             },
-            error: function () {
+            error: function (data) {
                 $(".font-red").removeClass("display-n");
                 $(".wrongMessage").html("用户名或密码错误。");
             }

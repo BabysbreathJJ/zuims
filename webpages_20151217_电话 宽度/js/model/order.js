@@ -122,7 +122,7 @@ var loadRes = function () {
                 $("#originPay").hide();
                 $("#payType").val('discountPay');
                 originPrice = Number(averagePrice) * 3;
-                pay = originPrice - 3 / 3 * averagePrice;
+                pay = Math.round(originPrice * 0.67);
                 $("#payLess").text(pay);
             }
 
@@ -162,21 +162,33 @@ var loadRes = function () {
 $(function () {
 
     $('.dropdown-toggle').dropdown();
-    $('.selectDate').datetimepicker({
+    var $selectDate = $(".selectDate");
+    $selectDate.datetimepicker({
         inline: true,
         viewMode: 'days',
         format: 'yyyy-MM-dd',
-        locale: 'zh-cn'
+        locale: 'zh-cn',
+        minDate: new Date()
     });
 
-    var selectDate = $('.selectDate').data("DateTimePicker");
+    var selectDate = $selectDate.data("DateTimePicker");
 
     selectDate.hide();
-    $('.selectDate').click(function () {
+    $selectDate.click(function () {
         selectDate.toggle();
     });
 
-    $('.selectDate').datetimepicker()
+    //点击空白区域日期选择器消失
+    $(document).click(function (e) {
+        var target = $(e.target);
+        if (target.parents('.bootstrap-datetimepicker-widget').length < 1 && !target.hasClass('selectDate')) {
+            if ($('.bootstrap-datetimepicker-widget').length > 0) {
+                selectDate.hide();
+            }
+        }
+    });
+
+    $selectDate.datetimepicker()
         .on('dp.change', function (e) {
             var eventDate = e.date._d;
 
@@ -192,7 +204,7 @@ $(function () {
         var originPrice = averagePrice * dinerNum;
         var pay;
         if ($("#payType").val() == 'discountPay') {
-            pay = originPrice - parseInt(dinerNum / 3) * averagePrice;
+            pay = Math.round(originPrice * 0.67);
             $("#originPrice").text("￥" + originPrice);
             $("#payLess").text(pay);
         }

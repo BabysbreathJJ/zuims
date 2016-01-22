@@ -60,7 +60,20 @@
 
         <p id="people-number">
             <span class="font-c-8f">人数：</span>
-            <input class="plot order-item" type="number" value="3" id="dinerNum" min="1"/>
+            <select class="order-item" style="line-height: 10px" id="dinerNum">
+                <option value="1">1人</option>
+                <option value="2">2人</option>
+                <option value="3">3人</option>
+                <option value="4">4人</option>
+                <option value="5">5人</option>
+                <option value="7">6人</option>
+                <option value="8">8人</option>
+                <option value="9">9人</option>
+                <option value="10">10人</option>
+                <option value="15">15人</option>
+                <option value="20">20人</option>
+            </select>
+            <!--<input class="plot order-item" type="number" value="3" id="dinerNum" min="1"/>-->
         </p>
 
         <input type="text" id="averagePrice" style="display: none"/>
@@ -68,7 +81,8 @@
         <p id="discountPay">
 
             <span class="font-c-8f">总价：</span>
-            <span class="font-c-40">￥<span id="payLess"></span> <span class="font-c-8f text-d-lt" id="originPrice"></span>（含15%服务费）</span>
+            <span class="font-c-40">￥<span id="payLess"></span> <span class="font-c-8f text-d-lt"
+                                                                      id="originPrice"></span>（含15%服务费）</span>
         </p>
 
         <p id="originPay">
@@ -79,7 +93,7 @@
         <div class="mt10 border-r-5 overflow-h">
             <!--<a href="usercenter.html">-->
             <buuton id="completeOrder" class="font-white ht40 tc button-block button-rounded button-highlight"
-                 style="width:100%; height: 40px; line-height: 40px; font-size: 20px;margin-bottom: 10px">完 成 预 订
+                    style="width:100%; height: 40px; line-height: 40px; font-size: 20px;margin-bottom: 10px">提 交 预 订
             </buuton>
             <!--</a>-->
 
