@@ -34,14 +34,16 @@ var resData = getData($.cookie('locateCity'));
 more(resData,index);
 //更多
 $("#more").click(function(){
-    index+=10;
-    if(resData.length - index < -10){
-        alert("没有更多了")
+    if(resData.length < index){
+        alert("没有更多了");
         return false;
     }
     else{
+        index+=10;
         more(resData,index)
+
     }
+
 
 });
 //价格排序

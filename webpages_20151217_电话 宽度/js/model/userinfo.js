@@ -64,7 +64,6 @@ $("span[name='save']").click(function(){
     if(isCor){
         $("span[name='save']").attr("disabled",true);
         var userInfoUrl = "http://202.120.40.175:21101/users/userinfocomplete?phone="+$("input[name='phoneid']").val();
-        debugger;
         if($('.name').val().substring(0,1) == $("input[name='lastname']").val()){
             var name = $('.name').val().substring(1);
         }
@@ -170,7 +169,6 @@ var loadUserInfo = function(){
 //图片展示
 function displayImg(result) {
     var file = document.getElementById('head-logo');
-    console.log(file)
     if (typeof FileReader === 'undefined') {
         result.innerHTML = "抱歉，你的浏览器不支持 FileReader";
         input.setAttribute('disabled', 'disabled');
@@ -187,11 +185,38 @@ function displayImg(result) {
         var reader = new FileReader();
         reader.readAsDataURL(file);
         reader.onload = function (e) {
-            $("#imgsrc").css('width','80px');
-            var base64 = this.result.split(',')[1];
+            var result = this.result;
+            var img = new Image();
+            var exif;
+            img.onload = function() {
+                var orientation = exif ? exif.Orientation : 1;
+                // 判断拍照设备持有方向调整照片角度
+                switch(orientation) {
+                    case 3:
+                        imgRotation = 180;
+                        break;
+                    case 6:
+                        imgRotation = 90;
+                        break;
+                    case 8:
+                        imgRotation = 270;
+                        break;
+                }
+            };
+
+            // 转换二进制数据
+            debugger;
+            var base64 = result.replace(/^.*?,/,'');
             $("#imgUrl").val(base64);
-            result.html("");
-            result.html('<img id="imgsrc" width="80" height="80" src="' + this.result + '" alt=""/>')
+            var binary = atob(base64);
+            var binaryData = new BinaryFile(binary);
+
+            // 获取exif信息
+            exif = EXIF.readFromBinaryFile(binaryData);
+            img.src = result;
+            img.width = 80;
+            img.height = 80;
+            $(".displayImg").html(img);
         }
     }
 }
