@@ -35,7 +35,7 @@ more(resData,index);
 //更多
 $("#more").click(function(){
     index+=10;
-    if(resData.length < index){
+    if(resData.length - index < -10){
         alert("没有更多了")
         return false;
     }
@@ -187,9 +187,6 @@ function searchRes(resName){
 
     })
 }
-
-
-
 
 //获取城市列表
 var getCityList =  function(){

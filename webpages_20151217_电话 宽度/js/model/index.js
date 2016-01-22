@@ -7,6 +7,7 @@ $(function () {
     var map;
     var point = "";
     var frontImageUrl = "http://202.120.40.175:21104/restaurant/frontimage?id=";
+    var aCity = [];
     //获取城市列表
     var getCityList =  function(){
         $.ajax({
@@ -17,6 +18,7 @@ $(function () {
             success : function(data){
                 var liList = "";
                 for(var i = 0;i < data.length;i ++){
+                    aCity.push(data[i].name);
                     var li = '<li class="l-ht30 font14 border-b-1 city-item"><a href="#">'+data[i].name+'</a></li>';
                     liList += li;
                 }
