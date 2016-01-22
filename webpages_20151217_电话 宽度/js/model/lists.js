@@ -67,24 +67,7 @@ $('.price').click(function(){
     $('html,body').animate({scrollTop: '0px'}, 300);
     more(resData,index);
 });
-//产品排序
-$(".pro-item").click(function(){
-    index = 10;
-    //产品数据
-    resData = getData($.cookie('locateCity'));
-    var proData = [];
-    for(var i = 0;i < resData.length; i ++){
-        if(resData[i].restaurantType == $(this).text()){
-            proData.push(resData[i]);
-        }
-    }
-    resData = proData;
-    $("#current-pro").text($(this).text());
-    $("#myModal1").modal('hide');
-    $('html,body').animate({scrollTop: '0px'}, 300);
-    more(resData,index);
 
-})
 //dom添加
 function loadDiv(data){
     var resInfo = "";
@@ -206,24 +189,79 @@ function searchRes(resName){
 }
 
 
-//选择城市下拉列表触发事件
-$(".city-item").click(function(){
-    index = 10;
-    var span = '<span id="current-pro">产品 <span class="glyphicon glyphicon-triangle-bottom"></span></span>'
-    $("#current-pro").html(span);
-    $("#current-city").text($(this).text());
-    $("#myModal").modal('hide');
-    $.cookie('locateCity',$(this).text())
-    resData = getData($.cookie('locateCity'));
-    more(resData,index);
-    //更多
-    $("#more").click(function(){
-        index+=10;
-        more(proData,index)
-    });
-})
 
 
+//获取城市列表
+var getCityList =  function(){
+    $.ajax({
+        url : "http://202.120.40.175:21108/cities",
+        type : "GET",
+        crossDomin : true,
+        contentType: 'application/json',
+        success : function(data){
+            var liList = "";
+            for(var i = 0;i < data.length;i ++){
+                var li = '<li class="l-ht30 font14 border-b-1 city-item"><a href="#">'+data[i].name+'</a></li>';
+                liList += li;
+            }
+
+            $(".cityList").append(liList);
+            //选择城市下拉列表触发事件
+            $(".city-item").click(function(){
+                index = 10;
+                var span = '<span id="current-pro">分类 <span class="glyphicon glyphicon-triangle-bottom"></span></span>'
+                $("#current-pro").html(span);
+                $("#current-city").text($(this).text());
+                $("#myModal").modal('hide');
+                $.cookie('locateCity',$(this).text())
+                resData = getData($.cookie('locateCity'));
+
+                more(resData,index);
+                //更多
+                $("#more").click(function(){
+                    index+=10;
+                    more(proData,index)
+                });
+            })
+        }
+    })
+}();
+//获取产品列表
+var getCityList =  function(){
+    $.ajax({
+        url : "http://202.120.40.175:21108/productions",
+        type : "GET",
+        crossDomin : true,
+        contentType: 'application/json',
+        success : function(data){
+            var liList = "";
+            for(var i = 0;i < data.length;i ++){
+                var li = '<li class="l-ht30 font14 border-b-1 pro-item"><a href="#">'+data[i].name+'</a></li>';
+                liList += li;
+            }
+
+            $(".proList").append(liList);
+            //产品排序
+            $(".pro-item").click(function(){
+                index = 10;
+                //产品数据
+                resData = getData($.cookie('locateCity'));
+                var proData = [];
+                for(var i = 0;i < resData.length; i ++){
+                    if(resData[i].restaurantType == $(this).text()){
+                        proData.push(resData[i]);
+                    }
+                }
+                resData = proData;
+                $("#current-pro").text($(this).text());
+                $("#myModal1").modal('hide');
+                $('html,body').animate({scrollTop: '0px'}, 300);
+                more(resData,index);
+
+            })
+        }
+    })
+}();
 //上部点击
 var  menu = function(){
     $(".menu").click(function(){
