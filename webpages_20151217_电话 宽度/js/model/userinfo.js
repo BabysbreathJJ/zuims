@@ -238,7 +238,7 @@ var sendImg = function () {
     var cvs = document.getElementById("cvs");
     //调用Canvas的toDataURL接口，得到的是照片文件的base64编码string
     var data = cvs.toDataURL("image/jpeg");
-    //base64 string过短显然就不是正常的图片数据了，过滤の。
+    //base64 string过短显然就不是正常的图片数据了，过滤。
     if (data.length < 48) {
         console.log("data error.");
         return;
