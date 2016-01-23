@@ -71,8 +71,9 @@ $("#login").click(function () {
                 $(".font-red").addClass("display-n");
                 var args = getUrlParam();
                 if ($("#remember").is(':checked')) {
-                    $.cookie('login', 'true', {expires: 60000000});
-                    $.cookie('phone', msg.phone, {expires: 60000000});
+                    debugger;
+                    $.cookie('login', 'true', {expires: 60000});
+                    $.cookie('phone', msg.phone, {expires: 60000});
                     if (args['id'] == null)
                         window.location.href = "index.html";
                     else {
