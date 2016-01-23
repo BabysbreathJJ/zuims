@@ -180,10 +180,17 @@ function readFile() {
 
     if (file) {
         //验证图片文件类型
-        if (!/image\/\w+/.test(file.type)) {
+        if(file.type && !/image/i.test(file.type)) {
             alert("文件必须为图片！");
             return false;
         }
+        EXIF.getData(file, function () {
+            //获取照片本身的Orientation
+            var orientation = EXIF.getTag(this, "Orientation");
+            console.log(orientation);
+        });
+
+
         var reader = new FileReader();
         reader.onload = function (e) {
             //readAsDataURL后执行onload，进入图片压缩逻辑
@@ -227,12 +234,12 @@ var render = function (file, src) {
         image.src = src;
     });
 };
-var sendImg = function(){
+var sendImg = function () {
     var cvs = document.getElementById("cvs");
     //调用Canvas的toDataURL接口，得到的是照片文件的base64编码string
     var data = cvs.toDataURL("image/jpeg");
     //base64 string过短显然就不是正常的图片数据了，过滤の。
-    if(data.length<48){
+    if (data.length < 48) {
         console.log("data error.");
         return;
     }
