@@ -1,121 +1,131 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <title>最美食 -  用户信息</title>
+    <title>最美食 - 用户信息</title>
     <link href="css/main.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/spans.css" rel="stylesheet">
-  </head>
-  <body>
-    <!-- 开始顶部 固定 -->
-    <header class="bg-main navbar-fixed-top">
-      <div class="fl per50">
-          <a class="navbar-brand" href="index.html"><img src="images/logo.png" class="per90" alt="最美食">
-              <span class="glyphicon glyphicon-home font-6 fr font12" style="margin-top: -15px;"></span></a>
-      </div> 
-    </header>
-    <!--结束顶部-->
-    <!--内容开始-->
+</head>
+<body>
+<!-- 开始顶部 固定 -->
+<header class="bg-main navbar-fixed-top">
+    <div class="fl per50">
+        <a class="navbar-brand" href="index.html"><img src="images/logo.png" class="per90" alt="最美食">
+            <span class="glyphicon glyphicon-home font-6 fr font12" style="margin-top: -15px;"></span></a>
+    </div>
+</header>
+<!--结束顶部-->
+<!--内容开始-->
 
-    <div class="pd15 mt5 mb80 mt60">
+<div class="pd15 mt5 mb80 mt60">
 
-      <div class="border border-r-5 bg-white">
+    <div class="border border-r-5 bg-white">
         <div>
-		<!--步骤开始-->
-		<p class="tc font15 mt10">完善信息</p>
-		<ul class="list-unstyled tc border-bottom step">
-			<li class="display-ib per18 b-active initial-li">
-				<div class="img-circle tc ht40 l-ht40 w-40 bg-6 font-white margin-auto">1</div>
-				<p class="mt10 tc font10">初始信息</p>
-			</li>
-			<li class="display-ib per18  basic-li">
-				<div class="img-circle tc ht40 l-ht40 w-40 bg-6 font-white margin-auto">2</div>
-				<p class="mt10 tc font10">基本信息</p>
-			</li>
-			<li class="display-ib per18 connect-li">
-				<div class="img-circle tc ht40 l-ht40 w-40 bg-6 font-white margin-auto">3</div>
-				<p class="mt10 tc font10">联系信息</p>
-			</li>
-			<li class="display-ib per18 job-li">
-				<div class="img-circle tc ht40 l-ht40 w-40 bg-6 font-white margin-auto">4</div>
-				<p class="mt10 tc font10">职业信息</p>
-			</li>
-			<li class="display-ib per18 hobby-li">
-				<div class="img-circle tc ht40 l-ht40 w-40 bg-6 font-white margin-auto">5</div>
-				<p class="mt10 tc font10">兴趣爱好</p>
-			</li>
-		</ul>
+            <!--步骤开始-->
+            <p class="tc font15 mt10">完善信息</p>
+            <ul class="list-unstyled tc border-bottom step">
+                <li class="display-ib per18 b-active initial-li">
+                    <div class="img-circle tc ht40 l-ht40 w-40 bg-6 font-white margin-auto">1</div>
+                    <p class="mt10 tc font10">初始信息</p>
+                </li>
+                <li class="display-ib per18  basic-li">
+                    <div class="img-circle tc ht40 l-ht40 w-40 bg-6 font-white margin-auto">2</div>
+                    <p class="mt10 tc font10">基本信息</p>
+                </li>
+                <li class="display-ib per18 connect-li">
+                    <div class="img-circle tc ht40 l-ht40 w-40 bg-6 font-white margin-auto">3</div>
+                    <p class="mt10 tc font10">联系信息</p>
+                </li>
+                <li class="display-ib per18 job-li">
+                    <div class="img-circle tc ht40 l-ht40 w-40 bg-6 font-white margin-auto">4</div>
+                    <p class="mt10 tc font10">职业信息</p>
+                </li>
+                <li class="display-ib per18 hobby-li">
+                    <div class="img-circle tc ht40 l-ht40 w-40 bg-6 font-white margin-auto">5</div>
+                    <p class="mt10 tc font10">兴趣爱好</p>
+                </li>
+            </ul>
         </div>
-		<!--步骤结束-->
-        <div class=""padding>
-        <form name="userinfo">
-		<!--初始信息开始-->
-		<div class="initial info">
-			<p>
-				<span class="display-ib tr per30">姓氏：</span>
+        <!--步骤结束-->
+        <div class="" padding>
+            <form name="userinfo">
+                <!--初始信息开始-->
+                <div class="initial info">
+                    <p>
+                        <span class="display-ib tr per30">姓氏：</span>
 				<span class="display-ib per60">
 					<input type="text" class="form-control" name="lastname" placeholder="姓氏">
 					<span class="font-red ml10 display-n">这里是错误信息</span>
 				</span>
-			</p>
-			<p>
-				<span class="display-ib tr per30">性别：</span>
+                    </p>
+
+                    <p>
+                        <span class="display-ib tr per30">性别：</span>
 				<span class="display-ib per60">
 					<input type="text" name="" class="form-control vertical-a-m gender">
-                    <input type="hidden" name = "gender">
+                    <input type="hidden" name="gender">
 				</span>
-			</p>
-			<p>
-				<span class="display-ib tr per30">手机号：</span>
+                    </p>
+
+                    <p>
+                        <span class="display-ib tr per30">手机号：</span>
 				<span class="display-ib per60">
 					<input type="text" class="form-control" name="phone" placeholder="手机号">
                     <input type="hidden" name="phoneid">
 					<span class="font-red ml10 display-n">这里是错误信息</span>
 				</span>
-			</p>
-			<p>
+                    </p>
+
+                    <p>
 				<span class="display-ib per100 tc">
 					<a href="usercenter.html" class="btn btn-black">保存</a>
-					<span class="btn btn-black  goto-basic fr">下一步<span class="glyphicon glyphicon-circle-arrow-right ml10"></span></span>
+					<span class="btn btn-black  goto-basic fr">下一步<span
+                            class="glyphicon glyphicon-circle-arrow-right ml10"></span></span>
 				</span>
-			</p>
-		</div>
-		<!--初始信息结束-->
-        <div class="afterInfo">
-		<!--基本信息开始-->
+                    </p>
+                </div>
+                <!--初始信息结束-->
+                <div class="afterInfo">
+                    <!--基本信息开始-->
 
-		<div class="basic display-n info">
-			<p>
-				<span class="display-ib tr per30">真实姓名：</span>
+                    <div class="basic display-n info">
+                        <p>
+                            <span class="display-ib tr per30">真实姓名：</span>
 				<span class="display-ib per60">
-					<input type="text" class="form-control name"  placeholder="真实姓名">
+					<input type="text" class="form-control name" placeholder="真实姓名">
                     <input type="hidden" name="name">
 					<span class="font-red ml10 display-n">这里是错误信息</span>
 				</span>
-			</p>
-			<p>
-				<span class="display-ib tr per30">城市：</span>
+                        </p>
+
+                        <p>
+                            <span class="display-ib tr per30">城市：</span>
 				<span class="display-ib per60">
 					<input type="text" class="form-control" name="city" placeholder="城市">
 					<span class="font-red ml10 display-n">这里是错误信息</span>
 				</span>
-			</p>
-			<p>
-				<span class="display-ib tr per30">真实照片：</span>
+                        </p>
+
+                        <p>
+                            <span class="display-ib tr per30">真实照片：</span>
 				<span class="display-ib per60 tc">
-					<label for="head-logo" class="bg-gray displayImg tc display-ib pos-r img-circle w-80 ht80 l-ht80 border border-purple vertical-a-m cursor-p overflow-h">上传头像</label>
+					<label for="head-logo"
+                           class="bg-gray displayImg tc display-ib pos-r img-circle w-80 ht80 l-ht80 border border-purple vertical-a-m cursor-p overflow-h">上传头像</label>
 					<input type="file" id="head-logo" class="top-200 pos-a" accept="image/*">
                     <input type="hidden" id="imgUrl">
+                    <canvas id="cvs"></canvas>
 					<span class="font-red ml10 display-n">这里是错误信息</span>
 				</span>
-			</p>
-			<p>
-				<span class="display-ib tr per30">婚姻状况：</span>
+                        </p>
+
+                        <p>
+                            <span class="display-ib tr per30">婚姻状况：</span>
 				<span class="display-ib per60">
                     <select class="form-control vertical-a-m" name="marriage">
                         <option value="">请选择</option>
@@ -123,192 +133,221 @@
                         <option value="1">已婚</option>
                     </select>
 				</span>
-			</p>
-			<p>
-				<span class="display-ib tr per30 vertical-a-m">出生日期：</span>
+                        </p>
+                        <p>
+                            <span class="display-ib tr per30 vertical-a-m">出生日期：</span>
 				<span class="display-ib per60 vertical-a-m">
 					<input type="date" class="form-control vertical-a-m" name="birth" placeholder="出生日期">
 					<span class="font-red ml10 display-n">这里是错误信息</span>
 				</span>
-			</p>
-			<p>
-				<span class="display-ib tr per30 vertical-a-m">最高学历：</span>
+                        </p>
+
+                        <p>
+                            <span class="display-ib tr per30 vertical-a-m">最高学历：</span>
 				<span class="display-ib per60 vertical-a-m">
 					<input type="text" class="form-control vertical-a-m" name="education" placeholder="最高学历">
 					<span class="font-red ml10 display-n">这里是错误信息</span>
 				</span>
-			</p>
-			<p>
-				<span class="display-ib tr per30 vertical-a-m">毕业学校：</span>
+                        </p>
+
+                        <p>
+                            <span class="display-ib tr per30 vertical-a-m">毕业学校：</span>
 				<span class="display-ib per60 vertical-a-m">
 					<input type="text" class="form-control vertical-a-m" name="graduate" placeholder="毕业学校">
 					<span class="font-red ml10 display-n">这里是错误信息</span>
 				</span>
-			</p>
-            <p>
-                <span class="display-ib tr per30 vertical-a-m">信用卡信息：</span>
+                        </p>
+
+                        <p>
+                            <span class="display-ib tr per30 vertical-a-m">信用卡信息：</span>
 				<span class="display-ib per60 vertical-a-m">
 					<input type="tel" class="form-control vertical-a-m" name="" placeholder="信用卡前六位">
 					<span class="font-red ml10 display-n">这里是错误信息</span>
 				</span>
-            </p>
-			<p>
+                        </p>
+
+                        <p>
 				<span class="display-ib per100 tc">
-					<span class="btn btn-black  goto-initial fl"><span class="glyphicon glyphicon-circle-arrow-left mr10"></span>上一步</span>
+					<span class="btn btn-black  goto-initial fl"><span
+                            class="glyphicon glyphicon-circle-arrow-left mr10"></span>上一步</span>
 					<span class="btn btn-black" name="save">保存</span>
-					<span class="btn btn-black goto-connect fr">下一步<span class="glyphicon glyphicon-circle-arrow-right ml10"></span></span>
+					<span class="btn btn-black goto-connect fr">下一步<span
+                            class="glyphicon glyphicon-circle-arrow-right ml10"></span></span>
 				</span>
-			</p>
-		</div>
-		<!--基本信息结束-->
-		<!--联系信息开始-->
-		<div class="connect display-n info">
-			<p>
-				<span class="display-ib tr per30 vertical-a-m">QQ：</span>
+                        </p>
+                    </div>
+                    <!--基本信息结束-->
+                    <!--联系信息开始-->
+                    <div class="connect display-n info">
+                        <p>
+                            <span class="display-ib tr per30 vertical-a-m">QQ：</span>
 				<span class="display-ib per60 vertical-a-m">
 					<input type="tel" class="form-control vertical-a-m" name="qq" placeholder="QQ号码">
 					<span class="font-red ml10 display-n">这里是错误信息</span>
 				</span>
-			</p>
-			<p>
-				<span class="display-ib tr per30 vertical-a-m">微信：</span>
+                        </p>
+
+                        <p>
+                            <span class="display-ib tr per30 vertical-a-m">微信：</span>
 				<span class="display-ib per60 vertical-a-m">
 					<input type="text" class="form-control vertical-a-m" name="wechat" placeholder="微信">
 					<span class="font-red ml10 display-n">这里是错误信息</span>
 				</span>
-			</p>
-			<p>
-				<span class="display-ib tr per30 vertical-a-m">邮箱：</span>
+                        </p>
+
+                        <p>
+                            <span class="display-ib tr per30 vertical-a-m">邮箱：</span>
 				<span class="display-ib per60 vertical-a-m">
 					<input type="email" class="form-control vertical-a-m" name="email" placeholder="邮箱">
                     <span class="font-red ml10 display-n emailErr">请填写正确邮箱地址</span>
 				</span>
-			</p>
-			<p>
-				<span class="display-ib tr per30 vertical-a-m">固定号码：</span>
+                        </p>
+
+                        <p>
+                            <span class="display-ib tr per30 vertical-a-m">固定号码：</span>
 				<span class="display-ib per60 vertical-a-m">
 					<input type="tel" class="form-control vertical-a-m" name="tel" placeholder="固定号码">
 					<span class="font-red ml10 display-n">这里是错误信息</span>
 				</span>
-			</p>
-			<p>
+                        </p>
+
+                        <p>
 				<span class="display-ib per100 tc">
-					<span class="btn btn-black  goto-basic fl"><span class="glyphicon glyphicon-circle-arrow-left mr10"></span>上一步</span>
+					<span class="btn btn-black  goto-basic fl"><span
+                            class="glyphicon glyphicon-circle-arrow-left mr10"></span>上一步</span>
 					<span class="btn btn-black" name="save">保存</span>
-					<span class="btn btn-black goto-job fr">下一步<span class="glyphicon glyphicon-circle-arrow-right ml10"></span></span>
+					<span class="btn btn-black goto-job fr">下一步<span
+                            class="glyphicon glyphicon-circle-arrow-right ml10"></span></span>
 				</span>
-			</p>
-		</div>
-		<!--联系信息结束-->
-		<!--职业信息开始-->
-		<div class="job display-n info">
-			<p>
-				<span class="display-ib tr per30 vertical-a-m">公司/机构：</span>
+                        </p>
+                    </div>
+                    <!--联系信息结束-->
+                    <!--职业信息开始-->
+                    <div class="job display-n info">
+                        <p>
+                            <span class="display-ib tr per30 vertical-a-m">公司/机构：</span>
 				<span class="display-ib per60 vertical-a-m">
 					<input type="text" class="form-control vertical-a-m" name="company" placeholder="公司/机构">
 					<span class="font-red ml10 display-n">这里是错误信息</span>
 				</span>
-			</p>
-			<p>
-				<span class="display-ib tr per30 vertical-a-m">职位：</span>
+                        </p>
+
+                        <p>
+                            <span class="display-ib tr per30 vertical-a-m">职位：</span>
 				<span class="display-ib per60 vertical-a-m">
                     <input type="text" class="form-control vertical-a-m" name="position" placeholder="职位">
 				</span>
-			</p>
-			<p>
-				<span class="display-ib tr per30 vertical-a-m">所属行业：</span>
+                        </p>
+
+                        <p>
+                            <span class="display-ib tr per30 vertical-a-m">所属行业：</span>
 				<span class="display-ib per60 vertical-a-m">
                     <input type="text" class="form-control vertical-a-m" name="industry" placeholder="所属行业">
 				</span>
-			</p>
-			<p>
-				<span class="display-ib tr per30 vertical-a-m">收入：</span>
+                        </p>
+
+                        <p>
+                            <span class="display-ib tr per30 vertical-a-m">收入：</span>
 				<span class="display-ib per60 vertical-a-m">
                     <input type="tel" class="form-control vertical-a-m" name="income" placeholder="收入">
 				</span>
-			</p>
-			<p>
+                        </p>
+
+                        <p>
 				<span class="display-ib per100 tc">
-					<span class="btn btn-black  goto-connect fl"><span class="glyphicon glyphicon-circle-arrow-left mr10"></span>上一步</span>
+					<span class="btn btn-black  goto-connect fl"><span
+                            class="glyphicon glyphicon-circle-arrow-left mr10"></span>上一步</span>
 					<span class="btn btn-black" name="save">保存</span>
-					<span class="btn btn-black goto-hobby fr">下一步<span class="glyphicon glyphicon-circle-arrow-right ml10"></span></span>
+					<span class="btn btn-black goto-hobby fr">下一步<span
+                            class="glyphicon glyphicon-circle-arrow-right ml10"></span></span>
 				</span>
-			</p>
-		</div>
-		<!--职业信息结束-->
-		<!--兴趣信息开始-->
-		<div class="hobby info display-n">
-			<p>
-				<span class="display-ib tr per30 vertical-a-m">偏好菜系：</span>
+                        </p>
+                    </div>
+                    <!--职业信息结束-->
+                    <!--兴趣信息开始-->
+                    <div class="hobby info display-n">
+                        <p>
+                            <span class="display-ib tr per30 vertical-a-m">偏好菜系：</span>
 				<span class="display-ib per60 vertical-a-m">
                     <input type="text" class="form-control vertical-a-m" name="prefer_cooking" placeholder="偏好菜系">
 				</span>
-			</p>
-			<p>
-				<span class="display-ib tr per30 vertical-a-m">偏好价位：</span>
+                        </p>
+
+                        <p>
+                            <span class="display-ib tr per30 vertical-a-m">偏好价位：</span>
 				<span class="display-ib per60 vertical-a-m">
                     <input type="tel" class="form-control vertical-a-m" name="prefer_price" placeholder="偏好价位">
 				</span>
-			</p>
-			<p>
-				<span class="display-ib tr per30 vertical-a-m">偏好类型：</span>
+                        </p>
+
+                        <p>
+                            <span class="display-ib tr per30 vertical-a-m">偏好类型：</span>
 				<span class="display-ib per60 vertical-a-m">
                     <input type="text" class="form-control vertical-a-m" name="prefer_restaurant" placeholder="偏好类型">
 				</span>
-			</p>
-			<p>
-				<span class="display-ib tr per30 vertical-a-m">偏好城市：</span>
+                        </p>
+
+                        <p>
+                            <span class="display-ib tr per30 vertical-a-m">偏好城市：</span>
 				<span class="display-ib per60 vertical-a-m">
                     <input type="text" class="form-control vertical-a-m" name="prefer_city" placeholder="偏好城市">
 				</span>
-			</p>
-			<p>
-				<span class="display-ib tr per30 vertical-a-m">偏好区域：</span>
+                        </p>
+
+                        <p>
+                            <span class="display-ib tr per30 vertical-a-m">偏好区域：</span>
 				<span class="display-ib per60 vertical-a-m">
                     <input type="text" class="form-control vertical-a-m" name="prefer_district" placeholder="偏好区域">
 				</span>
-			</p>
-			<p>
-				<span class="display-ib tr per30 vertical-a-m">就餐目的：</span>
+                        </p>
+
+                        <p>
+                            <span class="display-ib tr per30 vertical-a-m">就餐目的：</span>
 				<span class="display-ib per60 vertical-a-m">
                     <input type="text" class="form-control vertical-a-m" name="dinning_purpose" placeholder="就餐目的">
 				</span>
-			</p>
-			<p>
-				<span class="display-ib tr per30 vertical-a-m">其他兴趣：</span>
+                        </p>
+
+                        <p>
+                            <span class="display-ib tr per30 vertical-a-m">其他兴趣：</span>
 				<span class="display-ib per60 vertical-a-m">
 					<textarea name="other_interests" class="form-control"></textarea>
 				</span>
-			</p>
-			<p>
+                        </p>
+
+                        <p>
 				<span class="display-ib per100 tc">
-					<span class="btn btn-black  goto-job fl"><span class="glyphicon glyphicon-circle-arrow-left mr10"></span>上一步</span>
+					<span class="btn btn-black  goto-job fl"><span
+                            class="glyphicon glyphicon-circle-arrow-left mr10"></span>上一步</span>
 					<span class="btn btn-black" name="save">保存</span>
 				</span>
-			</p>
-		</div>
-		<!--兴趣信息结束-->
+                        </p>
+                    </div>
+                    <!--兴趣信息结束-->
+                </div>
+            </form>
         </div>
-        </form>
-      </div>
-     </div>
     </div>
+</div>
 
-    <!--内容结束-->
-    <!--底部菜单-->
-    <footer class="bg-main navbar-fixed-bottom ht40">
-      <div class="btn-group btn-group-justified">
-        <a href="lists.html" class="btn ht40 font-white border-r"><span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span> 餐 厅</a>
-        <a href="usercenter.html" class="btn ht40 font-white" > <span class="glyphicon glyphicon-user" aria-hidden="true"></span> 我 的</a>
-      </div>
-    </footer>
-    <!--结束底部菜单-->
-    <script src="js/plugins/jquery-1.11.3.min.js"></script>
-    <script src="js/plugins/jquery.validate.min.js"></script>
-    <script src="js/plugins/jquery.cookie.js"></script>
-    <script src="js/plugins/bootstrap.min.js"></script>
-    <script src="js/plugins/exif.js"></script>
-    <script src="js/plugins/binary.js"></script>
-    <script src="js/model/userinfo.js"></script>
-  </body>
+<!--内容结束-->
+<!--底部菜单-->
+<footer class="bg-main navbar-fixed-bottom ht40">
+    <div class="btn-group btn-group-justified">
+        <a href="lists.html" class="btn ht40 font-white border-r"><span class="glyphicon glyphicon-cutlery"
+                                                                        aria-hidden="true"></span> 餐 厅</a>
+        <a href="usercenter.html" class="btn ht40 font-white"> <span class="glyphicon glyphicon-user"
+                                                                     aria-hidden="true"></span> 我 的</a>
+    </div>
+</footer>
+<!--结束底部菜单-->
+<script src="js/plugins/jquery-1.11.3.min.js"></script>
+<script src="js/plugins/jquery.validate.min.js"></script>
+<script src="js/plugins/jquery.cookie.js"></script>
+<script src="js/plugins/bootstrap.min.js"></script>
+<script src="js/plugins/exif.js"></script>
+<script src="js/plugins/binary.js"></script>
+<script src="js/plugins/megapix-image.js"></script>
+<script src="js/model/userinfo.js"></script>
+</body>
 </html>

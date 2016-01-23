@@ -174,54 +174,75 @@ function displayImg(result) {
     } else {
         file.addEventListener('change', readFile, false);
     }
-    function readFile() {
-        console.log(this.files[0])
-        var file = this.files[0];
+}
+function readFile() {
+    var file = this.files[0];
+
+    if (file) {
+        //验证图片文件类型
         if (!/image\/\w+/.test(file.type)) {
             alert("文件必须为图片！");
             return false;
         }
         var reader = new FileReader();
-        reader.readAsDataURL(file);
         reader.onload = function (e) {
+            //readAsDataURL后执行onload，进入图片压缩逻辑
+            //e.target.result得到的就是图片文件的base64 string
+            render(file, e.target.result);
+
             var result = this.result;
             var img = new Image();
-            var exif;
-            img.onload = function() {
-                var orientation = exif ? exif.Orientation : 1;
-                // 判断拍照设备持有方向调整照片角度
-                switch(orientation) {
-                    case 3:
-                        imgRotation = 180;
-                        alert(3);
-                        break;
-                    case 6:
-                        imgRotation = 90;
-                        alert(6);
-                        break;
-                    case 8:
-                        imgRotation = 270;
-                        alert(8);
-                        break;
-                }
-            };
-
-            // 转换二进制数据
-            var base64 = result.replace(/^.*?,/,'');
-            $("#imgUrl").val(base64);
-            var binary = atob(base64);
-            var binaryData = new BinaryFile(binary);
-
-            // 获取exif信息
-            exif = EXIF.readFromBinaryFile(binaryData);
             img.src = result;
             img.width = 80;
             img.height = 80;
             $(".displayImg").html(img);
-        }
+        };
+        //以dataurl的形式读取图片文件
+        reader.readAsDataURL(file);
     }
+
 }
 
+//定义照片的最大高度
+var MAX_HEIGHT = 480;
+var render = function (file, src) {
+    EXIF.getData(file, function () {
+        //获取照片本身的Orientation
+        var orientation = EXIF.getTag(this, "Orientation");
+        var image = new Image();
+        image.onload = function () {
+            var cvs = document.getElementById("cvs");
+            var w = image.width;
+            var h = image.height;
+            //计算压缩后的图片长和宽
+            if (h > MAX_HEIGHT) {
+                w *= MAX_HEIGHT / h;
+                h = MAX_HEIGHT;
+            }
+            //使用MegaPixImage封装照片数据
+            var mpImg = new MegaPixImage(file);
+            //按照Orientation来写入图片数据，回调函数是上传图片到服务器
+            mpImg.render(cvs, {maxWidth: w, maxHeight: h, orientation: orientation}, sendImg);
+        };
+        image.src = src;
+    });
+};
+var sendImg = function(){
+    var cvs = document.getElementById("cvs");
+    //调用Canvas的toDataURL接口，得到的是照片文件的base64编码string
+    var data = cvs.toDataURL("image/jpeg");
+    //base64 string过短显然就不是正常的图片数据了，过滤の。
+    if(data.length<48){
+        console.log("data error.");
+        return;
+    }
+    //图片的base64 string格式是data:/image/jpeg;base64,xxxxxxxxxxx
+    //是以data:/image/jpeg;base64,开头的，我们在服务端写入图片数据的时候不需要这个头！
+    //所以在这里只拿头后面的string
+    //当然这一步可以在服务端做，但让闲着蛋疼的客户端帮着做一点吧~~~（稍微减轻一点服务器压力）
+    data = data.split(",")[1];
+    $("#imgUrl").val(data);
+};
 
 displayImg($(".displayImg"));
 
