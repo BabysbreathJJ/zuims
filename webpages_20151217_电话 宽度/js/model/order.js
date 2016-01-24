@@ -178,6 +178,9 @@ $(function () {
         selectDate.toggle();
     });
 
+    document.onclick = function () {
+        // change div
+    };
     //点击空白区域日期选择器消失
     $(document).click(function (e) {
         var target = $(e.target);
