@@ -181,6 +181,7 @@ $(function () {
     //点击空白区域日期选择器消失
     $(document).click(function (e) {
         var target = $(e.target);
+        alert(JSON.stringify(target));
         if (target.parents('.bootstrap-datetimepicker-widget').length < 1 && !target.hasClass('selectDate')) {
             if ($('.bootstrap-datetimepicker-widget').length > 0) {
                 selectDate.hide();
@@ -263,6 +264,7 @@ $(function () {
         if (phoneId == "" || phoneId == undefined || phoneId == null) {
             var myOrderInfo = {};
             var myDate = $("#orderDate").text();
+            console.log(myDate);
             var myTime = orderTime;
             var url;
             var args = getUrlParam();
