@@ -75,7 +75,7 @@ function orderDate(date) {
 
 
 function compareTime(myDate, orderTime) {
-    var date = new Date(myDate + ' ' + orderTime);
+    var date = new Date(myDate + 'T' + orderTime);
     var myTime = date.getTime();
     var now = new Date();
     var time = now.getTime();
