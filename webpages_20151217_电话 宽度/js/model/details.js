@@ -35,11 +35,23 @@ var load = function () {
 
             $(".resName").html(data.restaurantName);
             $(".address").html(data.restaurantAddress);
-            $(".openTime").html(data.restaurantOpenTime);
+
 
             $(".type").html(data.restaurantType);
             $(".order").attr("href",'order.html?id='+data.restaurantId);
-            $(".park").html(data.park);
+            if(data.restaurantOpenTime == ""){
+                $(".timeP").addClass("display-n");
+            }
+            else{
+                $(".openTime").html(data.restaurantOpenTime);
+            }
+            if(data.park == ""){
+                $(".parkP").addClass("display-n");
+            }
+            else{
+                $(".park").html(data.park);
+            }
+
             if(data.discountType[0] == 'none'){
                 $(".smy").addClass("display-n");
                 $(".smy-label").addClass('display-n');
@@ -49,16 +61,21 @@ var load = function () {
                 $(".price").html(Math.round(data.averagePrice*0.67));
             }
 
-
-            var tel = data.restaurantTele.split(" ");
-            //console.log(data.restaurantTele.split(" "));
-            //添加电话
-            var telInfo = "";
-            for (var i = 0; i < tel.length; i++) {
-                var aTel = '<a class="font-c-40" href="tel:' + tel[i] + '">' + tel[i] + '</a> &nbsp;';
-                telInfo += aTel;
+            if(data.restaurantTele == ""){
+                $(".telP").addClass("display-n");
             }
-            $(".tel").append(telInfo);
+            else{
+                var tel = data.restaurantTele.split(" ");
+                //console.log(data.restaurantTele.split(" "));
+                //添加电话
+                var telInfo = "";
+                for (var i = 0; i < tel.length; i++) {
+                    var aTel = '<a class="font-c-40" href="tel:' + tel[i] + '">' + tel[i] + '</a> &nbsp;';
+                    telInfo += aTel;
+                }
+                $(".tel").append(telInfo);
+            }
+
             //猜你喜欢
             like(data.restaurantType,id);
             //添加图片
