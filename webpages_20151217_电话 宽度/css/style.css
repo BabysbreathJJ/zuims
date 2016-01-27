@@ -47,7 +47,9 @@ a {
 .mr2 {
     margin-right: 2px;
 }
-
+.mt-5{
+    margin-top: -5px;
+}
 .per18 {
     width: 17%;
 }
