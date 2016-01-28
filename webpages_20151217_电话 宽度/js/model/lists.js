@@ -183,36 +183,35 @@ var firstLoad = function(){
 }();
 //价格排序
 $('.price').click(function(){
-    $(".resList").html("");
-    pageIndex = 0;
-    $(".result").html("");
-    if(priceClick){
-        //从下到上
-        $(this).find(".glyphicon-triangle-top").show();
-        $(this).find(".glyphicon-triangle-bottom").hide();
-        priceClick = false;
-        sorder = 0;
-    }
-    else{
-        //从上到下
-        $(this).find(".glyphicon-triangle-top").hide();
-        $(this).find(".glyphicon-triangle-bottom").show();
-        priceClick = true;
-        sorder = 1;
-    }
-    var resData;
-    var city = $.cookie('locateCity');
     if(getType == "pro"){
-        getType = "pro";
-        var restaurantType = $("#current-pro").html();
-        resData = getProData(pageIndex,pageSize,sorder,restaurantType,city)
+        return;
     }
     else{
-        getType = 'price';
+        $(".resList").html("");
+        pageIndex = 0;
+        $(".result").html("");
+        if(priceClick){
+            //从下到上
+            $(this).find(".glyphicon-triangle-top").show();
+            $(this).find(".glyphicon-triangle-bottom").hide();
+            priceClick = false;
+            sorder = 0;
+        }
+        else{
+            //从上到下
+            $(this).find(".glyphicon-triangle-top").hide();
+            $(this).find(".glyphicon-triangle-bottom").show();
+            priceClick = true;
+            sorder = 1;
+        }
+        var resData;
+        var city = $.cookie('locateCity');
         resData = getPriceData(pageIndex,pageSize,sorder,city,tmp);
+        loadData(resData);
+        $('html,body').animate({scrollTop: '0px'}, 300);
+
     }
-    loadData(resData);
-    $('html,body').animate({scrollTop: '0px'}, 300);
+
 });
 //获取城市列表
 var getCityList =  function(){
