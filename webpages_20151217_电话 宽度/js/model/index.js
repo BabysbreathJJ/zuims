@@ -9,17 +9,17 @@ $(function () {
     var frontImageUrl = "http://202.120.40.175:21104/restaurant/frontimage?id=";
     var aCity = [];
     //获取城市列表
-    var getCityList =  function(){
+    var getCityList = function () {
         $.ajax({
-            url : "http://202.120.40.175:21108/cities",
-            type : "GET",
-            crossDomin : true,
+            url: "http://202.120.40.175:21108/cities",
+            type: "GET",
+            crossDomin: true,
             contentType: 'application/json',
-            success : function(data){
+            success: function (data) {
                 var liList = "";
-                for(var i = 0;i < data.length;i ++){
+                for (var i = 0; i < data.length; i++) {
                     aCity.push(data[i].name);
-                    var li = '<li class="l-ht30 font14 border-b-1 city-item"><a href="#">'+data[i].name+'</a></li>';
+                    var li = '<li class="l-ht30 font14 border-b-1 city-item"><a href="#">' + data[i].name + '</a></li>';
                     liList += li;
                 }
 
@@ -50,6 +50,7 @@ $(function () {
                 if ($.cookie('locateCity')) {
                     $("#current-city").html($.cookie('locateCity'));
                     loadRes($.cookie('locateCity'), point, map);
+                    return;
                 }
 
                 gc.getLocation(point, function (rs) {
@@ -94,7 +95,7 @@ $(function () {
     function loadRes(location, point, map) {
         $.ajax({
             method: 'GET',
-            url: restaurantBaseUrl + '/restaurants/recommand/city?cname=' + location,
+            url: restaurantBaseUrl + '/v3/restaurants/city?cname=' + location,
             crossDomain: true,
             success: function (data) {
                 //给每一项添加距离信息
@@ -105,6 +106,17 @@ $(function () {
                         data[i].distance = '*';
                     else
                         data[i].distance = formatDistance(map.getDistance(point, restaurantPoint));
+                }
+
+
+                data.sort(function (a, b) {  //自定义函数排序,新的订单放在最前面
+                    var distance1 = parseFloat(a.distance);
+                    var distance2 = parseFloat(b.distance);
+                    return distance1 > distance2 ? 1 : -1;
+                });
+
+                if (data.length > 10) {
+                    data = data.slice(0, 10);
                 }
 
                 var updateInfo = "";
