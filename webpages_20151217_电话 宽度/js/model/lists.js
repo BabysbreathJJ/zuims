@@ -330,7 +330,7 @@ function searchRes(resName){
                 $(".resList").html(div)
             }
             else{
-                more(result,index);
+                loadData(result);
             }
 
         }
