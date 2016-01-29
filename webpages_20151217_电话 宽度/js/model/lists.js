@@ -313,7 +313,7 @@ $(".search").click(function(){
 function searchRes(resName){
     var index = 10;
     $.ajax({
-        url : resUrl + "/restaurants/search",
+        url : "http://202.120.40.175:21100/restaurants/search",
         type : "GET",
         data : {text : resName},
         crossDomain: true,
