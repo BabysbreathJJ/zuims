@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>最美食 - 首页</title>
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/buttons.css" rel="stylesheet">
+</head>
+<body>
+<!-- 开始顶部 固定 -->
+<header class="bg-main navbar-fixed-top">
+    <div class="fl per50">
+        <a class="display-ib l-ht40" href="index.html"><img src="images/logo.png" class="per90 mt-5" alt="最美食">
+        </a>
+    </div>
+    <!--排序开始-->
+    <ul class="list-unstyled mt16 fl" id="city">
+        <li class="fl font-white font10 pos-r w-80 ml10">
+            <span><span id="current-city"></span> <span class="glyphicon glyphicon-triangle-bottom"></span></span>
+        </li>
+    </ul>
+    <!--排序结束-->
+</header>
+<!--结束顶部-->
+
+<div class="mt60 mb100 overflow-h swipe">
+    <ul class="list-unstyled overflow-h pos-r r-list" id="restaurant-list">
+    </ul>
+    <div class="pd15 navbar-fixed-bottom" style="bottom: 68px;">
+        <div class="mt10 border-r-5 overflow-h">
+            <a>
+                <div class="font-white ht40 tc button-block button-rounded button-highlight"
+                     style="width:100%; height: 40px; line-height: 40px; font-size: 20px;" id="orderClick">一 键 订
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!--底部菜单-->
+<footer class="bg-main navbar-fixed-bottom ht40">
+    <div class="btn-group btn-group-justified">
+        <a href="lists.html" class="btn ht40 font-white border-r"><span class="glyphicon glyphicon-cutlery"
+                                                                        aria-hidden="true"></span> 餐 厅</a>
+        <a href="usercenter.html" class="btn ht40 font-white"> <span class="glyphicon glyphicon-user"
+                                                              aria-hidden="true"></span> 我 的</a>
+    </div>
+</footer>
+<!--结束底部菜单-->
+<!--城市下拉-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document" style="width:60%; margin: 0 auto;">
+        <div class="modal-content">
+            <div class="modal-header tc" id="close">
+                <h6 class="display-ib">城市列表</h6>
+                <span class="fr glyphicon glyphicon-remove"></span>
+            </div>
+            <div class="tc ht200 modal-body" style="overflow-y: scroll; padding: 0;">
+                <ul class="list-unstyled cityList">
+                    <!--<li class="l-ht30 font14 border-b-1 city-item"><a href="#">上海</a></li>-->
+                    <!--<li class="l-ht30 font14 border-b-1 city-item"><a href="#">北京</a></li>-->
+                    <!--<li class="l-ht30 font14 border-b-1 city-item"><a href="#">广州</a></li>-->
+                    <!--<li class="l-ht30 font14 border-b-1 city-item"><a href="#">杭州</a></li>-->
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!--城市下拉-->
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Qc6teGVqQ78qlFotnpHMAaoG"></script>
+<script src="js/plugins/jquery-1.11.3.min.js"></script>
+<script src="js/plugins/jquery.cookie.js"></script>
+<script src="js/plugins/jquery.touchSwipe.min.js"></script>
+<script src="js/plugins/bootstrap.min.js"></script>
+
+<script src="js/model/index.js"></script>
+</body>
+</html>
