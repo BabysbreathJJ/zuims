@@ -1,7 +1,7 @@
 /**
  * Created by jimliu on 2016/1/1.
  */
-
+var imgUrl = 'http://202.120.40.175:21100';
 
 //获取url参数
 function getUrlParam() {
@@ -99,9 +99,9 @@ var loadRes = function () {
         type: "GET",
         dataType: "JSON",
         success: function (data) {
-            if (data.images[0] == 'http://202.120.40.175:21100/restaurants/images?relativePath=NonePicture.jpg')
-                data.images[0] = 'http://202.120.40.175:21100/restaurants/images?relativePath=NonePicture2.jpg';
-            $("#d-img").attr("src", data.images[0]);
+            if (data.images[0] == '/restaurants/images?relativePath=NonePicture.jpg')
+                data.images[0] = '/restaurants/images?relativePath=NonePicture2.jpg';
+            $("#d-img").attr("src", imgUrl+data.images[0]);
             $("input[name='resId']").val(data.restaurantId);
             $(".resName").html(data.restaurantName);
             var averagePrice = data.averagePrice;
