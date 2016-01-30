@@ -3,6 +3,8 @@
  */
 //获取城市
 $("#current-city").html($.cookie('locateCity'));//获取城市
+//图片链接
+var imgUrl = 'http://202.120.40.175:21100';
 //每页餐厅数
 var pageSize = 10;
 //页码
@@ -41,7 +43,7 @@ function loadData(data){
         var resDiv = '<div class="border border-r-5 bg-white padding mt10">'+
             '<div class="pos-r overflow-h">'+
             '<a href="details.html?id='+data[i].restaurantId+'">'+
-            '<img src="'+data[i].image+'" class="img-responsive">'+
+            '<img src="'+imgUrl+data[i].image+'" class="img-responsive">'+
             '</a>'+
             smy+
             '</div>'+
@@ -88,14 +90,14 @@ function loadData(data){
             smy = "";
             price = data[i].price;
         }
-        if(data[i].image == 'http://202.120.40.175:21100/restaurants/images?relativePath=NonePicture.jpg')
+        if(data[i].image == '/restaurants/images?relativePath=NonePicture.jpg')
         {
-            data[i].image = 'http://202.120.40.175:21100/restaurants/images?relativePath=NonePicture2.jpg';
+            data[i].image = '/restaurants/images?relativePath=NonePicture2.jpg';
         }
         var resDiv = '<div class="border border-r-5 bg-white padding mt10">'+
             '<div class="pos-r overflow-h">'+
             '<a href="details.html?id='+data[i].restaurantId+'">'+
-            '<img src="'+data[i].image+'" class="img-responsive">'+
+            '<img src="'+imgUrl+data[i].image+'" class="img-responsive">'+
             '</a>'+
             smy+
             '</div>'+

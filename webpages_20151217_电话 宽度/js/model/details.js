@@ -1,7 +1,7 @@
 /**
  * Created by jimliu on 2016/1/1.
  */
-
+var imgUrl = 'http://202.120.40.175:21100';
 //页面加载
 var load = function () {
     var id = getUrlParam('id');
@@ -96,7 +96,7 @@ var load = function () {
                         if(j == 0){
                             var imgBig = '<div class="item active">'+
                                          '<div class="pos-r overflow-h">'+
-                                         '<img src="'+newData[j].picname+'" class="per100">'+
+                                         '<img src="'+imgUrl+newData[j].picname+'" class="per100">'+
                                          '<div class="pos-a tc per100 bottom20">'+
                                          '<p class="bg-t display-ib per90 ht40 l-ht40 font-white introduction">'+
                                             newData[j].introduction+
@@ -105,13 +105,13 @@ var load = function () {
                                          '</div>'+
                                          '</div>';
                             var imgli = '<li class="fl pl4 per20 border-r-5 active" data-slide-to="'+j+'" data-target="#myCarousel">' +
-                                '<img id="'+j+'"   src="' + newData[j].picname + '" class="per100">' +
+                                '<img id="'+j+'"   src="' + imgUrl+newData[j].picname + '" class="per100">' +
                                 '</li>';
                         }
                         else{
                             var imgBig = '<div class="item">'+
                                 '<div class="pos-r overflow-h">'+
-                                '<img src="'+newData[j].picname+'" class="per100">'+
+                                '<img src="'+imgUrl+newData[j].picname+'" class="per100">'+
                                 '<div class="pos-a tc per100 bottom20">'+
                                 '<p class="bg-t display-ib per90 ht40 l-ht40 font-white introduction">'+
                                     newData[j].introduction+
@@ -120,7 +120,7 @@ var load = function () {
                                 '</div>'+
                                 '</div>';
                             var imgli = '<li class="fl pl4 per20 border-r-5" data-slide-to="'+j+'" data-target="#myCarousel">' +
-                                '<img id="'+j+'"   src="' + newData[j].picname + '" class="per100">' +
+                                '<img id="'+j+'"   src="' + imgUrl+newData[j].picname + '" class="per100">' +
                                 '</li>';
                         }
 
@@ -192,8 +192,17 @@ function like(type,id){
                     allRes.splice(i,1)
                 }
                 if(allRes[i].restaurantType == type){
+                    var img;
+                    $.ajax({
+                        url : "http://202.120.40.175:21104/restaurant/normalimage?id="+allRes[i].restaurantId,
+                        type : "GET",
+                        async : false,
+                        success : function(data){
+                            img = data[0].picname;
+                        }
+                    })
                     var likeRes = '<a href="details.html?id='+allRes[i].restaurantId+'" style="text-decoration:none;">'+
-                                  '<img src="'+allRes[i].image+'" class="fl per40 mr20 ht80">'+
+                                  '<img src="'+imgUrl+img+'" class="fl per40 mr20 ht80">'+
                                   '<div class="overflow-h">'+
                                   '<p class="font-c-f8 font16">'+allRes[i].title+'</p>'+
                                   '<p class="font-c-8f">地址：'+allRes[i].address+'</p>'+
@@ -213,7 +222,7 @@ function like(type,id){
         for(var i = 0;i < allRes.length;i ++){
             if(allRes[i].restaurantType == type){
                 var likeRes = '<a href="details.html?id='+allRes[i].restaurantId+'" style="text-decoration:none;">'+
-                    '<img src="'+allRes[i].image+'" class="fl per40 mr20 ht80">'+
+                    '<img src="'+imgUrl+allRes[i].image+'" class="fl per40 mr20 ht80">'+
                     '<div class="overflow-h">'+
                     '<p class="font-c-f8 font16">'+allRes[i].title+'</p>'+
                     '<p class="font-c-8f">地址：'+allRes[i].address+'</p>'+

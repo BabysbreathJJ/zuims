@@ -2,6 +2,7 @@
  * Created by jimliu on 2015/12/28.
  */
 $(function () {
+
 //餐厅交互地址
     var restaurantBaseUrl = 'http://202.120.40.175:21100';
     var map;
@@ -129,7 +130,7 @@ $(function () {
                     '<div class="pos-r overflow-h">' +
                     '<a href="details.html?id=' + data[data.length - 1].restaurantId + '">' +
                     '<input type="hidden" value="' + data[data.length - 1].restaurantId + '">' +
-                    '<img src="' + data[data.length - 1].image + ' "class="img-responsive">' +
+                    '<img src="' + restaurantBaseUrl+data[data.length - 1].image + ' "class="img-responsive">' +
                     '</a>' +
                     '<div class="pos-a font-white bg-orange transform45 smy">三免一</div>' +
                     '<div class="pos-a tc per100 bottom20">' +
@@ -162,7 +163,7 @@ $(function () {
                     '<div class="pos-r overflow-h">' +
                     '<a href="details.html?id=' + data[0].restaurantId + '">' +
                     '<input type="hidden" value="' + data[0].restaurantId + '">' +
-                    '<img src="' + data[0].image + ' "class="img-responsive">' +
+                    '<img src="' + restaurantBaseUrl+data[0].image + ' "class="img-responsive">' +
                     '</a>' +
                     '<div class="pos-a font-white bg-orange transform45 smy">三免一</div>' +
                     '<div class="pos-a tc per100 bottom20">' +
@@ -218,7 +219,7 @@ $(function () {
                             '<a href="details.html?id=' + data[i].restaurantId + '">' +
                             '</a>' +
                             '<input type="hidden" value="' + data[i].restaurantId + '">' +
-                            '<img src="' + img + ' "class="img-responsive">' +
+                            '<img src="' + restaurantBaseUrl+img + ' "class="img-responsive">' +
                             smy +
                             '<div class="pos-a tc per100 bottom20">' +
                             '<p class="bg-t display-ib per100 l-ht30 font-white">' + data[i].title + '</p>' +
@@ -254,7 +255,7 @@ $(function () {
                             '<a href="details.html?id=' + data[i].restaurantId + '">' +
                             '</a>' +
                             '<input type="hidden" value="' + data[i].restaurantId + '">' +
-                            '<img src="' + img + ' "class="img-responsive">' +
+                            '<img src="' +restaurantBaseUrl + img + ' "class="img-responsive">' +
 
                             smy +
                             '<div class="pos-a tc per100 bottom20">' +
