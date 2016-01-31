@@ -138,6 +138,7 @@ $(function () {
                     '</div>' +
                     '</div>' +
                     '<div class="introduce">' +
+                    '<p class="tc font16 mb10">'+ data[data.length - 1].hotelName+'</p>'+
                     '<p class="tc mt16"><b class="font16">' + data[data.length - 1].title + '</b><i class="font-c-f8 ml10">hot</i></p>' +
                     '<p class="tc">' +
                         //'<span>95</span> 次预订 <span>5921</span>次浏览' +
@@ -171,6 +172,7 @@ $(function () {
                     '</div>' +
                     '</div>' +
                     '<div class="introduce">' +
+                    '<p class="tc font16 mb10">'+ data[0].hotelName+'</p>'+
                     '<p class="tc mt16"><b class="font16">' + data[0].title + '</b><i class="font-c-f8 ml10">hot</i></p>' +
                     '<p class="tc">' +
                         //'<span>95</span> 次预订 <span>5921</span>次浏览' +
@@ -226,7 +228,8 @@ $(function () {
                             '</div>' +
                             '</div>' +
                             '<div class="introduce">' +
-                            '<p class="tc mt16"><b class="font16">' + data[i].title + '</b><i class="font-c-f8 ml10">hot</i></p>' +
+                            '<p class="tc font16 mb0 mt10">'+ data[i].hotelName+'</p>'+
+                            '<p class="tc"><b class="font16">' + data[i].title + '</b><i class="font-c-f8 ml10">hot</i></p>' +
                             '<p class="tc">' +
                                 //'<span>95</span> 次预订 <span>5921</span>次浏览' +
                             '</p>' +
@@ -263,7 +266,8 @@ $(function () {
                             '</div>' +
                             '</div>' +
                             '<div class="introduce">' +
-                            '<p class="tc mt16"><b class="font16">' + data[i].title + '</b><i class="font-c-f8 ml10">hot</i></p>' +
+                            '<p class="tc font16 mb0 mt10">'+ data[i].hotelName+'</p>'+
+                            '<p class="tc"><b class="font16">' + data[i].title + '</b><i class="font-c-f8 ml10">hot</i></p>' +
                             '<p class="tc">' +
                                 //'<span>95</span> 次预订 <span>5921</span>次浏览' +
                             '</p>' +
