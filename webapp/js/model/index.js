@@ -64,6 +64,10 @@ $(function () {
                         if (localName != aCity[i]) {
                             cname = "北京";
                         }
+                        else {
+                            cname = localName;
+                            break;
+                        }
                     }
                     $.cookie('locateCity', cname, {expires: 0.2});
 
@@ -243,7 +247,7 @@ $(function () {
                             '</p>' +
                             '<p>' +
                             '<span class="font-c-8f">电话 ：</span>' +
-                            '<span class="font-c-40"><a class="font-c-40" href="tel:"+data[i].tele+"">'+data[i].tele+'</a></span>' +
+                            '<span class="font-c-40"><a class="font-c-40" href="tel:"+data[i].tele+"">' + data[i].tele + '</a></span>' +
                             '</p>' +
                             '</div>' +
                             '</div>' +
@@ -281,7 +285,7 @@ $(function () {
                             '</p>' +
                             '<p>' +
                             '<span class="font-c-8f">电话 ：</span>' +
-                            '<span class="font-c-40"><a class="font-c-40" href="tel:"+data[i].tele+"">'+data[i].tele+'</a></span>'  +
+                            '<span class="font-c-40"><a class="font-c-40" href="tel:"+data[i].tele+"">' + data[i].tele + '</a></span>' +
                             '</p>' +
                             '</div>' +
                             '</div>' +
