@@ -6,7 +6,7 @@ $("#current-city").html($.cookie('locateCity'));//获取城市
 //图片链接
 var imgUrl = 'http://202.120.40.175:21100';
 //每页餐厅数
-var pageSize = 10;
+var pageSize = 5;
 //页码
 var pageIndex;
 //排序
@@ -86,7 +86,7 @@ function loadData(data){
     for(var i = 0;i < data.length;i ++){
         smy = '<div class="pos-a font-white bg-orange transform45 smy">三免一</div>';
         var price = Math.round(data[i].price*0.67);
-        if(data[i].discountType[0] == "none"){
+        if(data[i].discountType !== 'discount'){
             smy = "";
             price = data[i].price;
         }

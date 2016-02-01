@@ -132,7 +132,7 @@ $(function () {
                     '<input type="hidden" value="' + data[data.length - 1].restaurantId + '">' +
                     '<img src="' + restaurantBaseUrl+data[data.length - 1].image + ' "class="img-responsive">' +
                     '</a>' +
-                    '<div class="pos-a font-white bg-orange transform45 smy">三免一</div>' +
+
                     '<div class="pos-a tc per100 bottom20">' +
                     '<p class="bg-t display-ib per100 l-ht30 font-white">' + data[data.length - 1].title + '</p>' +
                     '</div>' +
