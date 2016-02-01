@@ -59,11 +59,11 @@ $(function () {
                     //alert(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
                     var localName = addComp.city;
                     localName = localName.substring(0, localName.length - 1);
-                    if (localName != "北京" && localName != "上海" && localName != "广州" && localName != "杭州") {
-                        cname = "北京";
-                    }
-                    else {
-                        cname = localName;
+                    cname = localName;
+                    for (var i = 0; i < aCity.length; i++) {
+                        if (localName != aCity[i]) {
+                            cname = "北京";
+                        }
                     }
                     $.cookie('locateCity', cname, {expires: 0.2});
 
@@ -130,7 +130,7 @@ $(function () {
                     '<div class="pos-r overflow-h">' +
                     '<a href="details.html?id=' + data[data.length - 1].restaurantId + '">' +
                     '<input type="hidden" value="' + data[data.length - 1].restaurantId + '">' +
-                    '<img src="' + restaurantBaseUrl+data[data.length - 1].image + ' "class="img-responsive">' +
+                    '<img src="' + restaurantBaseUrl + data[data.length - 1].image + ' "class="img-responsive">' +
                     '</a>' +
                     '<div class="pos-a font-white bg-orange transform45 smy">三免一</div>' +
                     '<div class="pos-a tc per100 bottom20">' +
@@ -138,7 +138,7 @@ $(function () {
                     '</div>' +
                     '</div>' +
                     '<div class="introduce">' +
-                    '<p class="tc font16 mb10">'+ data[data.length - 1].hotelName+'</p>'+
+                    '<p class="tc font16 mb10">' + data[data.length - 1].hotelName + '</p>' +
                     '<p class="tc mt16"><b class="font16">' + data[data.length - 1].title + '</b><i class="font-c-f8 ml10">hot</i></p>' +
                     '<p class="tc">' +
                         //'<span>95</span> 次预订 <span>5921</span>次浏览' +
@@ -164,7 +164,7 @@ $(function () {
                     '<div class="pos-r overflow-h">' +
                     '<a href="details.html?id=' + data[0].restaurantId + '">' +
                     '<input type="hidden" value="' + data[0].restaurantId + '">' +
-                    '<img src="' + restaurantBaseUrl+data[0].image + ' "class="img-responsive">' +
+                    '<img src="' + restaurantBaseUrl + data[0].image + ' "class="img-responsive">' +
                     '</a>' +
                     '<div class="pos-a font-white bg-orange transform45 smy">三免一</div>' +
                     '<div class="pos-a tc per100 bottom20">' +
@@ -172,7 +172,7 @@ $(function () {
                     '</div>' +
                     '</div>' +
                     '<div class="introduce">' +
-                    '<p class="tc font16 mb10">'+ data[0].hotelName+'</p>'+
+                    '<p class="tc font16 mb10">' + data[0].hotelName + '</p>' +
                     '<p class="tc mt16"><b class="font16">' + data[0].title + '</b><i class="font-c-f8 ml10">hot</i></p>' +
                     '<p class="tc">' +
                         //'<span>95</span> 次预订 <span>5921</span>次浏览' +
@@ -222,14 +222,14 @@ $(function () {
                             '<a href="details.html?id=' + data[i].restaurantId + '">' +
                             '</a>' +
                             '<input type="hidden" value="' + data[i].restaurantId + '">' +
-                            '<img src="' + restaurantBaseUrl+img + ' "class="img-responsive">' +
+                            '<img src="' + restaurantBaseUrl + img + ' "class="img-responsive">' +
                             smy +
                             '<div class="pos-a tc per100 bottom20">' +
                             '<p class="bg-t display-ib per100 l-ht30 font-white">' + data[i].title + '</p>' +
                             '</div>' +
                             '</div>' +
                             '<div class="introduce">' +
-                            '<p class="tc font16 mb0 mt10">'+ data[i].hotelName+'</p>'+
+                            '<p class="tc font16 mb0 mt10">' + data[i].hotelName + '</p>' +
                             '<p class="tc"><b class="font16">' + data[i].title + '</b><i class="font-c-f8 ml10">hot</i></p>' +
                             '<p class="tc">' +
                                 //'<span>95</span> 次预订 <span>5921</span>次浏览' +
@@ -259,7 +259,7 @@ $(function () {
                             '<a href="details.html?id=' + data[i].restaurantId + '">' +
                             '</a>' +
                             '<input type="hidden" value="' + data[i].restaurantId + '">' +
-                            '<img src="' +restaurantBaseUrl + img + ' "class="img-responsive">' +
+                            '<img src="' + restaurantBaseUrl + img + ' "class="img-responsive">' +
 
                             smy +
                             '<div class="pos-a tc per100 bottom20">' +
@@ -267,7 +267,7 @@ $(function () {
                             '</div>' +
                             '</div>' +
                             '<div class="introduce">' +
-                            '<p class="tc font16 mb0 mt10">'+ data[i].hotelName+'</p>'+
+                            '<p class="tc font16 mb0 mt10">' + data[i].hotelName + '</p>' +
                             '<p class="tc"><b class="font16">' + data[i].title + '</b><i class="font-c-f8 ml10">hot</i></p>' +
                             '<p class="tc">' +
                                 //'<span>95</span> 次预订 <span>5921</span>次浏览' +
