@@ -32,7 +32,7 @@ function loadData(data){
     for(var i = 0;i < data.length;i ++){
         smy = '<div class="pos-a font-white bg-orange transform45 smy">三免一</div>';
         var price = Math.round(data[i].price*0.67);
-        if(data[i].discountType[0] == "none"){
+        if(data[i].discountType[0] !== 'discount'){
             smy = "";
             price = data[i].price;
         }
