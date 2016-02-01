@@ -6,7 +6,7 @@ $("#current-city").html($.cookie('locateCity'));//获取城市
 //图片链接
 var imgUrl = 'http://202.120.40.175:21100';
 //每页餐厅数
-var pageSize = 5;
+var pageSize = 10;
 //页码
 var pageIndex;
 //排序
@@ -16,7 +16,7 @@ var tmp = 0;
 //餐厅类型
 var restaurantType = "";
 //餐厅分页url
-var restaurantsUrl = 'http://202.120.40.175:21100/v2/restaurants/city';
+var restaurantsUrl = 'http://202.120.40.175:21100/v3/restaurants/city';
 //价格排序url
 var priceUrl = 'http://202.120.40.175:21104/restaurant/page/price';
 //餐厅类型排序
@@ -177,7 +177,7 @@ var getProData = function(page,size,sorder,restaurantType,city){
 }
 //页面初始加载
 var firstLoad = function(){
-    pageIndex = 1;
+    pageIndex = 0;
     var cname = $.cookie('locateCity');
     var data = getData(cname,pageIndex,pageSize);
     loadData(data);

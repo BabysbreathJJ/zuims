@@ -96,7 +96,7 @@ $(function () {
     function loadRes(location, point, map) {
         $.ajax({
             method: 'GET',
-            url: restaurantBaseUrl + '/v3/restaurants/city?cname=' + location,
+            url: restaurantBaseUrl + '/v3/restaurants/recommend/city?cname=' + location,
             crossDomain: true,
             success: function (data) {
                 //给每一项添加距离信息
@@ -244,7 +244,7 @@ $(function () {
                             '</p>' +
                             '<p>' +
                             '<span class="font-c-8f">电话 ：</span>' +
-                            '<span class="font-c-40"><a class="font-c-40" href="tel:010-52190227">010-52190227</a></span>' +
+                            '<span class="font-c-40"><a class="font-c-40" href="tel:"+data[i].tele+"">'+data[i].tele+'</a></span>' +
                             '</p>' +
                             '</div>' +
                             '</div>' +
@@ -282,7 +282,7 @@ $(function () {
                             '</p>' +
                             '<p>' +
                             '<span class="font-c-8f">电话 ：</span>' +
-                            '<span class="font-c-40"><a class="font-c-40" href="tel:010-52190227">010-52190227</a></span>' +
+                            '<span class="font-c-40"><a class="font-c-40" href="tel:"+data[i].tele+"">'+data[i].tele+'</a></span>'  +
                             '</p>' +
                             '</div>' +
                             '</div>' +
