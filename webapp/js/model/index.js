@@ -205,7 +205,8 @@ $(function () {
                     })
                     var smyPrice = "";
                     var smy = '<div class="pos-a font-white bg-orange transform45 smy">三免一</div>';
-                    if (data[i].discountType[0] !== 'discount') {
+                    if (data[i].discountType !== 'discount') {
+
                         smy = "";
                         smyPrice = '<span class="font-c-40">￥' + data[i].price + '';
                     }
