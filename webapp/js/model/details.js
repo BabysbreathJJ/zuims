@@ -52,7 +52,7 @@ var load = function () {
                 $(".park").html(data.park);
             }
 
-            if(data.discountType !== 'discount'){
+            if(data.discountType[0] != 'discount'){
                 $(".smy").addClass("display-n");
                 $(".smy-label").addClass('display-n');
                 $(".price").html(data.averagePrice);
