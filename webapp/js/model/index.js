@@ -30,7 +30,7 @@ $(function () {
                     $("#current-city").text($(this).text());
                     $("#myModal").modal('hide');
                     loadRes($(this).text(), point, map);
-                    $.cookie('locateCity', $(this).text());
+                    //$.cookie('locateCity', $(this).text());
                 })
             }
         })
@@ -211,7 +211,7 @@ $(function () {
                     var smy = '<div class="pos-a font-white bg-orange transform45 smy">三免一</div>';
                     if (data[i].discountType[0] != 'discount') {
                         smy = "";
-                        smyPrice = '<span class="font-c-40">￥' + data[i].price + '';
+                        smyPrice = '<span class="font-c-40">￥' + Math.round(data[i].price) + '';
                     }
                     else {
                         smyPrice = '<span class="font-c-40">￥' + Math.round(data[i].price * 0.67) + '<span class="font-c-8f text-d-lt ml5">￥' + data[i].price + '</span></span>';
