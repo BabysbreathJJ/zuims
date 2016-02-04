@@ -237,7 +237,7 @@ var getCityList =  function(){
                 $("#current-city").text($(this).text());
                 $("#myModal").modal('hide');
                 $.cookie('locateCity',$(this).text());
-                pageIndex = 1;
+                pageIndex = 0;
                 var resData = getData($.cookie('locateCity'),pageIndex,pageSize);
                 $(".resList").html("");
                 loadData(resData);
