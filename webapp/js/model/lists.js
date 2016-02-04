@@ -313,6 +313,7 @@ $(".search").click(function(){
 })
 //搜索
 function searchRes(resName){
+    $(".resList").html("");
     var index = 10;
     $.ajax({
         url : "http://202.120.40.175:21100/restaurants/search",
