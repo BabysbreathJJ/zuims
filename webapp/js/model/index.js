@@ -157,7 +157,7 @@ $(function () {
                     '</p>' +
                     '<p>' +
                     '<span class="font-c-8f">电话 ：</span>' +
-                    '<span class="font-c-40"><a class="font-c-40" href="tel:010-52190227">010-52190227</a></span>' +
+                    '<span class="font-c-40"><a class="font-c-40" href="tel:"+data[data.length - 1].tele+"">' + data[data.length - 1].tele + '</a></span>' +
                     '</p>' +
                     '</div>' +
                     '</div>' +
@@ -191,7 +191,7 @@ $(function () {
                     '</p>' +
                     '<p>' +
                     '<span class="font-c-8f">电话 ：</span>' +
-                    '<span class="font-c-40"><a class="font-c-40" href="tel:010-52190227">010-52190227</a></span>' +
+                    '<span class="font-c-40"><a class="font-c-40" href="tel:"+data[0].tele+"">' + data[0].tele + '</a></span>' +
                     '</p>' +
                     '</div>' +
                     '</div>' +
