@@ -309,7 +309,7 @@ $(function () {
 
                 function goright() {
                     var left = $(".r-list").css("left");
-                    if (parseInt(left) <= -(length - 2) * 270 - 20) {
+                    if (parseInt(left) <= -(length - 2) * 270) {
                         if (!$(".r-list").is(":animated")) {
                             $(".r-list").animate({'left': initialleft});
                             i = 1;
@@ -337,7 +337,7 @@ $(function () {
                 function goleft() {
                     var left = $(".r-list").css("left");
 
-                    if (parseInt(left) >= (parseInt(initialleft) - 20)) {
+                    if (parseInt(left) >= (parseInt(initialleft))) {
                         if (!$(".r-list").is(":animated")) {
                             $(".r-list").animate({'left': (-((length - 2) * 290) + ((document.body.clientWidth - 290) / 2)) + 'px'});
                             //$(".r-list").css("left","-850px");
