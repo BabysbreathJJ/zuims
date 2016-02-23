@@ -45,9 +45,9 @@ function loadData(data) {
             '<div class="pos-r overflow-h">' +
             '<a href="details.html?id=' + data[i].restaurantId + '">' +
             '<img src="' + imgUrl + data[i].image + '" class="img-responsive">' +
-            '</a>' +
             smy +
             detail +
+            '</a>' +
             '</div>' +
             '<div class="pl10 pr10 pos-r mt20">' +
             '<div>' +
@@ -104,9 +104,9 @@ function loadData(data) {
             '<div class="pos-r overflow-h">' +
             '<a href="details.html?id=' + data[i].restaurantId + '">' +
             '<img src="' + imgUrl + data[i].image + '" class="img-responsive">' +
-            '</a>' +
             smy +
             detail +
+            '</a>' +
             '</div>' +
             '<div class="pl10 pr10 pos-r mt20">' +
             '<div>' +
