@@ -149,7 +149,7 @@ $(function () {
                     '</p>' +
                     '<p>' +
                     '<span class="font-c-8f">每位：</span>' +
-                    '<span class="font-c-40">￥' + data[data.length - 1].price + '<span class="font-c-8f text-d-lt">￥200</span>（含15%服务费）</span>' +
+                    '<span class="font-c-40">￥' + Math.round(data[data.length - 1].price * 0.67) + '<span class="font-c-8f text-d-lt">￥' + data[data.length - 1].price + '</span>（含15%服务费）</span>' +
                     '</p>' +
                     '<p>' +
                     '<span class="font-c-8f">地址 ：</span>' +
@@ -183,7 +183,7 @@ $(function () {
                     '</p>' +
                     '<p>' +
                     '<span class="font-c-8f">每位：</span>' +
-                    '<span class="font-c-40">￥' + data[0].price + '<span class="font-c-8f text-d-lt">￥200</span>（含15%服务费）</span>' +
+                    '<span class="font-c-40">￥' + Math.round(data[0].price * 0.67) + '<span class="font-c-8f text-d-lt">￥' + data[0].price + '</span>（含15%服务费）</span>' +
                     '</p>' +
                     '<p>' +
                     '<span class="font-c-8f">地址 ：</span>' +
