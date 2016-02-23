@@ -103,6 +103,7 @@ var loadRes = function () {
                 data.images[0] = '/restaurants/images?relativePath=NonePicture2.jpg';
             $("#d-img").attr("src", imgUrl + data.images[0]);
             $("input[name='resId']").val(data.restaurantId);
+            $(".hotelName").html(data.hotelName);
             $(".resName").html(data.restaurantName);
             var averagePrice = data.averagePrice;
             $("#averagePrice").val(averagePrice);
@@ -264,7 +265,6 @@ $(function () {
         if (phoneId == "" || phoneId == undefined || phoneId == null) {
             var myOrderInfo = {};
             var myDate = $("#orderDate").text();
-            console.log(myDate);
             var myTime = orderTime;
             var url;
             var args = getUrlParam();
@@ -282,6 +282,7 @@ $(function () {
         }
         else {
 
+            $("#hotelName").html($(".hotelName").text());
             $("#resName").html($(".resName").text());
             $("#orderTimeConfirm").html(orderDateTime);
             $("#dinerNumConfirm").html(dinerNum + " 人");

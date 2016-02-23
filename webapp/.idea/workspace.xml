@@ -31,11 +31,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="order.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="order.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/model/order.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.7547169">
-              <caret line="288" column="43" selection-start-line="288" selection-start-column="43" selection-end-line="288" selection-end-column="43" />
+            <state vertical-scroll-proportion="0.3666027">
+              <caret line="284" column="55" selection-start-line="284" selection-start-column="55" selection-end-line="284" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -44,9 +44,54 @@
       <file leaf-file-name="order.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/order.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.916667">
-              <caret line="164" column="56" selection-start-line="164" selection-start-column="56" selection-end-line="164" selection-end-column="56" />
+            <state vertical-scroll-proportion="-13.75">
+              <caret line="148" column="43" selection-start-line="148" selection-start-column="43" selection-end-line="148" selection-end-column="43" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="lists.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/model/lists.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="55" column="22" selection-start-line="55" selection-start-column="22" selection-end-line="55" selection-end-column="22" />
+              <folding>
+                <marker date="1456217822000" expanded="true" signature="1368:2756" placeholder="..." />
+                <marker date="1456217822000" expanded="true" signature="1415:1652" placeholder="..." />
+                <marker date="1456217822000" expanded="true" signature="1703:2733" placeholder="..." />
+                <marker date="1456217822000" expanded="true" signature="3544:4932" placeholder="..." />
+                <marker date="1456217822000" expanded="true" signature="3591:3828" placeholder="..." />
+                <marker date="1456217822000" expanded="true" signature="3879:4909" placeholder="..." />
+                <marker date="1456217822000" expanded="true" signature="3879:4932" placeholder="..." />
+                <marker date="1456217822000" expanded="true" signature="3901:4362" placeholder="..." />
+                <marker date="1456217822000" expanded="true" signature="3901:4909" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="details.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/model/details.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="35" column="47" selection-start-line="35" selection-start-column="47" selection-end-line="35" selection-end-column="47" />
+              <folding>
+                <marker date="1456217957000" expanded="true" signature="8086:8107" placeholder="..." />
+                <marker date="1456217957000" expanded="true" signature="8999:9020" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="details.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/details.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-12.041667">
+              <caret line="57" column="102" selection-start-line="57" selection-start-column="102" selection-end-line="57" selection-end-column="102" />
+              <folding>
+                <element signature="n#style#0;n#span#0;n#div#1;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -71,10 +116,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/model/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.9860628">
+            <state vertical-scroll-proportion="0.0">
               <caret line="205" column="50" selection-start-line="205" selection-start-column="50" selection-end-line="205" selection-end-column="50" />
               <folding>
                 <marker date="1455803141000" expanded="true" signature="4699:6488" placeholder="..." />
@@ -107,7 +152,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/js/model/details.js" />
         <option value="$PROJECT_DIR$/temp/validate.html" />
         <option value="$PROJECT_DIR$/validate.html" />
         <option value="$PROJECT_DIR$/js/model/validate.js" />
@@ -122,11 +166,12 @@
         <option value="$PROJECT_DIR$/userinfo.html" />
         <option value="$PROJECT_DIR$/js/model/userinfo.js" />
         <option value="$PROJECT_DIR$/js/model/index.js" />
-        <option value="$PROJECT_DIR$/details.html" />
         <option value="$PROJECT_DIR$/css/style.css" />
-        <option value="$PROJECT_DIR$/js/model/lists.js" />
         <option value="$PROJECT_DIR$/js/model/usercenter.js" />
         <option value="$PROJECT_DIR$/usercenter.html" />
+        <option value="$PROJECT_DIR$/js/model/lists.js" />
+        <option value="$PROJECT_DIR$/js/model/details.js" />
+        <option value="$PROJECT_DIR$/details.html" />
         <option value="$PROJECT_DIR$/order.html" />
         <option value="$PROJECT_DIR$/js/model/order.js" />
       </list>
@@ -636,17 +681,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/model/details.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7055749">
-          <caret line="75" column="13" selection-start-line="75" selection-start-column="13" selection-end-line="75" selection-end-column="13" />
-          <folding>
-            <marker date="1454330891000" expanded="true" signature="8036:8057" placeholder="..." />
-            <marker date="1454330891000" expanded="true" signature="8949:8970" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lists.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="14.583333">
@@ -671,19 +705,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/model/lists.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4703833">
-          <caret line="34" column="90" selection-start-line="34" selection-start-column="90" selection-end-line="34" selection-end-column="90" />
-          <folding>
-            <marker date="1456210388000" expanded="true" signature="1368:2620" placeholder="..." />
-            <marker date="1456210388000" expanded="true" signature="1415:1652" placeholder="..." />
-            <marker date="1456210388000" expanded="true" signature="3408:4660" placeholder="..." />
-            <marker date="1456210388000" expanded="true" signature="3455:3692" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/model/usercenter.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4965157">
@@ -696,34 +717,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/details.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.3454545">
-          <caret line="89" column="37" selection-start-line="89" selection-start-column="37" selection-end-line="89" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/usercenter.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.9480519">
           <caret line="221" column="19" selection-start-line="221" selection-start-column="19" selection-end-line="221" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/order.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.916667">
-          <caret line="164" column="56" selection-start-line="164" selection-start-column="56" selection-end-line="164" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/model/order.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.7547169">
-          <caret line="288" column="43" selection-start-line="288" selection-start-column="43" selection-end-line="288" selection-end-column="43" />
           <folding />
         </state>
       </provider>
@@ -738,7 +735,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/model/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.9860628">
+        <state vertical-scroll-proportion="0.0">
           <caret line="205" column="50" selection-start-line="205" selection-start-column="50" selection-end-line="205" selection-end-column="50" />
           <folding>
             <marker date="1455803141000" expanded="true" signature="4699:6488" placeholder="..." />
@@ -749,6 +746,61 @@
             <marker date="1455803141000" expanded="true" signature="12031:13934" placeholder="..." />
             <marker date="1455803141000" expanded="true" signature="12094:12703" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/model/lists.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="55" column="22" selection-start-line="55" selection-start-column="22" selection-end-line="55" selection-end-column="22" />
+          <folding>
+            <marker date="1456217822000" expanded="true" signature="1368:2756" placeholder="..." />
+            <marker date="1456217822000" expanded="true" signature="1415:1652" placeholder="..." />
+            <marker date="1456217822000" expanded="true" signature="1703:2733" placeholder="..." />
+            <marker date="1456217822000" expanded="true" signature="3544:4932" placeholder="..." />
+            <marker date="1456217822000" expanded="true" signature="3591:3828" placeholder="..." />
+            <marker date="1456217822000" expanded="true" signature="3879:4909" placeholder="..." />
+            <marker date="1456217822000" expanded="true" signature="3879:4932" placeholder="..." />
+            <marker date="1456217822000" expanded="true" signature="3901:4362" placeholder="..." />
+            <marker date="1456217822000" expanded="true" signature="3901:4909" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/model/details.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="47" selection-start-line="35" selection-start-column="47" selection-end-line="35" selection-end-column="47" />
+          <folding>
+            <marker date="1456217957000" expanded="true" signature="8086:8107" placeholder="..." />
+            <marker date="1456217957000" expanded="true" signature="8999:9020" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/details.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.041667">
+          <caret line="57" column="102" selection-start-line="57" selection-start-column="102" selection-end-line="57" selection-end-column="102" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#div#1;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/order.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.75">
+          <caret line="148" column="43" selection-start-line="148" selection-start-column="43" selection-end-line="148" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/model/order.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3666027">
+          <caret line="284" column="55" selection-start-line="284" selection-start-column="55" selection-end-line="284" selection-end-column="55" />
+          <folding />
         </state>
       </provider>
     </entry>

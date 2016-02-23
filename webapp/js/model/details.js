@@ -33,6 +33,7 @@ var load = function () {
 
             }, {enableHighAccuracy: true});
 
+            $(".hotelName").html(data.hotelName);
             $(".resName").html(data.restaurantName);
             $(".address").html(data.restaurantAddress);
 

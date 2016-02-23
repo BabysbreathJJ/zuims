@@ -50,6 +50,10 @@ function loadData(data) {
             detail +
             '</div>' +
             '<div class="pl10 pr10 pos-r mt20">' +
+            '<div>' +
+            '<b class="font16 display-ib pt6">' + data[i].hotelName +
+            '</b>' +
+            '</div>' +
             '<div class="mb16">' +
             '<b class="font16 display-ib pt6">' + data[i].title +
             '</b>' +
@@ -105,6 +109,10 @@ function loadData(data) {
             detail +
             '</div>' +
             '<div class="pl10 pr10 pos-r mt20">' +
+            '<div>' +
+            '<b class="font16 display-ib pt6">' + data[i].hotelName +
+            '</b>' +
+            '</div>' +
             '<div class="mb16">' +
             '<b class="font16 display-ib pt6">' + data[i].title +
             '</b>' +
