@@ -309,7 +309,7 @@ $(function () {
 
                 function goright() {
                     var left = $(".r-list").css("left");
-                    if (parseInt(left) <= -(length - 2) * 270) {
+                    if (parseInt(left) <= -(length - 2) * 200) {
                         if (!$(".r-list").is(":animated")) {
                             $(".r-list").animate({'left': initialleft});
                             i = 1;
