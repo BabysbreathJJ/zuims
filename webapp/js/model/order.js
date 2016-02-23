@@ -75,7 +75,7 @@ function orderDate(date) {
 
 
 function compareTime(myDate, orderTime) {
-    var date = new Date(myDate + 'T' + orderTime);
+    var date = new Date(myDate + ' ' + orderTime);
     var myTime = date.getTime();
     var now = new Date();
     var time = now.getTime();
@@ -101,7 +101,7 @@ var loadRes = function () {
         success: function (data) {
             if (data.images[0] == '/restaurants/images?relativePath=NonePicture.jpg')
                 data.images[0] = '/restaurants/images?relativePath=NonePicture2.jpg';
-            $("#d-img").attr("src", imgUrl+data.images[0]);
+            $("#d-img").attr("src", imgUrl + data.images[0]);
             $("input[name='resId']").val(data.restaurantId);
             $(".resName").html(data.restaurantName);
             var averagePrice = data.averagePrice;
@@ -114,14 +114,14 @@ var loadRes = function () {
             if (discount[0] !== 'discount') {//不是三免一优惠,只显示原价,不显示优惠后的信息
                 $("#discountPay").hide();
                 $("#payType").val('originPay');
-                originPrice = Number(averagePrice) * 3;
+                originPrice = Math.round(Number(averagePrice) * 3);
                 $("#payMore").text(originPrice);
                 $(".smy").hide();
             }
             else {//三免一优惠类型,初始时,人数默认为3
                 $("#originPay").hide();
                 $("#payType").val('discountPay');
-                originPrice = Number(averagePrice) * 3;
+                originPrice = Math.round(Number(averagePrice) * 3);
                 pay = Math.round(originPrice * 0.67);
                 $("#payLess").text(pay);
             }
@@ -204,7 +204,7 @@ $(function () {
     $("#dinerNum").change(function () {
         var dinerNum = parseInt(this.value);
         var averagePrice = Number($("#averagePrice").val());
-        var originPrice = averagePrice * dinerNum;
+        var originPrice = Math.round(averagePrice * dinerNum);
         var pay;
         if ($("#payType").val() == 'discountPay') {
             pay = Math.round(originPrice * 0.67);
@@ -220,8 +220,6 @@ $(function () {
     });
 
     $("#completeOrder").click(function () {
-
-        console.log('s');
 
         var phoneId = $.cookie("phone");
         var args = getUrlParam();
@@ -283,21 +281,31 @@ $(function () {
             location.href = encodeURI(url);
         }
         else {
-            $.ajax({
-                url: "http://202.120.40.175:21104/order/makeorder",
-                data: JSON.stringify(orderInfo),
-                type: "post",
-                contentType: "application/json",
-                crossDomain: true,
-                async: true,
-                success: function (data) {
-                    $('#confirmModal').modal('show');
-                    $('#feedbackConfirm').click(function () {
-                        location.href = 'usercenter.html';
-                    });
 
-                }
+            $("#resName").html($(".resName").text());
+            $("#orderTimeConfirm").html(orderDateTime);
+            $("#dinerNumConfirm").html(dinerNum + " 人");
+            $("#dorderSum").html(pay+" 元");
+            $("#remarkConfirm").html(more);
+            $('#confirmModal').modal('show');
+            $("#cancelOrder").click(function(){
+                $('#confirmModal').modal('hide');
             });
+
+            $('#feedbackConfirm').click(function () {
+                $.ajax({
+                    url: "http://202.120.40.175:21104/order/makeorder",
+                    data: JSON.stringify(orderInfo),
+                    type: "post",
+                    contentType: "application/json",
+                    crossDomain: true,
+                    async: true,
+                    success: function (data) {
+                        location.href = 'usercenter.html';
+                    }
+                });
+            });
+
         }
 
     });

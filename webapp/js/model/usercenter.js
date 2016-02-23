@@ -46,7 +46,8 @@ function showMoreOrders(orderInfo, start, len) {
     var showOrder = '';
     for (var i = 0; i < len; i++) {
         showOrder += '<tr>' +
-            '<input type="hidden" class="orderNum" value="' + orderInfo[start + i].orderId + '">' +
+            '<input type="hidden" class="dinerNum" value="' + orderInfo[start + i].dinerNum + '">' +
+            '<input type="hidden" class="dorderSum" value="' + orderInfo[start + i].dorderSum + '">' +
             '<td class="resName">' + orderInfo[start + i].restaurantName + '</td>' +
             '<td class="tc"><small class="orderTime">' + orderInfo[start + i].orderTime + '</small></td>' +
             '<td class="tc state orderState">' + orderInfo[start + i].state + '</td>' +
@@ -75,6 +76,7 @@ $(function () {
         dataType: 'JSON',
         success: function (data) {
             var orderInfos = data;
+            console.log(data);
 
             //按照订单创建时间排序
             orderInfos.sort(function (a, b) {  //自定义函数排序,新的订单放在最前面
@@ -114,17 +116,20 @@ $(function () {
             if (orderInfos.length >= 3)
                 showMoreOrders(orderInfos, 0, 3);
             else
-                showMoreOrders(orderInfos, 0, orderInfos.length)
+                showMoreOrders(orderInfos, 0, orderInfos.length);
 
             var index = 3;
 
 
             $(".user-info").on('click', 'tr', function () {
-                var orderNum = $(this).find('.orderNum').val();
+                var dinerNum = $(this).find('.dinerNum').val();
+                var dorderSum = $(this).find('.dorderSum').val();
+                console.log(dinerNum);
                 var name = $(this).find('.resName').html();
                 var orderTime = $(this).find('.orderTime').html();
                 var orderState = $(this).find('.orderState').html();
-                $("#orderNum").html(orderNum);
+                $("#dinerNum").html(dinerNum + " 人");
+                $("#dorderSum").html(dorderSum + " 元");
                 $("#resName").html(name);
                 $("#orderTime").html(orderTime);
                 $("#orderState").html(orderState);

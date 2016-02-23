@@ -71,7 +71,8 @@
                 <option value="3">3人</option>
                 <option value="4">4人</option>
                 <option value="5">5人</option>
-                <option value="7">6人</option>
+                <option value="6">6人</option>
+                <option value="7">7人</option>
                 <option value="8">8人</option>
                 <option value="9">9人</option>
                 <option value="10">10人</option>
@@ -139,12 +140,34 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">预订消息</h4>
+                <h4 class="modal-title text-center">预订信息</h4>
             </div>
             <div class="modal-body">
-                您的预订信息已发送到商家!
+                <ul class="list-unstyled">
+                    <li class="overflow-h l-ht30 text-center">
+                        <span class="fl">餐厅名称：</span>
+                        <span id="resName"></span>
+                    </li>
+                    <li class="overflow-h l-ht30 text-center">
+                        <span class="fl">预约就餐时间：</span>
+                        <span id="orderTimeConfirm"></span>
+                    </li>
+                    <li class="overflow-h l-ht30 text-center">
+                        <span class="fl">人数：</span>
+                        <span id="dinerNumConfirm"></span>
+                    </li>
+                    <li class="overflow-h l-ht30 text-center">
+                        <span class="fl">价格：</span>
+                        <span id="dorderSum"></span>
+                    </li>
+                    <li class="overflow-h l-ht30 text-center">
+                        <span class="fl">备注：</span>
+                        <span id="remarkConfirm"></span>
+                    </li>
+                </ul>
                 <div class="mt20 tc">
-                    <button type="button" class="btn btn-black" id="feedbackConfirm">确定</button>
+                    <button type="button" class="btn btn-black mr20" id="cancelOrder">取消</button>
+                    <button type="button" class="btn bg-orange font-white" id="feedbackConfirm">确定</button>
                 </div>
             </div>
         </div>
