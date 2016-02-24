@@ -171,29 +171,23 @@ $(function () {
     var now = new Date();
     var now_hour = now.getHours();
     var now_minutes = now.getMinutes();
-    if(now_hour < 11)
-    {
-        $("#orderTime").val("11:00:00");
+    var $userOrderTime = $("#orderTime");
+    if (now_hour < 11) {
+        $userOrderTime.val("11:00:00");
     }
-    else if (now_hour > 19 || now_hour==19 && now_minutes > 30)
-    {
-        alert("现在已超过今天可以预约的时间段!\n请选择其他日期!");
+    else if (now_hour > 19 || now_hour == 19 && now_minutes > 30) {
+        alert("今天已没有可以预约的时间段!\n请选择其他日期!");
     }
-    else if(now_hour>=11 && now_hour < 13 || now_hour >= 17 && now_hour < 19)
-    {
-        if(now_minutes < 30)
-            $("#orderTime").val(now_hour+':'+'30'+':'+'00');
-        else{
-            $("#orderTime").val((now_hour+1)+':'+'30'+':'+'00');
+    else if (now_hour >= 11 && now_hour < 13 || now_hour >= 17 && now_hour < 19) {
+        if (now_minutes < 30)
+            $userOrderTime.val(now_hour + ':' + '30' + ':' + '00');
+        else {
+            $userOrderTime.val((now_hour + 1) + ':' + '00' + ':' + '00');
         }
     }
-    else if (now_hour >=13 && now_hour < 17)
-    {
-        $("#orderTime").val('17'+':'+'00'+':'+'00');
+    else if (now_hour >= 13 && now_hour < 17) {
+        $userOrderTime.val('17' + ':' + '00' + ':' + '00');
     }
-
-
-
 
 
     $('.dropdown-toggle').dropdown();
