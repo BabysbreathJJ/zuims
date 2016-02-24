@@ -73,9 +73,9 @@ function orderDate(date) {
     return year + '-' + month + '-' + day;
 }
 
-function stringToDate(s)  {
+function stringToDate(s) {
     s = s.split(/[-: ]/);
-    return new Date(s[0], s[1]-1, s[2], s[3], s[4], s[5]);
+    return new Date(s[0], s[1] - 1, s[2], s[3], s[4], s[5]);
 }
 
 function compareTime(myDate, orderTime) {//myDate(YYYY-MM-DD),orderTime(HH:mm:ss)
@@ -87,8 +87,9 @@ function compareTime(myDate, orderTime) {//myDate(YYYY-MM-DD),orderTime(HH:mm:ss
     console.log((myTime - time) / 1000 / 3600);
     if (myTime - time < 0)
         return false;
+    else
+        return true;
 
-    return true;
 
 }
 
@@ -136,8 +137,9 @@ var loadRes = function () {
                 $("#originPrice").text("￥" + originPrice);
                 $("#orderDate").text(formatDate(new Date()));
                 $("#hiddenDate").val(orderDate(new Date()));
-                $("#orderTime").val("11:00:00");
+                //$("#orderTime").val("11:00:00");
                 $("#dinerNum").val(3);
+
 
             }
             else {//从登陆界面跳转过来,恢复之前填写的信息
@@ -165,6 +167,34 @@ var loadRes = function () {
 }();
 
 $(function () {
+
+    var now = new Date();
+    var now_hour = now.getHours();
+    var now_minutes = now.getMinutes();
+    if(now_hour < 11)
+    {
+        $("#orderTime").val("11:00:00");
+    }
+    else if (now_hour > 19 || now_hour==19 && now_minutes > 30)
+    {
+        alert("现在已超过今天可以预约的时间段!\n请选择其他日期!");
+    }
+    else if(now_hour>=11 && now_hour < 13 || now_hour >= 17 && now_hour < 19)
+    {
+        if(now_minutes < 30)
+            $("#orderTime").val(now_hour+':'+'30'+':'+'00');
+        else{
+            $("#orderTime").val((now_hour+1)+':'+'30'+':'+'00');
+        }
+    }
+    else if (now_hour >=13 && now_hour < 17)
+    {
+        $("#orderTime").val('17'+':'+'00'+':'+'00');
+    }
+
+
+
+
 
     $('.dropdown-toggle').dropdown();
     var $selectDate = $(".selectDate");
@@ -290,10 +320,10 @@ $(function () {
             $("#resName").html($(".resName").text());
             $("#orderTimeConfirm").html(orderDateTime);
             $("#dinerNumConfirm").html(dinerNum + " 人");
-            $("#dorderSum").html(pay+" 元");
+            $("#dorderSum").html(pay + " 元");
             $("#remarkConfirm").html(more);
             $('#confirmModal').modal('show');
-            $("#cancelOrder").click(function(){
+            $("#cancelOrder").click(function () {
                 $('#confirmModal').modal('hide');
             });
 
