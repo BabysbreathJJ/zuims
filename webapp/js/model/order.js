@@ -118,14 +118,14 @@ var loadRes = function () {
             if (discount[0] !== 'discount') {//不是三免一优惠,只显示原价,不显示优惠后的信息
                 $("#discountPay").hide();
                 $("#payType").val('originPay');
-                originPrice = Math.round(Number(averagePrice) * 3);
+                originPrice = Number(averagePrice) * 3;
                 $("#payMore").text(originPrice);
                 $(".smy").hide();
             }
             else {//三免一优惠类型,初始时,人数默认为3
                 $("#originPay").hide();
                 $("#payType").val('discountPay');
-                originPrice = Math.round(Number(averagePrice) * 3);
+                originPrice = Number(averagePrice) * 3;
                 pay = Math.round(originPrice * 2 / 3);
                 $("#payLess").text(pay);
             }
@@ -385,7 +385,7 @@ $(function () {
     $("#dinerNum").change(function () {
         var dinerNum = parseInt(this.value);
         var averagePrice = Number($("#averagePrice").val());
-        var originPrice = Math.round(averagePrice * dinerNum);
+        var originPrice = averagePrice * dinerNum;
         var pay;
         if ($("#payType").val() == 'discountPay') {
             pay = Math.round(originPrice * 2 / 3);

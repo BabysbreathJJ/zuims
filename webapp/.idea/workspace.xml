@@ -34,8 +34,8 @@
       <file leaf-file-name="order.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/model/order.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.44093177">
-              <caret line="392" column="36" selection-start-line="392" selection-start-column="36" selection-end-line="392" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.71532845">
+              <caret line="390" column="45" selection-start-line="390" selection-start-column="45" selection-end-line="390" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -185,9 +185,9 @@
         <option value="$PROJECT_DIR$/js/model/details.js" />
         <option value="$PROJECT_DIR$/details.html" />
         <option value="$PROJECT_DIR$/order.html" />
-        <option value="$PROJECT_DIR$/js/model/order.js" />
         <option value="$PROJECT_DIR$/js/model/lists.js" />
         <option value="$PROJECT_DIR$/js/model/index.js" />
+        <option value="$PROJECT_DIR$/js/model/order.js" />
       </list>
     </option>
   </component>
@@ -822,8 +822,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/model/order.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44093177">
-          <caret line="392" column="36" selection-start-line="392" selection-start-column="36" selection-end-line="392" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.71532845">
+          <caret line="390" column="45" selection-start-line="390" selection-start-column="45" selection-end-line="390" selection-end-column="45" />
           <folding />
         </state>
       </provider>
