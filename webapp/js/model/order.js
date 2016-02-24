@@ -126,7 +126,7 @@ var loadRes = function () {
                 $("#originPay").hide();
                 $("#payType").val('discountPay');
                 originPrice = Math.round(Number(averagePrice) * 3);
-                pay = Math.round(originPrice * 0.67);
+                pay = Math.round(originPrice * 2 / 3);
                 $("#payLess").text(pay);
             }
 
@@ -388,7 +388,7 @@ $(function () {
         var originPrice = Math.round(averagePrice * dinerNum);
         var pay;
         if ($("#payType").val() == 'discountPay') {
-            pay = Math.round(originPrice * 0.67);
+            pay = Math.round(originPrice * 2 / 3);
             $("#originPrice").text("￥" + originPrice);
             $("#payLess").text(pay);
         }
