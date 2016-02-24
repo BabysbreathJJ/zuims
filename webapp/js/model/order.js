@@ -73,9 +73,14 @@ function orderDate(date) {
     return year + '-' + month + '-' + day;
 }
 
+function stringToDate(s)  {
+    s = s.split(/[-: ]/);
+    return new Date(s[0], s[1]-1, s[2], s[3], s[4], s[5]);
+}
 
-function compareTime(myDate, orderTime) {
-    var date = new Date(myDate + 'T' + orderTime);
+function compareTime(myDate, orderTime) {//myDate(YYYY-MM-DD),orderTime(HH:mm:ss)
+
+    var date = new Date(stringToDate(myDate + ' ' + orderTime));
     var myTime = date.getTime();
     var now = new Date();
     var time = now.getTime();
@@ -84,7 +89,6 @@ function compareTime(myDate, orderTime) {
         return false;
 
     return true;
-
 
 }
 
