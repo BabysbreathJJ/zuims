@@ -190,16 +190,23 @@ function readFile() {
 
         var reader = new FileReader();
         reader.onload = function (e) {
+
+            render(file, e.target.result);
+            //var cvs = document.getElementById("cvs");
+            ////调用Canvas的toDataURL接口，得到的是照片文件的base64编码string
+            //var data = cvs.toDataURL("image/jpeg");
+            //console.log(data);
+            //console.log("^^^^^^^^^^^^^^^^");
+
             //readAsDataURL后执行onload，进入图片压缩逻辑
             //e.target.result得到的就是图片文件的base64 string
-            $('.image-editor').cropit('imageSrc', e.target.result);
-
             $('.export').click(function () {
                 var imageData = $('.image-editor').cropit('export');
                 var img = $('<img  id="imgsrc" width="80" height="80">');
                 img.attr("src", imageData);
                 $(".displayImg").html(img);
-                render(file, imageData);
+                $("#imgUrl").val(imageData.split(",")[1]);
+                //render(file, imageData);
                 $(".image-editor").hide();
             });
 
@@ -210,6 +217,7 @@ function readFile() {
             img.width = 80;
             img.height = 80;
             $(".displayImg").html(img);
+            $('.image-editor').cropit('imageSrc', result);
 
         };
         //以dataurl的形式读取图片文件
@@ -252,18 +260,21 @@ var sendImg = function () {
         console.log("data error.");
         return;
     }
+    var urlString = 'url(' + data + ')';
+    $(".cropit-image-preview").css('background-image', urlString);
     //图片的base64 string格式是data:/image/jpeg;base64,xxxxxxxxxxx
     //是以data:/image/jpeg;base64,开头的，我们在服务端写入图片数据的时候不需要这个头！
     //所以在这里只拿头后面的string
     //当然这一步可以在服务端做，但让闲着蛋疼的客户端帮着做一点吧~~~（稍微减轻一点服务器压力）
 
-    data = data.split(",")[1];
-    $("#imgUrl").val(data);
+    //data = data.split(",")[1];
+    //$("#imgUrl").val(data);
+
 };
 
 displayImg($(".displayImg"));
 
-$('.cancelImage').click(function(){
+$('.cancelImage').click(function () {
     var img = $('<img  id="imgsrc" width="80" height="80">');
     img.attr("src", 'http://202.120.40.175:21101/users/images?phone=' + phone);
     $(".displayImg").html(img);
