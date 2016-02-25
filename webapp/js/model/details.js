@@ -213,6 +213,7 @@ function like(type,id){
                                   '</a>';
 
                     $(".like").html(likeRes);
+                    return;
 
                 }
             }
