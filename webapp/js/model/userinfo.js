@@ -189,14 +189,10 @@ function readFile() {
         }
 
         var reader = new FileReader();
+        reader.readAsDataURL(file);
         reader.onload = function (e) {
 
-            render(file, e.target.result);
-            //var cvs = document.getElementById("cvs");
-            ////调用Canvas的toDataURL接口，得到的是照片文件的base64编码string
-            //var data = cvs.toDataURL("image/jpeg");
-            //console.log(data);
-            //console.log("^^^^^^^^^^^^^^^^");
+            render(file, this.result);
 
             //readAsDataURL后执行onload，进入图片压缩逻辑
             //e.target.result得到的就是图片文件的base64 string
@@ -217,11 +213,9 @@ function readFile() {
             img.width = 80;
             img.height = 80;
             $(".displayImg").html(img);
-            $('.image-editor').cropit('imageSrc', result);
+
 
         };
-        //以dataurl的形式读取图片文件
-        reader.readAsDataURL(file);
     }
 
 }
@@ -234,7 +228,7 @@ var render = function (file, src) {
         var orientation = EXIF.getTag(this, "Orientation");
         var image = new Image();
         image.onload = function () {
-            image.src = src;
+            //image.src = src;
             var cvs = document.getElementById("cvs");
             var w = image.width;
             var h = image.height;
@@ -260,8 +254,10 @@ var sendImg = function () {
         console.log("data error.");
         return;
     }
-    var urlString = 'url(' + data + ')';
-    $(".cropit-image-preview").css('background-image', urlString);
+
+    $('.image-editor').cropit('imageSrc',data);
+    //var urlString = 'url(' + data + ')';
+    //$(".cropit-image-preview").css('background-image', urlString);
     //图片的base64 string格式是data:/image/jpeg;base64,xxxxxxxxxxx
     //是以data:/image/jpeg;base64,开头的，我们在服务端写入图片数据的时候不需要这个头！
     //所以在这里只拿头后面的string
