@@ -35,6 +35,10 @@ var getUser = function () {
 
     });
 
+    //获取用户头像
+    $("#avatar").attr('src', 'http://202.120.40.175:21101/users/images?phone=' + phone);
+
+
 }();
 
 function showMoreOrders(orderInfo, start, len) {
@@ -63,9 +67,6 @@ function showMoreOrders(orderInfo, start, len) {
 }
 
 $(function () {
-
-    //获取用户头像
-    $("#avatar").attr('src', 'http://202.120.40.175:21101/users/images?phone=' + phone);
 
     var orderUrl = 'http://202.120.40.175:21104/order/infoByphoneid?phoneId=' + $.cookie('phone');
 
