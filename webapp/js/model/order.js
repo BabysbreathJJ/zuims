@@ -73,18 +73,21 @@ function orderDate(date) {
     return year + '-' + month + '-' + day;
 }
 
+function stringToDate(s) {
+    s = s.split(/[-: ]/);
+    return new Date(s[0], s[1] - 1, s[2], s[3], s[4], s[5]);
+}
 
-function compareTime(myDate, orderTime) {
-    var date = new Date(myDate + ' ' + orderTime);
+function compareTime(myDate, orderTime) {//myDate(YYYY-MM-DD),orderTime(HH:mm:ss)
+
+    var date = new Date(stringToDate(myDate + ' ' + orderTime));
     var myTime = date.getTime();
     var now = new Date();
     var time = now.getTime();
-    console.log((myTime - time) / 1000 / 3600);
     if (myTime - time < 0)
         return false;
-
-    return true;
-
+    else
+        return true;
 
 }
 
@@ -115,15 +118,15 @@ var loadRes = function () {
             if (discount[0] !== 'discount') {//不是三免一优惠,只显示原价,不显示优惠后的信息
                 $("#discountPay").hide();
                 $("#payType").val('originPay');
-                originPrice = Math.round(Number(averagePrice) * 3);
+                originPrice = Number(averagePrice) * 3;
                 $("#payMore").text(originPrice);
                 $(".smy").hide();
             }
             else {//三免一优惠类型,初始时,人数默认为3
                 $("#originPay").hide();
                 $("#payType").val('discountPay');
-                originPrice = Math.round(Number(averagePrice) * 3);
-                pay = Math.round(originPrice * 0.67);
+                originPrice = Number(averagePrice) * 3;
+                pay = Math.round(originPrice * 2 / 3);
                 $("#payLess").text(pay);
             }
 
@@ -132,8 +135,9 @@ var loadRes = function () {
                 $("#originPrice").text("￥" + originPrice);
                 $("#orderDate").text(formatDate(new Date()));
                 $("#hiddenDate").val(orderDate(new Date()));
-                $("#orderTime").val("11:00:00");
+                //$("#orderTime").val("11:00:00");
                 $("#dinerNum").val(3);
+
 
             }
             else {//从登陆界面跳转过来,恢复之前填写的信息
@@ -160,7 +164,166 @@ var loadRes = function () {
 
 }();
 
+function getAllOrderTime() {
+    var content = '<option value="11:00:00"> 午餐 11:00</option>' +
+        '<option value="11:30:00"> 午餐 11:30</option>' +
+        '<option value="12:00:00"> 午餐 12:00</option>' +
+        '<option value="12:30:00"> 午餐 12:30</option>' +
+        '<option value="13:00:00"> 午餐 13:00</option>' +
+        '<option value="17:00:00"> 晚餐 17:00</option>' +
+        '<option value="17:30:00"> 晚餐 17:30</option>' +
+        '<option value="18:00:00"> 晚餐 18:00</option>' +
+        '<option value="18:30:00"> 晚餐 18:30</option>' +
+        '<option value="19:00:00"> 晚餐 19:00</option>' +
+        '<option value="19:30:00"> 晚餐 19:30</option>';
+    $("#orderTime").append(content);
+}
+function getSuitableTime(now_hour, now_minutes) {
+    if (now_minutes < 30) {
+        $userOrderTime.val(now_hour + ':' + '30' + ':' + '00');
+    }
+
+    else {
+        $userOrderTime.val((now_hour + 1) + ':' + '00' + ':' + '00');
+    }
+}
+
+function getTodayOrderTime() {
+    var now = new Date();
+    var now_hour = now.getHours();
+    var now_minutes = now.getMinutes();
+    var $userOrderTime = $("#orderTime");
+    var selectContent = "";
+    if (now_hour < 11) {
+        getAllOrderTime();
+        $userOrderTime.val("11:00:00");
+
+    }
+    else if (now_hour >= 19) {
+        if (now_hour == 19 && now_hour < 30) {
+            var content =
+                '<option value="19:30:00"> 晚餐 19:30</option>';
+            $userOrderTime.append(content);
+        }
+        else
+            $userOrderTime.append('<option value="-1">当前日期没有可预约时间</option>')
+
+    }
+    else if (now_hour >= 11 && now_hour < 13) {
+        if (now_hour == 11) {
+            if (now_minutes < 30) {
+                var content =
+                    '<option value="11:30:00"> 午餐 11:30</option>' +
+                    '<option value="12:00:00"> 午餐 12:00</option>' +
+                    '<option value="12:30:00"> 午餐 12:30</option>' +
+                    '<option value="13:00:00"> 午餐 13:00</option>' +
+                    '<option value="17:00:00"> 晚餐 17:00</option>' +
+                    '<option value="17:30:00"> 晚餐 17:30</option>' +
+                    '<option value="18:00:00"> 晚餐 18:00</option>' +
+                    '<option value="18:30:00"> 晚餐 18:30</option>' +
+                    '<option value="19:00:00"> 晚餐 19:00</option>' +
+                    '<option value="19:30:00"> 晚餐 19:30</option>';
+                $userOrderTime.append(content);
+            }
+            else {
+                var content =
+                    '<option value="12:00:00"> 午餐 12:00</option>' +
+                    '<option value="12:30:00"> 午餐 12:30</option>' +
+                    '<option value="13:00:00"> 午餐 13:00</option>' +
+                    '<option value="17:00:00"> 晚餐 17:00</option>' +
+                    '<option value="17:30:00"> 晚餐 17:30</option>' +
+                    '<option value="18:00:00"> 晚餐 18:00</option>' +
+                    '<option value="18:30:00"> 晚餐 18:30</option>' +
+                    '<option value="19:00:00"> 晚餐 19:00</option>' +
+                    '<option value="19:30:00"> 晚餐 19:30</option>';
+                $userOrderTime.append(content);
+            }
+
+        }
+        else {
+            if (now_minutes < 30) {
+                var content =
+                    '<option value="12:30:00"> 午餐 12:30</option>' +
+                    '<option value="13:00:00"> 午餐 13:00</option>' +
+                    '<option value="17:00:00"> 晚餐 17:00</option>' +
+                    '<option value="17:30:00"> 晚餐 17:30</option>' +
+                    '<option value="18:00:00"> 晚餐 18:00</option>' +
+                    '<option value="18:30:00"> 晚餐 18:30</option>' +
+                    '<option value="19:00:00"> 晚餐 19:00</option>' +
+                    '<option value="19:30:00"> 晚餐 19:30</option>';
+                $userOrderTime.append(content);
+            }
+            else {
+                var content =
+                    '<option value="13:00:00"> 午餐 13:00</option>' +
+                    '<option value="17:00:00"> 晚餐 17:00</option>' +
+                    '<option value="17:30:00"> 晚餐 17:30</option>' +
+                    '<option value="18:00:00"> 晚餐 18:00</option>' +
+                    '<option value="18:30:00"> 晚餐 18:30</option>' +
+                    '<option value="19:00:00"> 晚餐 19:00</option>' +
+                    '<option value="19:30:00"> 晚餐 19:30</option>';
+                $userOrderTime.append(content);
+            }
+
+        }
+        getSuitableTime(now_hour, now_minutes);
+
+    }
+    else if (now_hour >= 17 && now_hour < 19) {
+        if (now_hour == 17) {
+            if (now_minutes < 30) {
+                var content =
+                    '<option value="17:30:00"> 晚餐 17:30</option>' +
+                    '<option value="18:00:00"> 晚餐 18:00</option>' +
+                    '<option value="18:30:00"> 晚餐 18:30</option>' +
+                    '<option value="19:00:00"> 晚餐 19:00</option>' +
+                    '<option value="19:30:00"> 晚餐 19:30</option>';
+                $userOrderTime.append(content);
+            }
+            else {
+                var content =
+                    '<option value="18:00:00"> 晚餐 18:00</option>' +
+                    '<option value="18:30:00"> 晚餐 18:30</option>' +
+                    '<option value="19:00:00"> 晚餐 19:00</option>' +
+                    '<option value="19:30:00"> 晚餐 19:30</option>';
+                $userOrderTime.append(content);
+            }
+
+        }
+        if (now_hour == 18) {
+            if (now_minutes < 30) {
+                var content =
+                    '<option value="18:30:00"> 晚餐 18:30</option>' +
+                    '<option value="19:00:00"> 晚餐 19:00</option>' +
+                    '<option value="19:30:00"> 晚餐 19:30</option>';
+                $userOrderTime.append(content);
+            }
+            else {
+                var content =
+                    '<option value="19:00:00"> 晚餐 19:00</option>' +
+                    '<option value="19:30:00"> 晚餐 19:30</option>';
+                $userOrderTime.append(content);
+            }
+
+        }
+        getSuitableTime(now_hour, now_minutes);
+    }
+    else if (now_hour >= 13 && now_hour < 17) {
+        var content =
+            '<option value="17:00:00"> 晚餐 17:00</option>' +
+            '<option value="17:30:00"> 晚餐 17:30</option>' +
+            '<option value="18:00:00"> 晚餐 18:00</option>' +
+            '<option value="18:30:00"> 晚餐 18:30</option>' +
+            '<option value="19:00:00"> 晚餐 19:00</option>' +
+            '<option value="19:30:00"> 晚餐 19:30</option>';
+        $userOrderTime.append(content);
+        $userOrderTime.val('17' + ':' + '00' + ':' + '00');
+    }
+}
+
 $(function () {
+
+    getTodayOrderTime();
 
     $('.dropdown-toggle').dropdown();
     var $selectDate = $(".selectDate");
@@ -179,9 +342,7 @@ $(function () {
         selectDate.toggle();
     });
 
-    document.onclick = function () {
-        // change div
-    };
+
     //点击空白区域日期选择器消失
     $(document).click(function (e) {
         var target = $(e.target);
@@ -194,7 +355,26 @@ $(function () {
 
     $selectDate.datetimepicker()
         .on('dp.change', function (e) {
+
             var eventDate = e.date._d;
+            var e_year = eventDate.getFullYear();
+            var e_month = eventDate.getMonth();
+            var e_day = eventDate.getDay();
+            console.log(e_year + '-' + e_month + '-' + e_day);
+            var today = new Date;
+            var t_year = today.getFullYear();
+            var t_month = today.getMonth();
+            var t_day = today.getDay();
+            if (e_year == t_year && e_month == t_month && e_day == t_day) {
+                $("#orderTime").empty();
+                getTodayOrderTime();
+            }
+
+            else {
+                $("#orderTime").empty();
+                getAllOrderTime();
+            }
+
 
             $("#orderDate").text(formatDate(eventDate));
             $("#hiddenDate").val(orderDate(eventDate));
@@ -205,10 +385,10 @@ $(function () {
     $("#dinerNum").change(function () {
         var dinerNum = parseInt(this.value);
         var averagePrice = Number($("#averagePrice").val());
-        var originPrice = Math.round(averagePrice * dinerNum);
+        var originPrice = averagePrice * dinerNum;
         var pay;
         if ($("#payType").val() == 'discountPay') {
-            pay = Math.round(originPrice * 0.67);
+            pay = Math.round(originPrice * 2 / 3);
             $("#originPrice").text("￥" + originPrice);
             $("#payLess").text(pay);
         }
@@ -248,10 +428,10 @@ $(function () {
         var orderDateTime = orderDate + " " + orderTime;
 
 
-        if (!compareTime(orderDate, orderTime)) {
-            alert('请选择正确的订餐时间!');
-            return;
-        }
+        //if (!compareTime(orderDate, orderTime)) {
+        //    alert('请选择正确的订餐时间!');
+        //    return;
+        //}
 
         var orderInfo = {
             phoneId: phoneId,
@@ -286,10 +466,10 @@ $(function () {
             $("#resName").html($(".resName").text());
             $("#orderTimeConfirm").html(orderDateTime);
             $("#dinerNumConfirm").html(dinerNum + " 人");
-            $("#dorderSum").html(pay+" 元");
+            $("#dorderSum").html(pay + " 元");
             $("#remarkConfirm").html(more);
             $('#confirmModal').modal('show');
-            $("#cancelOrder").click(function(){
+            $("#cancelOrder").click(function () {
                 $('#confirmModal').modal('hide');
             });
 

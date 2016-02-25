@@ -34,7 +34,21 @@ $(function () {
         $(".hobby").show();
     });
 
-})
+    $('#avatar').croppie({
+        exif: true,
+        viewport: {
+            width: 150,
+            height: 200
+        },
+        boundary: {
+            width: 200,
+            height: 300
+        }
+    });
+
+    $('#imageCrop').hide();
+
+});
 //清除错误信息
 $("input").focus(function () {
     var name = $(this).attr('name');
@@ -119,7 +133,7 @@ $("span[name='save']").click(function () {
     }
 
 
-})
+});
 //基本信息加载
 
 var loadBas = function () {
@@ -180,15 +194,15 @@ function readFile() {
 
     if (file) {
         //验证图片文件类型
-        if(file.type && !/image/i.test(file.type)) {
+        if (file.type && !/image/i.test(file.type)) {
             alert("文件必须为图片！");
             return false;
         }
-        EXIF.getData(file, function () {
-            //获取照片本身的Orientation
-            var orientation = EXIF.getTag(this, "Orientation");
-            console.log(orientation);
-        });
+        //EXIF.getData(file, function () {
+        //    //获取照片本身的Orientation
+        //    var orientation = EXIF.getTag(this, "Orientation");
+        //    console.log(orientation);
+        //});
 
 
         var reader = new FileReader();
@@ -202,12 +216,46 @@ function readFile() {
             img.src = result;
             img.width = 80;
             img.height = 80;
-            $(".displayImg").html(img);
+            //$(".displayImg").html(img);
+
+
+            $('.displayImg').hide();
+            $('#imageCrop').show();
+
+            $("#avatar").croppie('bind', {
+                url: this.result
+            });
+
+
         };
         //以dataurl的形式读取图片文件
         reader.readAsDataURL(file);
     }
 
+}
+
+
+$('.upload-result').click(function (ev) {
+    $("#avatar").croppie('result', 'canvas').then(function (resp) {
+        popupResult({
+            src: resp
+        });
+    });
+});
+
+function popupResult(result) {
+    var html;
+    if (result.html) {
+        html = result.html;
+    }
+    if (result.src) {
+        data = result.src.split(",")[1];
+        html = '<img src="' + result.src + '" width="80" height="80" />';
+        $("#imgUrl").val(data);
+    }
+    $(".displayImg").html(html);
+    $("#imageCrop").hide();
+    $('.displayImg').show();
 }
 
 //定义照片的最大高度

@@ -149,7 +149,7 @@ $(function () {
                     '</p>' +
                     '<p>' +
                     '<span class="font-c-8f">每位：</span>' +
-                    '<span class="font-c-40">￥' + Math.round(data[data.length - 1].price * 0.67) + '<span class="font-c-8f text-d-lt">￥' + data[data.length - 1].price + '</span>（含15%服务费）</span>' +
+                    '<span class="font-c-40">￥' + Math.round(data[data.length - 1].price * 2 / 3) + '<span class="font-c-8f text-d-lt">￥' + data[data.length - 1].price + '</span>（已含15%服务费）</span>' +
                     '</p>' +
                     '<p>' +
                     '<span class="font-c-8f">地址 ：</span>' +
@@ -183,7 +183,7 @@ $(function () {
                     '</p>' +
                     '<p>' +
                     '<span class="font-c-8f">每位：</span>' +
-                    '<span class="font-c-40">￥' + Math.round(data[0].price * 0.67) + '<span class="font-c-8f text-d-lt">￥' + data[0].price + '</span>（含15%服务费）</span>' +
+                    '<span class="font-c-40">￥' + Math.round(data[0].price * 2 /3) + '<span class="font-c-8f text-d-lt">￥' + data[0].price + '</span>（已含15%服务费）</span>' +
                     '</p>' +
                     '<p>' +
                     '<span class="font-c-8f">地址 ：</span>' +
@@ -211,10 +211,10 @@ $(function () {
                     var smy = '<div class="pos-a font-white bg-orange transform45 smy">三免一</div>';
                     if (data[i].discountType[0] != 'discount') {
                         smy = "";
-                        smyPrice = '<span class="font-c-40">￥' + Math.round(data[i].price) + '';
+                        smyPrice = '<span class="font-c-40">￥' + Math.round(data[i].price) + '（已含15%服务费）';
                     }
                     else {
-                        smyPrice = '<span class="font-c-40">￥' + Math.round(data[i].price * 0.67) + '<span class="font-c-8f text-d-lt ml5">￥' + data[i].price + '</span></span>';
+                        smyPrice = '<span class="font-c-40">￥' + Math.round(data[i].price * 2 / 3) + '<span class="font-c-8f text-d-lt ml5">￥' + data[i].price + '</span>（已含15%服务费）</span>';
                     }
                     if (i == 0) {
 
@@ -309,7 +309,7 @@ $(function () {
 
                 function goright() {
                     var left = $(".r-list").css("left");
-                    if (parseInt(left) <= -(length - 2) * 200) {
+                    if (parseInt(left) <= (-290 * (length - 3) + parseInt(initialleft))) {
                         if (!$(".r-list").is(":animated")) {
                             $(".r-list").animate({'left': initialleft});
                             i = 1;

@@ -33,7 +33,7 @@ function loadData(data) {
     for (var i = 0; i < data.length; i++) {
         smy = '<div class="pos-a font-white bg-orange transform45 smy">三免一</div>';
         detail = '<div class="pos-a font-white bg-t detail pl20 pr20 pt10 pb10">详情</div>';
-        var price = Math.round(data[i].price * 0.67);
+        var price = Math.round(data[i].price * 2 / 3);
         if (data[i].discountType !== 'discount') {
             smy = "";
             price = data[i].price;
@@ -41,45 +41,6 @@ function loadData(data) {
         if (data[i].image == 'http://202.120.40.175:21100/restaurants/images?relativePath=NonePicture.jpg') {
             data[i].image = 'http://202.120.40.175:21100/restaurants/images?relativePath=NonePicture2.jpg';
         }
-        var resDiv = '<div class="border border-r-5 bg-white padding mt10">' +
-            '<div class="pos-r overflow-h">' +
-            '<a href="details.html?id=' + data[i].restaurantId + '">' +
-            '<img src="' + imgUrl + data[i].image + '" class="img-responsive">' +
-            smy +
-            detail +
-            '</a>' +
-            '</div>' +
-            '<div class="pl10 pr10 pos-r mt20">' +
-            '<div>' +
-            '<b class="font16 display-ib pt6">' + data[i].hotelName +
-            '</b>' +
-            '</div>' +
-            '<div class="mb16">' +
-            '<b class="font16 display-ib pt6">' + data[i].title +
-            '</b>' +
-            '<a href="order.html?id=' + data[i].restaurantId + '">' +
-            '<span class="btn bg-orange font-white fr pl20 pr20">' +
-            '订' +
-            '</span>' +
-            '</a>' +
-            '</div>' +
-            '<p>' +
-            '<span class="font-c-8f">每位：</span>' +
-            '<span class="font-c-40">￥' + price +
-            '</span>' +
-            '</p>' +
-            '<p>' +
-            '<span class="font-c-8f">地址：</span>' +
-            '<span class="font-c-40">' + data[i].address +
-            '</span>' +
-            '</p>' +
-            '<p>' +
-            '<span class="font-c-8f">餐厅类别：</span>' +
-            '<span class="font-c-40">' + data[i].restaurantType +
-            '</span>' +
-            '<p>' +
-            '</div>' +
-            '</div>';
 
         resInfo += resDiv;
     }
@@ -89,56 +50,102 @@ function loadData(data) {
 function loadData(data) {
     var resInfo = "";
     var smy = '';
+    var resDiv = "";
     for (var i = 0; i < data.length; i++) {
         smy = '<div class="pos-a font-white bg-orange transform45 smy">三免一</div>';
         detail = '<div class="pos-a font-white bg-t detail pl20 pr20 pt10 pb10">详情</div>';
-        var price = Math.round(data[i].price * 0.67);
+        var price = 0;
         if (data[i].discountType[0] != 'discount') {
             smy = "";
             price = data[i].price;
+
+            resDiv = '<div class="border border-r-5 bg-white padding mt10">' +
+                '<div class="pos-r overflow-h">' +
+                '<a href="details.html?id=' + data[i].restaurantId + '">' +
+                '<img src="' + imgUrl + data[i].image + '" class="img-responsive">' +
+                smy +
+                detail +
+                '</a>' +
+                '</div>' +
+                '<div class="pl10 pr10 pos-r mt20">' +
+                '<div>' +
+                '<b class="font16 display-ib pt6">' + data[i].hotelName +
+                '</b>' +
+                '</div>' +
+                '<div class="mb16">' +
+                '<b class="font16 display-ib pt6">' + data[i].title +
+                '</b>' +
+                '<a href="order.html?id=' + data[i].restaurantId + '">' +
+                '<span class="btn bg-orange font-white fr pl20 pr20">' +
+                '订' +
+                '</span>' +
+                '</a>' +
+                '</div>' +
+                '<p>' +
+                '<span class="font-c-8f">每位：</span>' +
+                '<span class="font-c-40">￥' + price +
+                '</span>' +
+                '</p>' +
+                '<p>' +
+                '<span class="font-c-8f">地址：</span>' +
+                '<span class="font-c-40">' + data[i].address +
+                '</span>' +
+                '</p>' +
+                '<p>' +
+                '<span class="font-c-8f">餐厅类别：</span>' +
+                '<span class="font-c-40">' + data[i].restaurantType +
+                '</span>' +
+                '<p>' +
+                '</div>' +
+                '</div>';
+
+        }
+        else {
+            price = Math.round(data[i].price * 2 / 3);
+            resDiv = '<div class="border border-r-5 bg-white padding mt10">' +
+                '<div class="pos-r overflow-h">' +
+                '<a href="details.html?id=' + data[i].restaurantId + '">' +
+                '<img src="' + imgUrl + data[i].image + '" class="img-responsive">' +
+                smy +
+                detail +
+                '</a>' +
+                '</div>' +
+                '<div class="pl10 pr10 pos-r mt20">' +
+                '<div>' +
+                '<b class="font16 display-ib pt6">' + data[i].hotelName +
+                '</b>' +
+                '</div>' +
+                '<div class="mb16">' +
+                '<b class="font16 display-ib pt6">' + data[i].title +
+                '</b>' +
+                '<a href="order.html?id=' + data[i].restaurantId + '">' +
+                '<span class="btn bg-orange font-white fr pl20 pr20">' +
+                '订' +
+                '</span>' +
+                '</a>' +
+                '</div>' +
+                '<p>' +
+                '<span class="font-c-8f">每位：</span>' +
+                '<span class="font-c-40">￥' + price +
+                '<span class="font-c-8f text-d-lt ml5">￥' + data[i].price + '</span>（已含15%服务费）</span>' +
+                '</span>' +
+                '</p>' +
+                '<p>' +
+                '<span class="font-c-8f">地址：</span>' +
+                '<span class="font-c-40">' + data[i].address +
+                '</span>' +
+                '</p>' +
+                '<p>' +
+                '<span class="font-c-8f">餐厅类别：</span>' +
+                '<span class="font-c-40">' + data[i].restaurantType +
+                '</span>' +
+                '<p>' +
+                '</div>' +
+                '</div>';
         }
         if (data[i].image == '/restaurants/images?relativePath=NonePicture.jpg') {
             data[i].image = '/restaurants/images?relativePath=NonePicture2.jpg';
         }
-        var resDiv = '<div class="border border-r-5 bg-white padding mt10">' +
-            '<div class="pos-r overflow-h">' +
-            '<a href="details.html?id=' + data[i].restaurantId + '">' +
-            '<img src="' + imgUrl + data[i].image + '" class="img-responsive">' +
-            smy +
-            detail +
-            '</a>' +
-            '</div>' +
-            '<div class="pl10 pr10 pos-r mt20">' +
-            '<div>' +
-            '<b class="font16 display-ib pt6">' + data[i].hotelName +
-            '</b>' +
-            '</div>' +
-            '<div class="mb16">' +
-            '<b class="font16 display-ib pt6">' + data[i].title +
-            '</b>' +
-            '<a href="order.html?id=' + data[i].restaurantId + '">' +
-            '<span class="btn bg-orange font-white fr pl20 pr20">' +
-            '订' +
-            '</span>' +
-            '</a>' +
-            '</div>' +
-            '<p>' +
-            '<span class="font-c-8f">每位：</span>' +
-            '<span class="font-c-40">￥' + price +
-            '</span>' +
-            '</p>' +
-            '<p>' +
-            '<span class="font-c-8f">地址：</span>' +
-            '<span class="font-c-40">' + data[i].address +
-            '</span>' +
-            '</p>' +
-            '<p>' +
-            '<span class="font-c-8f">餐厅类别：</span>' +
-            '<span class="font-c-40">' + data[i].restaurantType +
-            '</span>' +
-            '<p>' +
-            '</div>' +
-            '</div>';
 
         resInfo += resDiv;
     }

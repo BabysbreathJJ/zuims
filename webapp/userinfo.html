@@ -11,6 +11,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/spans.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/croppie.css"/>
 </head>
 <body>
 <!-- 开始顶部 固定 -->
@@ -120,12 +121,16 @@
 					<input type="file" id="head-logo" class="top-200 pos-a" accept="image/*">
                     <input type="hidden" id="imgUrl">
                     <canvas id="cvs" style="display: none"></canvas>
+                    <div id="imageCrop" style="margin: 0 auto;text-align: center">
+                        <div id="avatar" class="pt20 pb20"></div>
+                        <a class="btn upload-result mb10">裁剪</a>
+                    </div>
 					<span class="font-red ml10 display-n">这里是错误信息</span>
 				</span>
                         </p>
 
                         <p>
-                <span class="display-ib tr per30">婚姻状况：</span>
+                            <span class="display-ib tr per30">婚姻状况：</span>
 				<span class="display-ib per60">
                     <select class="form-control vertical-a-m" name="marriage">
                         <option value="">请选择</option>
@@ -137,7 +142,8 @@
                         <p>
                             <span class="display-ib tr per30 vertical-a-m">出生日期：</span>
 				<span class="display-ib per60 vertical-a-m">
-					<input type="date" class="per100 bg-white tl pl10 border radius5 vertical-a-m l-ht34" name="birth" placeholder="出生日期">
+					<input type="date" class="per100 bg-white tl pl10 border radius5 vertical-a-m l-ht34" name="birth"
+                           placeholder="出生日期">
 					<span class="font-red ml10 display-n">这里是错误信息</span>
 				</span>
                         </p>
@@ -341,10 +347,32 @@
     </div>
 </footer>
 <!--结束底部菜单-->
+
+
+<!--订单详情开始-->
+<!--<div class="modal fade top48" id="cropWnd" tabindex="-1" role="dialog" aria-labelledby="cropWnd">-->
+    <!--<div class="modal-dialog" role="document">-->
+        <!--<div class="modal-content">-->
+            <!--<div class="modal-header tc" id="close">-->
+                <!--<h4 class="display-ib">图片剪裁</h4>-->
+            <!--</div>-->
+            <!--<div class="tc  modal-body">-->
+                <!--<div id="imageCrop" style="margin: 0 auto;text-align: center">-->
+                    <!--<div id="avatar" class="pt20 pb20"></div>-->
+                    <!--<button class="upload-result mb10" id="cropImage">裁剪</button>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<!--订单详情结束-->
+
+
 <script src="js/plugins/jquery-1.11.3.min.js"></script>
 <script src="js/plugins/jquery.validate.min.js"></script>
 <script src="js/plugins/jquery.cookie.js"></script>
 <script src="js/plugins/bootstrap.min.js"></script>
+<script src="js/plugins/croppie.js"></script>
 <script src="js/plugins/exif.js"></script>
 <script src="js/plugins/binary.js"></script>
 <script src="js/plugins/megapix-image.js"></script>

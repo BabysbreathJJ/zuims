@@ -35,10 +35,6 @@ var getUser = function () {
 
     });
 
-    //获取用户头像
-    $("#avatar").attr('src', 'http://202.120.40.175:21101/users/images?phone=' + phone);
-
-
 }();
 
 function showMoreOrders(orderInfo, start, len) {
@@ -68,6 +64,9 @@ function showMoreOrders(orderInfo, start, len) {
 
 $(function () {
 
+    //获取用户头像
+    $("#avatar").attr('src', 'http://202.120.40.175:21101/users/images?phone=' + phone);
+
     var orderUrl = 'http://202.120.40.175:21104/order/infoByphoneid?phoneId=' + $.cookie('phone');
 
     $.ajax({
@@ -76,7 +75,6 @@ $(function () {
         dataType: 'JSON',
         success: function (data) {
             var orderInfos = data;
-            console.log(data);
 
             //按照订单创建时间排序
             orderInfos.sort(function (a, b) {  //自定义函数排序,新的订单放在最前面
