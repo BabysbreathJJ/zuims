@@ -37,7 +37,7 @@ $(function () {
     $('#avatar').croppie({
         exif: true,
         viewport: {
-            
+
             width: 150,
             height: 200
         },
