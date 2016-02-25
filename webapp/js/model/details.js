@@ -181,7 +181,7 @@ function getUrlParam(name) {
 function like(type,id){
     var allRes = [];
     var city = $.cookie('locateCity');
-    var getresUrl = 'http://202.120.40.175:21100//restaurants/recommand/city?cname=' + city;
+    var getresUrl = 'http://202.120.40.175:21100/restaurants/recommand/city?cname=' + city;
     $.ajax({
         method: 'GET',
         url: getresUrl,
@@ -193,17 +193,18 @@ function like(type,id){
                     allRes.splice(i,1)
                 }
                 if(allRes[i].restaurantType == type){
-                    var img;
+
+                    var normalImg;
                     $.ajax({
                         url : "http://202.120.40.175:21104/restaurant/normalimage?id="+allRes[i].restaurantId,
                         type : "GET",
                         async : false,
                         success : function(data){
-                            img = data[0].picname;
+                            normalImg = data[0].picname;
                         }
                     })
                     var likeRes = '<a href="details.html?id='+allRes[i].restaurantId+'" style="text-decoration:none;">'+
-                                  '<img src="'+imgUrl+img+'" class="fl per40 mr20 ht80">'+
+                                  '<img src="'+imgUrl+normalImg+'" class="fl per40 mr20 ht80">'+
                                   '<div class="overflow-h">'+
                                   '<p class="font-c-f8 font16">'+allRes[i].title+'</p>'+
                                   '<p class="font-c-8f">地址：'+allRes[i].address+'</p>'+
@@ -212,7 +213,7 @@ function like(type,id){
                                   '</a>';
 
                     $(".like").html(likeRes);
-                    return ;
+
                 }
             }
         }
@@ -222,8 +223,17 @@ function like(type,id){
         var moreLike = "";
         for(var i = 0;i < allRes.length;i ++){
             if(allRes[i].restaurantType == type){
+                var normalImg;
+                $.ajax({
+                    url : "http://202.120.40.175:21104/restaurant/normalimage?id="+allRes[i].restaurantId,
+                    type : "GET",
+                    async : false,
+                    success : function(data){
+                        normalImg = data[0].picname;
+                    }
+                })
                 var likeRes = '<a href="details.html?id='+allRes[i].restaurantId+'" style="text-decoration:none;">'+
-                    '<img src="'+imgUrl+allRes[i].image+'" class="fl per40 mr20 ht80">'+
+                    '<img src="'+imgUrl+normalImg+'" class="fl per40 mr20 ht80">'+
                     '<div class="overflow-h">'+
                     '<p class="font-c-f8 font16">'+allRes[i].title+'</p>'+
                     '<p class="font-c-8f">地址：'+allRes[i].address+'</p>'+

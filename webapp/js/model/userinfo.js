@@ -272,6 +272,7 @@ $.fn.serializeObject = function () {
 };
 //循环获取userinfo
 function addData(r) {
+    debugger;
     var d = {};
     for (var n in r) {
         var key = n;
