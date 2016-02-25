@@ -76,7 +76,6 @@ $(function () {
         dataType: 'JSON',
         success: function (data) {
             var orderInfos = data;
-            console.log(data);
 
             //按照订单创建时间排序
             orderInfos.sort(function (a, b) {  //自定义函数排序,新的订单放在最前面
