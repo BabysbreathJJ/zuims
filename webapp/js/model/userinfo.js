@@ -34,19 +34,8 @@ $(function () {
         $(".hobby").show();
     });
 
-    $('#avatar').croppie({
-        exif: true,
-        viewport: {
-            width: 150,
-            height: 200
-        },
-        boundary: {
-            width: 200,
-            height: 300
-        }
-    });
-
-    $('#imageCrop').hide();
+    $('.image-editor').cropit();
+    $('.image-editor').hide();
 
 });
 //清除错误信息
@@ -191,71 +180,42 @@ function displayImg(result) {
 }
 function readFile() {
     var file = this.files[0];
-
+    $('.image-editor').show();
     if (file) {
         //验证图片文件类型
         if (file.type && !/image/i.test(file.type)) {
             alert("文件必须为图片！");
             return false;
         }
-        //EXIF.getData(file, function () {
-        //    //获取照片本身的Orientation
-        //    var orientation = EXIF.getTag(this, "Orientation");
-        //    console.log(orientation);
-        //});
-
 
         var reader = new FileReader();
         reader.onload = function (e) {
             //readAsDataURL后执行onload，进入图片压缩逻辑
             //e.target.result得到的就是图片文件的base64 string
-            render(file, e.target.result);
+            $('.image-editor').cropit('imageSrc', e.target.result);
+
+            $('.export').click(function () {
+                var imageData = $('.image-editor').cropit('export');
+                var img = $('<img  id="imgsrc" width="80" height="80">');
+                img.attr("src", imageData);
+                $(".displayImg").html(img);
+                render(file, imageData);
+                $(".image-editor").hide();
+            });
+
 
             var result = this.result;
             var img = new Image();
             img.src = result;
             img.width = 80;
             img.height = 80;
-            //$(".displayImg").html(img);
-
-
-            $('.displayImg').hide();
-            $('#imageCrop').show();
-
-            $("#avatar").croppie('bind', {
-                url: this.result
-            });
-
+            $(".displayImg").html(img);
 
         };
         //以dataurl的形式读取图片文件
         reader.readAsDataURL(file);
     }
 
-}
-
-
-$('.upload-result').click(function (ev) {
-    $("#avatar").croppie('result', 'canvas').then(function (resp) {
-        popupResult({
-            src: resp
-        });
-    });
-});
-
-function popupResult(result) {
-    var html;
-    if (result.html) {
-        html = result.html;
-    }
-    if (result.src) {
-        data = result.src.split(",")[1];
-        html = '<img src="' + result.src + '" width="80" height="80" />';
-        $("#imgUrl").val(data);
-    }
-    $(".displayImg").html(html);
-    $("#imageCrop").hide();
-    $('.displayImg').show();
 }
 
 //定义照片的最大高度
@@ -266,6 +226,7 @@ var render = function (file, src) {
         var orientation = EXIF.getTag(this, "Orientation");
         var image = new Image();
         image.onload = function () {
+            image.src = src;
             var cvs = document.getElementById("cvs");
             var w = image.width;
             var h = image.height;
@@ -275,7 +236,7 @@ var render = function (file, src) {
                 h = MAX_HEIGHT;
             }
             //使用MegaPixImage封装照片数据
-            var mpImg = new MegaPixImage(file);
+            var mpImg = new MegaPixImage(image);
             //按照Orientation来写入图片数据，回调函数是上传图片到服务器
             mpImg.render(cvs, {maxWidth: w, maxHeight: h, orientation: orientation}, sendImg);
         };
@@ -295,11 +256,19 @@ var sendImg = function () {
     //是以data:/image/jpeg;base64,开头的，我们在服务端写入图片数据的时候不需要这个头！
     //所以在这里只拿头后面的string
     //当然这一步可以在服务端做，但让闲着蛋疼的客户端帮着做一点吧~~~（稍微减轻一点服务器压力）
+
     data = data.split(",")[1];
     $("#imgUrl").val(data);
 };
 
 displayImg($(".displayImg"));
+
+$('.cancelImage').click(function(){
+    var img = $('<img  id="imgsrc" width="80" height="80">');
+    img.attr("src", 'http://202.120.40.175:21101/users/images?phone=' + phone);
+    $(".displayImg").html(img);
+    $(".image-editor").hide();
+});
 
 
 //序列化对象

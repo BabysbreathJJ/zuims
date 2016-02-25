@@ -121,10 +121,25 @@
 					<input type="file" id="head-logo" class="top-200 pos-a" accept="image/*">
                     <input type="hidden" id="imgUrl">
                     <canvas id="cvs" style="display: none"></canvas>
-                    <div id="imageCrop" style="margin: 0 auto;text-align: center">
-                        <div id="avatar" class="pt20 pb20"></div>
-                        <a class="btn upload-result mb10">裁剪</a>
-                    </div>
+                    <!--<div id="imageCrop" style="margin: 0 auto;text-align: center">-->
+                    <!--<div id="avatar" class="pt20 pb20"></div>-->
+                    <!--<a class="btn upload-result mb10">裁剪</a>-->
+                    <!--</div>-->
+
+                   <div class="image-editor">
+                       <!--<input type="file" class="cropit-image-input">-->
+                       <div class="cropit-image-preview"></div>
+                       <div class="image-size-label">
+                           滑动调整图片大小
+                       </div>
+                       <input type="range" class="cropit-image-zoom-input"
+                              style="width: 80%;margin: 0 auto;text-align: center">
+                       <a class="btn-sm btn-default btn-warning export mr25"><span class="glyphicon glyphicon-scissors mr10"></span>裁剪</a>
+                       <a class="btn-sm btn-black mt10 cancelImage"><span class="glyphicon glyphicon-remove mr10"></span>取消</a>
+                   </div>
+
+
+
 					<span class="font-red ml10 display-n">这里是错误信息</span>
 				</span>
                         </p>
@@ -351,19 +366,19 @@
 
 <!--订单详情开始-->
 <!--<div class="modal fade top48" id="cropWnd" tabindex="-1" role="dialog" aria-labelledby="cropWnd">-->
-    <!--<div class="modal-dialog" role="document">-->
-        <!--<div class="modal-content">-->
-            <!--<div class="modal-header tc" id="close">-->
-                <!--<h4 class="display-ib">图片剪裁</h4>-->
-            <!--</div>-->
-            <!--<div class="tc  modal-body">-->
-                <!--<div id="imageCrop" style="margin: 0 auto;text-align: center">-->
-                    <!--<div id="avatar" class="pt20 pb20"></div>-->
-                    <!--<button class="upload-result mb10" id="cropImage">裁剪</button>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
+<!--<div class="modal-dialog" role="document">-->
+<!--<div class="modal-content">-->
+<!--<div class="modal-header tc" id="close">-->
+<!--<h4 class="display-ib">图片剪裁</h4>-->
+<!--</div>-->
+<!--<div class="tc  modal-body">-->
+<!--<div id="imageCrop" style="margin: 0 auto;text-align: center">-->
+<!--<div id="avatar" class="pt20 pb20"></div>-->
+<!--<button class="upload-result mb10" id="cropImage">裁剪</button>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
 <!--</div>-->
 <!--订单详情结束-->
 
@@ -372,7 +387,7 @@
 <script src="js/plugins/jquery.validate.min.js"></script>
 <script src="js/plugins/jquery.cookie.js"></script>
 <script src="js/plugins/bootstrap.min.js"></script>
-<script src="js/plugins/croppie.js"></script>
+<script src="js/plugins/cropit.js"></script>
 <script src="js/plugins/exif.js"></script>
 <script src="js/plugins/binary.js"></script>
 <script src="js/plugins/megapix-image.js"></script>

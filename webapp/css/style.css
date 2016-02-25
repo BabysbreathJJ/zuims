@@ -47,9 +47,11 @@ a {
 .mr2 {
     margin-right: 2px;
 }
-.mt-5{
+
+.mt-5 {
     margin-top: -5px;
 }
+
 .per18 {
     width: 17%;
 }
@@ -85,12 +87,15 @@ a {
 .mt-20 {
     margin-top: -10px;
 }
-.pl4{
+
+.pl4 {
     padding-left: 4px;
 }
-.pr4{
+
+.pr4 {
     padding-right: 4px;
 }
+
 .pd15 {
     padding-left: 15px;
     padding-right: 15px;
@@ -213,12 +218,14 @@ a {
     top: 23px;
     right: -40px;
 }
+
 .detail {
     bottom: 0px;
     right: 0;
     font-size: 16px;
 
 }
+
 .transform45 {
     -webkit-transform: rotate(45deg);
     -moz-transform: rotate(45deg);
@@ -346,4 +353,34 @@ a {
 
 .indent {
     text-indent: 2em;
+}
+
+/*头像剪裁*/
+.image-editor{
+    margin: 0 auto;
+    text-align: center;
+}
+.cropit-image-preview {
+    background-color: #f8f8f8;
+    background-size: cover;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin: 0 auto;
+    margin-top: 7px;
+    width: 200px;
+    height: 250px;
+    cursor: move;
+}
+
+.cropit-image-background {
+    opacity: .2;
+    cursor: auto;
+}
+
+.image-size-label {
+    margin-top: 10px;
+}
+
+.export {
+    margin-top: 10px;
 }
