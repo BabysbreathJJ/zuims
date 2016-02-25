@@ -37,12 +37,11 @@ $(function () {
     $('#avatar').croppie({
         exif: true,
         viewport: {
-
             width: 150,
             height: 200
         },
         boundary: {
-            width: 300,
+            width: 200,
             height: 300
         }
     });
@@ -220,11 +219,6 @@ function readFile() {
             //$(".displayImg").html(img);
 
 
-
-            if(img.src.substring(0,4).toLowerCase()==='http') {
-                img.setAttribute('crossOrigin', 'anonymous');
-            }
-
             $('.displayImg').hide();
             $('#imageCrop').show();
 
@@ -256,7 +250,7 @@ function popupResult(result) {
     }
     if (result.src) {
         data = result.src.split(",")[1];
-        html = '<img src="' + result.src + '" />';
+        html = '<img src="' + result.src + '" width="80" height="80" />';
         $("#imgUrl").val(data);
     }
     $(".displayImg").html(html);
