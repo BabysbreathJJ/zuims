@@ -897,7 +897,7 @@
             format: 'png',
             quality: 1
         },
-        RESULT_FORMATS = ['jpeg', 'webp', 'png'];
+        RESULT_FORMATS = ['jpeg', 'webp', 'png','jpg'];
 
     function _result(options) {
         var self = this,
