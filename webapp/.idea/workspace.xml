@@ -24,8 +24,8 @@
       <file leaf-file-name="userinfo.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/userinfo.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5979203">
-              <caret line="120" column="75" selection-start-line="120" selection-start-column="75" selection-end-line="120" selection-end-column="75" />
+            <state vertical-scroll-proportion="0.7019064">
+              <caret line="124" column="65" selection-start-line="124" selection-start-column="65" selection-end-line="124" selection-end-column="65" />
               <folding>
                 <element signature="n#style#0;n#canvas#0;n#span#1;n#p#2;n#div#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#span#1;n#p#2;n#div#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -37,8 +37,8 @@
       <file leaf-file-name="userinfo.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/model/userinfo.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="4.5283017">
-              <caret line="52" column="8" selection-start-line="52" selection-start-column="8" selection-end-line="52" selection-end-column="8" />
+            <state vertical-scroll-proportion="-6.5094337">
+              <caret line="224" column="35" selection-start-line="224" selection-start-column="35" selection-end-line="224" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -752,16 +752,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/model/userinfo.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="4.5283017">
-          <caret line="52" column="8" selection-start-line="52" selection-start-column="8" selection-end-line="52" selection-end-column="8" />
+        <state vertical-scroll-proportion="-6.5094337">
+          <caret line="224" column="35" selection-start-line="224" selection-start-column="35" selection-end-line="224" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/userinfo.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5979203">
-          <caret line="120" column="75" selection-start-line="120" selection-start-column="75" selection-end-line="120" selection-end-column="75" />
+        <state vertical-scroll-proportion="0.7019064">
+          <caret line="124" column="65" selection-start-line="124" selection-start-column="65" selection-end-line="124" selection-end-column="65" />
           <folding>
             <element signature="n#style#0;n#canvas#0;n#span#1;n#p#2;n#div#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#span#1;n#p#2;n#div#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />

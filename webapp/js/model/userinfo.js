@@ -219,11 +219,17 @@ function readFile() {
             img.height = 80;
             //$(".displayImg").html(img);
 
+
+
+            if(img.src.substring(0,4).toLowerCase()==='http') {
+                img.setAttribute('crossOrigin', 'anonymous');
+            }
+
             $('.displayImg').hide();
             $('#imageCrop').show();
 
             $("#avatar").croppie('bind', {
-                url: e.target.result
+                url: this.result
             });
 
 
